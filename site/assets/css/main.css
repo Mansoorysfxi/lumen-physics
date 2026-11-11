@@ -362,9 +362,9 @@ input[type=range].spectrum::-moz-range-progress { background: transparent; }
 .challenges { margin: 10px 26px 24px; padding: 16px 18px; border-radius: 14px; background: rgba(169, 139, 255, .06); border: 1px dashed rgba(169, 139, 255, .4); }
 .challenges h4 { margin: 0 0 8px; font-size: .78rem; font-family: var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--violet); }
 .challenges ul { list-style: none; margin: 0; padding: 0; }
-.challenges li { display: flex; gap: 12px; align-items: flex-start; padding: 6px 0; font-size: .95rem; color: var(--text-2); }
+.challenges li { position: relative; padding: 6px 0 6px 30px; font-size: .95rem; color: var(--text-2); }
 .challenges li::before {
-  content: ""; flex: none; width: 18px; height: 18px; margin-top: 4px; border-radius: 6px; border: 2px solid var(--line-2);
+  content: ""; position: absolute; left: 0; top: 10px; width: 18px; height: 18px; border-radius: 6px; border: 2px solid var(--line-2);
   transition: all .25s;
 }
 .challenges li.done { color: var(--text); }

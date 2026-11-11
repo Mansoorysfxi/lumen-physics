@@ -2,7 +2,7 @@
 
 Interactive notes for FSc Physics (Part I). Every definition, example, question and numerical from the textbook, rebuilt as hands-on labs.
 
-**Live so far:** Chapter 10 *Optical Instruments*, Lesson 1 *Seeing Clearly* (§10.1–10.2).
+**Live so far:** Chapter 10 *Optical Instruments*: Lesson 1 *Seeing Clearly* (§10.1–10.2) and Lesson 2 *The Simple Microscope* (§10.3).
 
 **Site:** https://mansoorysfxi.github.io/lumen-physics/
 
@@ -19,9 +19,11 @@ site/                     ← everything that gets published
 └── chapter-10/
     ├── index.html        chapter hub (interactive lens hero, objectives, lessons)
     ├── lesson-1.html     §10.1–10.2 content
+    ├── lesson-2.html     §10.3 content
     └── js/
         ├── hero.js
-        └── lesson-1.js   the 4 labs: eye, lens, Rayleigh, grating
+        ├── lesson-1.js   labs: eye, lens, Rayleigh, grating
+        └── lesson-2.js   labs: magnifier, watchmaker's loupe, Q10.7 ray construction
 ```
 
 Plain HTML, CSS and JavaScript: no build step and no dependencies to install. Fonts and KaTeX (for equations) load from public CDNs.

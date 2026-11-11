@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Simple Microscope · Ch 10 Optical Instruments · Lumen Physics</title>
+<meta name="description" content="The simple microscope (magnifying glass): angular magnification, the derivation of M = 1 + d/f, and interactive labs. FSc Physics Chapter 10, section 10.3.">
+<meta name="theme-color" content="#060a17">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lumen Physics">
+<meta property="og:title" content="The Simple Microscope · Ch 10 Lesson 2 · Lumen Physics">
+<meta property="og:description" content="One lens, a watchmaker and M = 1 + d/f, explored with 3 interactive labs. FSc Physics §10.3.">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../assets/css/main.css">
+<style>
+  .ar-mag { aspect-ratio: 16 / 7; }
+  .ar-see { aspect-ratio: 16 / 6; }
+  .ar-loupe { aspect-ratio: 16 / 9; touch-action: none !important; cursor: none; }
+  .ar-q107 { aspect-ratio: 2 / 1; }
+  @media (max-width: 640px) {
+    .ar-mag, .ar-loupe, .ar-q107 { aspect-ratio: 4 / 3; }
+    .ar-see { aspect-ratio: 16 / 9; }
+  }
+  .lab-stage .stack { display: grid; gap: 12px; }
+  @media (max-width: 640px) { .see-wrap > .lbl { display: none; } }
+  .fig-svg text { font-family: "JetBrains Mono", monospace; }
+  .answer-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; padding: 0 26px 6px; }
+  .answer-row input {
+    font: 500 1rem var(--mono); color: var(--text); background: rgba(255,255,255,.04);
+    border: 1px solid var(--line-2); border-radius: 10px; padding: 9px 14px; width: 170px;
+  }
+  .answer-row input:focus { outline: none; border-color: var(--cyan); box-shadow: 0 0 0 3px rgba(95,227,255,.15); }
+  .answer-row .fb { font-size: .92rem; color: var(--muted); }
+  .answer-row .fb.ok { color: var(--green); } .answer-row .fb.no { color: var(--red); }
+  .steps .fig-sync { padding: 14px 18px 0; }
+  .steps .more { display: none; padding: 4px 22px 16px; }
+  .steps.done .more { display: block; }
+  .steps .more .ctl { max-width: 360px; }
+</style>
+</head>
+<body data-lesson="ch10-l2">
+
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="brand-mark"></span>Lumen<span class="brand-sub">FSc Physics</span></a>
+  <nav class="crumbs"><span class="sep">/</span><a href="index.html">Ch 10 · Optical Instruments</a><span class="sep">/</span><span>Lesson 2 · The Simple Microscope</span></nav>
+  <div class="topbar-right">
+    <span class="xp" id="xp" title="XP earned across all lessons"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.9L22 9.6l-5.4 4.8 1.6 7.3L12 17.9 5.8 21.7l1.6-7.3L2 9.6l7.1-.7z"/></svg><b>0</b> XP</span>
+  </div>
+  <div class="read-progress"><span></span></div>
+</header>
+
+<section class="lesson-hero">
+  <div class="kicker"><span>Chapter 10 · Lesson 2 of 9</span><span class="tag">§ 10.3</span></div>
+  <h1>The Simple <span class="grad">Microscope</span></h1>
+  <p class="lede">One lens is all a watchmaker needs to see screws smaller than a grain of rice. In this lesson you'll find out <em>exactly</em> how much bigger things look through it, and why a shorter focal length means more magnification.</p>
+  <div class="meta-row">
+    <span class="meta">📖 Textbook <b>pp. 217 – 218</b></span>
+    <span class="meta">⏱ About <b>20 min</b></span>
+    <span class="meta">🧪 <b>3</b> interactive labs</span>
+    <span class="meta">✅ Progress <b data-lesson-pct>0%</b></span>
+  </div>
+</section>
+
+<div class="lesson-layout">
+  <aside class="toc">
+    <div class="toc-title">In this lesson</div>
+    <ol></ol>
+    <div class="toc-progress">
+      <small>Lesson progress</small>
+      <div class="bar"><span data-lesson-bar></span></div>
+      <small><b data-lesson-count>0 / 0</b> checkpoints · <span class="mono" data-lesson-pct>0%</span></small>
+    </div>
+  </aside>
+
+  <main class="content">
+
+    <!-- ================= 10.3 ================= -->
+    <section class="sec" id="s10-3" data-toc="10.3 Simple microscope">
+      <div class="sec-head">
+        <span class="sec-num">10.3</span>
+        <h2>Simple Microscope</h2>
+        <span class="page-ref">Textbook p. 217</span>
+      </div>
+
+      <p class="hook">In Lesson 1 you hit a wall: the naked eye can't make anything look bigger than it does at the near point (25 cm). Bring it closer and it blurs. A single convex lens breaks through that wall.</p>
+
+      <p>As discussed above, a <strong>converging or convex lens</strong> can be used to help the eye to see small objects distinctly. A <strong>watch maker</strong> uses a convex lens to repair watches.</p>
+      <ul>
+        <li>The object is placed <strong>inside the focal point</strong> of the lens.</li>
+        <li>The <strong>magnified and virtual image</strong> is formed at the least distance of distinct vision <i class="v">d</i>, or much farther from the lens.</li>
+      </ul>
+
+      <!-- LAB 1 -->
+      <div class="lab rv" id="lab-mag">
+        <div class="lab-head">
+          <span class="lab-badge"><span class="pulse"></span>Lab 1 · Fig. 10.3</span>
+          <h3>Hold a magnifying glass up to a ladybird</h3>
+          <p class="lab-sub">The lens is held just in front of your eye. Drag the <b>ladybird</b> (or use the slider) and watch where its <b>virtual image</b> appears. Compare the angle <span style="color:var(--cyan)">α</span> (naked eye, ladybird at 25 cm) with the angle <span style="color:var(--pink)">β</span> (through the lens).</p>
+        </div>
+        <div class="lab-stage stack">
+          <canvas class="lab-canvas ar-mag" id="mag-canvas" aria-label="Ray diagram of a magnifying glass. Drag the object."></canvas>
+          <div class="panel-label see-wrap"><span class="lbl">What you see</span><canvas class="lab-canvas ar-see" id="mag-see" aria-label="Comparison of the ladybird seen with and without the lens"></canvas></div>
+        </div>
+        <div class="lab-controls">
+          <label class="ctl">
+            <span class="ctl-top"><span>Object distance from lens <i class="v">p</i></span><output class="ctl-val" id="mag-p-out"></output></span>
+            <input type="range" id="mag-p" min="0.5" max="6.5" step="0.01" value="3.2">
+          </label>
+          <label class="ctl">
+            <span class="ctl-top"><span>Focal length of lens <i class="v">f</i></span><output class="ctl-val" id="mag-f-out"></output></span>
+            <input type="range" id="mag-f" min="2.5" max="12" step="0.5" value="5">
+          </label>
+        </div>
+        <div class="lab-actions">
+          <button class="btn ghost small" data-mag="near">Put image at the near point</button>
+          <button class="btn ghost small" data-mag="inf">Put image at infinity</button>
+        </div>
+        <div class="readouts">
+          <div class="ro"><span class="ro-k">Image distance q</span><span class="ro-v" id="mag-q">–</span></div>
+          <div class="ro"><span class="ro-k">α (naked eye, 25 cm)</span><span class="ro-v" id="mag-a">–</span></div>
+          <div class="ro"><span class="ro-k">β (through lens)</span><span class="ro-v" id="mag-b">–</span></div>
+          <div class="ro"><span class="ro-k">M = β / α</span><span class="ro-v" id="mag-M">–</span></div>
+          <div class="ro"><span class="ro-k">Max: 1 + d/f</span><span class="ro-v" id="mag-max">–</span></div>
+        </div>
+        <div class="status" id="mag-status"><span class="dot"></span><span></span></div>
+        <div class="challenges">
+          <h4>Challenges</h4>
+          <ul>
+            <li data-check="l2-mag-near">Form the virtual image exactly at the <b>near point</b> (q = 25 cm). This is how a magnifier is normally used.</li>
+            <li data-check="l2-mag-six">Reproduce the textbook example: with <b>f = 5 cm</b>, make the ladybird look <b>6 times</b> larger (image at the near point).</li>
+            <li data-check="l2-mag-inf">Put the object exactly at <b>F</b> so the image goes to <b>infinity</b>. Your eye can now relax completely. What is M now?</li>
+          </ul>
+        </div>
+        <p class="lab-foot">The ladybird is 1 cm long. The lens is so close to the eye that distances from the lens and from the eye are taken as equal, just as the textbook does.</p>
+      </div>
+
+      <div class="quiz rv" data-check="l2-q-where" data-explain="For a convex lens to act as a magnifier, the object must be <b>between the lens and its focal point</b>. Only then are the rays still diverging after the lens, so the eye sees a virtual, erect, magnified image.">
+        <div class="quiz-label">Quick check <span class="xp-pill">+10 XP</span></div>
+        <p class="quiz-q">Where must the object be placed so that a convex lens works as a magnifying glass?</p>
+        <div class="quiz-opts">
+          <button data-why="Beyond 2F the lens forms a <b>real, inverted, diminished</b> image. That's the opposite of what we want.">Beyond 2F</button>
+          <button data-why="At 2F the image is real, inverted and the same size (m = 1).">At 2F</button>
+          <button data-why="Between F and 2F the image is magnified, but it is <b>real and inverted</b>, formed on the other side of the lens.">Between F and 2F</button>
+          <button data-correct>Between the lens and F (inside the focal point)</button>
+        </div>
+        <div class="quiz-fb" hidden></div>
+      </div>
+
+      <!-- Derivation -->
+      <h3 id="derive" data-toc="Deriving M = 1 + d/f" data-toc-sub><span class="h3-dot"></span>Calculating the magnification</h3>
+      <p>Let us now calculate the magnification of a simple microscope. In <strong>Fig. 10.3 (a)</strong> the object is placed at a distance <i class="v">d</i> from the eye and seen directly. In <strong>Fig. 10.3 (b)</strong> a lens is placed just in front of the eye, and the object is placed in front of the lens so that a <strong>virtual image</strong> is formed at a distance <i class="v">d</i> from the eye. The size of the image is now much larger than without the lens.</p>
+
+      <figure class="rv">
+        <div class="fig-box">
+          <svg class="fig-svg" viewBox="0 0 640 310" role="img" aria-label="Figure 10.3: (a) object at distance d seen by the naked eye subtends angle alpha; (b) through a lens the virtual image at distance d subtends a larger angle beta">
+            <defs>
+              <radialGradient id="eyeG2" cx="40%" cy="45%"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#a9b4dc"/></radialGradient>
+              <filter id="gl2"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <!-- (a) -->
+            <text x="20" y="34" fill="#8b95bb" font-size="13">(a) naked eye: object at the near point</text>
+            <line x1="20" y1="110" x2="600" y2="110" stroke="rgba(140,160,255,.3)" stroke-dasharray="4 5"/>
+            <polygon points="265,88 580,110 265,110" fill="rgba(95,227,255,.14)"/>
+            <line x1="265" y1="88" x2="580" y2="110" stroke="#5fe3ff" stroke-width="1.8" filter="url(#gl2)"/>
+            <line x1="265" y1="110" x2="265" y2="92" stroke="#ffc65c" stroke-width="3"/><polygon points="265,84 260,94 270,94" fill="#ffc65c"/>
+            <text x="250" y="96" fill="#ffc65c" font-size="13" text-anchor="end">O</text>
+            <circle cx="598" cy="110" r="17" fill="url(#eyeG2)"/><ellipse cx="585" cy="110" rx="3.5" ry="8" fill="#23a6c9"/>
+            <path d="M530 110 A50 50 0 0 1 530.2 106.5" stroke="#fff" fill="none"/>
+            <text x="512" y="104" fill="#fff" font-size="15" font-style="italic" font-family="Times New Roman">α</text>
+            <line x1="265" y1="128" x2="580" y2="128" stroke="rgba(255,198,92,.6)"/><line x1="265" y1="123" x2="265" y2="133" stroke="rgba(255,198,92,.6)"/><line x1="580" y1="123" x2="580" y2="133" stroke="rgba(255,198,92,.6)"/>
+            <rect x="404" y="120" width="36" height="16" rx="4" fill="#0e1630"/><text x="422" y="132" fill="#ffc65c" font-size="12" text-anchor="middle" font-style="italic">d</text>
+            <!-- (b) -->
+            <text x="20" y="168" fill="#8b95bb" font-size="13">(b) through a lens: virtual image at q = d</text>
+            <line x1="20" y1="285" x2="600" y2="285" stroke="rgba(140,160,255,.3)" stroke-dasharray="4 5"/>
+            <polygon points="253,170.6 568,285 253,285" fill="rgba(255,95,168,.12)"/>
+            <line x1="253" y1="285" x2="253" y2="175" stroke="#a98bff" stroke-width="2.5" stroke-dasharray="6 5"/><polygon points="253,166 248,177 258,177" fill="#a98bff"/>
+            <text x="240" y="230" fill="#a98bff" font-size="13" text-anchor="end">I</text>
+            <line x1="253" y1="170.6" x2="507.4" y2="263" stroke="#ff5fa8" stroke-width="1.3" stroke-dasharray="5 5" opacity=".7"/>
+            <line x1="253" y1="170.6" x2="568" y2="263" stroke="#ffc65c" stroke-width="1.3" stroke-dasharray="5 5" opacity=".7"/>
+            <line x1="507.4" y1="263" x2="568" y2="285" stroke="#ff5fa8" stroke-width="2" filter="url(#gl2)"/>
+            <line x1="568" y1="285" x2="588" y2="292.3" stroke="#ff5fa8" stroke-width="2" filter="url(#gl2)"/>
+            <line x1="507.4" y1="263" x2="568" y2="263" stroke="#ffc65c" stroke-width="2" filter="url(#gl2)"/>
+            <line x1="568" y1="263" x2="586" y2="268.3" stroke="#ffc65c" stroke-width="2" filter="url(#gl2)"/>
+            <line x1="507.4" y1="285" x2="507.4" y2="267" stroke="#ffc65c" stroke-width="3"/><polygon points="507.4,259 502.4,269 512.4,269" fill="#ffc65c"/>
+            <text x="500" y="256" fill="#ffc65c" font-size="13" text-anchor="end">O</text>
+            <circle cx="493" cy="285" r="3" fill="#a98bff"/><text x="493" y="302" fill="#a98bff" font-size="11" text-anchor="middle">F</text>
+            <ellipse cx="568" cy="285" rx="6" ry="34" fill="rgba(95,227,255,.25)" stroke="#5fe3ff"/>
+            <circle cx="606" cy="285" r="17" fill="url(#eyeG2)"/><ellipse cx="593" cy="285" rx="3.5" ry="8" fill="#23a6c9"/>
+            <path d="M488 285 A80 80 0 0 1 492.6 258.3" stroke="#fff" fill="none"/>
+            <text x="466" y="270" fill="#fff" font-size="15" font-style="italic" font-family="Times New Roman">β</text>
+            <line x1="253" y1="303" x2="568" y2="303" stroke="rgba(169,139,255,.6)"/><line x1="253" y1="298" x2="253" y2="308" stroke="rgba(169,139,255,.6)"/><line x1="568" y1="298" x2="568" y2="308" stroke="rgba(169,139,255,.6)"/>
+            <rect x="380" y="295" width="64" height="16" rx="4" fill="#0e1630"/><text x="412" y="307" fill="#a98bff" font-size="12" text-anchor="middle" font-style="italic">q = d</text>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 10.3</b>Simple microscope. (a) Seen directly at the near point, the object O subtends angle α. (b) Through the lens, the virtual image I (also at distance d) subtends a much larger angle β.</figcaption>
+      </figure>
+
+      <p>If <i class="v">β</i> and <i class="v">α</i> are the angles subtended by the object when seen through the lens (simple microscope) and when viewed directly, then the angular magnification <i class="v">M</i> is defined as</p>
+
+      <div class="formula rv">
+        <div class="formula-body">\[ M = \frac{\beta}{\alpha} \]</div>
+        <span class="eq-tag">(10.4)</span>
+      </div>
+
+      <p>Now work through the derivation one step at a time. In exams, this derivation is asked as <em>"Derive an expression for the magnifying power of a simple microscope."</em></p>
+
+      <div class="steps rv" data-check="l2-derive" data-msg="Derivation complete!">
+        <div class="steps-head"><p><span class="qn">Derivation</span>Magnifying power of a simple microscope</p></div>
+        <ol>
+          <li class="step"><b>Start from the definition</b> (Eq. 10.4): \[ M = \frac{\beta}{\alpha} \]</li>
+          <li class="step"><b>Small angles are nearly equal to their tangents.</b> From Fig. 10.3 (a), the object of size O at distance d:
+            \[ \alpha \approx \tan\alpha = \frac{\text{size of object}}{\text{distance of object}} = \frac{O}{d} \]</li>
+          <li class="step"><b>Through the lens</b> (Fig. 10.3 b), the image of size I at distance q:
+            \[ \beta \approx \tan\beta = \frac{\text{size of image}}{\text{distance of image}} = \frac{I}{q} \]</li>
+          <li class="step"><b>The image is at the least distance of distinct vision,</b> so q = d:
+            \[ \beta = \frac{I}{q} = \frac{I}{d} \]</li>
+          <li class="step"><b>Divide:</b>
+            \[ M = \frac{I/d}{O/d} = \frac{I}{O} \]</li>
+          <li class="step"><b>Use linear magnification.</b> We already know that \( \dfrac{I}{O} = \dfrac{\text{distance of image}}{\text{distance of object}} = \dfrac{q}{p} \), so
+            \[ M = \frac{q}{p} = \frac{d}{p} \qquad \textbf{(10.5)} \]</li>
+          <li class="step"><b>Lens formula for a virtual image</b> (textbook form), with q = d:
+            \[ \frac{1}{f} = \frac{1}{p} - \frac{1}{q} \;\;\Rightarrow\;\; \frac{1}{f} = \frac{1}{p} - \frac{1}{d} \]</li>
+          <li class="step"><b>Multiply every term by d</b> and rearrange:
+            \[ \frac{d}{f} = \frac{d}{p} - 1 \;\;\Rightarrow\;\; \frac{d}{p} = 1 + \frac{d}{f} \]</li>
+          <li class="step final"><b>Result.</b> The magnification of a convex lens (simple microscope) is
+            \[ M = \frac{d}{p} = 1 + \frac{d}{f} \qquad \textbf{(10.6)} \]</li>
+        </ol>
+        <div class="steps-ctrl">
+          <button class="btn small" data-next>Start derivation</button>
+          <button class="btn ghost small" data-all>Show all</button>
+          <button class="btn ghost small" data-reset hidden>Reset</button>
+        </div>
+      </div>
+
+      <div class="formula rv">
+        <div class="formula-body">\[ M = \frac{q}{p} = \frac{d}{p} \]</div>
+        <span class="eq-tag">(10.5)</span>
+      </div>
+      <div class="formula rv">
+        <div class="formula-body">\[ M = \frac{d}{p} = 1 + \frac{d}{f} \]
+          <div class="formula-note">d = 25 cm (near point) · f = focal length of the lens</div>
+        </div>
+        <span class="eq-tag">(10.6)</span>
+      </div>
+
+      <div class="callout exam-tip rv">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></div>
+        <div>
+          <h4>About that minus sign</h4>
+          <p>For a <b>virtual image</b>, the textbook writes the lens formula as \( \frac{1}{f} = \frac{1}{p} - \frac{1}{q} \) and keeps <i class="v">q</i> as a positive distance. In Lesson 1's lens lab, virtual images showed a <em>negative</em> q instead. Both say the same thing: the image is on the same side as the object. In this lesson we follow the textbook and keep q positive.</p>
+        </div>
+      </div>
+
+      <p>It is thus obvious that <strong>for a lens of high angular magnification, the focal length should be small.</strong> For example, if <i class="v">f</i> = 5 cm and <i class="v">d</i> = 25 cm, then</p>
+      <div class="formula rv">
+        <div class="formula-body">\[ M = 1 + \frac{25\ \text{cm}}{5\ \text{cm}} = 6 \]
+          <div class="formula-note">The object would look six times larger when viewed through such a lens.</div>
+        </div>
+      </div>
+
+      <div class="quiz rv" data-check="l2-q-which" data-explain="M = 1 + d/f. For f = 5 cm: M = 1 + 25/5 = <b>6</b>. For f = 10 cm: M = 1 + 25/10 = <b>3.5</b>. The <b>shorter</b> focal length wins.">
+        <div class="quiz-label">Quick check <span class="xp-pill">+10 XP</span></div>
+        <p class="quiz-q">You have two convex lenses, one with f = 5 cm and one with f = 10 cm. Which makes a better magnifying glass (d = 25 cm)?</p>
+        <div class="quiz-opts">
+          <button data-why="Check with M = 1 + d/f: a <b>bigger</b> f makes d/f <b>smaller</b>.">The 10 cm lens, because it is weaker and easier on the eyes</button>
+          <button data-correct>The 5 cm lens: M = 6, compared with 3.5</button>
+          <button data-why="M = 1 + d/f depends on f, so the two lenses give different magnifications.">Both give the same magnification</button>
+          <button data-why="M doesn't depend on the lens diameter. That affects resolving power and brightness, not M.">It depends on which lens is wider</button>
+        </div>
+        <div class="quiz-fb" hidden></div>
+      </div>
+
+      <!-- LAB 2 -->
+      <h3 id="watchmaker" data-toc="Be the watchmaker" data-toc-sub><span class="h3-dot"></span>Be the watchmaker</h3>
+      <p>Watchmakers wear a small, strong convex lens called a <strong>loupe</strong> in one eye. Try it yourself: the loupe below magnifies by exactly \( M = 1 + d/f \).</p>
+
+      <div class="lab rv" id="lab-loupe">
+        <div class="lab-head">
+          <span class="lab-badge"><span class="pulse"></span>Lab 2</span>
+          <h3>The watchmaker's loupe</h3>
+          <p class="lab-sub">Move the loupe over the watch movement (mouse, or drag with your finger). Switch lenses and see how the focal length changes the magnification. Somewhere on this watch is a serial number far too tiny to read with the naked eye…</p>
+        </div>
+        <div class="lab-stage">
+          <canvas class="lab-canvas ar-loupe" id="loupe-canvas" aria-label="A watch movement with a movable magnifying loupe"></canvas>
+        </div>
+        <div class="lab-controls">
+          <div class="ctl-group">
+            <span class="ctl-name">Choose a lens</span>
+            <div class="chip-row" id="loupe-lenses">
+              <button class="chip" data-f="25" aria-pressed="false">f = 25 cm</button>
+              <button class="chip" data-f="10" aria-pressed="false">f = 10 cm</button>
+              <button class="chip" data-f="5" aria-pressed="true">f = 5 cm</button>
+              <button class="chip" data-f="2.5" aria-pressed="false">f = 2.5 cm</button>
+            </div>
+          </div>
+        </div>
+        <div class="readouts">
+          <div class="ro"><span class="ro-k">M = 1 + d/f</span><span class="ro-v" id="loupe-M">–</span></div>
+          <div class="ro"><span class="ro-k">Lens-to-watch distance p = d/M</span><span class="ro-v" id="loupe-p">–</span></div>
+        </div>
+        <div class="answer-row">
+          <label for="loupe-answer" class="muted" style="font-size:.92rem">Serial number engraved on the watch:</label>
+          <input id="loupe-answer" inputmode="numeric" autocomplete="off" placeholder="e.g. 1234">
+          <button class="btn small" id="loupe-check">Check</button>
+          <span class="fb" id="loupe-fb"></span>
+        </div>
+        <div class="challenges">
+          <h4>Challenges</h4>
+          <ul>
+            <li data-check="l2-loupe-all">Look through <b>all four</b> lenses. Which f gives the biggest view?</li>
+            <li data-check="l2-loupe-serial">Find and read the <b>serial number</b> (hint: it's near the balance wheel). Which is the weakest lens you can read it with?</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout tidbit rv">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V17h6v-.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg></div>
+        <div>
+          <h4>Did you know?</h4>
+          <p>In the 1670s, the Dutch cloth merchant <b>Antonie van Leeuwenhoek</b> ground tiny glass beads into lenses with focal lengths of about a millimetre. By M = 1 + d/f, that's a magnification of roughly <b>250×</b>, all from a single lens. With these simple microscopes he became the first person ever to see bacteria.</p>
+        </div>
+      </div>
+
+      <div class="callout insight rv">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8"/></svg></div>
+        <div>
+          <h4>So why not always use a tiny focal length?</h4>
+          <p>A very short focal length means a tiny, strongly curved lens. You must press it right against your eye, it shows only a very small area, and its images get coloured, distorted edges. For high magnification it's better to share the work between <b>two lenses</b>. That's the compound microscope, coming in Lesson 3.</p>
+        </div>
+      </div>
+
+      <div class="quiz rv" data-check="l2-q-25" data-explain="M = 1 + d/f = 1 + 25/2.5 = 1 + 10 = <b>11</b>. (If you said 10, you used d/f only, which is the value when the image is at infinity.)">
+        <div class="quiz-label">Quick check <span class="xp-pill">+10 XP</span></div>
+        <p class="quiz-q">A jeweller's lens has a focal length of 2.5 cm. What is its magnifying power when the image is formed at the near point (d = 25 cm)?</p>
+        <div class="quiz-opts">
+          <button data-why="That's d/f only. You forgot the “1 +” in M = 1 + d/f.">10</button>
+          <button data-correct>11</button>
+          <button data-why="That's d/f with d and f swapped the wrong way. M = 1 + d/f.">1.1</button>
+          <button data-why="Check the formula: M = 1 + d/f, not d × f.">62.5</button>
+        </div>
+        <div class="quiz-fb" hidden></div>
+      </div>
+
+      <div class="quiz rv" data-check="l2-q-inf" data-explain="With the object at F, the image goes to infinity. Then β = O/f and α = O/d, so <b>M = d/f</b>, which is 1 less than the near-point value. You saw this in Lab 1's third challenge.">
+        <div class="quiz-label">Quick check · think deeper <span class="xp-pill">+10 XP</span></div>
+        <p class="quiz-q">If the object is placed exactly at the focal point, the image forms at infinity (the eye is fully relaxed). The magnifying power then becomes:</p>
+        <div class="quiz-opts">
+          <button data-why="That's the value for the image at the near point. At infinity it's a little less. Try it in Lab 1.">1 + d/f</button>
+          <button data-correct>d/f</button>
+          <button data-why="Infinite <em>image distance</em> doesn't mean infinite magnification. β = O/f stays finite.">Infinity</button>
+          <button data-why="The object is at F, not at the near point. Try “Put image at infinity” in Lab 1.">1</button>
+        </div>
+        <div class="quiz-fb" hidden></div>
+      </div>
+    </section>
+
+    <!-- ================= PRACTICE ================= -->
+    <section class="sec" id="practice" data-toc="Textbook questions">
+      <div class="sec-head">
+        <span class="sec-num">Q</span>
+        <h2>From Your Textbook</h2>
+        <span class="page-ref">pp. 233 – 234</span>
+      </div>
+      <p>These end-of-chapter questions belong to this lesson. (Q 10.1 also asks how a convex lens is used as a magnifier. Its model answer is in <a href="lesson-1.html#practice">Lesson 1</a>.)</p>
+
+      <div class="qa rv" data-check="l2-qa-105a">
+        <div class="qa-q"><span class="qn">Q 10.5 (a)</span><span>Describe with the help of a diagram how a single biconvex lens can be used as a magnifying glass.</span></div>
+        <details>
+          <summary>Show model answer</summary>
+          <div class="ans">
+            <svg class="fig-svg" viewBox="0 0 600 250" role="img" aria-label="Ray diagram of a magnifying glass" style="width:100%;max-width:560px;margin:4px 0 14px">
+              <line x1="20" y1="200" x2="590" y2="200" stroke="rgba(140,160,255,.35)"/>
+              <line x1="197" y1="200" x2="197" y2="74" stroke="#a98bff" stroke-width="2.5" stroke-dasharray="6 5"/><polygon points="197,66.7 192,77.7 202,77.7" fill="#a98bff"/>
+              <line x1="197" y1="66.7" x2="430" y2="160" stroke="#ffc65c" stroke-width="1.2" stroke-dasharray="5 5" opacity=".7"/>
+              <line x1="197" y1="66.7" x2="360" y2="160" stroke="#ff5fa8" stroke-width="1.2" stroke-dasharray="5 5" opacity=".7"/>
+              <line x1="360" y1="160" x2="430" y2="160" stroke="#ffc65c" stroke-width="2"/>
+              <line x1="430" y1="160" x2="500" y2="188" stroke="#ffc65c" stroke-width="2"/>
+              <line x1="360" y1="160" x2="470" y2="223" stroke="#ff5fa8" stroke-width="2"/>
+              <line x1="360" y1="200" x2="360" y2="166" stroke="#ffc65c" stroke-width="3"/><polygon points="360,158 355,169 365,169" fill="#ffc65c"/>
+              <ellipse cx="430" cy="200" rx="7" ry="62" fill="rgba(95,227,255,.22)" stroke="#5fe3ff"/>
+              <circle cx="330" cy="200" r="3.5" fill="#a98bff"/><text x="330" y="218" fill="#a98bff" font-size="12" text-anchor="middle">F</text>
+              <circle cx="530" cy="200" r="3.5" fill="#a98bff"/><text x="530" y="218" fill="#a98bff" font-size="12" text-anchor="middle">F</text>
+              <text x="438" y="218" fill="#5fe3ff" font-size="12">O</text>
+              <text x="372" y="152" fill="#ffc65c" font-size="12">object</text>
+              <text x="207" y="92" fill="#a98bff" font-size="12">virtual image</text>
+              <text x="207" y="108" fill="#a98bff" font-size="12">(erect, magnified)</text>
+              <circle cx="560" cy="200" r="16" fill="#dfe5f7"/><ellipse cx="548" cy="200" rx="3.4" ry="7.5" fill="#23a6c9"/>
+              <text x="560" y="236" fill="#8b95bb" font-size="12" text-anchor="middle">eye</text>
+            </svg>
+            <ul>
+              <li>A biconvex lens of <b>short focal length</b> is held close to the eye.</li>
+              <li>The object is placed <b>between the lens and its principal focus F</b>.</li>
+              <li>Rays from the object are refracted by the lens but still <b>diverge</b>. The eye traces them back, and they appear to come from a point behind the object.</li>
+              <li>So the eye sees a <b>virtual, erect and magnified</b> image on the same side as the object.</li>
+              <li>The distance is adjusted until the image forms at the <b>near point</b> (d = 25 cm), where it is seen clearly and largest. The magnifying power is then \( M = 1 + \dfrac{d}{f} \).</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q10.7: ray construction -->
+      <h3 id="q107" data-toc="Q 10.7 by ray diagram" data-toc-sub><span class="h3-dot"></span>Q 10.7 · solve it with a ray diagram</h3>
+      <div class="steps rv" id="q107-box" data-check="l2-q107" data-msg="Ray diagram solved!">
+        <div class="steps-head">
+          <p><span class="qn">Q 10.7</span>A magnifying glass gives a five times enlarged image at a distance of 25 cm from the lens. Find, by ray diagram, the focal length of the lens.</p>
+          <span class="ans-key">Answer: f = 6.25 cm</span>
+        </div>
+        <div class="fig-sync"><canvas class="lab-canvas ar-q107" id="q107-canvas" aria-label="Step-by-step ray diagram construction"></canvas></div>
+        <ol>
+          <li class="step"><b>Draw what you're told.</b> The image is <b>virtual</b> and upright, <b>5 times</b> taller than the object, <b>25 cm</b> from the lens, on the same side as the object.</li>
+          <li class="step"><b>Find the object.</b> A ray through the optical centre O goes straight, so the object's top lies on the line joining the image's top to O. The image is 5× taller, so the object must be 5× closer:
+            \[ p = \frac{25\ \text{cm}}{5} = 5\ \text{cm} \]</li>
+          <li class="step"><b>Draw a ray from the object's top parallel to the principal axis</b> until it meets the lens.</li>
+          <li class="step"><b>This ray must appear to come from the image's top.</b> Join the image top to the point where the ray met the lens, and continue the refracted ray beyond the lens. A ray that was parallel to the axis always refracts <b>through the focus</b>, so where it crosses the axis is F.</li>
+          <li class="step final"><b>Measure OF:</b> the focal length is <b>6.25 cm</b>. Check with Eq. 10.6:
+            \[ M = 1 + \frac{d}{f} \;\Rightarrow\; f = \frac{d}{M-1} = \frac{25\ \text{cm}}{5-1} = 6.25\ \text{cm}\ \checkmark \]</li>
+        </ol>
+        <div class="steps-ctrl">
+          <button class="btn small" data-next>Start construction</button>
+          <button class="btn ghost small" data-all>Show all</button>
+          <button class="btn ghost small" data-reset hidden>Reset</button>
+        </div>
+        <div class="more">
+          <label class="ctl">
+            <span class="ctl-top"><span>Try another magnification M</span><output class="ctl-val" id="q107-M-out">5 ×</output></span>
+            <input type="range" id="q107-M" min="4" max="10" step="0.5" value="5">
+          </label>
+        </div>
+      </div>
+
+      <!-- Numerical 10.1 -->
+      <h3 id="num-101" data-toc="Numerical 10.1" data-toc-sub><span class="h3-dot"></span>Numerical problem</h3>
+      <div class="steps rv" data-check="l2-num-101">
+        <div class="steps-head">
+          <p><span class="qn">10.1</span>A converging lens of focal length 5.0 cm is used as a magnifying glass. If the near point of the observer is 25 cm and the lens is held close to the eye, calculate (i) the distance of the object from the lens, (ii) the angular magnification. What is the angular magnification when the final image is formed at infinity?</p>
+          <span class="ans-key">Textbook answer: (i) 4.2 cm · (ii) 6.0 ; 5.0</span>
+        </div>
+        <ol>
+          <li class="step"><b>Data:</b> f = 5.0 cm, d = 25 cm. For the best view, the virtual image is formed at the near point, so <b>q = d = 25 cm</b>.</li>
+          <li class="step"><b>(i) Lens formula for a virtual image:</b>
+            \[ \frac{1}{f} = \frac{1}{p} - \frac{1}{q} \;\Rightarrow\; \frac{1}{p} = \frac{1}{f} + \frac{1}{q} = \frac{1}{5} + \frac{1}{25} = \frac{6}{25} \]
+            \[ p = \frac{25}{6} = 4.17\ \text{cm} \approx \mathbf{4.2\ cm} \]</li>
+          <li class="step"><b>(ii) Angular magnification</b> (Eq. 10.6):
+            \[ M = 1 + \frac{d}{f} = 1 + \frac{25}{5} = \mathbf{6.0} \]
+            Check with Eq. 10.5: \( M = d/p = 25/4.17 = 6.0 \) ✓</li>
+          <li class="step"><b>Image at infinity:</b> the object must be at the focal point (p = f). Then the image subtends \( \beta = O/f \), while the naked-eye angle is still \( \alpha = O/d \).</li>
+          <li class="step final"><b>So:</b>
+            \[ M_\infty = \frac{\beta}{\alpha} = \frac{O/f}{O/d} = \frac{d}{f} = \frac{25}{5} = \mathbf{5.0} \]</li>
+        </ol>
+        <div class="steps-ctrl">
+          <button class="btn small" data-next>Start solution</button>
+          <button class="btn ghost small" data-all>Show all</button>
+          <button class="btn ghost small" data-reset hidden>Reset</button>
+          <a class="btn ghost small" href="#lab-mag" data-mag-jump>See it in Lab 1 ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SUMMARY ================= -->
+    <section class="sec" id="summary" data-toc="Summary">
+      <div class="sec-head">
+        <span class="sec-num">★</span>
+        <h2>Lesson Summary</h2>
+      </div>
+      <div class="sheet">
+        <div class="sheet-card rv"><h4>What it is</h4><div class="f">One convex lens</div><p>A simple microscope is a convex lens used to help the eye see small objects distinctly. The object is placed inside F, and a virtual, erect, magnified image forms at d (or farther).</p></div>
+        <div class="sheet-card rv"><h4>Definition</h4><div class="f">\( M = \dfrac{\beta}{\alpha} \)</div><p>Eq. 10.4: β = angle through the lens, α = angle with the naked eye at the near point.</p></div>
+        <div class="sheet-card rv"><h4>Magnifying power</h4><div class="f">\( M = \dfrac{d}{p} = 1 + \dfrac{d}{f} \)</div><p>Eqs. 10.5 and 10.6, with the image at the near point. A smaller f gives a larger M.</p></div>
+        <div class="sheet-card rv"><h4>Image at infinity</h4><div class="f">\( M = \dfrac{d}{f} \)</div><p>Object at F, relaxed eye (used in Numerical 10.1).</p></div>
+      </div>
+
+      <div class="mastered">
+        <h3>🎉 Lesson mastered!</h3>
+        <p>You can now derive, explain and calculate the magnifying power of a simple microscope. On to two lenses!</p>
+      </div>
+
+      <div class="next-card">
+        <div>
+          <div class="nx-k">Up next · Lesson 3 · § 10.4</div>
+          <h3>The Compound Microscope</h3>
+          <p>Two lenses working as a team: \( M = \dfrac{q}{p}\left(1 + \dfrac{d}{f_e}\right) \). Coming soon.</p>
+        </div>
+        <a class="btn" href="index.html">Back to chapter</a>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer class="foot">
+  <p>Lumen · interactive notes for FSc Physics, Chapter 10 “Optical Instruments” (textbook pp. 214 – 235).</p>
+  <p>Your progress is saved in this browser only.</p>
+</footer>
+
+<script src="../assets/js/core.js"></script>
+<script src="js/lesson-2.js"></script>
+</body>
+</html>

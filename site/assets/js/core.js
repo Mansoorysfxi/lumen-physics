@@ -163,6 +163,68 @@ window.Lumen = (function () {
     ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath();
   }
 
+  function glowLine(ctx, x1, y1, x2, y2, color, width = 2, blur = 10) {
+    ctx.save(); ctx.strokeStyle = color; ctx.lineWidth = width; ctx.lineCap = 'round';
+    ctx.shadowColor = color; ctx.shadowBlur = blur;
+    ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke(); ctx.restore();
+  }
+  function dashLine(ctx, x1, y1, x2, y2, color, width = 1.4, dash = [6, 5]) {
+    ctx.save(); ctx.strokeStyle = color; ctx.lineWidth = width; ctx.setLineDash(dash);
+    ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke(); ctx.restore();
+  }
+  function dimLine(ctx, x1, x2, y, color, text) {
+    if (Math.abs(x2 - x1) < 4) return;
+    ctx.save(); ctx.strokeStyle = color; ctx.globalAlpha = .7; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(x1, y); ctx.lineTo(x2, y);
+    ctx.moveTo(x1, y - 5); ctx.lineTo(x1, y + 5); ctx.moveTo(x2, y - 5); ctx.lineTo(x2, y + 5); ctx.stroke(); ctx.restore();
+    label(ctx, text, (x1 + x2) / 2, y, { color, size: 11, bg: 'rgba(5,9,21,.8)' });
+  }
+  function pulseRing(ctx, x, y, t, color = '#ffc65c') {
+    const f = (t % 1.6) / 1.6;
+    ctx.save(); ctx.strokeStyle = color; ctx.globalAlpha = 1 - f; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.arc(x, y, 8 + f * 16, 0, Math.PI * 2); ctx.stroke(); ctx.restore();
+  }
+  /* a side-view eye looking left; its front (pupil) is at x - r */
+  function drawEye(ctx, x, y, r = 17) {
+    const g = ctx.createRadialGradient(x - r * .3, y - r * .3, 2, x, y, r + 1);
+    g.addColorStop(0, '#ffffff'); g.addColorStop(1, '#a9b4dc');
+    ctx.save();
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#23a6c9'; ctx.beginPath(); ctx.ellipse(x - r * .76, y, r * .21, r * .47, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#05080f'; ctx.beginPath(); ctx.ellipse(x - r * .86, y, r * .1, r * .22, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.restore();
+  }
+  /* a biconvex lens centred at (x, y) */
+  function drawLens(ctx, x, y, halfH, bulge = 12) {
+    const lg = ctx.createLinearGradient(x - bulge, 0, x + bulge, 0);
+    lg.addColorStop(0, 'rgba(95,227,255,.08)'); lg.addColorStop(.5, 'rgba(95,227,255,.3)'); lg.addColorStop(1, 'rgba(95,227,255,.08)');
+    ctx.save();
+    ctx.beginPath(); ctx.moveTo(x, y - halfH); ctx.quadraticCurveTo(x + bulge * 2, y, x, y + halfH); ctx.quadraticCurveTo(x - bulge * 2, y, x, y - halfH);
+    ctx.fillStyle = lg; ctx.fill(); ctx.strokeStyle = 'rgba(95,227,255,.75)'; ctx.lineWidth = 1.5; ctx.stroke();
+    ctx.restore();
+  }
+  function setStatus(el, state, html) { el.dataset.state = state; el.lastElementChild.innerHTML = html; }
+  function press(group, btn) { $$('[aria-pressed]', group).forEach(b => b.setAttribute('aria-pressed', b === btn ? 'true' : 'false')); }
+  function throttle(fn) { let q = false; return () => { if (q) return; q = true; requestAnimationFrame(() => { q = false; fn(); }); }; }
+  /* photons travelling along polylines [[x,y],...] (screen coordinates) */
+  function photons(ctx, paths, t, { speed = 110, gap = 90, r = 2.4, w = 1e5, h = 1e5 } = {}) {
+    if (reduceMotion) return;
+    ctx.save(); ctx.globalCompositeOperation = 'lighter';
+    paths.forEach(({ pts, col }, ri) => {
+      const segs = []; let tot = 0;
+      for (let i = 1; i < pts.length; i++) { const l = Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]); segs.push(l); tot += l; }
+      for (let s0 = (t * speed + ri * 30) % gap; s0 < tot; s0 += gap) {
+        let s = s0, i = 0; while (i < segs.length - 1 && s > segs[i]) { s -= segs[i]; i++; }
+        const a = pts[i], b = pts[i + 1], fr = segs[i] ? s / segs[i] : 0;
+        const x = a[0] + (b[0] - a[0]) * fr, y = a[1] + (b[1] - a[1]) * fr;
+        if (x < -5 || x > w + 5 || y < -5 || y > h + 5) continue;
+        ctx.fillStyle = col; ctx.shadowColor = col; ctx.shadowBlur = 12;
+        ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.fill();
+      }
+    });
+    ctx.restore();
+  }
+
   /* ---------- progress & XP (localStorage) ---------- */
   const KEY = 'lumen-progress-v1';
   const XP_PER = 10;
@@ -300,7 +362,8 @@ window.Lumen = (function () {
         next.disabled = i >= steps.length;
         next.textContent = i === 0 ? 'Start solution' : i >= steps.length ? 'Solved' : 'Next step →';
         if (reset) reset.hidden = i === 0;
-        if (i >= steps.length && box.dataset.check) complete(box.dataset.check, { msg: 'Numerical worked through!' });
+        if (i >= steps.length && box.dataset.check) complete(box.dataset.check, { msg: box.dataset.msg || 'Numerical worked through!' });
+        box.dispatchEvent(new CustomEvent('steps:change', { detail: { step: i, total: steps.length } }));
       };
       next.addEventListener('click', () => { i = Math.min(steps.length, i + 1); sync(); });
       all && all.addEventListener('click', () => { i = steps.length; sync(); });
@@ -383,6 +446,7 @@ window.Lumen = (function () {
     $, $$, clamp, lerp, sci, fmt, reduceMotion,
     fitCanvas, drag, animateWhileVisible, bindRange,
     wavelengthRGB, rgba, colourName, arrow, label, roundRect,
+    glowLine, dashLine, dimLine, pulseRing, drawEye, drawLens, setStatus, press, throttle, photons,
     complete, isDone, lessonStats, totalXP, toast, confetti, renderMath, refreshProgress
   };
 })();
