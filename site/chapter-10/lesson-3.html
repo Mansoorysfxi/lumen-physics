@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Compound Microscope · Ch 10 Optical Instruments · Lumen Physics</title>
+<meta name="description" content="The compound microscope: objective and eyepiece, M = (q/p)(1 + d/fe), Example 10.1 and Numericals 10.5–10.6, with interactive labs. FSc Physics Chapter 10, section 10.4.">
+<meta name="theme-color" content="#060a17">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lumen Physics">
+<meta property="og:title" content="The Compound Microscope · Ch 10 Lesson 3 · Lumen Physics">
+<meta property="og:description" content="Two lenses, one tiny world: build a microscope, see why cheap ones show coloured edges, and look at blood cells. FSc Physics §10.4.">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../assets/css/main.css">
+<style>
+  .ar-cm { aspect-ratio: 2 / 1; }
+  .ar-chroma { aspect-ratio: 4 / 3; }
+  .ar-scope { aspect-ratio: 16 / 10; touch-action: none !important; cursor: grab; }
+  @media (max-width: 640px) {
+    .ar-cm { aspect-ratio: 4 / 3; }
+    .ar-scope { aspect-ratio: 1 / 1; }
+  }
+  .fig-svg text { font-family: "JetBrains Mono", monospace; }
+  .lab-grid.even { grid-template-columns: 1fr 1fr; }
+  @media (max-width: 760px) { .lab-grid.even { grid-template-columns: 1fr; } }
+  .ctl.disabled { opacity: .45; pointer-events: none; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 1.6em 0; max-width: var(--maxw); }
+  @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } }
+  .stage-card { padding: 18px 20px; border-radius: var(--r); background: var(--panel); border: 1px solid var(--line-2); }
+  .stage-card h4 { margin: 0 0 6px; font-size: .78rem; font-family: var(--mono); letter-spacing: .12em; text-transform: uppercase; }
+  .stage-card p { margin: 0; font-size: .95rem; }
+  .stage-card.obj h4 { color: var(--amber); } .stage-card.eye h4 { color: var(--violet); }
+</style>
+</head>
+<body data-lesson="ch10-l3">
+
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="brand-mark"></span>Lumen<span class="brand-sub">FSc Physics</span></a>
+  <nav class="crumbs"><span class="sep">/</span><a href="index.html">Ch 10 · Optical Instruments</a><span class="sep">/</span><span>Lesson 3 · The Compound Microscope</span></nav>
+  <div class="topbar-right">
+    <span class="xp" id="xp" title="XP earned across all lessons"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.9L22 9.6l-5.4 4.8 1.6 7.3L12 17.9 5.8 21.7l1.6-7.3L2 9.6l7.1-.7z"/></svg><b>0</b> XP</span>
+  </div>
+  <div class="read-progress"><span></span></div>
+</header>
+
+<section class="lesson-hero">
+  <div class="kicker"><span>Chapter 10 · Lesson 3 of 9</span><span class="tag">§ 10.4 · Example 10.1</span></div>
+  <h1>The Compound <span class="grad">Microscope</span></h1>
+  <p class="lede">A single lens tops out at about 10×. To see blood cells, bacteria and the inside of a leaf, you need two lenses working as a team. The first magnifies the object, and the second magnifies that image <em>again</em>.</p>
+  <div class="meta-row">
+    <span class="meta">📖 Textbook <b>pp. 218 – 220</b></span>
+    <span class="meta">⏱ About <b>30 min</b></span>
+    <span class="meta">🧪 <b>3</b> interactive labs</span>
+    <span class="meta">✅ Progress <b data-lesson-pct>0%</b></span>
+  </div>
+</section>
+
+<div class="lesson-layout">
+  <aside class="toc">
+    <div class="toc-title">In this lesson</div>
+    <ol></ol>
+    <div class="toc-progress">
+      <small>Lesson progress</small>
+      <div class="bar"><span data-lesson-bar></span></div>
+      <small><b data-lesson-count>0 / 0</b> checkpoints · <span class="mono" data-lesson-pct>0%</span></small>
+    </div>
+  </aside>
+
+  <main class="content">
+
+    <!-- ================= 10.4 ================= -->
+    <section class="sec" id="s10-4" data-toc="10.4 Compound microscope">
+      <div class="sec-head">
+        <span class="sec-num">10.4</span>
+        <h2>Compound Microscope</h2>
+        <span class="page-ref">Textbook pp. 218 – 219</span>
+      </div>
+
+      <p class="hook">In Lesson 2 we saw that a single lens with a tiny focal length is hard to use and gives coloured, distorted images. The solution is to split the job between two lenses.</p>
+
+      <p>Whenever <strong>high magnification</strong> is desired, a compound microscope is used. It consists of <strong>two convex lenses</strong>:</p>
+      <div class="two-col">
+        <div class="stage-card obj rv"><h4>① Objective</h4><p>The lens near the <strong>object</strong>. It has a <strong>very short</strong> focal length <i class="v">f<sub>o</sub></i>.</p></div>
+        <div class="stage-card eye rv"><h4>② Eye-piece</h4><p>The lens near the <strong>eye</strong>. It has a <strong>comparatively longer</strong> focal length <i class="v">f<sub>e</sub></i>.</p></div>
+      </div>
+
+      <figure class="rv">
+        <div class="fig-box">
+          <svg class="fig-svg" viewBox="0 0 520 430" role="img" aria-label="Labelled drawing of a compound microscope: eyepiece, tube, objective turret, stage with slide, lamp, focus knobs, arm and base" style="max-width:520px;margin:0 auto">
+            <defs>
+              <linearGradient id="metal" x1="0" x2="1"><stop offset="0" stop-color="#2e3d72"/><stop offset=".5" stop-color="#4a5d9e"/><stop offset="1" stop-color="#26335f"/></linearGradient>
+              <linearGradient id="chrome" x1="0" x2="1"><stop offset="0" stop-color="#8d96b0"/><stop offset=".5" stop-color="#e8ecf6"/><stop offset="1" stop-color="#7c859f"/></linearGradient>
+              <radialGradient id="lamp"><stop offset="0" stop-color="#fff6d0"/><stop offset=".5" stop-color="#ffc65c" stop-opacity=".7"/><stop offset="1" stop-color="#ffc65c" stop-opacity="0"/></radialGradient>
+            </defs>
+            <rect x="80" y="372" width="250" height="34" rx="12" fill="url(#metal)"/>
+            <path d="M140 372 C 112 300, 112 230, 132 190 S 175 120, 200 110" stroke="url(#metal)" stroke-width="36" fill="none" stroke-linecap="round"/>
+            <polygon points="230,262 214,330 246,330" fill="rgba(255,198,92,.12)"/>
+            <circle cx="230" cy="338" r="26" fill="url(#lamp)"/><circle cx="230" cy="338" r="9" fill="#fff3c4"/>
+            <rect x="150" y="256" width="170" height="14" rx="4" fill="url(#metal)"/>
+            <rect x="182" y="249" width="96" height="7" rx="2" fill="rgba(95,227,255,.45)" stroke="#5fe3ff" stroke-width=".8"/>
+            <rect x="192" y="244" width="14" height="6" rx="2" fill="#8d96b0"/><rect x="254" y="244" width="14" height="6" rx="2" fill="#8d96b0"/>
+            <circle cx="128" cy="280" r="20" fill="url(#chrome)"/><circle cx="128" cy="280" r="9" fill="#5a6584"/>
+            <rect x="212" y="78" width="36" height="104" rx="4" fill="url(#chrome)"/>
+            <rect x="218" y="34" width="24" height="46" rx="3" fill="url(#metal)"/>
+            <ellipse cx="230" cy="34" rx="12" ry="4" fill="#5fe3ff" opacity=".8"/>
+            <ellipse cx="230" cy="190" rx="48" ry="11" fill="url(#chrome)"/>
+            <rect x="223" y="196" width="14" height="40" rx="3" fill="url(#metal)"/><ellipse cx="230" cy="236" rx="7" ry="2.5" fill="#5fe3ff"/>
+            <rect x="192" y="194" width="12" height="28" rx="3" fill="url(#metal)" transform="rotate(25 198 194)"/>
+            <rect x="256" y="194" width="12" height="32" rx="3" fill="url(#metal)" transform="rotate(-25 262 194)"/>
+            <g font-size="12" fill="#c3cae6">
+              <line x1="244" y1="50" x2="360" y2="50" stroke="rgba(140,160,255,.45)"/><text x="366" y="54">Eye-piece (fₑ)</text>
+              <line x1="250" y1="130" x2="360" y2="130" stroke="rgba(140,160,255,.45)"/><text x="366" y="134">Tube</text>
+              <line x1="276" y1="200" x2="360" y2="200" stroke="rgba(140,160,255,.45)"/><text x="366" y="204">Objectives (f₀)</text>
+              <text x="366" y="220" fill="#8b95bb" font-size="11">×4 · ×10 · ×40</text>
+              <line x1="280" y1="252" x2="360" y2="252" stroke="rgba(140,160,255,.45)"/><text x="366" y="256">Slide on stage</text>
+              <line x1="252" y1="338" x2="360" y2="338" stroke="rgba(140,160,255,.45)"/><text x="366" y="342">Lamp / mirror</text>
+              <line x1="108" y1="280" x2="40" y2="300" stroke="rgba(140,160,255,.45)"/><text x="12" y="318">Focus knob</text>
+              <line x1="125" y1="210" x2="40" y2="170" stroke="rgba(140,160,255,.45)"/><text x="12" y="162">Arm</text>
+              <line x1="200" y1="406" x2="200" y2="420" stroke="rgba(140,160,255,.45)"/><text x="180" y="428" font-size="11">Base</text>
+            </g>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 10.4 (b)</b>A compound microscope. The textbook shows a photograph; this labelled drawing names the main parts. Turning the focus knob moves the tube up and down so the object sits just beyond F<sub>o</sub>.</figcaption>
+      </figure>
+
+      <h3 id="how" data-toc="How it works (Fig. 10.4 a)" data-toc-sub><span class="h3-dot"></span>How it works</h3>
+      <ul>
+        <li>The object of height <i class="v">h</i> is placed <strong>just beyond the principal focus of the objective</strong>.</li>
+        <li>This produces a <strong>real, magnified</strong> image of height <i class="v">h</i><sub>1</sub> at a place situated <strong>within the focal point of the eye-piece</strong>.</li>
+        <li>It is then <strong>further magnified by the eye-piece</strong>, which works exactly like the magnifying glass of Lesson 2.</li>
+        <li><strong>In normal adjustment</strong>, the eye-piece is positioned so that the final image is formed at the <strong>near point</strong> of the eye, at a distance <i class="v">d</i>.</li>
+      </ul>
+
+      <figure class="rv">
+        <div class="fig-box">
+          <svg class="fig-svg" viewBox="0 0 660 340" role="img" aria-label="Figure 10.4(a): ray diagram of a compound microscope showing object AB, intermediate image A1B1 and final virtual image A2B2">
+            <defs><filter id="gl3"><feGaussianBlur stdDeviation="1.8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+            <g transform="translate(0,14)">
+              <line x1="20" y1="60" x2="650" y2="60" stroke="rgba(140,160,255,.35)"/>
+              <!-- back extensions to final image -->
+              <line x1="472" y1="129.6" x2="112" y2="300" stroke="#ffc65c" stroke-dasharray="5 5" opacity=".55"/>
+              <line x1="472" y1="125.3" x2="112" y2="300" stroke="#ff5fa8" stroke-dasharray="5 5" opacity=".55"/>
+              <!-- final image A2B2 -->
+              <line x1="112" y1="60" x2="112" y2="292" stroke="#a98bff" stroke-width="2.5" stroke-dasharray="7 5"/><polygon points="112,300 106,288 118,288" fill="#a98bff"/>
+              <!-- rays -->
+              <polyline points="150,48 200,48 400,108 472,129.6 606.5,65.9" fill="none" stroke="#ffc65c" stroke-width="2" filter="url(#gl3)"/>
+              <polyline points="150,48 200,60 400,108 472,125.3 606.5,60" fill="none" stroke="#ff5fa8" stroke-width="2" filter="url(#gl3)"/>
+              <!-- lenses -->
+              <ellipse cx="200" cy="60" rx="6" ry="34" fill="rgba(95,227,255,.22)" stroke="#5fe3ff"/>
+              <ellipse cx="472" cy="60" rx="8" ry="80" fill="rgba(95,227,255,.18)" stroke="#5fe3ff"/>
+              <!-- object and intermediate image -->
+              <line x1="150" y1="60" x2="150" y2="50" stroke="#ffc65c" stroke-width="3"/><polygon points="150,44 145,53 155,53" fill="#ffc65c"/>
+              <line x1="400" y1="60" x2="400" y2="101" stroke="#5cf0a0" stroke-width="3"/><polygon points="400,108 394,97 406,97" fill="#5cf0a0"/>
+              <!-- focal points -->
+              <g fill="#a98bff"><circle cx="160" cy="60" r="3"/><circle cx="240" cy="60" r="3"/><circle cx="382" cy="60" r="3"/><circle cx="562" cy="60" r="3"/></g>
+              <!-- eye -->
+              <circle cx="624" cy="60" r="17" fill="#dfe5f7"/><ellipse cx="611" cy="60" rx="3.5" ry="8" fill="#23a6c9"/>
+              <g font-size="12">
+                <text x="140" y="40" fill="#ffc65c">A</text><text x="144" y="78" fill="#ffc65c">B</text><text x="154" y="56" fill="#ffc65c" font-size="10">h</text>
+                <text x="160" y="80" fill="#a98bff" font-size="10" text-anchor="middle">f₀</text><text x="240" y="80" fill="#a98bff" font-size="10" text-anchor="middle">f₀</text>
+                <text x="382" y="52" fill="#a98bff" font-size="10" text-anchor="middle">fₑ</text><text x="562" y="52" fill="#a98bff" font-size="10" text-anchor="middle">fₑ</text>
+                <text x="404" y="52" fill="#5cf0a0">B₁</text><text x="408" y="116" fill="#5cf0a0">A₁</text><text x="404" y="88" fill="#5cf0a0" font-size="10">h₁</text>
+                <text x="118" y="52" fill="#a98bff">B₂</text><text x="120" y="306" fill="#a98bff">A₂</text><text x="118" y="190" fill="#a98bff">h₂</text>
+                <text x="200" y="114" fill="#5fe3ff" text-anchor="middle">Objective</text>
+                <text x="472" y="160" fill="#5fe3ff" text-anchor="middle">Eye-piece</text>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 10.4 (a)</b>Ray diagram of a compound microscope (heights not to scale). The objective forms the real, inverted, magnified image A₁B₁. The eye-piece magnifies it into the final virtual image A₂B₂.</figcaption>
+      </figure>
+
+      <!-- LAB 1 -->
+      <div class="lab rv" id="lab-cm">
+        <div class="lab-head">
+          <span class="lab-badge"><span class="pulse"></span>Lab 1 · Fig. 10.4 (a)</span>
+          <h3>Build a compound microscope</h3>
+          <p class="lab-sub">Turn the <b>focus</b> (object distance <i class="v">p</i>), and swap the <b>objective</b> and <b>eye-piece</b>. In normal adjustment the eye-piece moves automatically so the final image always lands at the near point. Follow each ray from the object, through A₁, to your eye.</p>
+        </div>
+        <div class="lab-stage">
+          <canvas class="lab-canvas ar-cm" id="cm-canvas" aria-label="Two-lens ray diagram of a compound microscope"></canvas>
+        </div>
+        <div class="lab-controls">
+          <label class="ctl">
+            <span class="ctl-top"><span>Focus: object distance <i class="v">p</i></span><output class="ctl-val" id="cm-p-out"></output></span>
+            <input type="range" id="cm-p" min="1.02" max="3" step="0.01" value="1.2">
+          </label>
+          <label class="ctl">
+            <span class="ctl-top"><span>Objective focal length <i class="v">f<sub>o</sub></i></span><output class="ctl-val" id="cm-fo-out"></output></span>
+            <input type="range" id="cm-fo" min="0.5" max="5" step="0.1" value="1">
+          </label>
+          <label class="ctl">
+            <span class="ctl-top"><span>Eye-piece focal length <i class="v">f<sub>e</sub></i></span><output class="ctl-val" id="cm-fe-out"></output></span>
+            <input type="range" id="cm-fe" min="1.5" max="20" step="0.5" value="3">
+          </label>
+          <div class="ctl-group">
+            <label class="toggle"><input type="checkbox" id="cm-normal" checked><span class="sw"></span>Normal adjustment (final image at 25 cm)</label>
+            <label class="ctl disabled" id="cm-L-wrap">
+              <span class="ctl-top"><span>Lens separation <i class="v">L</i></span><output class="ctl-val" id="cm-L-out"></output></span>
+              <input type="range" id="cm-L" min="4" max="40" step="0.1" value="8.7">
+            </label>
+          </div>
+        </div>
+        <div class="lab-actions">
+          <button class="btn ghost small" data-cm="n106">Numerical 10.6</button>
+          <button class="btn ghost small" data-cm="ex101">Example 10.1</button>
+          <button class="btn ghost small" data-cm="n105">Numerical 10.5</button>
+        </div>
+        <div class="readouts">
+          <div class="ro"><span class="ro-k">A₁: q (from objective)</span><span class="ro-v" id="cm-q">–</span></div>
+          <div class="ro"><span class="ro-k">M₁ = q/p</span><span class="ro-v" id="cm-M1">–</span></div>
+          <div class="ro"><span class="ro-k">A₁ to eye-piece</span><span class="ro-v" id="cm-p2">–</span></div>
+          <div class="ro"><span class="ro-k" id="cm-M2-k">M₂ = 1 + d/fₑ</span><span class="ro-v" id="cm-M2">–</span></div>
+          <div class="ro"><span class="ro-k">Separation L</span><span class="ro-v" id="cm-Lr">–</span></div>
+          <div class="ro"><span class="ro-k" id="cm-M-k">M = M₁ × M₂</span><span class="ro-v" id="cm-M">–</span></div>
+        </div>
+        <div class="status" id="cm-status"><span class="dot"></span><span></span></div>
+        <div class="challenges">
+          <h4>Challenges</h4>
+          <ul>
+            <li data-check="l3-cm-n106">Load <b>Numerical 10.6</b> and check the textbook's answers: lens separation <b>8.7 cm</b> and magnification <b>47</b>.</li>
+            <li data-check="l3-cm-100">In normal adjustment, build a microscope of at least <b>×100</b> with the lenses less than <b>20 cm</b> apart.</li>
+            <li data-check="l3-cm-real">Switch off normal adjustment and pull the eye-piece back until A₁ is <b>outside</b> its focus. What happens to the final image?</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Magnification -->
+      <h3 id="derive" data-toc="Deriving M = (q/p)(1 + d/fe)" data-toc-sub><span class="h3-dot"></span>Magnifying power</h3>
+      <p>The angular magnification <i class="v">M</i> of a compound microscope is defined as the ratio \( \tan\theta_e / \tan\theta \), where <i class="v">θ<sub>e</sub></i> is the angle subtended by the final image <i class="v">h</i><sub>2</sub>, and <i class="v">θ</i> is the angle that the object of height <i class="v">h</i> would subtend at the eye if placed at the near point <i class="v">d</i> (Fig. 10.3 a).</p>
+
+      <div class="steps rv" data-check="l3-derive" data-msg="Derivation complete!">
+        <div class="steps-head"><p><span class="qn">Derivation</span>Magnifying power of a compound microscope</p></div>
+        <ol>
+          <li class="step"><b>Definition:</b> \[ M = \frac{\tan\theta_e}{\tan\theta} \]</li>
+          <li class="step"><b>Both angles are measured at the near point.</b> The object (if seen directly) and the final image (normal adjustment) are both at distance d:
+            \[ \tan\theta = \frac{h}{d}, \qquad \tan\theta_e = \frac{h_2}{d} \]</li>
+          <li class="step"><b>Substitute:</b>
+            \[ M = \frac{h_2}{d} \times \frac{d}{h} = \frac{h_2}{h} \]</li>
+          <li class="step"><b>Split it at the intermediate image</b> h<sub>1</sub>:
+            \[ M = \frac{h_1}{h} \times \frac{h_2}{h_1} = M_1 \times M_2 \]
+            Here h<sub>1</sub>/h is the linear magnification M<sub>1</sub> of the <b>objective</b>, and h<sub>2</sub>/h<sub>1</sub> is the magnification M<sub>2</sub> of the <b>eye-piece</b>.</li>
+          <li class="step"><b>Use the earlier results.</b> The objective gives linear magnification q/p (Eq. 10.5). The eye-piece is a simple microscope (Eq. 10.6):
+            \[ M_1 = \frac{q}{p}, \qquad M_2 = 1 + \frac{d}{f_e} \]</li>
+          <li class="step final"><b>Result:</b>
+            \[ M = \frac{q}{p}\left(1 + \frac{d}{f_e}\right) \qquad \textbf{(10.7)} \]</li>
+        </ol>
+        <div class="steps-ctrl">
+          <button class="btn small" data-next>Start derivation</button>
+          <button class="btn ghost small" data-all>Show all</button>
+          <button class="btn ghost small" data-reset hidden>Reset</button>
+        </div>
+      </div>
+
+      <div class="formula rv">
+        <div class="formula-body">\[ M = M_1 \times M_2 = \frac{q}{p}\left(1 + \frac{d}{f_e}\right) \]
+          <div class="formula-note">q, p: image and object distances for the objective · fₑ: focal length of the eye-piece · d = 25 cm</div>
+        </div>
+        <span class="eq-tag">(10.7)</span>
+      </div>
+
+      <p>It is customary to refer to the values of <i class="v">M</i> as multiples of 5, 10, 40, etc. They are marked as <strong>×5, ×10, ×40</strong>, etc. on the instrument. The total magnification is simply the objective's number times the eye-piece's number: a ×40 objective with a ×10 eye-piece gives ×400.</p>
+
+      <div class="quiz rv" data-check="l3-q-place" data-explain="The object is placed <b>just beyond</b> F<sub>o</sub>. Then the objective forms a real, inverted image far away, which makes q/p (and so M₁) large.">
+        <div class="quiz-label">Quick check <span class="xp-pill">+10 XP</span></div>
+        <p class="quiz-q">Where is the object placed in a compound microscope?</p>
+        <div class="quiz-opts">
+          <button data-why="Inside F<sub>o</sub> the objective would form a virtual image, so there'd be no real image for the eye-piece to magnify.">Inside the focal point of the objective</button>
+          <button data-correct>Just beyond the focal point of the objective</button>
+          <button data-why="At 2F the objective gives m = 1, so it wouldn't magnify at all.">At 2F of the objective</button>
+          <button data-why="Far beyond 2F the objective forms a <b>diminished</b> image, the opposite of what we want.">Far beyond 2F of the objective</button>
+        </div>
+        <div class="quiz-fb" hidden></div>
+      </div>
+
+      <div class="quiz rv" data-check="l3-q-fe" data-explain="M = (q/p)(1 + d/fₑ). A <b>shorter fₑ</b> makes d/fₑ bigger, so the eye-piece magnifies more. Try it in Lab 1.">
+        <div class="quiz-label">Quick check <span class="xp-pill">+10 XP</span></div>
+        <p class="quiz-q">Which change increases the magnifying power of a compound microscope (in normal adjustment)?</p>
+        <div class="quiz-opts">
+          <button data-correct>Using an eye-piece of shorter focal length</button>
+          <button data-why="A longer fₑ makes 1 + d/fₑ smaller.">Using an eye-piece of longer focal length</button>
+          <button data-why="Moving the object away from F<sub>o</sub> brings A₁ closer to the objective, so q/p falls.">Moving the object farther from the objective's focus</button>
+          <button data-why="A longer f<sub>o</sub> makes the objective weaker. That's why the objective has a <b>very short</b> focal length.">Using an objective of longer focal length</button>
+        </div>
+        <div class="quiz-fb" hidden></div>
+      </div>
+
+      <!-- Example 10.1 -->
+      <h3 id="ex101" data-toc="Example 10.1" data-toc-sub><span class="h3-dot"></span>Worked example</h3>
+      <div class="steps rv" data-check="l3-ex101" data-msg="Example worked through!">
+        <div class="steps-head">
+          <p><span class="qn">Example 10.1</span>A microscope has an objective lens of 10 mm focal length and an eye-piece of 25.0 mm focal length. What is the distance between the lenses, and what is its magnification, if the object is in sharp focus when it is 10.5 mm from the objective?</p>
+          <span class="ans-key">Textbook answer: ≈ 233 mm · M = −220</span>
+        </div>
+        <ol>
+          <li class="step"><b>Objective alone</b> (f = 10 mm, p = 10.5 mm). Using \( \frac{1}{p} + \frac{1}{q} = \frac{1}{f} \):
+            \[ \frac{1}{10.5\ \text{mm}} + \frac{1}{q} = \frac{1}{10\ \text{mm}} \;\Rightarrow\; q = 210\ \text{mm} \]</li>
+          <li class="step"><b>Eye-piece alone.</b> The virtual image is at the least distance of distinct vision. In this form of the lens formula a virtual image distance is negative, so d = −250 mm:
+            \[ \frac{1}{p} + \frac{1}{-250\ \text{mm}} = \frac{1}{25\ \text{mm}} \;\Rightarrow\; p = 22.7\ \text{mm} \]</li>
+          <li class="step"><b>Distance between the lenses:</b>
+            \[ q + p = 210\ \text{mm} + 22.7\ \text{mm} \approx 233\ \text{mm} \]</li>
+          <li class="step"><b>Magnification by each lens:</b>
+            \[ M_1 = \frac{q}{p} = \frac{210\ \text{mm}}{10.5\ \text{mm}} = 20.0, \qquad M_2 = \frac{-250\ \text{mm}}{22.7\ \text{mm}} = -11.0 \]</li>
+          <li class="step final"><b>Total magnification:</b>
+            \[ M = M_1 \times M_2 = 20 \times (-11.0) = -220 \]
+            The <b>negative sign indicates that the image is virtual</b>. Check with Eq. 10.7: \( \frac{q}{p}\left(1 + \frac{d}{f_e}\right) = 20 \times \left(1 + \frac{250}{25}\right) = 220 \) ✓</li>
+        </ol>
+        <div class="steps-ctrl">
+          <button class="btn small" data-next>Start solution</button>
+          <button class="btn ghost small" data-all>Show all</button>
+          <button class="btn ghost small" data-reset hidden>Reset</button>
+          <a class="btn ghost small" href="#lab-cm" data-cm="ex101">See it in Lab 1 ↗</a>
+        </div>
+      </div>
+
+      <div class="callout exam-tip rv">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></div>
+        <div>
+          <h4>Two ways to write the lens formula</h4>
+          <p>Example 10.1 uses \( \frac{1}{p} + \frac{1}{q} = \frac{1}{f} \) and puts a <b>minus sign on a virtual image</b> (d = −250 mm). §10.3 instead wrote \( \frac{1}{f} = \frac{1}{p} - \frac{1}{q} \) and kept q positive. Both give p = 22.7 mm. Pick one method and use it consistently in your answer.</p>
+        </div>
+      </div>
+
+      <!-- Limits -->
+      <h3 id="limits" data-toc="Limits: colour & resolution" data-toc-sub><span class="h3-dot"></span>What limits a microscope?</h3>
+      <p>Why not just make the focal lengths tiny and get ×10,000? Two things get in the way: the <strong>colours</strong> of light, and <strong>diffraction</strong>.</p>
+
+      <!-- LAB 2 -->
+      <div class="lab rv" id="lab-chroma">
+        <div class="lab-head">
+          <span class="lab-badge"><span class="pulse"></span>Lab 2 · Q 10.4</span>
+          <h3>Why do cheap microscopes show coloured edges?</h3>
+          <p class="lab-sub">White light is a mix of colours, and glass bends <span style="color:#7aa2ff">blue</span> a little more than <span style="color:#ff6b6b">red</span>. Slide the <b>focus</b> and watch the edges of the specimen. Then switch to an achromatic lens.</p>
+        </div>
+        <div class="lab-stage">
+          <div class="lab-grid even">
+            <div class="panel-label"><span class="lbl">Light through the lens</span><canvas class="lab-canvas ar-chroma" id="chroma-rays" aria-label="Red, green and blue rays focusing at different points"></canvas></div>
+            <div class="panel-label"><span class="lbl">What you see</span><canvas class="lab-canvas ar-chroma" id="chroma-view" aria-label="A diatom seen through the lens with coloured fringes"></canvas></div>
+          </div>
+        </div>
+        <div class="lab-controls">
+          <div class="ctl-group">
+            <span class="ctl-name">Lens</span>
+            <div class="chip-row" id="chroma-lens">
+              <button class="chip" data-lens="cheap" aria-pressed="true">Cheap single lens</button>
+              <button class="chip" data-lens="achro" aria-pressed="false">Achromatic lens (crown + flint)</button>
+            </div>
+          </div>
+          <label class="ctl">
+            <span class="ctl-top"><span>Focus</span><output class="ctl-val" id="chroma-f-out"></output></span>
+            <input type="range" id="chroma-f" min="-1.4" max="1.4" step="0.01" value="0">
+          </label>
+        </div>
+        <div class="status" id="chroma-status"><span class="dot"></span><span></span></div>
+        <div class="challenges">
+          <h4>Challenges</h4>
+          <ul>
+            <li data-check="l3-chroma-try">With the cheap lens, try every focus position. Can you get rid of the coloured edges? Then switch to the <b>achromatic lens</b>.</li>
+          </ul>
+        </div>
+        <p class="lab-foot">The colour spread is exaggerated about 3× so you can see it clearly.</p>
+      </div>
+
+      <p>The second limit is diffraction, which you met in Lesson 1. The textbook puts it like this: <strong>the limit to which a microscope can be used to resolve details depends on the width of the objective. A wider objective and the use of blue light of short wavelength produce less diffraction and allow more details to be seen.</strong></p>
+
+      <!-- LAB 3 -->
+      <div class="lab rv" id="lab-scope">
+        <div class="lab-head">
+          <span class="lab-badge"><span class="pulse"></span>Lab 3</span>
+          <h3>Look down a real microscope</h3>
+          <p class="lab-sub">A drop of human blood on a slide. Click the <b>objective</b> and <b>eye-piece</b> to change the magnification (×4, ×10, ×40 …), and <b>drag</b> the slide to explore. Push it to the maximum and see what limits you.</p>
+        </div>
+        <div class="lab-stage">
+          <canvas class="lab-canvas ar-scope" id="scope-canvas" aria-label="View through a microscope eyepiece of a blood smear"></canvas>
+        </div>
+        <div class="lab-controls">
+          <div class="ctl-group">
+            <span class="ctl-name">Objective</span>
+            <div class="chip-row" id="scope-obj">
+              <button class="chip" data-obj="4" aria-pressed="true">×4</button>
+              <button class="chip" data-obj="10" aria-pressed="false">×10</button>
+              <button class="chip" data-obj="40" aria-pressed="false">×40</button>
+            </div>
+          </div>
+          <div class="ctl-group">
+            <span class="ctl-name">Eye-piece</span>
+            <div class="chip-row" id="scope-eye">
+              <button class="chip" data-eye="5" aria-pressed="true">×5</button>
+              <button class="chip" data-eye="10" aria-pressed="false">×10</button>
+              <button class="chip" data-eye="15" aria-pressed="false">×15</button>
+            </div>
+          </div>
+          <div class="ctl-group">
+            <span class="ctl-name">Light</span>
+            <div class="chip-row" id="scope-light">
+              <button class="chip" data-light="white" aria-pressed="true">White</button>
+              <button class="chip" data-light="red" aria-pressed="false">Red</button>
+              <button class="chip" data-light="blue" aria-pressed="false">Blue</button>
+            </div>
+          </div>
+          <div class="ctl-group">
+            <span class="ctl-name">Objective width</span>
+            <div class="chip-row" id="scope-width">
+              <button class="chip" data-width="narrow" aria-pressed="true">Narrow</button>
+              <button class="chip" data-width="wide" aria-pressed="false">Wide</button>
+            </div>
+          </div>
+        </div>
+        <div class="readouts">
+          <div class="ro"><span class="ro-k">Total M = objective × eye-piece</span><span class="ro-v" id="scope-M">–</span></div>
+          <div class="ro"><span class="ro-k">Width of view</span><span class="ro-v" id="scope-fov">–</span></div>
+          <div class="ro"><span class="ro-k">Smallest detail visible</span><span class="ro-v" id="scope-res">–</span></div>
+        </div>
+        <div class="status" id="scope-status"><span class="dot"></span><span></span></div>
+        <div class="challenges">
+          <h4>Challenges</h4>
+          <ul>
+            <li data-check="l3-scope-400">Set the microscope to <b>×400</b>. Which objective and eye-piece did you use?</li>
+            <li data-check="l3-scope-wbc">Hunt for a <b>white blood cell</b> (purple nucleus). Centre it in the view at ×100 or more.</li>
+            <li data-check="l3-scope-sharp">At <b>×600</b> the narrow objective in white light looks mushy. Use <b>both</b> of the textbook's tips to make it sharp.</li>
+          </ul>
+        </div>
+        <p class="lab-foot">Red blood cells are about 7.5 µm (0.0075 mm) across. Smallest detail is modelled as 0.61 λ / NA, the usual microscope form of Rayleigh's criterion.</p>
+      </div>
+
+      <div class="quiz rv" data-check="l3-q-total" data-explain="Total magnification = objective × eye-piece = 40 × 10 = <b>×400</b>.">
+        <div class="quiz-label">Quick check <span class="xp-pill">+10 XP</span></div>
+        <p class="quiz-q">A microscope has a ×40 objective and a ×10 eye-piece. What is its total magnification?</p>
+        <div class="quiz-opts">
+          <button data-why="The magnifications <b>multiply</b> (M = M₁ × M₂). They don't add.">×50</button>
+          <button data-why="That's 40 ÷ 10. Magnifications multiply.">×4</button>
+          <button data-correct>×400</button>
+          <button data-why="Check the arithmetic: M = M₁ × M₂ = 40 × 10.">×4000</button>
+        </div>
+        <div class="quiz-fb" hidden></div>
+      </div>
+
+      <div class="callout tidbit rv">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V17h6v-.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg></div>
+        <div>
+          <h4>For your information</h4>
+          <p>Your textbook shows a <b>seventeenth-century microscope</b> that could be moved up and down in its support ring to focus (Museum of the History of Science, Florence). Its leather-and-wood tube already used the same two-lens idea you just explored.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PRACTICE ================= -->
+    <section class="sec" id="practice" data-toc="Textbook questions">
+      <div class="sec-head">
+        <span class="sec-num">Q</span>
+        <h2>From Your Textbook</h2>
+        <span class="page-ref">pp. 233 – 235</span>
+      </div>
+      <p>The end-of-chapter questions that belong to this lesson. (Q 10.3 on blue light and Q 10.8 (i) on resolving power are in <a href="lesson-1.html#practice">Lesson 1</a>.)</p>
+
+      <div class="qa rv" data-check="l3-qa-104">
+        <div class="qa-q"><span class="qn">Q 10.4</span><span>One can buy a cheap microscope for use by children. The images seen in such a microscope have coloured edges. Why is this so?</span></div>
+        <details>
+          <summary>Show model answer</summary>
+          <div class="ans">
+            <ul>
+              <li>White light is a mixture of colours, and the <b>refractive index of glass is slightly different for different colours</b>: it is greater for violet/blue light than for red light.</li>
+              <li>A simple (single-glass) lens therefore bends blue light more than red, and brings the colours to a focus at <b>different points</b>: blue nearer the lens, red farther away. The images of different colours also have slightly different sizes.</li>
+              <li>When one colour is in focus, the others are slightly out of focus, so the <b>edges of the image are fringed with colour</b>.</li>
+              <li>This defect is called <b>chromatic aberration</b>. Cheap microscopes use simple lenses. Good microscopes use <b>achromatic lenses</b> (a convex crown-glass lens cemented to a concave flint-glass lens) that bring the colours to the same focus.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <div class="qa rv" data-check="l3-qa-105b">
+        <div class="qa-q"><span class="qn">Q 10.5 (b)</span><span>Describe with the help of a diagram how biconvex lenses can be arranged to form a microscope.</span></div>
+        <details>
+          <summary>Show model answer</summary>
+          <div class="ans">
+            <p><b>Diagram:</b> draw Fig. 10.4 (a) (shown <a href="#how">above</a>).</p>
+            <ul>
+              <li>Two biconvex lenses are mounted coaxially at the two ends of a tube: an <b>objective</b> of very short focal length f<sub>o</sub> near the object, and an <b>eye-piece</b> of comparatively longer focal length f<sub>e</sub> near the eye.</li>
+              <li>The object AB is placed <b>just beyond the focus</b> of the objective. The objective forms a <b>real, inverted and magnified</b> image A₁B₁ inside the focal length of the eye-piece.</li>
+              <li>The eye-piece acts as a <b>magnifying glass</b>. It forms the final <b>virtual, magnified</b> image A₂B₂, which in normal adjustment lies at the near point (25 cm).</li>
+              <li>Total magnifying power: \( M = M_1 \times M_2 = \dfrac{q}{p}\left(1 + \dfrac{d}{f_e}\right) \).</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <h3 id="num-105" data-toc="Numerical 10.5" data-toc-sub><span class="h3-dot"></span>Numerical problems</h3>
+      <div class="steps rv" data-check="l3-num-105">
+        <div class="steps-head">
+          <p><span class="qn">10.5</span>A point object is placed on the axis and 3.6 cm from a thin convex lens of focal length 3.0 cm. A second thin convex lens of focal length 16.0 cm is placed coaxial with the first and 26.0 cm from it, on the side away from the object. Find the position of the final image produced by the two lenses.</p>
+          <span class="ans-key">Textbook answer: 16 cm from the second lens</span>
+        </div>
+        <ol>
+          <li class="step"><b>Strategy:</b> the image made by the first lens becomes the <b>object</b> for the second lens. Treat the lenses one at a time.</li>
+          <li class="step"><b>First lens</b> (f₁ = 3.0 cm, p₁ = 3.6 cm):
+            \[ \frac{1}{q_1} = \frac{1}{f_1} - \frac{1}{p_1} = \frac{1}{3.0} - \frac{1}{3.6} = \frac{1}{18} \;\Rightarrow\; q_1 = 18\ \text{cm} \]
+            This is a <b>real</b> image, 18 cm beyond the first lens.</li>
+          <li class="step"><b>Object for the second lens:</b> the lenses are 26.0 cm apart, so
+            \[ p_2 = 26.0 - 18 = 8.0\ \text{cm} \]
+            This is inside f₂ = 16 cm, so lens 2 acts as a <b>magnifying glass</b> and the final image is virtual.</li>
+          <li class="step"><b>Second lens</b>, using the virtual-image form \( \frac{1}{f} = \frac{1}{p} - \frac{1}{q} \):
+            \[ \frac{1}{q_2} = \frac{1}{p_2} - \frac{1}{f_2} = \frac{1}{8} - \frac{1}{16} = \frac{1}{16} \;\Rightarrow\; q_2 = 16\ \text{cm} \]</li>
+          <li class="step final"><b>Answer:</b> the final image is <b>virtual</b>, <b>16 cm from the second lens</b>, on the same side as the first lens (towards the object).</li>
+        </ol>
+        <div class="steps-ctrl">
+          <button class="btn small" data-next>Start solution</button>
+          <button class="btn ghost small" data-all>Show all</button>
+          <button class="btn ghost small" data-reset hidden>Reset</button>
+          <a class="btn ghost small" href="#lab-cm" data-cm="n105">See it in Lab 1 ↗</a>
+        </div>
+      </div>
+
+      <div class="steps rv" data-check="l3-num-106">
+        <div class="steps-head">
+          <p><span class="qn">10.6</span>A compound microscope has lenses of focal length 1.0 cm and 3.0 cm. An object is placed 1.2 cm from the object lens. If a virtual image is formed 25 cm from the eye, calculate the separation of the lenses and the magnification of the instrument.</p>
+          <span class="ans-key">Textbook answer: 8.7 cm, 47</span>
+        </div>
+        <ol>
+          <li class="step"><b>Data:</b> f<sub>o</sub> = 1.0 cm, f<sub>e</sub> = 3.0 cm, p = 1.2 cm, final virtual image at d = 25 cm (eye-piece close to the eye).</li>
+          <li class="step"><b>Objective:</b>
+            \[ \frac{1}{q} = \frac{1}{f_o} - \frac{1}{p} = \frac{1}{1.0} - \frac{1}{1.2} = \frac{1}{6} \;\Rightarrow\; q = 6.0\ \text{cm}, \qquad M_1 = \frac{q}{p} = \frac{6.0}{1.2} = 5.0 \]</li>
+          <li class="step"><b>Eye-piece</b> (virtual image at 25 cm):
+            \[ \frac{1}{p_e} = \frac{1}{f_e} + \frac{1}{d} = \frac{1}{3} + \frac{1}{25} = \frac{28}{75} \;\Rightarrow\; p_e = 2.68\ \text{cm} \]</li>
+          <li class="step"><b>Separation of the lenses:</b>
+            \[ L = q + p_e = 6.0 + 2.68 = 8.68\ \text{cm} \approx \mathbf{8.7\ cm} \]</li>
+          <li class="step final"><b>Magnification</b> (Eq. 10.7):
+            \[ M = \frac{q}{p}\left(1 + \frac{d}{f_e}\right) = 5.0 \times \left(1 + \frac{25}{3}\right) = 5.0 \times 9.33 = 46.7 \approx \mathbf{47} \]</li>
+        </ol>
+        <div class="steps-ctrl">
+          <button class="btn small" data-next>Start solution</button>
+          <button class="btn ghost small" data-all>Show all</button>
+          <button class="btn ghost small" data-reset hidden>Reset</button>
+          <a class="btn ghost small" href="#lab-cm" data-cm="n106">See it in Lab 1 ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SUMMARY ================= -->
+    <section class="sec" id="summary" data-toc="Summary">
+      <div class="sec-head">
+        <span class="sec-num">★</span>
+        <h2>Lesson Summary</h2>
+      </div>
+      <div class="sheet">
+        <div class="sheet-card rv"><h4>What it is</h4><div class="f">Objective + eye-piece</div><p>Two convex lenses: an objective of very short focal length and an eye-piece of moderate focal length.</p></div>
+        <div class="sheet-card rv"><h4>Image formation</h4><div class="f">Real A₁B₁ → virtual A₂B₂</div><p>Object just beyond F<sub>o</sub>. A₁B₁ is real, inverted and magnified, inside F<sub>e</sub>. The final image is at the near point.</p></div>
+        <div class="sheet-card rv"><h4>Magnifying power</h4><div class="f">\( M = \dfrac{q}{p}\left(1 + \dfrac{d}{f_e}\right) \)</div><p>Eq. 10.7: M = M₁ × M₂. Markings like ×10 and ×40 multiply.</p></div>
+        <div class="sheet-card rv"><h4>Limits</h4><div class="f">Colour &amp; diffraction</div><p>Simple lenses give coloured edges (chromatic aberration). A wider objective and blue light resolve more detail.</p></div>
+      </div>
+
+      <div class="mastered">
+        <h3>🎉 Lesson mastered!</h3>
+        <p>You can build, explain and calculate a compound microscope. Next: turning the same idea towards the stars.</p>
+      </div>
+
+      <div class="next-card">
+        <div>
+          <div class="nx-k">Up next · Lesson 4 · § 10.5</div>
+          <h3>The Astronomical Telescope</h3>
+          <p>Two lenses again, this time for things that are far away: \( M = \dfrac{f_o}{f_e} \). Coming soon.</p>
+        </div>
+        <a class="btn" href="index.html">Back to chapter</a>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer class="foot">
+  <p>Lumen · interactive notes for FSc Physics, Chapter 10 “Optical Instruments” (textbook pp. 214 – 235).</p>
+  <p>Your progress is saved in this browser only.</p>
+</footer>
+
+<script src="../assets/js/core.js"></script>
+<script src="js/lesson-3.js"></script>
+</body>
+</html>
