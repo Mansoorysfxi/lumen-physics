@@ -41,6 +41,12 @@
   <script>
     // Project sites live at username.github.io/<repo>/ – point "home" at the repo root.
     (function () {
+      // Pages that moved when Lumen split into classes: send old links to their new home.
+      var moved = location.pathname.replace(/\/chapter-10\//, '/class-11/chapter-10/');
+      if (moved !== location.pathname && location.pathname.indexOf('/class-11/') === -1) {
+        location.replace(moved + location.search + location.hash);
+        return;
+      }
       var seg = location.pathname.split('/')[1];
       if (/\.github\.io$/.test(location.hostname) && seg && seg.indexOf('.') === -1) {
         document.getElementById('home').href = '/' + seg + '/';

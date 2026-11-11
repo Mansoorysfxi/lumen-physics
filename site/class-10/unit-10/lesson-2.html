@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Measuring Specific Heat · Unit 10 · Class 10 Physics · Lumen Physics</title>
+<meta name="description" content="Measuring specific heat capacity: the method of mixtures (calorimeter) for solids and liquids, the electrical heating method, Example 10.3 and numericals, with a virtual school lab. Class 10 Physics Unit 10, section 10.1.2.">
+<meta name="theme-color" content="#060a17">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lumen Physics">
+<meta property="og:title" content="Measuring Specific Heat · Class 10 Unit 10 Lesson 2 · Lumen Physics">
+<meta property="og:description" content="Run the method of mixtures and the electrical method in a virtual school lab. Class 10 Physics §10.1.2.">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/css/main.css">
+<style>
+  .lesson-hero .kicker { color: var(--amber); }
+  .heat-grad { background: linear-gradient(100deg, var(--amber) 0%, var(--pink) 60%, var(--violet) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .ar-mix { aspect-ratio: 16 / 7; }
+  .ar-cal { aspect-ratio: 16 / 8; }
+  .ar-el { aspect-ratio: 16 / 8; }
+  @media (max-width: 640px) { .ar-mix, .ar-cal { aspect-ratio: 4 / 3; } .ar-el { aspect-ratio: 4 / 5; } }
+  .fig-svg text { font-family: "JetBrains Mono", monospace; }
+  .kv { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin: 1.2em 0; max-width: var(--maxw); }
+  .kv > div { padding: 14px 16px; border-radius: 12px; background: var(--panel); border: 1px solid var(--line); font-size: .93rem; color: var(--text-2); }
+  .kv h4 { margin: 0 0 6px; font-size: .74rem; font-family: var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  .kv ul { margin: 0; padding-left: 1.1em; }
+  .lab .proc { margin: 10px 26px 4px; max-width: none; }
+  .lab .proc li { font-size: .9rem; padding-top: 6px; padding-bottom: 6px; }
+  .lab .proc li::before { top: 6px; }
+  .cal-wrap { display: grid; grid-template-columns: 1.1fr 1fr; gap: 0 4px; }
+  @media (max-width: 860px) { .cal-wrap { grid-template-columns: 1fr; } }
+  .lab .notebook { margin-top: 10px; }
+  .notebook caption { caption-side: top; text-align: left; padding: 8px 12px; font-family: var(--mono); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); background: var(--panel-2); }
+  .note-sym { font-family: var(--mono); color: var(--muted); font-size: .82rem; margin-left: 4px; }
+</style>
+</head>
+<body data-lesson="g10-u10-l2">
+
+<header class="topbar">
+  <a class="brand" href="../../index.html"><span class="brand-mark"></span>Lumen<span class="brand-sub">Class 10 Physics</span></a>
+  <nav class="crumbs"><span class="sep">/</span><a href="../index.html">Class 10</a><span class="sep">/</span><a href="index.html">Unit 10 · Heat</a><span class="sep">/</span><span>Lesson 2 · Measuring Specific Heat</span></nav>
+  <div class="topbar-right">
+    <span class="xp" id="xp" title="XP earned across all lessons"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.9L22 9.6l-5.4 4.8 1.6 7.3L12 17.9 5.8 21.7l1.6-7.3L2 9.6l7.1-.7z"/></svg><b>0</b> XP</span>
+  </div>
+  <div class="read-progress"><span></span></div>
+</header>
+
+<section class="lesson-hero">
+  <div class="kicker"><span>Unit 10 · Lesson 2 of 9</span><span class="tag">§ 10.1.2</span></div>
+  <h1>Measuring <span class="heat-grad">Specific Heat</span></h1>
+  <p class="lede">In Lesson 1 you used the values in Table 10.1. But where do those numbers come from? Someone measured them with a calorimeter, a thermometer and some careful bookkeeping of heat. In this lesson you'll run both of your textbook's experiments yourself.</p>
+  <div class="meta-row">
+    <span class="meta">📖 Textbook <b>pp. 15 – 19</b></span>
+    <span class="meta">⏱ About <b>35 min</b></span>
+    <span class="meta">🧪 <b>3</b> interactive labs</span>
+    <span class="meta">✅ Progress <b data-lesson-pct>0%</b></span>
+  </div>
+</section>
+
+<div class="lesson-layout">
+  <aside class="toc">
+    <div class="toc-title">In this lesson</div>
+    <ol></ol>
+    <div class="toc-progress">
+      <small>Lesson progress</small>
+      <div class="bar"><span data-lesson-bar></span></div>
+      <small><b data-lesson-count>0 / 0</b> checkpoints · <span class="mono" data-lesson-pct>0%</span></small>
+    </div>
+  </aside>
+
+  <main class="content">
+
+    <!-- ================= 10.1.2 ================= -->
+    <section class="sec" id="s10-1-2" data-toc="10.1.2 Two methods">
+      <div class="sec-head">
+        <span class="sec-num">10.1.2</span>
+        <h2>Measurement of Specific Heat of Solids and Liquids</h2>
+        <span class="page-ref">Textbook p. 15</span>
+      </div>
+      <p class="hook">To find c = Q / (mΔT) we need three measurements: a <b>mass</b> (easy, use a balance), a <b>temperature change</b> (easy, use a thermometer) and a <b>quantity of heat</b>. You can't put heat on a balance, so how do we measure Q?</p>
+      <p>There are different experiments which can be used to determine the specific heat of solids and liquids. The most common methods are the <strong>“method of mixtures”</strong> and the <strong>“electrical heating method”</strong>. Each one solves the “how much heat?” problem differently:</p>
+      <div class="kv rv">
+        <div><h4>Method of mixtures</h4>Let a hot object give its heat to cold water. The heat the water gains can be calculated from <b>Q = mcΔT</b> for water, whose c we already know.</div>
+        <div><h4>Electrical heating method</h4>Supply the heat with an electric heater. The heat it gives out is the electrical energy: <b>Q = V × I × t</b>.</div>
+      </div>
+
+      <div class="def rv">
+        <span class="exam">Key principle</span>
+        <div class="def-label">Principle of calorimetry · conservation of energy</div>
+        <p>When hot and cold bodies are mixed, heat flows from the hot to the cold until they reach the same temperature. The <b>heat lost by the hot bodies</b> is equal to the <b>heat gained by the cold bodies</b>.</p>
+      </div>
+      <div class="formula rv">
+        <div class="formula-body">\[ \text{Heat lost by hot bodies} = \text{Heat gained by cold bodies} \]
+          <div class="formula-note">valid only if no heat is lost to the surroundings, which is why calorimeters are insulated</div>
+        </div>
+      </div>
+
+      <!-- LAB 1: hot + cold -->
+      <div class="lab rv" id="lab-mix">
+        <div class="lab-head">
+          <span class="lab-badge"><span class="pulse"></span>Lab 1 · warm-up</span>
+          <h3>Hot + cold: see the principle at work</h3>
+          <p class="lab-sub">Choose the mass and temperature of a jug of <span style="color:var(--red)">hot water</span> and a jug of <span style="color:var(--cyan)">cold water</span>, then pour them together. Watch the two heat bars: the heat lost by the hot water always equals the heat gained by the cold water.</p>
+        </div>
+        <div class="lab-stage"><canvas class="lab-canvas ar-mix" id="mix-canvas" aria-label="Two jugs of water poured into one beaker, with heat bars"></canvas></div>
+        <div class="lab-controls">
+          <label class="ctl"><span class="ctl-top"><span style="color:var(--red)">Hot water mass</span><output class="ctl-val" id="mix-mh-out"></output></span><input type="range" id="mix-mh" min="50" max="400" step="10" value="100"></label>
+          <label class="ctl"><span class="ctl-top"><span style="color:var(--red)">Hot water temperature</span><output class="ctl-val" id="mix-th-out"></output></span><input type="range" id="mix-th" min="40" max="100" step="1" value="80"></label>
+          <label class="ctl"><span class="ctl-top"><span style="color:var(--cyan)">Cold water mass</span><output class="ctl-val" id="mix-mc-out"></output></span><input type="range" id="mix-mc" min="50" max="400" step="10" value="200"></label>
+          <label class="ctl"><span class="ctl-top"><span style="color:var(--cyan)">Cold water temperature</span><output class="ctl-val" id="mix-tc-out"></output></span><input type="range" id="mix-tc" min="0" max="35" step="1" value="20"></label>
+        </div>
+        <div class="lab-actions">
+          <button class="btn small" id="mix-pour">Pour them together</button>
+          <button class="btn ghost small" id="mix-reset">↺ Refill the jugs</button>
+        </div>
+        <div class="readouts">
+          <div class="ro"><span class="ro-k">Final temperature T</span><span class="ro-v" id="mix-T">?</span></div>
+          <div class="ro"><span class="ro-k">Heat lost by hot water</span><span class="ro-v" id="mix-ql">?</span></div>
+          <div class="ro"><span class="ro-k">Heat gained by cold water</span><span class="ro-v" id="mix-qg">?</span></div>
+        </div>
+        <div class="status" id="mix-status"><span class="dot"></span><span></span></div>
+        <div class="challenges">
+          <h4>Challenges</h4>
+          <ul>
+            <li data-check="l2-mix-qv5">Set up <b>QV 5</b> from your exercise: 100 g of water at 80 °C mixed with 200 g of water at 20 °C. Predict the answer, then pour.</li>
+            <li data-check="l2-mix-equal">Mix <b>equal masses</b> at different temperatures. Where does the final temperature land, and why?</li>
+            <li data-check="l2-mix-50">Using <b>unequal masses</b> (at least 50 g apart), make the mixture come out at <b>50 °C</b> (±0.5 °C).</li>
+          </ul>
+        </div>
+        <p class="lab-foot">Ideal mixing: no heat is lost to the jug, the beaker or the air. c = 4.2 J g⁻¹ °C⁻¹ for water (it cancels out when both liquids are water).</p>
+      </div>
+
+      <!-- A. Method of mixtures — solids -->
+      <h3 id="mixtures" data-toc="A. Method of mixtures (solids)" data-toc-sub><span class="h3-dot"></span>A (i). Unknown specific heat of a solid by the method of mixtures</h3>
+      <p>This method uses a <strong>calorimeter</strong> to determine the heat capacity of a substance. When the hot sample (e.g. a solid) is added to water in the calorimeter, heat is exchanged between them and the calorimeter. From the law of conservation of energy, the heat lost by the hot bodies is equal to the heat gained by the cold bodies. We form an equation after measuring the change in temperature of the water in the calorimeter and the masses of the substances. Then we can calculate the specific heat capacity of the sample.</p>
+
+      <div class="kv rv">
+        <div><h4>Apparatus</h4>A Bunsen burner or hot plate, copper calorimeter with lid, stirrer and insulating cover, a metallic solid cylinder (e.g. brass or copper), weighing machine, water, beaker, laboratory stand and two thermometers.</div>
+        <div><h4>Key variables (as printed in the book)</h4><ul><li><b>Independent variable:</b> the temperature of the metal block.</li><li><b>Dependent variable:</b> the energy supplied to the metal block by heating.</li></ul></div>
+      </div>
+
+      <figure class="rv">
+        <div class="fig-box">
+          <svg class="fig-svg" viewBox="0 0 660 300" role="img" aria-label="Figure 10.2: (a) initial temperature T1 of water in a calorimeter inside an insulating box; (b) a solid cylinder hanging in boiling water at T2; (c) the final temperature T3 of the mixture in the calorimeter">
+            <defs>
+              <linearGradient id="wG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="rgba(95,170,255,.55)"/><stop offset="1" stop-color="rgba(40,90,200,.6)"/></linearGradient>
+              <linearGradient id="bG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="rgba(255,140,110,.5)"/><stop offset="1" stop-color="rgba(200,60,60,.55)"/></linearGradient>
+            </defs>
+            <!-- (a) -->
+            <rect x="40" y="110" width="150" height="140" rx="6" fill="#1b2140" stroke="#8b95bb"/>
+            <rect x="72" y="128" width="86" height="112" rx="8" fill="rgba(255,255,255,.04)" stroke="#c9a46a" stroke-width="2"/>
+            <rect x="74" y="160" width="82" height="78" rx="6" fill="url(#wG)"/>
+            <line x1="100" y1="60" x2="100" y2="225" stroke="#e9edff" stroke-width="4" stroke-linecap="round"/><circle cx="100" cy="226" r="5" fill="#ff6b7a"/>
+            <line x1="138" y1="80" x2="138" y2="228" stroke="#8b95bb" stroke-width="2"/><line x1="124" y1="228" x2="150" y2="228" stroke="#8b95bb" stroke-width="3"/>
+            <rect x="66" y="120" width="98" height="8" rx="3" fill="#2a3358" stroke="#8b95bb"/>
+            <text x="108" y="66" fill="#ffc65c" font-size="13">T₁ °C</text>
+            <text x="198" y="150" fill="#8b95bb" font-size="11">Insulating</text><text x="198" y="164" fill="#8b95bb" font-size="11">box</text>
+            <text x="198" y="200" fill="#8b95bb" font-size="11">Stirrer</text>
+            <text x="198" y="226" fill="#5fe3ff" font-size="11">Water</text>
+            <text x="115" y="278" fill="#e9edff" font-size="11" text-anchor="middle">(a) initial temperature</text><text x="115" y="292" fill="#e9edff" font-size="11" text-anchor="middle">of water in calorimeter</text>
+            <!-- (b) -->
+            <line x1="290" y1="40" x2="290" y2="262" stroke="#8b95bb" stroke-width="3"/><line x1="270" y1="262" x2="420" y2="262" stroke="#8b95bb" stroke-width="3"/>
+            <line x1="290" y1="56" x2="380" y2="56" stroke="#8b95bb" stroke-width="2"/>
+            <line x1="345" y1="56" x2="345" y2="150" stroke="#c9ced8" stroke-width="1"/>
+            <rect x="335" y="150" width="20" height="34" rx="3" fill="#d9a441" stroke="#9b6a17"/>
+            <rect x="310" y="120" width="80" height="80" rx="6" fill="rgba(255,255,255,.04)" stroke="#c9e6ff"/>
+            <rect x="312" y="134" width="76" height="64" rx="5" fill="url(#bG)"/>
+            <g fill="rgba(255,255,255,.6)"><circle cx="325" cy="186" r="2"/><circle cx="370" cy="170" r="2.5"/><circle cx="378" cy="190" r="1.8"/><circle cx="330" cy="158" r="1.6"/></g>
+            <line x1="375" y1="70" x2="375" y2="180" stroke="#e9edff" stroke-width="4" stroke-linecap="round"/><circle cx="375" cy="181" r="5" fill="#ff6b7a"/>
+            <path d="M318 205 L382 205 L370 240 L330 240 Z" fill="none" stroke="#8b95bb"/>
+            <path d="M350 238 q-8 -14 0 -26 q8 12 0 26z" fill="#5fe3ff" opacity=".8"/>
+            <text x="383" y="72" fill="#ffc65c" font-size="13">T₂ °C</text>
+            <text x="262" y="66" fill="#8b95bb" font-size="11" text-anchor="end">Stand</text>
+            <text x="402" y="140" fill="#d9a441" font-size="11">Suspended</text><text x="402" y="153" fill="#d9a441" font-size="11">cylinder</text>
+            <text x="402" y="180" fill="#ff8a7a" font-size="11">Boiling water</text>
+            <text x="402" y="230" fill="#8b95bb" font-size="11">Burner</text>
+            <text x="345" y="278" fill="#e9edff" font-size="11" text-anchor="middle">(b) temperature of boiling</text><text x="345" y="292" fill="#e9edff" font-size="11" text-anchor="middle">water and solid cylinder</text>
+            <!-- (c) -->
+            <rect x="490" y="110" width="150" height="140" rx="6" fill="#1b2140" stroke="#8b95bb"/>
+            <rect x="522" y="128" width="86" height="112" rx="8" fill="rgba(255,255,255,.04)" stroke="#c9a46a" stroke-width="2"/>
+            <rect x="524" y="160" width="82" height="78" rx="6" fill="url(#wG)"/>
+            <rect x="568" y="206" width="20" height="30" rx="3" fill="#d9a441" stroke="#9b6a17"/>
+            <line x1="550" y1="60" x2="550" y2="225" stroke="#e9edff" stroke-width="4" stroke-linecap="round"/><circle cx="550" cy="226" r="5" fill="#ff6b7a"/>
+            <rect x="516" y="120" width="98" height="8" rx="3" fill="#2a3358" stroke="#8b95bb"/>
+            <text x="558" y="66" fill="#ffc65c" font-size="13">T₃ °C</text>
+            <text x="565" y="278" fill="#e9edff" font-size="11" text-anchor="middle">(c) final temperature of</text><text x="565" y="292" fill="#e9edff" font-size="11" text-anchor="middle">the mixture in calorimeter</text>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 10.2</b>Measurement of the specific heat capacity of a solid with the mixture method.</figcaption>
+      </figure>
+
+      <!-- LAB 2: virtual calorimeter -->
+      <div class="lab rv" id="lab-cal">
+        <div class="lab-head">
+          <span class="lab-badge"><span class="pulse"></span>Lab 2 · Fig. 10.2</span>
+          <h3>The virtual calorimeter</h3>
+          <p class="lab-sub">Follow the textbook's procedure one step at a time. Your readings go into the lab notebook, and at the end Eq. 10.2 turns them into the specific heat of the solid. The default set-up is <b>Example 10.3</b>.</p>
+        </div>
+        <div class="lab-stage"><canvas class="lab-canvas ar-cal" id="cal-canvas" aria-label="Balance, beaker of boiling water on a burner, and calorimeter in an insulating box"></canvas></div>
+        <div class="lab-controls">
+          <label class="ctl">
+            <span class="ctl-top"><span>Solid cylinder</span></span>
+            <select class="sel" id="cal-solid"></select>
+          </label>
+          <label class="ctl"><span class="ctl-top"><span>Mass of solid</span><output class="ctl-val" id="cal-ms-out"></output></span><input type="range" id="cal-ms" min="50" max="300" step="10" value="150"></label>
+          <label class="ctl"><span class="ctl-top"><span>Water in calorimeter</span><output class="ctl-val" id="cal-mw-out"></output></span><input type="range" id="cal-mw" min="100" max="300" step="10" value="200"></label>
+          <div class="ctl-group">
+            <span class="ctl-name">Good technique</span>
+            <label class="toggle"><input type="checkbox" id="cal-ins" checked><span class="sw"></span>Insulating cover + lid, quick transfer</label>
+          </div>
+        </div>
+        <div class="lab-actions">
+          <button class="btn small" id="cal-next">Start: step 1 →</button>
+          <button class="btn ghost small" id="cal-restart">↺ Start again</button>
+        </div>
+        <div class="status" id="cal-status"><span class="dot"></span><span></span></div>
+        <div class="cal-wrap">
+          <ol class="proc" id="cal-proc">
+            <li>Take an empty calorimeter of known heat capacity. Measure its mass m<sub>c</sub> with the stirrer and lid.</li>
+            <li>Fill it with enough water to submerge the solid later. Weigh calorimeter + water (m); m<sub>w</sub> = m − m<sub>c</sub>.</li>
+            <li>Place the calorimeter in its insulating cover, insert a thermometer and measure the water temperature T₁.</li>
+            <li>Measure the mass of the solid, m<sub>s</sub>.</li>
+            <li>Boil water in a beaker with the solid submerged until the solid reaches the boiling water's temperature T₂.</li>
+            <li>Remove the solid, shake off the excess water and quickly place it in the calorimeter. Cover it immediately.</li>
+            <li>Stir the water continuously for a uniform distribution of heat.</li>
+            <li>Record the final temperature of the mixture, T₃, once it becomes constant.</li>
+            <li>Calculate the rise (T₃ − T₁) for the water and calorimeter, and the fall (T₂ − T₃) for the solid.</li>
+            <li>Apply the principle of calorimetry (Eq. 10.2) to find the specific heat of the solid.</li>
+          </ol>
+          <div class="notebook">
+            <table id="cal-book">
+              <caption>Lab notebook</caption>
+              <tr data-k="mc" class="pending"><td>Mass of calorimeter + stirrer, m<sub>c</sub></td><td>–</td></tr>
+              <tr data-k="m" class="pending"><td>Mass of calorimeter + water, m</td><td>–</td></tr>
+              <tr data-k="mw" class="pending"><td>Mass of water, m<sub>w</sub> = m − m<sub>c</sub></td><td>–</td></tr>
+              <tr data-k="T1" class="pending"><td>Initial water temperature, T₁</td><td>–</td></tr>
+              <tr data-k="ms" class="pending"><td>Mass of solid, m<sub>s</sub></td><td>–</td></tr>
+              <tr data-k="T2" class="pending"><td>Temperature of boiling water and solid, T₂</td><td>–</td></tr>
+              <tr data-k="T3" class="pending"><td>Final temperature of mixture, T₃</td><td>–</td></tr>
+              <tr data-k="rise" class="pending"><td>Rise for water + calorimeter, T₃ − T₁</td><td>–</td></tr>
+              <tr data-k="fall" class="pending"><td>Fall for the solid, T₂ − T₃</td><td>–</td></tr>
+              <tr data-k="cs" class="pending"><td><b>Specific heat of solid, c<sub>s</sub></b></td><td>–</td></tr>
+            </table>
+          </div>
+        </div>
+        <div class="answer-row" id="cal-guess" hidden>
+          <span class="muted" style="font-size:.92rem">Compare with Table 10.1. The mystery solid is:</span>
+          <div class="chip-row" id="cal-guess-chips">
+            <button class="chip" data-g="aluminium" aria-pressed="false">Aluminium</button>
+            <button class="chip" data-g="iron" aria-pressed="false">Iron</button>
+            <button class="chip" data-g="copper" aria-pressed="false">Copper</button>
+            <button class="chip" data-g="lead" aria-pressed="false">Lead</button>
+          </div>
+          <span class="fb" id="cal-guess-fb"></span>
+        </div>
+        <div class="challenges">
+          <h4>Challenges</h4>
+          <ul>
+            <li data-check="l2-cal-ex103">Run <b>Example 10.3</b> (the default set-up) all the way to the end. Do you get c<sub>s</sub> ≈ 0.42 J g⁻¹ °C⁻¹?</li>
+            <li data-check="l2-cal-mystery">Choose the <b>Mystery solid</b>, measure its specific heat and identify it from Table 10.1.</li>
+            <li data-check="l2-cal-loss">Switch off “good technique” (no cover, slow transfer) and repeat the experiment. Is your answer too big or too small?</li>
+          </ul>
+        </div>
+        <p class="lab-foot">Calorimeter: 50 g, c<sub>c</sub> = 0.9 J g⁻¹ °C⁻¹ (as in Example 10.3). Water: c<sub>w</sub> = 4.18 J g⁻¹ °C⁻¹. The balance reads to 1 g and the thermometers to 0.1 °C.</p>
+      </div>
+
+      <h3 id="derive" data-toc="Deriving Eq. 10.2" data-toc-sub><span class="h3-dot"></span>Turning the readings into c<sub>s</sub></h3>
+      <p>From the principle of calorimetry (the law of conservation of energy), the heat given by the solid in cooling from T₂ to T₃ is equal to the heat gained by the water and the calorimeter in raising their temperature from T₁ to T₃.</p>
+      <div class="steps rv" data-check="l2-derive" data-msg="Eq. 10.2 derived!">
+        <div class="steps-head"><p><span class="qn">Derivation</span>Specific heat of a solid by the method of mixtures</p></div>
+        <ol>
+          <li class="step"><b>Heat lost = heat gained:</b> \[ \text{Heat lost by solid} = \text{Heat gained by water} + \text{Heat gained by calorimeter} \] \[ Q_s = Q_w + Q_c \]</li>
+          <li class="step"><b>Write each one as Q = mcΔT.</b> The solid cools from T₂ to T₃; the water and calorimeter warm from T₁ to T₃: \[ m_s c_s (T_2 - T_3) = m_w c_w (T_3 - T_1) + m_c c_c (T_3 - T_1) \]</li>
+          <li class="step"><b>Divide both sides by m<sub>s</sub>(T₂ − T₃)</b> to get c<sub>s</sub> on its own: \[ c_s = \frac{m_w c_w (T_3 - T_1) + m_c c_c (T_3 - T_1)}{m_s (T_2 - T_3)} \]</li>
+          <li class="step final"><b>Take out the common factor (T₃ − T₁):</b> \[ c_s = \frac{(m_w c_w + m_c c_c)(T_3 - T_1)}{m_s (T_2 - T_3)} \qquad \textbf{(10.2)} \]</li>
+        </ol>
+        <div class="steps-ctrl"><button class="btn small" data-next>Start derivation</button><button class="btn ghost small" data-all>Show all</button><button class="btn ghost small" data-reset hidden>Reset</button></div>
+      </div>
+      <div class="formula rv">
+        <div class="formula-body">\[ c_s = \frac{(m_w c_w + m_c c_c)(T_3 - T_1)}{m_s (T_2 - T_3)} \]
+          <div class="formula-note">Result: put in the measured masses of solid, water and calorimeter, the specific heats of water and calorimeter, and T₁, T₂, T₃.</div>
+        </div>
+        <span class="eq-tag">(10.2)</span>
+      </div>
+
+      <div class="quiz rv" data-check="l2-q-cover" data-explain="While the hot solid is in the air, and if the calorimeter is open, some of its heat escapes to the surroundings instead of going into the water. Then T₃ comes out <b>too low</b>, (T₃ − T₁) is too small and the calculated c<sub>s</sub> is <b>too small</b>. You can see this in Lab 2's third challenge.">
+        <div class="quiz-label">Quick check <span class="xp-pill">+10 XP</span></div>
+        <p class="quiz-q">Why must the hot solid be transferred <em>quickly</em> and the calorimeter covered immediately?</p>
+        <div class="quiz-opts">
+          <button data-why="The water won't boil: it's only warming by a few degrees.">To stop the water in the calorimeter from boiling</button>
+          <button data-correct>So that almost no heat is lost to the surroundings; every joule the solid loses should go into the water and calorimeter</button>
+          <button data-why="Evaporation is a minor effect here. The main point is that heat lost to the air isn't counted in the equation.">To stop the solid from evaporating</button>
+          <button data-why="Speed doesn't change the solid's mass. It's about where the heat goes.">So that the mass of the solid doesn't change</button>
+        </div>
+        <div class="quiz-fb" hidden></div>
+      </div>
+
+      <div class="quiz rv" data-check="l2-q-stir" data-explain="Stirring spreads the heat <b>uniformly</b>, so the whole of the water (and the calorimeter) reaches the same temperature, and the single thermometer reading T₃ is true for all of it.">
+        <div class="quiz-label">Quick check <span class="xp-pill">+10 XP</span></div>
+        <p class="quiz-q">Why is the water stirred continuously after the solid is put in?</p>
+        <div class="quiz-opts">
+          <button data-why="Stirring adds a tiny amount of energy, but far too little to matter. That isn't why we stir.">To add extra heat to the water</button>
+          <button data-why="Stirring doesn't cool the solid any faster in a way that matters to the equation. What matters is getting one true temperature for all of the water.">To cool the solid down faster</button>
+          <button data-correct>For a uniform distribution of heat, so that one reading T₃ is the temperature of all the water</button>
+          <button data-why="The solid must stay fully under the water, but that's not the reason for stirring.">To keep the solid at the bottom</button>
+        </div>
+        <div class="quiz-fb" hidden></div>
+      </div>
+
+      <!-- liquids -->
+      <h3 id="liquids" data-toc="A (ii). Liquids · Eq. 10.3" data-toc-sub><span class="h3-dot"></span>A (ii). Unknown specific heat of a liquid</h3>
+      <p>To measure the unknown specific heat capacity of a liquid, we follow the same procedure. But in this experiment we take a <strong>solid of known specific heat capacity</strong> c<sub>s</sub>, and a <strong>liquid of unknown specific heat capacity</strong> c<sub>l</sub> in the calorimeter. For this experiment, the law of conservation of energy can be written as:</p>
+      <div class="formula rv">
+        <div class="formula-body">\[ m_s c_s (T_2 - T_3) = m_l c_l (T_3 - T_1) + m_c c_c (T_3 - T_1) \]</div>
+      </div>
+      <p>By rearranging the equation, we get \( m_l c_l (T_3 - T_1) = m_s c_s (T_2 - T_3) - m_c c_c (T_3 - T_1) \). Hence:</p>
+      <div class="formula rv">
+        <div class="formula-body">\[ c_l = \frac{m_s c_s (T_2 - T_3) - m_c c_c (T_3 - T_1)}{m_l (T_3 - T_1)} \]
+          <div class="formula-note">the solid is now the “known”, and the liquid is the “unknown”</div>
+        </div>
+        <span class="eq-tag">(10.3)</span>
+      </div>
+
+      <!-- Example 10.3 -->
+      <h3 id="ex103" data-toc="Example 10.3" data-toc-sub><span class="h3-dot"></span>Worked example</h3>
+      <div class="steps rv" data-check="l2-ex103" data-msg="Example 10.3 solved!">
+        <div class="steps-head">
+          <p><span class="qn">Example 10.3</span>A 150 g piece of an unknown solid cylinder is heated to 100 °C and then placed into a calorimeter containing 200 g of water at 25 °C. The calorimeter has a mass of 50 g and a specific heat capacity of 0.9 J/g °C. The final temperature of the system (solid, water and calorimeter) is 30 °C. Assume no heat is lost to the surroundings. Calculate the specific heat capacity of the solid.</p>
+          <span class="ans-key">Answer: 0.42 J/g °C</span>
+        </div>
+        <ol>
+          <li class="step"><b>Given:</b> m<sub>s</sub> = 150 g · m<sub>w</sub> = 200 g · m<sub>c</sub> = 50 g · T₁ = 25 °C · T₂ = 100 °C · T₃ = 30 °C · c<sub>w</sub> = 4.18 J/g °C · c<sub>c</sub> = 0.9 J/g °C.<br><b>Required:</b> c<sub>s</sub> = ? (in J/g °C)</li>
+          <li class="step"><b>Principle of calorimetry</b> (Eq. 10.2): \[ c_s = \frac{(m_w c_w + m_c c_c)(T_3 - T_1)}{m_s (T_2 - T_3)} \]</li>
+          <li class="step"><b>Put in the values:</b> \[ c_s = \frac{\{(200)(4.18) + (50)(0.9)\} \times (30 - 25)}{(150) \times (100 - 30)} \]</li>
+          <li class="step"><b>Work it out:</b> \[ c_s = \frac{(836 + 45) \times 5}{150 \times 70} = \frac{4405}{10\,500} \]</li>
+          <li class="step final"><b>Answer:</b> \[ c_s = 0.42\ \text{J/g}\,{}^\circ\text{C} \] The specific heat capacity of the solid is 0.42 J/g °C (= 420 J kg⁻¹ K⁻¹).</li>
+        </ol>
+        <div class="steps-ctrl">
+          <button class="btn small" data-next>Start solution</button>
+          <button class="btn ghost small" data-all>Show all</button>
+          <button class="btn ghost small" data-reset hidden>Reset</button>
+          <a class="btn ghost small" href="#lab-cal" data-cal-load="ex103">Run it in Lab 2 ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ELECTRICAL ================= -->
+    <section class="sec" id="electrical" data-toc="B. Electrical heating method">
+      <div class="sec-head">
+        <span class="sec-num">B</span>
+        <h2>Electrical Heating Method</h2>
+        <span class="page-ref">Textbook pp. 18 – 19</span>
+      </div>
+      <p class="hook">The method of mixtures measures heat indirectly, through the water. Here's a more direct idea: put the heat in with an electric heater, where we can measure exactly how much energy goes in.</p>
+
+      <div class="callout insight rv">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <div>
+          <h4>Information: heat from an electric heater</h4>
+          <p>Heat generated by the heater = electrical energy supplied to the heater:</p>
+          <p>\[ \text{Heat energy} = \text{Voltage} \times \text{current} \times \text{time} \qquad Q = V I t \]</p>
+          <p>You will study this formula in detail in Unit 16: Current Electricity.</p>
+        </div>
+      </div>
+
+      <h3 id="el-solid" data-toc="B (i). Solids · Eq. 10.4" data-toc-sub><span class="h3-dot"></span>B (i). Specific heat of a solid</h3>
+      <p>In this method, we measure the amount of heat transferred to a material and measure its temperature change.</p>
+      <div class="kv rv">
+        <div><h4>Apparatus</h4>A solid block or cylinder (e.g. aluminium) with a hole in it for a heater and a smaller hole for a thermometer, an immersion heater, voltmeter, ammeter and thermometer.</div>
+        <div><h4>Result</h4>Calculate the specific heat capacity of the block with Eq. 10.4, using Q = VIt and ΔT = highest temperature − initial temperature.</div>
+      </div>
+      <ol class="proc rv">
+        <li>Measure the mass of the solid block.</li>
+        <li>Place an electrical immersion heater into the central hole at the top of the weighed metal block. Connect the heater with an ammeter (to measure current) and a voltmeter (to measure voltage) as shown in Fig. 10.3.</li>
+        <li>Place the thermometer into the smaller hole. Add a few drops of oil into the hole so that the thermometer is surrounded by hot material.</li>
+        <li>Insulate the block by wrapping it with cotton wool.</li>
+        <li>Record the initial temperature of the block.</li>
+        <li>Connect the heater to the power supply and turn it on for ten minutes. Record the current and potential difference.</li>
+        <li>After ten minutes, turn the heater off. Record the highest temperature that it reaches (the reading rises even after the heater is turned off).</li>
+        <li>Calculate the heat energy generated by the heater.</li>
+      </ol>
+      <figure class="rv">
+        <div class="fig-box">
+          <svg class="fig-svg" viewBox="0 0 560 280" role="img" aria-label="Figure 10.3: a metal block with an immersion heater in its central hole and a thermometer in a smaller hole. The heater is connected through an ammeter to a supply, with a voltmeter across it.">
+            <defs><linearGradient id="alG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9aa3b2"/><stop offset=".5" stop-color="#d7dce5"/><stop offset="1" stop-color="#8a93a3"/></linearGradient></defs>
+            <!-- cotton wool -->
+            <rect x="120" y="120" width="160" height="140" rx="26" fill="rgba(240,240,255,.06)" stroke="rgba(240,240,255,.35)" stroke-dasharray="3 5" stroke-width="6"/>
+            <rect x="140" y="135" width="120" height="115" rx="6" fill="url(#alG)"/>
+            <rect x="185" y="128" width="22" height="90" rx="4" fill="#1b2140"/>
+            <rect x="190" y="70" width="12" height="140" rx="5" fill="#ff7a45"/>
+            <rect x="229" y="128" width="12" height="70" rx="4" fill="#1b2140"/>
+            <line x1="235" y1="40" x2="235" y2="192" stroke="#e9edff" stroke-width="4" stroke-linecap="round"/><circle cx="235" cy="193" r="5" fill="#ff6b7a"/>
+            <!-- circuit -->
+            <path d="M196 70 V30 H360 V60" stroke="#8b95bb" stroke-width="2" fill="none"/>
+            <path d="M196 210 V266 H460 V30 H420" stroke="#8b95bb" stroke-width="2" fill="none"/>
+            <circle cx="360" cy="80" r="18" fill="#0e1630" stroke="#5fe3ff" stroke-width="2"/><text x="360" y="85" fill="#5fe3ff" font-size="15" text-anchor="middle" font-family="Space Grotesk">A</text>
+            <path d="M360 98 V120 H420 V30" stroke="#8b95bb" stroke-width="2" fill="none"/>
+            <path d="M430 24 l20 -10" stroke="#8b95bb" stroke-width="2"/>
+            <circle cx="300" cy="170" r="18" fill="#0e1630" stroke="#ffc65c" stroke-width="2"/><text x="300" y="175" fill="#ffc65c" font-size="15" text-anchor="middle" font-family="Space Grotesk">V</text>
+            <path d="M300 152 V44 H196" stroke="#8b95bb" stroke-width="1.5" fill="none" stroke-dasharray="4 3"/>
+            <path d="M300 188 V250 H196" stroke="#8b95bb" stroke-width="1.5" fill="none" stroke-dasharray="4 3"/>
+            <rect x="476" y="110" width="58" height="70" rx="8" fill="#1b2140" stroke="#8b95bb"/><text x="505" y="142" fill="#e9edff" font-size="11" text-anchor="middle">power</text><text x="505" y="156" fill="#e9edff" font-size="11" text-anchor="middle">supply</text>
+            <path d="M460 140 H476" stroke="#8b95bb" stroke-width="2"/>
+            <text x="20" y="96" fill="#ff7a45" font-size="11">Immersion heater</text><path d="M118 92 L188 100" stroke="#ff7a45" stroke-width="1"/>
+            <text x="20" y="200" fill="#c9ced8" font-size="11">Metal block</text><path d="M96 196 L140 196" stroke="#c9ced8" stroke-width="1"/>
+            <text x="250" y="36" fill="#e9edff" font-size="11">Thermometer</text>
+            <text x="20" y="250" fill="rgba(240,240,255,.6)" font-size="11">Cotton wool</text>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 10.3</b>Measurement of the specific heat capacity of a solid by the electrical method. The ammeter is in series with the heater; the voltmeter is connected across it.</figcaption>
+      </figure>
+      <div class="formula rv">
+        <div class="formula-body">\[ c = \frac{Q}{m\,\Delta T} = \frac{V I t}{m\,\Delta T} \]</div>
+        <span class="eq-tag">(10.4)</span>
+      </div>
+
+      <h3 id="el-liquid" data-toc="B (ii). Liquids · Eq. 10.5" data-toc-sub><span class="h3-dot"></span>B (ii). Specific heat of a liquid</h3>
+      <div class="kv rv">
+        <div><h4>Apparatus</h4>An immersion heater, voltmeter, ammeter, thermometer, water (or another liquid) and a calorimeter.</div>
+        <div><h4>Energy balance</h4>Energy supplied = heat gained by liquid + heat gained by calorimeter:<br>\( Q_{heater} = Q_l + Q_c \)</div>
+      </div>
+      <ol class="proc rv">
+        <li>Measure the mass of the empty calorimeter (m<sub>c</sub>).</li>
+        <li>Add some liquid (e.g. water) to the calorimeter and measure the mass of calorimeter plus liquid (m). The difference (m − m<sub>c</sub>) gives the mass of liquid m<sub>l</sub>.</li>
+        <li>Measure the initial temperature of the calorimeter plus liquid with a thermometer.</li>
+        <li>Place the electrical heater inside the liquid and connect an ammeter and a voltmeter. Switch it on. Measure the voltage and the current through the heater, as shown in Fig. 10.4.</li>
+        <li>The temperature will start to rise. When it has risen by 10 °C, switch off the heater, stir the liquid well and measure the highest temperature. Find the difference between the highest and the initial temperature.</li>
+        <li>Apply the law of conservation of energy (below).</li>
+      </ol>
+      <figure class="rv">
+        <div class="fig-box">
+          <svg class="fig-svg" viewBox="0 0 560 270" role="img" aria-label="Figure 10.4: an insulated container of liquid with a heating resistor and a thermometer, connected to a 12 V DC supply through an ammeter, with a voltmeter across the heater">
+            <rect x="110" y="80" width="230" height="170" rx="8" fill="#1b2140" stroke="#8b95bb" stroke-width="2"/>
+            <rect x="126" y="96" width="198" height="140" rx="6" fill="rgba(255,255,255,.03)" stroke="#5a6488"/>
+            <rect x="128" y="132" width="194" height="102" rx="5" fill="rgba(80,150,255,.35)"/>
+            <rect x="110" y="70" width="230" height="16" rx="4" fill="#2a3358" stroke="#8b95bb"/>
+            <rect x="190" y="196" width="80" height="20" rx="8" fill="#ff7a45" opacity=".85"/>
+            <path d="M200 196 V60 M260 196 V60" stroke="#8b95bb" stroke-width="2"/>
+            <line x1="150" y1="30" x2="150" y2="220" stroke="#e9edff" stroke-width="4" stroke-linecap="round"/><circle cx="150" cy="221" r="5" fill="#ff6b7a"/>
+            <path d="M200 60 V30 H300 M260 60 V45 H330 V30 H360" stroke="#8b95bb" stroke-width="2" fill="none"/>
+            <circle cx="310" cy="30" r="0"/>
+            <circle cx="380" cy="30" r="17" fill="#0e1630" stroke="#5fe3ff" stroke-width="2"/><text x="380" y="35" fill="#5fe3ff" font-size="14" text-anchor="middle" font-family="Space Grotesk">A</text>
+            <path d="M300 30 H280" stroke="#8b95bb"/>
+            <path d="M397 30 H460 V120" stroke="#8b95bb" stroke-width="2" fill="none"/>
+            <circle cx="300" cy="30" r="3" fill="#8b95bb"/>
+            <rect x="430" y="120" width="62" height="40" rx="7" fill="#1b2140" stroke="#8b95bb"/><text x="461" y="145" fill="#e9edff" font-size="11" text-anchor="middle">12 V DC</text>
+            <circle cx="420" cy="90" r="16" fill="#0e1630" stroke="#ffc65c" stroke-width="2"/><text x="420" y="95" fill="#ffc65c" font-size="14" text-anchor="middle" font-family="Space Grotesk">V</text>
+            <path d="M420 74 V60 H300 V30" stroke="#8b95bb" stroke-width="1.5" fill="none" stroke-dasharray="4 3"/>
+            <path d="M420 106 V160 H430" stroke="#8b95bb" stroke-width="1.5" fill="none" stroke-dasharray="4 3"/>
+            <text x="350" y="104" fill="#8b95bb" font-size="11">Insulated</text><text x="350" y="118" fill="#8b95bb" font-size="11">container</text>
+            <text x="350" y="190" fill="#5fe3ff" font-size="11">Liquid</text><text x="350" y="204" fill="#5fe3ff" font-size="11">e.g. water</text>
+            <text x="230" y="262" fill="#ff7a45" font-size="11" text-anchor="middle">Heating resistor</text>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 10.4</b>Measurement of the specific heat capacity of a liquid by the electrical method.</figcaption>
+      </figure>
+      <div class="formula rv">
+        <div class="formula-body">\[ Q_{heater} = m_l c_l (T_f - T_i) + m_c c_c (T_f - T_i) \]
+          \[ c_l = \frac{Q_{heater} - m_c c_c (T_f - T_i)}{m_l (T_f - T_i)} \]
+          <div class="formula-note">Q<sub>heater</sub> = VIt · T<sub>i</sub> = initial temperature · T<sub>f</sub> = highest (final) temperature</div>
+        </div>
+        <span class="eq-tag">(10.5)</span>
+      </div>
+
+      <!-- LAB 3 -->
+      <div class="lab rv" id="lab-el">
+        <div class="lab-head">
+          <span class="lab-badge"><span class="pulse"></span>Lab 3 · Figs. 10.3 &amp; 10.4</span>
+          <h3>The electrical method bench</h3>
+          <p class="lab-sub">Set the voltage, switch on, and let the clock run (time is sped up 30×). The solid's heater switches off after 10 minutes; the liquid's switches off after a 10 °C rise, as in the book. Keep watching the thermometer after switch-off!</p>
+        </div>
+        <div class="lab-stage"><canvas class="lab-canvas ar-el" id="el-canvas" aria-label="Heater circuit with ammeter and voltmeter, the sample, and a live temperature graph"></canvas></div>
+        <div class="lab-controls">
+          <div class="ctl-group">
+            <span class="ctl-name">Experiment</span>
+            <div class="chip-row" id="el-mode">
+              <button class="chip" data-mode="solid" aria-pressed="true">(i) Solid block</button>
+              <button class="chip" data-mode="liquid" aria-pressed="false">(ii) Liquid in calorimeter</button>
+            </div>
+          </div>
+          <label class="ctl"><span class="ctl-top"><span id="el-mat-name">Block material</span></span><select class="sel" id="el-mat"></select></label>
+          <label class="ctl"><span class="ctl-top"><span id="el-m-name">Mass of block</span><output class="ctl-val" id="el-m-out"></output></span><input type="range" id="el-m" min="0.5" max="2" step="0.1" value="1"></label>
+          <label class="ctl"><span class="ctl-top"><span>Supply voltage V</span><output class="ctl-val" id="el-v-out"></output></span><input type="range" id="el-v" min="4" max="12" step="0.5" value="12"></label>
+          <div class="ctl-group">
+            <span class="ctl-name">Insulation</span>
+            <label class="toggle"><input type="checkbox" id="el-ins" checked><span class="sw"></span><span id="el-ins-name">Cotton wool around the block</span></label>
+          </div>
+        </div>
+        <div class="lab-actions">
+          <button class="btn small" id="el-go">⚡ Switch on</button>
+          <button class="btn ghost small" id="el-reset">↺ Reset</button>
+        </div>
+        <div class="readouts">
+          <div class="ro"><span class="ro-k">Voltmeter V</span><span class="ro-v" id="el-rv">–</span></div>
+          <div class="ro"><span class="ro-k">Ammeter I</span><span class="ro-v" id="el-ri">–</span></div>
+          <div class="ro"><span class="ro-k">Heater on for t</span><span class="ro-v" id="el-rt">–</span></div>
+          <div class="ro"><span class="ro-k">Q = VIt</span><span class="ro-v" id="el-rq">–</span></div>
+          <div class="ro"><span class="ro-k">Highest T (start 25.0 °C)</span><span class="ro-v" id="el-rT">–</span></div>
+          <div class="ro"><span class="ro-k" id="el-rc-k">c = Q / mΔT</span><span class="ro-v" id="el-rc">–</span></div>
+        </div>
+        <div class="status" id="el-status"><span class="dot"></span><span></span></div>
+        <div class="challenges">
+          <h4>Challenges</h4>
+          <ul>
+            <li data-check="l2-el-solid">Measure the specific heat of the <b>aluminium block</b> (insulated, full 10 minutes) to within 5 % of the table value, 910 J kg⁻¹ K⁻¹.</li>
+            <li data-check="l2-el-after">After switch-off, keep watching for at least <b>one more minute</b> (lab time). Does the thermometer stop rising straight away?</li>
+            <li data-check="l2-el-liquid">Switch to the <b>liquid</b> experiment and measure the specific heat of <b>water</b> to within 5 %.</li>
+            <li data-check="l2-el-loss">Remove the insulation and run any experiment again. Is the measured c too big or too small?</li>
+          </ul>
+        </div>
+        <p class="lab-foot">Heater resistance 4 Ω, so I = V / 4 Ω. Liquid set-up: aluminium calorimeter of 100 g (c<sub>c</sub> = 900 J kg⁻¹ K⁻¹). The heater itself has a small heat capacity, which is why the reading creeps up after switch-off. Room temperature is 25 °C.</p>
+      </div>
+
+      <div class="quiz rv" data-check="l2-q-after" data-explain="While it was on, the heater was <b>hotter</b> than the block, and heat takes time to spread through the metal to the thermometer. After switch-off, the hot heater keeps passing heat to the block for a while, so the temperature keeps rising. That's why the book says to record the <b>highest</b> temperature.">
+        <div class="quiz-label">Quick check <span class="xp-pill">+10 XP</span></div>
+        <p class="quiz-q">In the electrical method, why does the thermometer reading keep rising for a while after the heater is switched off?</p>
+        <div class="quiz-opts">
+          <button data-why="The circuit is switched off, so no more electrical energy is supplied.">The heater keeps drawing current for a while</button>
+          <button data-correct>The heater is hotter than the block and still passes its stored heat on; heat also takes time to reach the thermometer</button>
+          <button data-why="The cotton wool is an insulator. It slows heat loss but doesn't produce heat.">The cotton wool releases heat into the block</button>
+          <button data-why="A thermometer can lag a little, but the block really is still getting warmer: the heat is real.">The thermometer is faulty</button>
+        </div>
+        <div class="quiz-fb" hidden></div>
+      </div>
+
+      <div class="quiz rv" data-check="l2-q-ins" data-explain="Q = VIt counts <b>all</b> the energy supplied, but some escapes to the air, so the block warms up <b>less</b>. With ΔT too small in c = Q / (mΔT), the calculated c is <b>too large</b>.">
+        <div class="quiz-label">Quick check <span class="xp-pill">+10 XP</span></div>
+        <p class="quiz-q">If the block is <em>not</em> wrapped in cotton wool, the value of c calculated with Eq. 10.4 will be:</p>
+        <div class="quiz-opts">
+          <button data-why="Heat lost to the air means ΔT is smaller than it should be. Look at where ΔT sits in the formula.">Too small</button>
+          <button data-correct>Too large</button>
+          <button data-why="The lost heat changes ΔT, so the result is affected.">Unchanged</button>
+          <button data-why="The formula still gives a number, just a wrong one.">Impossible to calculate</button>
+        </div>
+        <div class="quiz-fb" hidden></div>
+      </div>
+    </section>
+
+    <!-- ================= PRACTICE ================= -->
+    <section class="sec" id="practice" data-toc="From your textbook">
+      <div class="sec-head">
+        <span class="sec-num">Q</span>
+        <h2>From Your Textbook</h2>
+        <span class="page-ref">Exercise p. 44</span>
+      </div>
+      <p>These numericals use the method of mixtures. Try each one yourself before revealing the steps.</p>
+
+      <div class="steps rv" data-check="l2-n5">
+        <div class="steps-head">
+          <p><span class="qn">QV 5</span>In a container, 100 g of water at 80 °C is mixed with 200 g of water at 20 °C. What will be the final temperature of the mixture, assuming no heat loss to the surroundings (and container)? (Specific heat capacity of water = 4200 J kg⁻¹ K⁻¹ or 4.2 J g⁻¹ K⁻¹.)</p>
+          <span class="ans-key">Textbook answer: 40 °C</span>
+        </div>
+        <ol>
+          <li class="step"><b>Given:</b> hot water m₁ = 100 g at 80 °C · cold water m₂ = 200 g at 20 °C · c = 4.2 J g⁻¹ K⁻¹. Let the final temperature be <b>T</b>.</li>
+          <li class="step"><b>Principle of calorimetry:</b> heat lost by hot water = heat gained by cold water: \[ m_1 c\,(80 - T) = m_2 c\,(T - 20) \]</li>
+          <li class="step"><b>c is on both sides, so it cancels:</b> \[ 100\,(80 - T) = 200\,(T - 20) \;\Rightarrow\; 8000 - 100T = 200T - 4000 \]</li>
+          <li class="step final"><b>Solve:</b> \[ 300\,T = 12\,000 \;\Rightarrow\; T = \mathbf{40\ {}^\circ C} \] Check: heat lost = 100 × 4.2 × 40 = 16 800 J; heat gained = 200 × 4.2 × 20 = 16 800 J ✓</li>
+        </ol>
+        <div class="steps-ctrl">
+          <button class="btn small" data-next>Start solution</button>
+          <button class="btn ghost small" data-all>Show all</button>
+          <button class="btn ghost small" data-reset hidden>Reset</button>
+          <a class="btn ghost small" href="#lab-mix" data-mix-load>Pour it in Lab 1 ↗</a>
+        </div>
+      </div>
+
+      <div class="steps rv" data-check="l2-n6">
+        <div class="steps-head">
+          <p><span class="qn">QV 6</span>A 200 g piece of an unknown solid cylinder is heated to 110 °C and then placed into a calorimeter containing 200 g of water at 20 °C. The calorimeter has a mass of 60 g and a specific heat capacity of 0.9 J/g °C. The final temperature of the system (solid, water and calorimeter) is 35 °C. Assume no heat is lost to the surroundings. Calculate the specific heat capacity of the solid.</p>
+          <span class="ans-key">Textbook answer: 890 J kg⁻¹ K⁻¹ or 0.89 J g⁻¹ K⁻¹</span>
+        </div>
+        <ol>
+          <li class="step"><b>Given:</b> m<sub>s</sub> = 200 g · T₂ = 110 °C · m<sub>w</sub> = 200 g · T₁ = 20 °C · m<sub>c</sub> = 60 g · c<sub>c</sub> = 0.9 J/g °C · T₃ = 35 °C · c<sub>w</sub> = 4.18 J/g °C.</li>
+          <li class="step"><b>Eq. 10.2:</b> \[ c_s = \frac{(m_w c_w + m_c c_c)(T_3 - T_1)}{m_s (T_2 - T_3)} \]</li>
+          <li class="step"><b>Put in the values:</b> \[ c_s = \frac{\{(200)(4.18) + (60)(0.9)\}(35 - 20)}{(200)(110 - 35)} = \frac{(836 + 54) \times 15}{200 \times 75} \]</li>
+          <li class="step final"><b>Answer:</b> \[ c_s = \frac{13\,350}{15\,000} = \mathbf{0.89\ J\,g^{-1}\,K^{-1}} = 890\ \text{J kg}^{-1}\,\text{K}^{-1} \] That's close to aluminium (910 in Table 10.1).</li>
+        </ol>
+        <div class="steps-ctrl">
+          <button class="btn small" data-next>Start solution</button>
+          <button class="btn ghost small" data-all>Show all</button>
+          <button class="btn ghost small" data-reset hidden>Reset</button>
+        </div>
+      </div>
+
+      <div class="qa rv" data-check="l2-qa-design">
+        <div class="qa-q"><span class="qn">SLO</span><span>Suggest an experiment to measure the specific heat capacity of a liquid. Which readings would you take, and how would you reduce errors?</span></div>
+        <details>
+          <summary>Show model answer</summary>
+          <div class="ans">
+            <p><b>Electrical method</b> (Fig. 10.4):</p>
+            <ul>
+              <li>Weigh the empty calorimeter (m<sub>c</sub>), then with the liquid (m), so m<sub>l</sub> = m − m<sub>c</sub>.</li>
+              <li>Record the initial temperature T<sub>i</sub>. Switch on the immersion heater, record V and I, and time how long it is on (t).</li>
+              <li>After about a 10 °C rise, switch off, stir, and record the highest temperature T<sub>f</sub>.</li>
+              <li>Calculate Q = VIt and use \( c_l = \dfrac{VIt - m_c c_c (T_f - T_i)}{m_l (T_f - T_i)} \) (Eq. 10.5).</li>
+            </ul>
+            <p><b>Reducing errors:</b> insulate the calorimeter and use a lid (less heat lost to the surroundings); stir so the temperature is uniform; read the <b>highest</b> temperature after switch-off; keep the temperature rise small so the liquid stays close to room temperature and loses less heat.</p>
+            <p>(Alternatively: the <b>method of mixtures</b> with a hot solid of <em>known</em> c dropped into the liquid, using Eq. 10.3.)</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ================= SUMMARY ================= -->
+    <section class="sec" id="summary" data-toc="Summary">
+      <div class="sec-head">
+        <span class="sec-num">★</span>
+        <h2>Lesson Summary</h2>
+      </div>
+      <div class="sheet">
+        <div class="sheet-card rv"><h4>Principle of calorimetry</h4><div class="f">Heat lost = heat gained</div><p>Conservation of energy, valid when no heat escapes to the surroundings.</p></div>
+        <div class="sheet-card rv"><h4>Mixtures · solid (10.2)</h4><div class="f">\( c_s = \dfrac{(m_w c_w + m_c c_c)(T_3 - T_1)}{m_s (T_2 - T_3)} \)</div><p>Hot solid (T₂) into water + calorimeter (T₁); final temperature T₃.</p></div>
+        <div class="sheet-card rv"><h4>Mixtures · liquid (10.3)</h4><div class="f">\( c_l = \dfrac{m_s c_s (T_2 - T_3) - m_c c_c (T_3 - T_1)}{m_l (T_3 - T_1)} \)</div><p>Use a solid of known c.</p></div>
+        <div class="sheet-card rv"><h4>Electrical · solid (10.4)</h4><div class="f">\( c = \dfrac{VIt}{m\,\Delta T} \)</div><p>Heater on for 10 min; record the highest temperature.</p></div>
+        <div class="sheet-card rv"><h4>Electrical · liquid (10.5)</h4><div class="f">\( c_l = \dfrac{Q_{heater} - m_c c_c (T_f - T_i)}{m_l (T_f - T_i)} \)</div><p>Switch off after a 10 °C rise, stir, record the highest temperature.</p></div>
+        <div class="sheet-card rv"><h4>Errors</h4><div class="f">Heat lost to surroundings</div><p>Mixtures: c comes out too small. Electrical: c comes out too large. Insulate, cover, transfer fast and stir.</p></div>
+      </div>
+
+      <div class="mastered">
+        <h3>🎉 Lesson mastered!</h3>
+        <p>You can describe, carry out and analyse both experiments for measuring specific heat capacity, and you know where their errors come from.</p>
+      </div>
+
+      <div class="next-card">
+        <div>
+          <div class="nx-k">Up next · Lesson 3 · § 10.2 – 10.2.1 · coming soon</div>
+          <h3>Conduction</h3>
+          <p>Vibrating atoms and free electrons: why a metal door handle feels colder than the wooden door.</p>
+        </div>
+        <a class="btn" href="index.html#lessons">Back to Unit 10 →</a>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer class="foot">
+  <p>Lumen · interactive notes for Class 10 Physics, Unit 10 “Heat Capacity and Modes of Heat Transfer” (textbook pp. 11 – 44).</p>
+  <p>Your progress is saved in this browser only.</p>
+</footer>
+
+<script src="../../assets/js/core.js"></script>
+<script src="js/lesson-2.js"></script>
+</body>
+</html>

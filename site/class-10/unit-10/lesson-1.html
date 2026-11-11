@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Specific Heat Capacity · Unit 10 · Class 10 Physics · Lumen Physics</title>
+<meta name="description" content="Specific heat capacity: c = Q/mΔT, Table 10.1, uses of the large specific heat of water, Examples 10.1 and 10.2 and the matching exercise questions, with interactive labs. Class 10 Physics Unit 10, section 10.1.">
+<meta name="theme-color" content="#060a17">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lumen Physics">
+<meta property="og:title" content="Specific Heat Capacity · Class 10 Unit 10 Lesson 1 · Lumen Physics">
+<meta property="og:description" content="Race water against copper, unmask a mystery metal and see why Karachi stays mild. Class 10 Physics §10.1.">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/css/main.css">
+<style>
+  .lesson-hero .kicker { color: var(--amber); }
+  .heat-grad { background: linear-gradient(100deg, var(--amber) 0%, var(--pink) 60%, var(--violet) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .ar-rig { aspect-ratio: 1 / 1; }
+  .ar-graph { aspect-ratio: 5 / 4; }
+  .ar-cities { aspect-ratio: 16 / 7; }
+  .ar-year { aspect-ratio: 16 / 6; }
+  @media (max-width: 640px) {
+    .ar-cities { aspect-ratio: 4 / 3; }
+    .ar-year { aspect-ratio: 16 / 10; }
+  }
+  .lab-stage .stack { display: grid; gap: 12px; }
+  .fig-svg text { font-family: "JetBrains Mono", monospace; }
+  .sample-a { color: var(--cyan); } .sample-b { color: var(--pink); }
+
+  /* Table 10.1 with bars */
+  .ctable { margin: 1.6em 0; border-radius: var(--r); overflow: hidden; border: 1px solid var(--line-2); max-width: var(--maxw); }
+  .ctable .cap { padding: 12px 16px; background: var(--panel-2); font-family: var(--head); font-weight: 600; display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+  .ctable .cap small { font-family: var(--body); font-weight: 400; color: var(--muted); font-size: .82rem; }
+  .ctable table { width: 100%; border-collapse: collapse; font-size: .93rem; }
+  .ctable td { padding: 7px 14px; border-top: 1px solid var(--line); background: var(--panel); color: var(--text-2); }
+  .ctable td.v { font-family: var(--mono); color: var(--text); text-align: right; width: 70px; }
+  .ctable td.bar { width: 55%; }
+  .ctable td.bar span { display: block; height: 10px; border-radius: 6px; background: linear-gradient(90deg, var(--violet), var(--pink), var(--amber)); box-shadow: 0 0 10px rgba(255, 95, 168, .35); }
+  .ctable tr.gas td.bar span { background: linear-gradient(90deg, rgba(169,139,255,.5), rgba(95,227,255,.5)); box-shadow: none; }
+  .ctable tr[data-mat] { cursor: pointer; }
+  .ctable tr[data-mat]:hover td { background: rgba(95, 227, 255, .06); color: var(--text); }
+  .ctable tr[data-mat] td:first-child::after { content: " ↗"; color: var(--muted); font-size: .8em; }
+  .ctable tr.hl td { background: rgba(255, 198, 92, .08); }
+
+  /* Fig 10.1: animated cooling system */
+  .flow { stroke-dasharray: 9 11; animation: flow 1.1s linear infinite; }
+  .flow.slow { animation-duration: 1.8s; }
+  @keyframes flow { to { stroke-dashoffset: -40; } }
+  .fan { transform-origin: 262px 160px; animation: spin 1.4s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .air { animation: air 1.6s linear infinite; }
+  @keyframes air { from { transform: translateX(-14px); opacity: 0; } 30% { opacity: 1; } to { transform: translateX(14px); opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .flow, .fan, .air { animation: none; } }
+
+  .opener { display: grid; grid-template-columns: 1fr; gap: 0; max-width: var(--maxw); border-radius: var(--r-lg); overflow: hidden; border: 1px solid var(--line-2);
+    background: linear-gradient(135deg, rgba(95, 227, 255, .1), rgba(255, 198, 92, .08)); margin: 1.4em 0; }
+  .opener .oq { padding: 22px 24px; }
+  .opener .oq .k { font-family: var(--mono); font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--amber); }
+  .opener .oq h3 { margin: 6px 0 8px !important; font-size: 1.4rem; display: block !important; }
+  .opener .oq p { margin: 0; }
+</style>
+</head>
+<body data-lesson="g10-u10-l1">
+
+<header class="topbar">
+  <a class="brand" href="../../index.html"><span class="brand-mark"></span>Lumen<span class="brand-sub">Class 10 Physics</span></a>
+  <nav class="crumbs"><span class="sep">/</span><a href="../index.html">Class 10</a><span class="sep">/</span><a href="index.html">Unit 10 · Heat</a><span class="sep">/</span><span>Lesson 1 · Specific Heat Capacity</span></nav>
+  <div class="topbar-right">
+    <span class="xp" id="xp" title="XP earned across all lessons"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.9L22 9.6l-5.4 4.8 1.6 7.3L12 17.9 5.8 21.7l1.6-7.3L2 9.6l7.1-.7z"/></svg><b>0</b> XP</span>
+  </div>
+  <div class="read-progress"><span></span></div>
+</header>
+
+<section class="lesson-hero">
+  <div class="kicker"><span>Unit 10 · Lesson 1 of 9</span><span class="tag">§ 10.1 – 10.1.1</span></div>
+  <h1>Specific Heat <span class="heat-grad">Capacity</span></h1>
+  <p class="lede">Put an empty pan and a pan of water on two identical burners. In a minute the empty pan is too hot to touch, but the water is barely warm. Same flame, same heat, very different temperatures. One number explains it, and the same number keeps Karachi mild while Jacobabad bakes.</p>
+  <div class="meta-row">
+    <span class="meta">📖 Textbook <b>pp. 11 – 15</b></span>
+    <span class="meta">⏱ About <b>30 min</b></span>
+    <span class="meta">🧪 <b>2</b> interactive labs</span>
+    <span class="meta">✅ Progress <b data-lesson-pct>0%</b></span>
+  </div>
+</section>
+
+<div class="lesson-layout">
+  <aside class="toc">
+    <div class="toc-title">In this lesson</div>
+    <ol></ol>
+    <div class="toc-progress">
+      <small>Lesson progress</small>
+      <div class="bar"><span data-lesson-bar></span></div>
+      <small><b data-lesson-count>0 / 0</b> checkpoints · <span class="mono" data-lesson-pct>0%</span></small>
+    </div>
+  </aside>
+
+  <main class="content">
+
+    <!-- ================= OPENER ================= -->
+    <section class="sec" id="opener" data-toc="Unit opener">
+      <div class="sec-head">
+        <span class="sec-num">?</span>
+        <h2>A Day at the Beach</h2>
+        <span class="page-ref">Textbook pp. 11 – 13</span>
+      </div>
+      <div class="opener rv">
+        <div class="oq">
+          <span class="k">Unit opener</span>
+          <h3>Why does a person enjoy comparatively cooler weather near the sea during the day, compared to land areas?</h3>
+          <p>Keep this question in mind. By the end of this lesson you'll be able to answer the first half of it, and Lesson 4 (sea breezes) finishes the story.</p>
+        </div>
+      </div>
+      <p>Have you ever wondered why water takes time to boil, or why metal feels colder than wood at the same temperature? These questions lead us to explore <strong>heat</strong>: specifically, <strong>specific heat capacity</strong> and the methods of <strong>heat transfer</strong>.</p>
+      <p>We start with specific heat capacity, the heat needed to raise a substance's temperature. Water, with its high specific heat capacity, heats slowly but retains warmth longer. That links kitchen mysteries to much bigger climate issues. After that, the unit looks at the three ways heat travels (conduction, convection and radiation), the greenhouse effect, and finally the heat inside the Earth itself.</p>
+    </section>
+
+    <!-- ================= 10.1 ================= -->
+    <section class="sec" id="s10-1" data-toc="10.1 Specific heat capacity">
+      <div class="sec-head">
+        <span class="sec-num">10.1</span>
+        <h2>Specific Heat Capacity</h2>
+        <span class="page-ref">Textbook p. 12</span>
+      </div>
+
+      <p class="hook">Give 1 kg of water and 1 kg of copper exactly the same amount of heat. Their temperatures will <em>not</em> rise by the same amount. Different materials need different amounts of heat to warm up by one degree, and that amount has a name.</p>
+
+      <div class="def rv">
+        <span class="exam">Exam definition</span>
+        <div class="def-label">Definition · Specific heat capacity</div>
+        <p><b>Specific heat capacity</b> or <b>specific heat</b> of a material is the amount of heat absorbed or lost to change the temperature of <b>1 kg</b> of its substance by <b>1 kelvin</b> or <b>1 degree celsius</b>.</p>
+      </div>
+
+      <div class="formula rv">
+        <div class="formula-body">\[ c = \frac{Q}{m\,\Delta T} \]
+          <div class="formula-note">c = specific heat · Q = heat absorbed or lost · m = mass · ΔT = T<sub>final</sub> − T<sub>initial</sub> = change in temperature</div>
+        </div>
+        <span class="eq-tag">(10.1)</span>
+      </div>
+
+      <p>Its SI unit is <strong>joule per kilogram per kelvin (J kg⁻¹ K⁻¹)</strong>. Other units in use are <strong>J kg⁻¹ °C⁻¹</strong> and <strong>J g⁻¹ °C⁻¹</strong>. For example, the specific heat of aluminium is 900 J kg⁻¹ K⁻¹. Its value in the other units is 900 J kg⁻¹ °C⁻¹ and 0.9 J g⁻¹ °C⁻¹.</p>
+
+      <div class="callout exam-tip rv">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></div>
+        <div>
+          <h4>Kelvin or Celsius? For ΔT it makes no difference</h4>
+          <p>A change of 1 °C is exactly the same size as a change of 1 K, so a <b>temperature change</b> has the same number on both scales: 75 °C − 25 °C = 50 °C = 50 K. That's why J kg⁻¹ K⁻¹ and J kg⁻¹ °C⁻¹ are equal.</p>
+          <p>Going from J kg⁻¹ to J g⁻¹? Divide by 1000, because each gram needs a thousandth of the heat a whole kilogram needs: 900 J kg⁻¹ °C⁻¹ = 0.9 J g⁻¹ °C⁻¹.</p>
+        </div>
+      </div>
+
+      <div class="quiz rv" data-check="l1-q-unit" data-explain="387 J kg⁻¹ K⁻¹ ÷ 1000 = <b>0.387 J g⁻¹ °C⁻¹</b>. Kelvin → Celsius changes nothing (same-sized degrees); kg → g divides by 1000.">
+        <div class="quiz-label">Quick check <span class="xp-pill">+10 XP</span></div>
+        <p class="quiz-q">The specific heat of copper is 387 J kg⁻¹ K⁻¹. In J g⁻¹ °C⁻¹ this is:</p>
+        <div class="quiz-opts">
+          <button data-why="You multiplied by 1000. A gram is <em>smaller</em> than a kilogram, so it needs <em>less</em> heat: divide.">387 000</button>
+          <button data-why="That would be dividing by 100. There are 1000 g in a kilogram.">3.87</button>
+          <button data-correct>0.387</button>
+          <button data-why="Changing K to °C doesn't change the number at all, and kg → g divides by 1000, not 10.">38.7</button>
+        </div>
+        <div class="quiz-fb" hidden></div>
+      </div>
+
+      <h3 id="low-high" data-toc="Low c vs high c" data-toc-sub><span class="h3-dot"></span>Small c or large c?</h3>
+      <p>Some materials, like <strong>metals</strong> (for example aluminium, copper, iron and diamond), need only a <strong>small amount of heat</strong> to warm up. They have a low specific heat. Other substances, like <strong>water</strong>, need a <strong>large amount of heat</strong> to raise their temperature by one kelvin. They have a large specific heat.</p>
+
+      <div class="compare rv">
+        <table>
+          <tr><th></th><th>Low specific heat</th><th>Large specific heat</th></tr>
+          <tr><td>Examples</td><td>Metals: aluminium, copper, iron, diamond</td><td>Water</td></tr>
+          <tr><td>Heat needed</td><td>Small amount of heat per kelvin</td><td>Large amount of heat per kelvin</td></tr>
+          <tr><td>Behaviour</td><td>Heat up and cool down <b>quickly</b>. They cannot retain heat for long. (These materials are also good conductors of heat.)</td><td>Absorb or lose a large amount of heat for a small change in temperature. They <b>cannot easily be heated up or cooled down</b>, so they retain heat.</td></tr>
+          <tr><td>Used in</td><td><b>Heat sinks</b>, which carry heat away quickly</td><td><b>Controlling temperature</b> in devices, e.g. water as <b>engine coolant</b> in cars</td></tr>
+        </table>
+      </div>
+
+      <!-- LAB 1 -->
+      <div class="lab rv" id="lab-race">
+        <div class="lab-head">
+          <span class="lab-badge"><span class="pulse"></span>Lab 1 · Table 10.1</span>
+          <h3>The heat race</h3>
+          <p class="lab-sub">Two samples with the <b>same mass</b> sit on two <b>identical heaters</b>, so each one receives exactly the same heat every second. Pick the materials, switch on, and watch the thermometers and the temperature–time graph. Each heater cuts out at 100 °C.</p>
+        </div>
+        <div class="lab-stage">
+          <div class="lab-grid">
+            <div class="panel-label"><span class="lbl">The bench</span><canvas class="lab-canvas ar-rig" id="race-rig" aria-label="Two samples on identical heaters, each with a thermometer"></canvas></div>
+            <div class="panel-label"><canvas class="lab-canvas ar-graph" id="race-graph" aria-label="Live graph of temperature against time for both samples"></canvas></div>
+          </div>
+        </div>
+        <div class="lab-controls">
+          <label class="ctl">
+            <span class="ctl-top"><span class="sample-a">● Sample A</span></span>
+            <select class="sel" id="race-a"></select>
+          </label>
+          <label class="ctl">
+            <span class="ctl-top"><span class="sample-b">● Sample B</span></span>
+            <select class="sel" id="race-b"></select>
+          </label>
+          <label class="ctl">
+            <span class="ctl-top"><span>Mass of each sample <i class="v">m</i></span><output class="ctl-val" id="race-m-out"></output></span>
+            <input type="range" id="race-m" min="0.1" max="2" step="0.05" value="1">
+          </label>
+          <label class="ctl">
+            <span class="ctl-top"><span>Power of each heater <i class="v">P</i></span><output class="ctl-val" id="race-p-out"></output></span>
+            <input type="range" id="race-p" min="200" max="2000" step="50" value="1000">
+          </label>
+        </div>
+        <div class="lab-actions">
+          <button class="btn small" id="race-go">▶ Switch heaters on</button>
+          <button class="btn ghost small" id="race-cool">❄ Heaters off · let them cool</button>
+          <button class="btn ghost small" id="race-reset">↺ Reset</button>
+          <div class="chip-row" id="race-speed" style="margin-left:auto">
+            <button class="chip" data-speed="5" aria-pressed="false">5× speed</button>
+            <button class="chip" data-speed="20" aria-pressed="true">20×</button>
+            <button class="chip" data-speed="60" aria-pressed="false">60×</button>
+          </div>
+        </div>
+        <div class="readouts">
+          <div class="ro"><span class="ro-k">Time t</span><span class="ro-v" id="race-t">0 s</span></div>
+          <div class="ro"><span class="ro-k sample-a">A · heat Q = Pt</span><span class="ro-v" id="race-qa">0 J</span></div>
+          <div class="ro"><span class="ro-k sample-a">A · ΔT</span><span class="ro-v" id="race-da">0 °C</span></div>
+          <div class="ro"><span class="ro-k sample-a">A · Q/mΔT (J/kg K)</span><span class="ro-v" id="race-ca">–</span></div>
+          <div class="ro"><span class="ro-k sample-b">B · heat Q = Pt</span><span class="ro-v" id="race-qb">0 J</span></div>
+          <div class="ro"><span class="ro-k sample-b">B · ΔT</span><span class="ro-v" id="race-db">0 °C</span></div>
+          <div class="ro"><span class="ro-k sample-b">B · Q/mΔT (J/kg K)</span><span class="ro-v" id="race-cb">–</span></div>
+        </div>
+        <div class="status" id="race-status"><span class="dot"></span><span></span></div>
+        <div class="answer-row" id="race-mystery-row" hidden>
+          <label for="race-answer" class="muted" style="font-size:.92rem">Your value of <i class="v">c</i> for the mystery metal (J kg⁻¹ K⁻¹):</label>
+          <input id="race-answer" inputmode="decimal" autocomplete="off" placeholder="e.g. 500">
+          <button class="btn small" id="race-check">Check</button>
+          <span class="fb" id="race-fb"></span>
+        </div>
+        <div class="challenges">
+          <h4>Challenges</h4>
+          <ul>
+            <li data-check="l1-race-cu">Race <b>water</b> against <b>copper</b> (same mass, same heater) until copper's heater cuts out at 100 °C. How far has the water got?</li>
+            <li data-check="l1-race-ex102">Do <b>Example 10.2</b> on the bench: heat <b>0.5 kg of aluminium</b> from 25 °C to 100 °C and read off the heat it took.</li>
+            <li data-check="l1-race-cool">After heating, switch the heaters off and let <b>water and a metal</b> cool for at least 2 minutes. Which one holds on to its heat?</li>
+            <li data-check="l1-race-mystery">Choose <b>Mystery metal</b>, heat it, work out <b>c = Q / mΔT</b> from the readings yourself, and type it in to unmask the metal.</li>
+          </ul>
+        </div>
+        <p class="lab-foot">While the heaters are on, the samples are perfectly insulated (no heat is lost), just as the textbook assumes. Notice that 1 kg of copper is much smaller than 1 kg of water: same mass, different densities. Values of c are from Table 10.1 (dry soil from p. 13).</p>
+      </div>
+
+      <div class="quiz rv" data-check="l1-q-race" data-explain="Q = mcΔT, so for the same Q and m, <b>ΔT = Q/(mc)</b>. Copper's c (387) is about 11 times smaller than water's (4190), so its temperature rises about <b>11 times more</b>.">
+        <div class="quiz-label">Quick check <span class="xp-pill">+10 XP</span></div>
+        <p class="quiz-q">1 kg of water and 1 kg of copper each absorb 10 kJ of heat. What happens?</p>
+        <div class="quiz-opts">
+          <button data-why="Equal heat only gives an equal temperature rise if the specific heats are equal. Here they're very different.">Both warm up by the same amount</button>
+          <button data-why="It's the other way round: water has the <b>larger</b> c, so it needs more heat per degree and warms up <b>less</b>.">Water warms up about 11 times more than copper</button>
+          <button data-correct>Copper warms up about 11 times more than water</button>
+          <button data-why="Both receive the same heat; what differs is how much their temperature changes.">Copper absorbs more of the heat than water</button>
+        </div>
+        <div class="quiz-fb" hidden></div>
+      </div>
+
+      <div class="ctable rv" id="table-10-1">
+        <div class="cap">Table 10.1 · Specific heats of selected substances <small>J kg⁻¹ K⁻¹ · click a row to race it in Lab 1</small></div>
+        <table>
+          <tr data-mat="aluminium"><td>Aluminium</td><td class="bar"><span style="width:21.7%"></span></td><td class="v">910</td></tr>
+          <tr data-mat="copper"><td>Copper</td><td class="bar"><span style="width:9.2%"></span></td><td class="v">387</td></tr>
+          <tr data-mat="glass"><td>Glass</td><td class="bar"><span style="width:20%"></span></td><td class="v">840</td></tr>
+          <tr data-mat="gold"><td>Gold</td><td class="bar"><span style="width:3.1%"></span></td><td class="v">129</td></tr>
+          <tr data-mat="iron"><td>Iron / steel</td><td class="bar"><span style="width:10.8%"></span></td><td class="v">452</td></tr>
+          <tr data-mat="lead"><td>Lead</td><td class="bar"><span style="width:3.1%"></span></td><td class="v">128</td></tr>
+          <tr data-mat="silver"><td>Silver</td><td class="bar"><span style="width:5.6%"></span></td><td class="v">235</td></tr>
+          <tr><td>Ethanol</td><td class="bar"><span style="width:58.5%"></span></td><td class="v">2450</td></tr>
+          <tr data-mat="glycerin"><td>Glycerin</td><td class="bar"><span style="width:57.5%"></span></td><td class="v">2410</td></tr>
+          <tr data-mat="mercury"><td>Mercury</td><td class="bar"><span style="width:3.3%"></span></td><td class="v">139</td></tr>
+          <tr data-mat="water" class="hl"><td>Water</td><td class="bar"><span style="width:100%"></span></td><td class="v">4190</td></tr>
+          <tr class="gas"><td>Air</td><td class="bar"><span style="width:17.2%"></span></td><td class="v">721</td></tr>
+          <tr class="gas"><td>Carbon dioxide</td><td class="bar"><span style="width:15.2%"></span></td><td class="v">638</td></tr>
+          <tr class="gas"><td>Oxygen</td><td class="bar"><span style="width:15.5%"></span></td><td class="v">651</td></tr>
+          <tr class="gas"><td>Steam (100 °C)</td><td class="bar"><span style="width:36.3%"></span></td><td class="v">1520</td></tr>
+        </table>
+      </div>
+      <p>Look how far ahead water is. Among common substances, water has one of the largest specific heats of all. Hold on to that fact: the whole of §10.1.1 is built on it.</p>
+
+      <h3 id="heat-cap" data-toc="Heat capacity" data-toc-sub><span class="h3-dot"></span>Heat capacity of a whole object</h3>
+      <p>Specific heat is about <em>1 kg</em> of a material. Sometimes we care about a whole object instead, such as a full pot or a whole lake. The unit summary defines:</p>
+      <div class="def rv">
+        <div class="def-label">From the unit summary · Heat capacity</div>
+        <p><b>Heat capacity</b> is the amount of heat required to raise the temperature of <b>any amount</b> of substance by 1 °C or 1 K.</p>
+      </div>
+      <div class="formula rv">
+        <div class="formula-body">\[ \text{Heat capacity} = \frac{Q}{\Delta T} = m\,c \]
+          <div class="formula-note">unit: J K⁻¹ (or J °C⁻¹) · a big mass of water has an enormous heat capacity</div>
+        </div>
+      </div>
+      <div class="callout exam-tip rv">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></div>
+        <div>
+          <h4>“Specific” means “per unit mass”</h4>
+          <p><b>Specific heat capacity</b> (J kg⁻¹ K⁻¹) belongs to a <em>material</em>: all water has c = 4190 J kg⁻¹ K⁻¹. <b>Heat capacity</b> (J K⁻¹) belongs to an <em>object</em>: a full bucket has a bigger heat capacity than a cup, even though both are water.</p>
+          <p>Heads-up: the summary on p. 38 states specific heat capacity “per one gram”, while §10.1 uses 1 kg. That's the same idea in a smaller unit (J g⁻¹ °C⁻¹). Use the 1 kg version (§10.1) for the definition in exams.</p>
+        </div>
+      </div>
+
+      <!-- Worked examples -->
+      <h3 id="examples" data-toc="Examples 10.1 & 10.2" data-toc-sub><span class="h3-dot"></span>Worked examples</h3>
+
+      <div class="steps rv" data-check="l1-ex101" data-msg="Example 10.1 solved!">
+        <div class="steps-head">
+          <p><span class="qn">Example 10.1</span>A 200 g sample of a solid metal is heated from 25 °C to 75 °C. If 3,500 joules of heat energy is required to raise the temperature of the metal, what is the specific heat of the metal?</p>
+          <span class="ans-key">Answer: 350 J kg⁻¹ K⁻¹</span>
+        </div>
+        <ol>
+          <li class="step"><b>Given:</b> mass m = 200 g = <b>0.2 kg</b> · heat Q = <b>3,500 J</b><br>Change in temperature ΔT = 75 °C − 25 °C = 50 °C = <b>50 K</b> (a change in temperature is the same on the Celsius and kelvin scales).<br><b>Required:</b> specific heat c = ?</li>
+          <li class="step"><b>Formula</b> (Eq. 10.1): \[ c = \frac{Q}{m\,\Delta T} \]</li>
+          <li class="step"><b>Put in the values:</b> \[ c = \frac{3500\ \text{J}}{(0.2\ \text{kg})(50\ \text{K})} = \frac{3500}{10}\ \text{J kg}^{-1}\,\text{K}^{-1} \]</li>
+          <li class="step final"><b>Answer:</b> \[ c = 350\ \text{J kg}^{-1}\,\text{K}^{-1} \] The specific heat of the metal is 350 J kg⁻¹ K⁻¹.</li>
+        </ol>
+        <div class="steps-ctrl">
+          <button class="btn small" data-next>Start solution</button>
+          <button class="btn ghost small" data-all>Show all</button>
+          <button class="btn ghost small" data-reset hidden>Reset</button>
+        </div>
+      </div>
+
+      <div class="steps rv" data-check="l1-ex102" data-msg="Example 10.2 solved!">
+        <div class="steps-head">
+          <p><span class="qn">Example 10.2</span>A half kilogram sample of aluminium (specific heat capacity c = 900 J kg⁻¹ K⁻¹) is heated from room temperature of 25 °C to 100 °C. How much heat is absorbed by the aluminium to raise its temperature?</p>
+          <span class="ans-key">Answer: 33.75 kJ</span>
+        </div>
+        <ol>
+          <li class="step"><b>Given:</b> m = <b>0.5 kg</b> · c = <b>900 J kg⁻¹ K⁻¹</b> · T<sub>initial</sub> = 25 °C · T<sub>final</sub> = 100 °C<br>ΔT = 100 °C − 25 °C = 75 °C = <b>75 K</b><br><b>Required:</b> heat absorbed Q = ?</li>
+          <li class="step"><b>Rearrange Eq. 10.1</b> to make Q the subject: \[ c = \frac{Q}{m\,\Delta T} \quad\Rightarrow\quad Q = m\,c\,\Delta T \]</li>
+          <li class="step"><b>Put in the values:</b> \[ Q = (0.5\ \text{kg}) \times (900\ \text{J kg}^{-1}\text{K}^{-1}) \times (75\ \text{K}) \]</li>
+          <li class="step final"><b>Answer:</b> \[ Q = 33{,}750\ \text{J} = 33.75\ \text{kJ} \] The heat required by the sample of aluminium is 33.75 kJ.</li>
+        </ol>
+        <div class="steps-ctrl">
+          <button class="btn small" data-next>Start solution</button>
+          <button class="btn ghost small" data-all>Show all</button>
+          <button class="btn ghost small" data-reset hidden>Reset</button>
+          <a class="btn ghost small" href="#lab-race" data-load-ex102>Try it in Lab 1 ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 10.1.1 ================= -->
+    <section class="sec" id="s10-1-1" data-toc="10.1.1 Uses of water's large c">
+      <div class="sec-head">
+        <span class="sec-num">10.1.1</span>
+        <h2>Uses of the Large Specific Heat of Water</h2>
+        <span class="page-ref">Textbook pp. 13 – 14</span>
+      </div>
+      <p class="hook">Water has a large specific heat: about <b>4200 J kg⁻¹ K⁻¹</b>. Because of it, water has significant uses in our daily life, and it shapes the weather of entire countries.</p>
+      <p class="muted" style="font-size:.92rem">(Table 10.1 lists 4190 J kg⁻¹ K⁻¹; the text rounds it to 4200. Use whichever value a question gives you.)</p>
+
+      <h3 id="coastal" data-toc="A. Land vs coastal areas" data-toc-sub><span class="h3-dot"></span>A. Temperature variation in land and coastal areas</h3>
+      <p>The specific heat of dry soil (<b>800 J kg⁻¹ K⁻¹</b>) is smaller than that of water: about <b>five times smaller</b>. That's why land areas heat up quickly in summer, with temperatures rising to about <b>45 °C to 50 °C</b>, and cool down quickly in winter, falling to between <b>5 °C and 0 °C</b>.</p>
+      <p>In coastal areas the temperature variation is small. In <b>Karachi</b>, the average temperature varies only from about <b>19 °C to 32 °C</b>. Oceans and large lakes absorb a lot of heat from the Sun during summer and store it. In winter, they release that heat into the atmosphere. This keeps the temperature moderate between summer and winter in coastal areas.</p>
+
+      <!-- LAB 2 -->
+      <div class="lab rv" id="lab-cities">
+        <div class="lab-head">
+          <span class="lab-badge"><span class="pulse"></span>Lab 2 · p. 13</span>
+          <h3>Two cities, one Sun</h3>
+          <p class="lab-sub">A coastal city (like Karachi) and an inland city (like Jacobabad) get the same sunshine through the year. Drag through the months (or press play) and compare their temperatures. Then try a “what if”: take away the sea.</p>
+        </div>
+        <div class="lab-stage stack">
+          <canvas class="lab-canvas ar-cities" id="city-scene" aria-label="A coastal city beside the sea and an inland city on dry land, with thermometers"></canvas>
+          <div class="panel-label"><canvas class="lab-canvas ar-year" id="city-graph" aria-label="Graph of average monthly temperature for both cities"></canvas></div>
+        </div>
+        <div class="lab-controls">
+          <label class="ctl">
+            <span class="ctl-top"><span>Time of year</span><output class="ctl-val" id="city-m-out"></output></span>
+            <input type="range" id="city-m" min="0" max="11.95" step="0.05" value="3">
+          </label>
+          <div class="ctl-group">
+            <span class="ctl-name">What if…</span>
+            <label class="toggle"><input type="checkbox" id="city-nosea"><span class="sw"></span>Replace the sea with dry soil (c = 800)</label>
+          </div>
+        </div>
+        <div class="lab-actions">
+          <button class="btn ghost small" id="city-play">▶ Play the year</button>
+        </div>
+        <div class="readouts">
+          <div class="ro"><span class="ro-k">Coastal city now</span><span class="ro-v" id="city-tc">–</span></div>
+          <div class="ro"><span class="ro-k">Inland city now</span><span class="ro-v" id="city-ti">–</span></div>
+          <div class="ro"><span class="ro-k">Coastal: coldest → hottest</span><span class="ro-v" id="city-rc">–</span></div>
+          <div class="ro"><span class="ro-k">Inland: coldest → hottest</span><span class="ro-v" id="city-ri">–</span></div>
+        </div>
+        <div class="status" id="city-status"><span class="dot"></span><span></span></div>
+        <div class="challenges">
+          <h4>Challenges</h4>
+          <ul>
+            <li data-check="l1-city-hot">Find the <b>hottest month</b> in the inland city. How much cooler is the coastal city then?</li>
+            <li data-check="l1-city-cold">Now find the <b>coldest month</b> inland. Which city is warmer now, and why?</li>
+            <li data-check="l1-city-nosea">Replace the sea with <b>dry soil</b>. What happens to the coastal city's climate?</li>
+          </ul>
+        </div>
+        <p class="lab-foot">A simplified model: both cities get identical sunshine, and the only difference is the specific heat of the surface beside them. The sea also mixes heat deep down (convection, Lesson 4), which makes its effect even bigger. Real cities also have rain, winds and clouds.</p>
+      </div>
+
+      <h3 id="lakes" data-toc="B–C. Oceans, lakes, your body" data-toc-sub><span class="h3-dot"></span>B. Stable ocean and lake temperatures</h3>
+      <p>Lakes and oceans heat up and cool down slowly because of the high specific heat of water. This prevents big changes in the temperature of lakes and oceans, and so provides a <strong>suitable environment for aquatic life</strong>. Fish don't have to survive a 45 °C summer and a 0 °C winter the way land animals do.</p>
+
+      <h3><span class="h3-dot"></span>C. Human body temperature regulation</h3>
+      <p>The human body contains approximately <strong>60 % water</strong>. A healthy body maintains its temperature at about <strong>37 °C</strong>. Because of water's high specific heat, the body can absorb (or lose) a lot of heat with only a small change in its temperature. So your temperature stays steady on a hot day or after exercise.</p>
+      <div class="callout tidbit rv">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V17h6v-.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg></div>
+        <div>
+          <h4>Did you know?</h4>
+          <p>The average specific heat of the human body is about <b>3500 J kg⁻¹ K⁻¹</b>, close to water's. For a 50 kg student, raising body temperature by just 1 °C takes Q = mcΔT = 50 × 3500 × 1 = <b>175 000 J</b>. That's enough to boil about half a litre of water starting from room temperature.</p>
+        </div>
+      </div>
+
+      <h3 id="coolant" data-toc="D. Cooling systems" data-toc-sub><span class="h3-dot"></span>D. Cooling systems and heat exchangers</h3>
+      <p>Water is used as a <strong>coolant</strong> in power plants, in different industrial processes and in the cooling systems of automobiles (radiators), as shown in Fig. 10.1. Water takes a large amount of excess heat from the machines and transfers it effectively using a heat exchanger. This prevents overheating in the machinery and keeps it working efficiently.</p>
+
+      <figure class="rv">
+        <div class="fig-box">
+          <svg class="fig-svg" viewBox="0 0 640 330" role="img" aria-label="Figure 10.1: cooling system of a vehicle. Hot coolant leaves the engine through the thermostat and upper radiator hose, cools in the radiator core where the fan pulls air through, and returns through the lower radiator hose and water pump.">
+            <defs>
+              <linearGradient id="radG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff6b7a"/><stop offset="1" stop-color="#5fe3ff"/></linearGradient>
+              <linearGradient id="engG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2a3355"/><stop offset="1" stop-color="#1a2140"/></linearGradient>
+            </defs>
+            <!-- air flow -->
+            <g fill="#a98bff" font-size="11">
+              <g class="air"><path d="M18 120h28" stroke="#a98bff" stroke-width="2"/><path d="M46 115l8 5-8 5z"/></g>
+              <g class="air" style="animation-delay:.5s"><path d="M18 165h28" stroke="#a98bff" stroke-width="2"/><path d="M46 160l8 5-8 5z"/></g>
+              <g class="air" style="animation-delay:1s"><path d="M18 210h28" stroke="#a98bff" stroke-width="2"/><path d="M46 205l8 5-8 5z"/></g>
+              <text x="12" y="250">Air flow</text>
+            </g>
+            <!-- radiator core -->
+            <rect x="70" y="70" width="120" height="190" rx="8" fill="url(#radG)" opacity=".22" stroke="#8b95bb"/>
+            <g stroke="rgba(233,237,255,.35)" stroke-width="1">
+              <path d="M82 76v178M94 76v178M106 76v178M118 76v178M130 76v178M142 76v178M154 76v178M166 76v178M178 76v178"/>
+            </g>
+            <path class="flow slow" d="M130 80 V250" stroke="#e9edff" stroke-width="2" fill="none" opacity=".7"/>
+            <text x="130" y="285" fill="#e9edff" font-size="12" text-anchor="middle">Radiator core</text>
+            <text x="130" y="300" fill="#8b95bb" font-size="10" text-anchor="middle">heat passes to the air</text>
+            <!-- fan -->
+            <circle cx="262" cy="160" r="46" fill="none" stroke="rgba(140,160,255,.35)"/>
+            <g class="fan" fill="rgba(169,139,255,.55)">
+              <path d="M262 160 C 255 135, 270 118, 280 120 C 282 135, 272 150, 262 160z"/>
+              <path d="M262 160 C 287 153, 304 168, 302 178 C 287 180, 272 170, 262 160z"/>
+              <path d="M262 160 C 269 185, 254 202, 244 200 C 242 185, 252 170, 262 160z"/>
+              <path d="M262 160 C 237 167, 220 152, 222 142 C 237 140, 252 150, 262 160z"/>
+              <circle cx="262" cy="160" r="6" fill="#e9edff"/>
+            </g>
+            <text x="262" y="228" fill="#a98bff" font-size="12" text-anchor="middle">Radiator fan</text>
+            <!-- engine -->
+            <rect x="400" y="95" width="200" height="150" rx="14" fill="url(#engG)" stroke="#8b95bb"/>
+            <g fill="rgba(255,107,122,.25)" stroke="rgba(255,107,122,.6)"><rect x="420" y="115" width="34" height="56" rx="6"/><rect x="465" y="115" width="34" height="56" rx="6"/><rect x="510" y="115" width="34" height="56" rx="6"/><rect x="555" y="115" width="30" height="56" rx="6"/></g>
+            <path class="flow" d="M412 232 H585 V185 H430 V96" stroke="#ffc65c" stroke-width="3" fill="none" opacity=".75"/>
+            <text x="500" y="268" fill="#e9edff" font-size="12" text-anchor="middle">Engine (very hot)</text>
+            <!-- thermostat + upper hose (hot) -->
+            <circle cx="410" cy="80" r="10" fill="#0e1630" stroke="#ffc65c" stroke-width="2"/>
+            <text x="424" y="66" fill="#ffc65c" font-size="11">Thermostat</text>
+            <path d="M400 80 C 330 80, 300 40, 190 80" stroke="#ff6b7a" stroke-width="9" fill="none" stroke-linecap="round" opacity=".55"/>
+            <path class="flow" d="M400 80 C 330 80, 300 40, 190 80" stroke="#ffe3e6" stroke-width="2.5" fill="none"/>
+            <text x="300" y="98" fill="#ff6b7a" font-size="11" text-anchor="middle">Upper radiator hose (hot)</text>
+            <!-- lower hose (cool) + pump -->
+            <path d="M190 250 C 260 300, 340 300, 392 250" stroke="#5fe3ff" stroke-width="9" fill="none" stroke-linecap="round" opacity=".55"/>
+            <path class="flow" d="M190 250 C 260 300, 340 300, 392 250" stroke="#e6fbff" stroke-width="2.5" fill="none"/>
+            <circle cx="398" cy="245" r="13" fill="#0e1630" stroke="#5fe3ff" stroke-width="2"/>
+            <path d="M392 245h12M398 239v12" stroke="#5fe3ff" stroke-width="2"/>
+            <text x="300" y="318" fill="#5fe3ff" font-size="11" text-anchor="middle">Lower radiator hose (cooled)</text>
+            <text x="420" y="300" fill="#5fe3ff" font-size="11">Water pump</text>
+            <!-- expansion tank + bleed hose -->
+            <rect x="215" y="8" width="70" height="30" rx="7" fill="rgba(95,227,255,.12)" stroke="#8b95bb"/>
+            <rect x="219" y="20" width="62" height="14" rx="4" fill="rgba(95,227,255,.35)"/>
+            <text x="295" y="20" fill="#8b95bb" font-size="10">Coolant expansion tank</text>
+            <path d="M232 38 C 220 55, 205 60, 182 74" stroke="#8b95bb" stroke-width="2" fill="none" stroke-dasharray="3 3"/>
+            <text x="196" y="52" fill="#8b95bb" font-size="10" text-anchor="end">Bleed hose</text>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 10.1</b>Cooling system of vehicles. Coolant (mostly water) soaks up the engine's heat, flows through the upper hose to the radiator, gives the heat to the air pulled through by the fan, and returns cool through the lower hose and water pump.</figcaption>
+      </figure>
+
+      <div class="callout insight rv">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8"/></svg></div>
+        <div>
+          <h4>Why water, and not oil or air?</h4>
+          <p>Each kilogram of water can carry away <b>4190 J for every degree</b> it warms up. Air carries 721 J per kg per degree, so you'd need almost six times the mass of air to carry the same heat. That's why water-cooled engines can be compact, and why the radiator fan only has to cool the water, not the whole engine.</p>
+        </div>
+      </div>
+
+      <h3 id="cooking" data-toc="E. Cooking" data-toc-sub><span class="h3-dot"></span>E. Cooking process</h3>
+      <p>Water is good for cooking because of its high specific heat. It heats up slowly and <strong>distributes heat evenly</strong>, so food cooks without burning. Hot drinks like tea and coffee stay hot for a long time. Can you explain it?</p>
+      <div class="qa rv" data-check="l1-qa-tea">
+        <div class="qa-q"><span class="qn">Think</span><span>Why does a cup of tea stay hot for a long time?</span></div>
+        <details>
+          <summary>Show answer</summary>
+          <div class="ans">
+            <p>Tea is mostly water, and water has a very <b>large specific heat</b> (4190 J kg⁻¹ K⁻¹). To cool down by even 1 °C, each kilogram of tea must <b>lose 4190 J</b> of heat. The cup only loses heat to the air slowly, so it takes a long time to lose enough heat for a large temperature drop. A metal spoon of the same mass, with c only 387 J kg⁻¹ K⁻¹ (copper), would cool about 11 times faster.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="callout insight rv">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></div>
+        <div>
+          <h4>Back to the beach: the unit opener, answered (part 1)</h4>
+          <p>The cooler daytime temperatures near the sea come from the <b>high specific heat capacity of water</b>. It takes much more energy to raise the temperature of water than of land, so on a sunny day the sea warms up far more slowly. The air near the coast stays cooler, influenced by the slower-warming water.</p>
+          <p>The rest of the story is wind: the warm land and the cooler sea set up a <b>sea breeze</b> that pushes cool, humid air onto the shore. That's convection, and it's coming in Lesson 4.</p>
+        </div>
+      </div>
+
+      <div class="quiz rv" data-check="l1-q-desert" data-explain="Dry sand and soil have a <b>low specific heat</b> (about 800 J kg⁻¹ K⁻¹). They need little heat to warm up, so they get very hot by day, and they lose little heat to cool down, so they get cold at night. There is no large body of water nearby to even things out.">
+        <div class="quiz-label">Quick check <span class="xp-pill">+10 XP</span></div>
+        <p class="quiz-q">Deserts like Thar get extremely hot by day but surprisingly cold at night. The best explanation is that sand has:</p>
+        <div class="quiz-opts">
+          <button data-why="A high specific heat would make the sand <b>slow</b> to change temperature, which is the opposite of what happens.">A high specific heat, so it stores lots of heat</button>
+          <button data-correct>A low specific heat, so its temperature changes quickly</button>
+          <button data-why="Colour affects how much sunlight is absorbed (Lesson 5), but it doesn't explain why the temperature <b>swings</b> so fast both ways.">A light colour that reflects sunlight</button>
+          <button data-why="Sand's density doesn't explain the swing. What matters is how much heat each kg needs per degree.">A high density</button>
+        </div>
+        <div class="quiz-fb" hidden></div>
+      </div>
+    </section>
+
+    <!-- ================= PRACTICE ================= -->
+    <section class="sec" id="practice" data-toc="From your textbook">
+      <div class="sec-head">
+        <span class="sec-num">Q</span>
+        <h2>From Your Textbook</h2>
+        <span class="page-ref">Exercise pp. 40 – 44</span>
+      </div>
+      <p>These exercise questions belong to this lesson. The rest of the exercise is spread over the coming lessons and collected in the Practice Arena.</p>
+
+      <h3 id="mcq" data-toc="MCQs" data-toc-sub><span class="h3-dot"></span>Multiple choice</h3>
+      <div class="quiz rv" data-check="l1-mcq1" data-explain="Water has a <b>large specific heat</b>, so it can absorb a lot of heat from the engine while its own temperature rises only a little.">
+        <div class="quiz-label">MCQ 1 <span class="xp-pill">+10 XP</span></div>
+        <p class="quiz-q">Why is water used in radiators of automobiles as coolant?</p>
+        <div class="quiz-opts">
+          <button data-why="True in everyday life, but that's not the physics reason the question is after.">It is easily available</button>
+          <button data-why="Cheap, yes, but the physics reason is about how much heat it can carry.">It is low cost or free</button>
+          <button data-correct>It has large specific heat</button>
+          <button data-why="Oxygen has nothing to do with cooling an engine.">It has oxygen</button>
+        </div>
+        <div class="quiz-fb" hidden></div>
+      </div>
+
+      <div class="quiz rv" data-check="l1-mcq4" data-explain="Heat capacity = Q / ΔT is for a whole object (not per kg), so its unit is <b>J °C⁻¹</b> (or J K⁻¹). J kg⁻¹ K⁻¹ is the unit of <em>specific</em> heat capacity.">
+        <div class="quiz-label">MCQ 4 <span class="xp-pill">+10 XP</span></div>
+        <p class="quiz-q">What is the unit for the heat capacity of an object?</p>
+        <div class="quiz-opts">
+          <button data-correct>J °C⁻¹</button>
+          <button data-why="That's the unit of <b>specific</b> heat capacity (per kilogram). The question asks about the heat capacity of a whole object.">J kg⁻¹ K⁻¹</button>
+          <button data-why="Heat capacity is joules per degree. Multiplying by kg makes no sense here.">J kg K⁻¹</button>
+          <button data-why="The kelvin should be in the denominator: joules <em>per</em> degree.">J kg⁻¹ K</button>
+        </div>
+        <div class="quiz-fb" hidden></div>
+      </div>
+
+      <div class="quiz rv" data-check="l1-mcq5" data-explain="ΔT = Q/(mc). For the same Q and m, the material with the <b>lower specific heat</b> (copper, 387 vs water's 4190) gets the bigger temperature rise.">
+        <div class="quiz-label">MCQ 5 <span class="xp-pill">+10 XP</span></div>
+        <p class="quiz-q">If the same amount of heat energy is supplied to equal masses of water and copper, why does the temperature of copper increase faster?</p>
+        <div class="quiz-opts">
+          <button data-correct>Copper has a lower specific heat capacity</button>
+          <button data-why="Water is a poor conductor, but conduction isn't the reason here. Both receive the same heat.">Water is a poor conductor of heat</button>
+          <button data-why="Convection spreads heat around inside the water, but it doesn't remove it. The water still holds all the heat it receives.">Convection in water dissipates heat energy quickly</button>
+          <button data-why="Radiation losses aren't part of this comparison. Think about Q = mcΔT.">Radiation from water is stronger</button>
+        </div>
+        <div class="quiz-fb" hidden></div>
+      </div>
+
+      <h3 id="crq" data-toc="Water vs iron (CRQ 2)" data-toc-sub><span class="h3-dot"></span>Constructed response</h3>
+      <div class="qa rv" data-check="l1-crq2">
+        <div class="qa-q"><span class="qn">CRQ 2</span><span>This table shows the temperature of 10 g of water and 10 g of iron after being in direct sunlight for up to 60 minutes.<br>
+          <span class="mono" style="font-size:.85rem;color:var(--text-2)">Time (min): 0 · 15 · 30 · 45 · 60<br>Water (°C): 25 · 26.2 · 27.5 · 28.8 · 30<br>Iron (°C): 25 · 35 · 45 · 55 · 65</span><br>
+          (a) Create line graphs of temperature (y-axis) against time (x-axis) for both. (b) Which heats up quickly: water or metal? (c) Which will cool more slowly: water or iron? Elaborate. (d) When you boil water in an iron pot on the stove, which heats up faster: the iron pot or the water? Give a reason.</span></div>
+        <details>
+          <summary>Show model answer</summary>
+          <div class="ans">
+            <p><b>(a)</b></p>
+            <svg class="fig-svg" viewBox="0 0 560 300" role="img" aria-label="Line graph: iron rises from 25 to 65 °C in 60 minutes; water rises only from 25 to 30 °C" style="width:100%;max-width:540px;margin:4px 0 14px">
+              <g stroke="rgba(140,160,255,.12)"><path d="M70 250H530M70 200H530M70 150H530M70 100H530M70 50H530"/><path d="M180 30V250M290 30V250M400 30V250M510 30V250"/></g>
+              <path d="M70 30V250H530" stroke="#8b95bb" fill="none"/>
+              <g fill="#8b95bb" font-size="11" text-anchor="end"><text x="62" y="254">20</text><text x="62" y="204">30</text><text x="62" y="154">40</text><text x="62" y="104">50</text><text x="62" y="54">60</text></g>
+              <g fill="#8b95bb" font-size="11" text-anchor="middle"><text x="70" y="268">0</text><text x="180" y="268">15</text><text x="290" y="268">30</text><text x="400" y="268">45</text><text x="510" y="268">60</text></g>
+              <text x="300" y="292" fill="#8b95bb" font-size="11" text-anchor="middle">Time (minutes)</text>
+              <text x="20" y="140" fill="#8b95bb" font-size="11" text-anchor="middle" transform="rotate(-90 20 140)">Temperature (°C)</text>
+              <polyline points="70,225 180,175 290,125 400,75 510,25" fill="none" stroke="#ff5fa8" stroke-width="2.5"/>
+              <g fill="#ff5fa8"><circle cx="70" cy="225" r="4"/><circle cx="180" cy="175" r="4"/><circle cx="290" cy="125" r="4"/><circle cx="400" cy="75" r="4"/><circle cx="510" cy="25" r="4"/></g>
+              <polyline points="70,225 180,219 290,212.5 400,206 510,200" fill="none" stroke="#5fe3ff" stroke-width="2.5"/>
+              <g fill="#5fe3ff"><circle cx="70" cy="225" r="4"/><circle cx="180" cy="219" r="4"/><circle cx="290" cy="212.5" r="4"/><circle cx="400" cy="206" r="4"/><circle cx="510" cy="200" r="4"/></g>
+              <text x="430" y="48" fill="#ff5fa8" font-size="12">Iron</text>
+              <text x="430" y="196" fill="#5fe3ff" font-size="12">Water</text>
+            </svg>
+            <p><b>(b)</b> The <b>iron (metal)</b> heats up much more quickly: it rises by 40 °C in an hour, while the water rises by only 5 °C. Both receive about the same sunshine, but iron's specific heat (452 J kg⁻¹ K⁻¹) is far smaller than water's (4190 J kg⁻¹ K⁻¹).</p>
+            <p><b>(c)</b> The <b>water</b> will cool more slowly. With its large specific heat, each gram of water must give out about nine times as much heat as iron for every degree it cools. Losing heat at a similar rate, the water's temperature falls far more slowly.</p>
+            <p><b>(d)</b> The <b>iron pot</b> heats up faster. Its specific heat is low, so a small amount of heat raises its temperature a lot, and it receives the heat first, straight from the flame. The water gets its heat from the pot and, with its large specific heat, warms up slowly.</p>
+          </div>
+        </details>
+      </div>
+
+      <h3 id="srq" data-toc="Short & long response" data-toc-sub><span class="h3-dot"></span>Short and long response</h3>
+      <div class="qa rv" data-check="l1-srq10">
+        <div class="qa-q"><span class="qn">SRQ 10</span><span>How does the specific heat capacity of different materials affect their use in cookware?</span></div>
+        <details>
+          <summary>Show model answer</summary>
+          <div class="ans">
+            <ul>
+              <li>Pans and pots are made of metals with a <b>low specific heat</b> (aluminium, copper, iron/steel). They need little heat to get hot, so they heat up quickly and pass the heat on to the food without wasting fuel.</li>
+              <li>A low-c pan also <b>cools quickly</b> when taken off the stove. A heavy iron pan has a larger mass, so a larger heat capacity (mc), and it keeps a steadier temperature for frying.</li>
+              <li><b>Water</b> in cooking has a high specific heat: it heats up slowly and spreads heat evenly, so food cooks gently without burning.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+      <div class="qa rv" data-check="l1-lrq1">
+        <div class="qa-q"><span class="qn">LRQ 1</span><span>Explain the concept of specific heat capacity in matter. Discuss various applications of water based on its high specific heat capacity.</span></div>
+        <details>
+          <summary>Show model answer</summary>
+          <div class="ans">
+            <p><b>Concept.</b> Specific heat capacity (specific heat) of a material is the amount of heat absorbed or lost to change the temperature of 1 kg of its substance by 1 K (or 1 °C):</p>
+            <p>\[ c = \frac{Q}{m\,\Delta T} \] SI unit: J kg⁻¹ K⁻¹ (also J kg⁻¹ °C⁻¹ and J g⁻¹ °C⁻¹).</p>
+            <p>Materials with a <b>low</b> c (metals such as aluminium, copper and iron) heat up and cool down quickly and are used in heat sinks. Materials with a <b>high</b> c (water, 4200 J kg⁻¹ K⁻¹) absorb or lose a lot of heat for a small temperature change, so they retain heat and are used to control temperature.</p>
+            <p><b>Applications of water's high specific heat:</b></p>
+            <ul>
+              <li><b>Coastal climate:</b> dry soil (800 J kg⁻¹ K⁻¹) has about five times less c than water, so inland areas swing from 45–50 °C in summer to 0–5 °C in winter, while Karachi stays between about 19 °C and 32 °C. Oceans store the Sun's heat in summer and release it in winter.</li>
+              <li><b>Stable lakes and oceans:</b> water bodies heat and cool slowly, giving aquatic life a steady environment.</li>
+              <li><b>Body temperature:</b> the body is about 60 % water, which helps keep it steady at about 37 °C.</li>
+              <li><b>Coolant:</b> water carries excess heat away from car engines (radiators), power plants and industrial machines through heat exchangers.</li>
+              <li><b>Cooking:</b> water heats slowly and distributes heat evenly, so food cooks without burning, and hot drinks stay hot for a long time.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <h3 id="numericals" data-toc="Numericals" data-toc-sub><span class="h3-dot"></span>Numerical response</h3>
+
+      <div class="steps rv" data-check="l1-n1">
+        <div class="steps-head">
+          <p><span class="qn">QV 1</span>Convert the specific heat of water, 4180 J kg⁻¹ K⁻¹, into units of J g⁻¹ °C⁻¹.</p>
+          <span class="ans-key">Textbook answer: 4.18 J g⁻¹ °C⁻¹</span>
+        </div>
+        <ol>
+          <li class="step"><b>Kelvin → Celsius:</b> a change of 1 K equals a change of 1 °C, so \( 4180\ \text{J kg}^{-1}\text{K}^{-1} = 4180\ \text{J kg}^{-1}\,{}^\circ\text{C}^{-1} \).</li>
+          <li class="step"><b>Kilogram → gram:</b> 1 kg = 1000 g, so one gram needs a thousandth of the heat: \[ \frac{4180\ \text{J}}{1\ \text{kg}\cdot{}^\circ\text{C}} = \frac{4180\ \text{J}}{1000\ \text{g}\cdot{}^\circ\text{C}} \]</li>
+          <li class="step final"><b>Answer:</b> \[ c = 4.18\ \text{J g}^{-1}\,{}^\circ\text{C}^{-1} \]</li>
+        </ol>
+        <div class="steps-ctrl"><button class="btn small" data-next>Start solution</button><button class="btn ghost small" data-all>Show all</button><button class="btn ghost small" data-reset hidden>Reset</button></div>
+      </div>
+
+      <div class="steps rv" data-check="l1-n2">
+        <div class="steps-head">
+          <p><span class="qn">QV 2</span>Calculate the amount of heat given to 25 kg of water to increase its temperature by 50 °C.</p>
+          <span class="ans-key">Textbook answer: 5.25 MJ</span>
+        </div>
+        <ol>
+          <li class="step"><b>Given:</b> m = 25 kg · ΔT = 50 °C = 50 K · c (water) = 4200 J kg⁻¹ K⁻¹. <b>Required:</b> Q = ?</li>
+          <li class="step"><b>Formula:</b> \[ Q = m\,c\,\Delta T \]</li>
+          <li class="step"><b>Put in the values:</b> \[ Q = 25 \times 4200 \times 50 = 5\,250\,000\ \text{J} \]</li>
+          <li class="step final"><b>Answer:</b> \[ Q = 5.25 \times 10^{6}\ \text{J} = 5.25\ \text{MJ} \]</li>
+        </ol>
+        <div class="steps-ctrl"><button class="btn small" data-next>Start solution</button><button class="btn ghost small" data-all>Show all</button><button class="btn ghost small" data-reset hidden>Reset</button></div>
+      </div>
+
+      <div class="steps rv" data-check="l1-n3">
+        <div class="steps-head">
+          <p><span class="qn">QV 3</span>A half kg block of an unknown metal is heated from 30 °C to 80 °C, requiring 19 kJ of heat energy. (a) Calculate the specific heat capacity of the metal. (b) If the same metal block is heated from 80 °C to 125 °C, how much additional heat energy would be needed?</p>
+          <span class="ans-key">Textbook answer: 760 J kg⁻¹ K⁻¹, 17.1 kJ</span>
+        </div>
+        <ol>
+          <li class="step"><b>Given:</b> m = 0.5 kg · Q = 19 kJ = 19 000 J · ΔT = 80 − 30 = 50 °C = 50 K.</li>
+          <li class="step"><b>(a)</b> \[ c = \frac{Q}{m\,\Delta T} = \frac{19\,000}{0.5 \times 50} = \frac{19\,000}{25} = \mathbf{760\ J\,kg^{-1}\,K^{-1}} \]</li>
+          <li class="step"><b>(b)</b> New temperature change: ΔT = 125 − 80 = <b>45 K</b>. The block and its c are the same.</li>
+          <li class="step final">\[ Q = m\,c\,\Delta T = 0.5 \times 760 \times 45 = 17\,100\ \text{J} = \mathbf{17.1\ kJ} \]</li>
+        </ol>
+        <div class="steps-ctrl"><button class="btn small" data-next>Start solution</button><button class="btn ghost small" data-all>Show all</button><button class="btn ghost small" data-reset hidden>Reset</button></div>
+      </div>
+
+      <div class="steps rv" data-check="l1-n4">
+        <div class="steps-head">
+          <p><span class="qn">QV 4</span>Calculate the change in temperature of 5 litres of water if it absorbs 8.4 MJ of heat energy. (Use specific heat of water = 4200 J kg⁻¹ K⁻¹.)</p>
+          <span class="ans-key">Textbook answer: 400 °C</span>
+        </div>
+        <ol>
+          <li class="step"><b>Litres → kilograms:</b> 1 litre of water has a mass of 1 kg, so m = <b>5 kg</b>. Q = 8.4 MJ = <b>8.4 × 10⁶ J</b>.</li>
+          <li class="step"><b>Rearrange Eq. 10.1 for ΔT:</b> \[ \Delta T = \frac{Q}{m\,c} \]</li>
+          <li class="step final"><b>Put in the values:</b> \[ \Delta T = \frac{8.4 \times 10^{6}}{5 \times 4200} = \frac{8\,400\,000}{21\,000} = \mathbf{400\ {}^\circ C} \]
+            <span class="muted" style="font-size:.9rem">Reality check: at normal pressure, liquid water can't actually get hotter than 100 °C. Once it reaches its boiling point, the extra heat turns it into steam (latent heat, Unit 11). This question only tests the formula, so 400 °C is the expected answer.</span></li>
+        </ol>
+        <div class="steps-ctrl"><button class="btn small" data-next>Start solution</button><button class="btn ghost small" data-all>Show all</button><button class="btn ghost small" data-reset hidden>Reset</button></div>
+      </div>
+
+      <div class="steps rv" data-check="l1-n7">
+        <div class="steps-head">
+          <p><span class="qn">QV 7</span>A hot steel rod is cooled by plunging it into cold water. The steel rod has a mass of 3 kg and is initially at 450 °C. It cools to 50 °C when placed in the water. The specific heat capacity of steel is 460 J kg⁻¹ °C⁻¹. Calculate the thermal energy (heat) lost by the steel rod as it cools to 50 °C. <span class="muted">(Printed as a second “6” in the book.)</span></p>
+          <span class="ans-key">Textbook answer: 552 kJ</span>
+        </div>
+        <ol>
+          <li class="step"><b>Given:</b> m = 3 kg · c = 460 J kg⁻¹ °C⁻¹ · T<sub>initial</sub> = 450 °C · T<sub>final</sub> = 50 °C.</li>
+          <li class="step"><b>Temperature drop:</b> 450 − 50 = <b>400 °C</b>. (We use the size of the change. The heat is <em>lost</em>, which is what the question asks for.)</li>
+          <li class="step final">\[ Q = m\,c\,\Delta T = 3 \times 460 \times 400 = 552\,000\ \text{J} = \mathbf{552\ kJ} \]</li>
+        </ol>
+        <div class="steps-ctrl"><button class="btn small" data-next>Start solution</button><button class="btn ghost small" data-all>Show all</button><button class="btn ghost small" data-reset hidden>Reset</button></div>
+      </div>
+      <p class="muted" style="font-size:.92rem">QV 5 and QV 6 (mixing water, and the calorimeter) need the method of mixtures. They're waiting for you in <a href="lesson-2.html#practice">Lesson 2</a>.</p>
+    </section>
+
+    <!-- ================= SUMMARY ================= -->
+    <section class="sec" id="summary" data-toc="Summary">
+      <div class="sec-head">
+        <span class="sec-num">★</span>
+        <h2>Lesson Summary</h2>
+      </div>
+      <div class="sheet">
+        <div class="sheet-card rv"><h4>Definition</h4><div class="f">Specific heat capacity</div><p>Heat absorbed or lost to change the temperature of 1 kg of a substance by 1 K (or 1 °C).</p></div>
+        <div class="sheet-card rv"><h4>Equation 10.1</h4><div class="f">\( c = \dfrac{Q}{m\,\Delta T} \;\Leftrightarrow\; Q = mc\Delta T \)</div><p>ΔT = T<sub>final</sub> − T<sub>initial</sub>; a change of 1 °C = a change of 1 K.</p></div>
+        <div class="sheet-card rv"><h4>Units</h4><div class="f">J kg⁻¹ K⁻¹</div><p>= J kg⁻¹ °C⁻¹. Divide by 1000 for J g⁻¹ °C⁻¹ (900 → 0.9).</p></div>
+        <div class="sheet-card rv"><h4>Low c vs high c</h4><div class="f">Metals vs water</div><p>Low c: heat up and cool quickly (heat sinks). High c: slow to change, retains heat (coolant, climate control).</p></div>
+        <div class="sheet-card rv"><h4>Heat capacity</h4><div class="f">\( Q/\Delta T = mc \)</div><p>For a whole object, in J K⁻¹ or J °C⁻¹.</p></div>
+        <div class="sheet-card rv"><h4>Water at work</h4><div class="f">c ≈ 4200 J kg⁻¹ K⁻¹</div><p>Mild coasts (Karachi 19–32 °C), stable lakes, steady body temperature (37 °C), engine coolant, even cooking.</p></div>
+      </div>
+
+      <div class="mastered">
+        <h3>🎉 Lesson mastered!</h3>
+        <p>You can define, calculate and explain specific heat capacity, and use it to explain the world around you. Next: how do we actually measure it?</p>
+      </div>
+
+      <div class="next-card">
+        <div>
+          <div class="nx-k">Up next · Lesson 2 · § 10.1.2</div>
+          <h3>Measuring Specific Heat</h3>
+          <p>Run the method of mixtures and the electrical method in a virtual school lab.</p>
+        </div>
+        <a class="btn" href="lesson-2.html">Start Lesson 2 →</a>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer class="foot">
+  <p>Lumen · interactive notes for Class 10 Physics, Unit 10 “Heat Capacity and Modes of Heat Transfer” (textbook pp. 11 – 44).</p>
+  <p>Your progress is saved in this browser only.</p>
+</footer>
+
+<script src="../../assets/js/core.js"></script>
+<script src="js/lesson-1.js"></script>
+</body>
+</html>

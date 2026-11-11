@@ -3,75 +3,100 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lumen · FSc Physics you can play with</title>
-<meta name="description" content="Interactive FSc Physics (Part I): every concept, example, question and numerical turned into hands-on labs.">
+<title>Lumen · Physics you can play with</title>
+<meta name="description" content="Interactive physics notes for Pakistani students in Class 10 and FSc (Class 11): every concept, example, question and numerical from the textbook, turned into hands-on labs.">
 <meta name="theme-color" content="#060a17">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Lumen Physics">
-<meta property="og:title" content="Lumen · FSc Physics you can play with">
-<meta property="og:description" content="Interactive FSc Physics (Part I): every concept, example, question and numerical turned into hands-on labs.">
+<meta property="og:title" content="Lumen · Physics you can play with">
+<meta property="og:description" content="Interactive physics for Class 10 and FSc: every textbook concept, example and numerical turned into hands-on labs.">
 <meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/main.css">
 <style>
-  .home-hero { max-width: 1240px; margin: 0 auto; padding: 110px 24px 40px; }
+  .home-hero { max-width: 1240px; margin: 0 auto; padding: 110px 24px 30px; }
   .home-hero h1 { max-width: 900px; }
   .home-hero .lede { font-size: 1.25rem; max-width: 640px; }
   .how { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
   .how .stat b { font-size: 1.15rem; margin-bottom: 4px; }
+  .class-card .cl-live { font-size: .85rem; color: var(--text-2); }
+  .class-card .cl-live b { color: var(--green); font-weight: 600; }
 </style>
 </head>
 <body>
 
 <header class="topbar">
-  <a class="brand" href="index.html"><span class="brand-mark"></span>Lumen<span class="brand-sub">FSc Physics</span></a>
+  <a class="brand" href="index.html"><span class="brand-mark"></span>Lumen<span class="brand-sub">Physics</span></a>
   <div class="topbar-right">
     <span class="xp" id="xp" title="XP earned across all lessons"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.9L22 9.6l-5.4 4.8 1.6 7.3L12 17.9 5.8 21.7l1.6-7.3L2 9.6l7.1-.7z"/></svg><b>0</b> XP</span>
   </div>
 </header>
 
 <section class="home-hero">
-  <div class="eyebrow">FSc Physics · Part I</div>
+  <div class="eyebrow">Interactive physics · Class 10 &amp; FSc</div>
   <h1>Physics you can <span class="grad">play with</span>.</h1>
   <p class="lede">Every definition, derivation, example and numerical from your textbook, rebuilt as labs you can drag, tweak and break. Stop memorising physics and start seeing it.</p>
-  <div class="hero-cta"><a class="btn" href="chapter-10/index.html">Open Chapter 10 · Optical Instruments →</a></div>
+  <div class="hero-cta"><a class="btn" href="#classes">Choose your class ↓</a></div>
 </section>
 
 <main class="wrap">
-  <section class="block" style="padding-top:40px">
+  <section class="block" id="classes" style="padding-top:40px">
+    <div class="block-head">
+      <div><div class="eyebrow">Step 1</div><h2>Which class are you in?</h2></div>
+      <p>Each class follows its own textbook, chapter by chapter. Your XP is shared across every class.</p>
+    </div>
+    <div class="classes">
+      <div class="class-card soon">
+        <span class="glow" style="background:var(--violet)"></span>
+        <span class="cl-n">9</span>
+        <span class="cl-k">Grade 9 · Matric Part I</span>
+        <h3>Class 9 Physics</h3>
+        <p>Measurements, kinematics, forces, energy and more.</p>
+        <span class="cl-state">Coming soon</span>
+      </div>
+      <a class="class-card live" href="class-10/index.html">
+        <span class="glow" style="background:var(--amber)"></span>
+        <span class="cl-n">10</span>
+        <span class="cl-k">Grade 10 · National Book Foundation (2025)</span>
+        <h3>Class 10 Physics</h3>
+        <p>Heat, waves, sound, optics, electricity, electronics and nuclear physics.</p>
+        <span class="cl-live"><b>●</b> Unit 10 · Heat Capacity &amp; Heat Transfer is live</span>
+        <span class="cl-state">Open →</span>
+      </a>
+      <a class="class-card live" href="class-11/index.html">
+        <span class="glow" style="background:var(--cyan)"></span>
+        <span class="cl-n">11</span>
+        <span class="cl-k">FSc Part I · First Year</span>
+        <h3>Class 11 Physics</h3>
+        <p>Measurements, vectors, motion, fluids, waves, optics and thermodynamics.</p>
+        <span class="cl-live"><b>●</b> Chapter 10 · Optical Instruments is live</span>
+        <span class="cl-state">Open →</span>
+      </a>
+      <div class="class-card soon">
+        <span class="glow" style="background:var(--pink)"></span>
+        <span class="cl-n">12</span>
+        <span class="cl-k">FSc Part II · Second Year</span>
+        <h3>Class 12 Physics</h3>
+        <p>Electrostatics, current electricity, electromagnetism and modern physics.</p>
+        <span class="cl-state">Coming soon</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
     <div class="how">
       <div class="stat rv"><b>🧪 Labs, not pictures</b><span>Every figure in the book becomes something you can move. Watch the physics respond in real time.</span></div>
       <div class="stat rv"><b>📖 Exam-ready</b><span>Exact textbook definitions, every question and every numerical, solved step by step.</span></div>
       <div class="stat rv"><b>⭐ Earn XP</b><span>Beat lab challenges and quick checks to master each lesson. Progress saves automatically.</span></div>
     </div>
   </section>
-
-  <section class="block">
-    <div class="block-head">
-      <div><div class="eyebrow">The book</div><h2>Chapters</h2></div>
-      <p>We're building this one chapter at a time. Chapter 10 is live now.</p>
-    </div>
-    <div class="chapters">
-      <div class="chapter-card soon"><span class="cs">Coming soon</span><h3>Measurements</h3><span class="cn">1</span></div>
-      <div class="chapter-card soon"><span class="cs">Coming soon</span><h3>Vectors and Equilibrium</h3><span class="cn">2</span></div>
-      <div class="chapter-card soon"><span class="cs">Coming soon</span><h3>Motion and Force</h3><span class="cn">3</span></div>
-      <div class="chapter-card soon"><span class="cs">Coming soon</span><h3>Work and Energy</h3><span class="cn">4</span></div>
-      <div class="chapter-card soon"><span class="cs">Coming soon</span><h3>Circular Motion</h3><span class="cn">5</span></div>
-      <div class="chapter-card soon"><span class="cs">Coming soon</span><h3>Fluid Dynamics</h3><span class="cn">6</span></div>
-      <div class="chapter-card soon"><span class="cs">Coming soon</span><h3>Oscillations</h3><span class="cn">7</span></div>
-      <div class="chapter-card soon"><span class="cs">Coming soon</span><h3>Waves</h3><span class="cn">8</span></div>
-      <div class="chapter-card soon"><span class="cs">Coming soon</span><h3>Physical Optics</h3><span class="cn">9</span></div>
-      <a class="chapter-card live" href="chapter-10/index.html"><span class="cs">● Live · Lessons 1–4 ready</span><h3>Optical Instruments</h3><span class="cn">10</span></a>
-      <div class="chapter-card soon"><span class="cs">Coming soon</span><h3>Heat and Thermodynamics</h3><span class="cn">11</span></div>
-    </div>
-  </section>
 </main>
 
 <footer class="foot" style="margin-top:80px">
-  <p>Lumen · interactive notes for FSc Physics. Your progress is saved in this browser only.</p>
+  <p>Lumen · interactive physics notes. Your progress is saved in this browser only.</p>
 </footer>
 <script src="assets/js/core.js"></script>
 </body>
