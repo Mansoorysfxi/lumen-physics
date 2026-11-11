@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found · Lumen Physics</title>
+<meta name="theme-color" content="#060a17">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23060a17'/%3E%3Ccircle cx='32' cy='32' r='17' fill='none' stroke='%23a98bff' stroke-width='9'/%3E%3C/svg%3E">
+<style>
+  /* Self-contained on purpose: GitHub Pages serves this file at whatever URL was missing,
+     so relative links to /assets would break. */
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 24px;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; color: #e9edff; text-align: center;
+    background: radial-gradient(900px 500px at 20% 0%, rgba(95,227,255,.12), transparent 60%),
+                radial-gradient(800px 500px at 100% 100%, rgba(255,95,168,.10), transparent 60%), #060a17;
+  }
+  .ring { width: 92px; height: 92px; margin: 0 auto 28px; border-radius: 50%; position: relative;
+    background: conic-gradient(from 200deg, #5fe3ff, #a98bff, #ff5fa8, #ffc65c, #5fe3ff);
+    box-shadow: 0 0 40px rgba(95,227,255,.45); animation: spin 8s linear infinite; }
+  .ring::after { content: ""; position: absolute; inset: 20px; border-radius: 50%; background: #060a17; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .ring { animation: none; } }
+  .code { font-family: "JetBrains Mono", Consolas, monospace; letter-spacing: .2em; color: #5fe3ff; font-size: .85rem; }
+  h1 { font-family: "Space Grotesk", system-ui, sans-serif; font-size: clamp(2rem, 6vw, 3.2rem); margin: 12px 0 10px; letter-spacing: -.02em; }
+  p { color: #c3cae6; max-width: 460px; margin: 0 auto 28px; line-height: 1.6; }
+  a.btn { display: inline-block; padding: 12px 22px; border-radius: 999px; font-weight: 600; text-decoration: none;
+    color: #061022; background: linear-gradient(100deg, #5fe3ff, #a98bff); }
+</style>
+</head>
+<body>
+  <main>
+    <div class="ring" aria-hidden="true"></div>
+    <div class="code">ERROR 404</div>
+    <h1>This light ray missed the lens.</h1>
+    <p>The page you were looking for doesn't exist, or it hasn't been built yet. Let's get you back on the optical axis.</p>
+    <a class="btn" id="home" href="/">Back to Lumen home</a>
+  </main>
+  <script>
+    // Project sites live at username.github.io/<repo>/ – point "home" at the repo root.
+    (function () {
+      var seg = location.pathname.split('/')[1];
+      if (/\.github\.io$/.test(location.hostname) && seg && seg.indexOf('.') === -1) {
+        document.getElementById('home').href = '/' + seg + '/';
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+# Source textbook (copyrighted, ~53 MB) - keep it local only
+*.pdf
+
+# OS / editor clutter
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/

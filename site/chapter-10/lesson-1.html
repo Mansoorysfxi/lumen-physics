@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seeing Clearly · Ch 10 Optical Instruments · Lumen Physics</title>
+<meta name="description" content="Least distance of distinct vision, magnification, angular magnification and resolving power — with interactive labs. FSc Physics Chapter 10, sections 10.1–10.2.">
+<meta name="theme-color" content="#060a17">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lumen Physics">
+<meta property="og:title" content="Seeing Clearly · Ch 10 Lesson 1 · Lumen Physics">
+<meta property="og:description" content="Near point, magnification and resolving power, explored with 4 interactive labs. FSc Physics §10.1–10.2.">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../assets/css/main.css">
+<style>
+  .ar-world { aspect-ratio: 16 / 5; }
+  .ar-zoom, .ar-view { aspect-ratio: 4 / 3; }
+  .ar-lens { aspect-ratio: 2 / 1; }
+  .ar-graph { aspect-ratio: 16 / 5; }
+  .ar-airy { aspect-ratio: 5 / 2; }
+  .ar-prof { aspect-ratio: 16 / 5; }
+  .ar-grating { aspect-ratio: 2 / 1; }
+  @media (max-width: 640px) {
+    .ar-world { aspect-ratio: 16 / 8; }
+    .ar-lens { aspect-ratio: 4 / 3; }
+    .ar-graph, .ar-prof { aspect-ratio: 16 / 7; }
+    .ar-airy { aspect-ratio: 2 / 1; }
+    .ar-grating { aspect-ratio: 4 / 3; }
+  }
+  .lab-stage .stack { display: grid; gap: 12px; }
+  .lab-grid.even { grid-template-columns: 1fr 1fr; }
+  @media (max-width: 760px) { .lab-grid.even { grid-template-columns: 1fr; } }
+  .fig-angle text { font-family: "JetBrains Mono", monospace; }
+</style>
+</head>
+<body data-lesson="ch10-l1">
+
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="brand-mark"></span>Lumen<span class="brand-sub">FSc Physics</span></a>
+  <nav class="crumbs"><span class="sep">/</span><a href="index.html">Ch 10 · Optical Instruments</a><span class="sep">/</span><span>Lesson 1 · Seeing Clearly</span></nav>
+  <div class="topbar-right">
+    <span class="xp" id="xp" title="XP earned across all lessons"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.9L22 9.6l-5.4 4.8 1.6 7.3L12 17.9 5.8 21.7l1.6-7.3L2 9.6l7.1-.7z"/></svg><b>0</b> XP</span>
+  </div>
+  <div class="read-progress"><span></span></div>
+</header>
+
+<section class="lesson-hero">
+  <div class="kicker"><span>Chapter 10 · Lesson 1 of 9</span><span class="tag">§ 10.1 – 10.2</span></div>
+  <h1>Seeing <span class="grad">Clearly</span></h1>
+  <p class="lede">Why can't you read a book pressed against your nose? Why do things look bigger when they're closer? And why can't a microscope keep zooming in forever? Every optical instrument starts with these three questions.</p>
+  <div class="meta-row">
+    <span class="meta">📖 Textbook <b>pp. 214 – 216</b></span>
+    <span class="meta">⏱ About <b>25 min</b></span>
+    <span class="meta">🧪 <b>4</b> interactive labs</span>
+    <span class="meta">✅ Progress <b data-lesson-pct>0%</b></span>
+  </div>
+</section>
+
+<div class="lesson-layout">
+  <aside class="toc">
+    <div class="toc-title">In this lesson</div>
+    <ol></ol>
+    <div class="toc-progress">
+      <small>Lesson progress</small>
+      <div class="bar"><span data-lesson-bar></span></div>
+      <small><b data-lesson-count>0 / 0</b> checkpoints · <span class="mono" data-lesson-pct>0%</span></small>
+    </div>
+  </aside>
+
+  <main class="content">
+
+    <!-- ================= 10.1 ================= -->
+    <section class="sec" id="s10-1" data-toc="10.1 Least distance of distinct vision">
+      <div class="sec-head">
+        <span class="sec-num">10.1</span>
+        <h2>Least Distance of Distinct Vision</h2>
+        <span class="page-ref">Textbook p. 214</span>
+      </div>
+
+      <p class="hook">Try this right now: hold your phone at arm's length, then slowly bring it towards your eyes. The text gets <em>bigger</em>… until suddenly it turns <em>fuzzy</em>. That point is the subject of this section.</p>
+
+      <p>The normal human eye can focus a sharp image of an object on the eye if the object is located anywhere from <strong>infinity</strong> to a certain point called the <strong>near point</strong>.</p>
+
+      <div class="def rv">
+        <div class="def-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5v14z"/></svg>Definition</div>
+        <span class="exam">exam definition</span>
+        <p>The minimum distance from the eye at which an object appears to be distinct is called the <strong>least distance of distinct vision</strong> or <strong>near point</strong>.</p>
+      </div>
+
+      <ul>
+        <li>This distance is represented by <i class="v">d</i> and is about <strong>25 cm</strong> from the eye.</li>
+        <li>If the object is held closer to the eye than this distance, the image formed will be <strong>blurred and fuzzy</strong>.</li>
+        <li>The location of the near point, however, <strong>changes with age</strong>.</li>
+      </ul>
+
+      <!-- LAB 1 -->
+      <div class="lab rv" id="lab-eye">
+        <div class="lab-head">
+          <span class="lab-badge"><span class="pulse"></span>Lab 1</span>
+          <h3>Bring the card towards your eye</h3>
+          <p class="lab-sub">Drag the card in the top panel, or use the slider. Watch three things together: the <b>angle</b> the card makes at your eye, what happens <b>inside the eye</b>, and <b>what you actually see</b>.</p>
+        </div>
+        <div class="lab-stage">
+          <div class="panel-label"><span class="lbl">The world · to scale</span><canvas class="lab-canvas ar-world" id="eye-world" aria-label="Side view of a card and an eye. Drag the card to change its distance."></canvas></div>
+          <div class="lab-grid even">
+            <div class="panel-label"><span class="lbl">Inside the eye · zoomed in</span><canvas class="lab-canvas ar-zoom" id="eye-zoom" aria-label="Zoomed view of rays focusing inside the eye"></canvas></div>
+            <div class="panel-label"><span class="lbl">What you see</span>
+              <div class="eye-view ar-view" id="eye-view">
+                <div class="view-card" id="eye-card">
+                  <h5>Optics</h5>
+                  <p>Light travels in straight lines. When it passes from air into glass it bends, and a convex lens can bring the rays together to form an image. Your eye is a living lens…</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lab-controls">
+          <label class="ctl">
+            <span class="ctl-top"><span>Distance of card from eye, <i class="v">u</i></span><output class="ctl-val" id="eye-u-out">50 cm</output></span>
+            <input type="range" id="eye-u" min="5" max="100" step="0.5" value="50">
+          </label>
+          <div class="ctl-group">
+            <span class="ctl-name">Whose eye?</span>
+            <div class="chip-row" id="eye-near">
+              <button class="chip" data-near="25" aria-pressed="true">Standard · d = 25 cm</button>
+              <button class="chip" data-near="7" aria-pressed="false">Child · 7 cm</button>
+              <button class="chip" data-near="10" aria-pressed="false">Age 20 · 10 cm</button>
+              <button class="chip" data-near="40" aria-pressed="false">Age 50 · 40 cm</button>
+              <button class="chip" data-near="100" aria-pressed="false">Age 60+ · 100 cm</button>
+            </div>
+          </div>
+          <div class="ctl-group">
+            <span class="ctl-name">Tid-bit trick</span>
+            <label class="toggle"><input type="checkbox" id="eye-pin"><span class="sw"></span>Look through a pinhole</label>
+          </div>
+        </div>
+        <div class="readouts">
+          <div class="ro"><span class="ro-k">Angle at eye θ</span><span class="ro-v" id="eye-theta">–</span></div>
+          <div class="ro"><span class="ro-k">Image on retina</span><span class="ro-v" id="eye-ret">–</span></div>
+          <div class="ro"><span class="ro-k">Focusing effort</span><span class="ro-v" id="eye-effort">–</span></div>
+          <div class="ro"><span class="ro-k">View</span><span class="ro-v" id="eye-focus">–</span></div>
+        </div>
+        <div class="status" id="eye-status"><span class="dot"></span><span></span></div>
+        <div class="challenges">
+          <h4>Challenges</h4>
+          <ul>
+            <li data-check="l1-eye-near">Find the <b>near point</b>: the closest distance where the card is still perfectly sharp (standard eye, no pinhole).</li>
+            <li data-check="l1-eye-age">Pick the <b>Age 60+</b> eye and bring the card to 30 cm or closer. Now you know why grandparents read the newspaper at arm's length!</li>
+            <li data-check="l1-eye-pin">Test the <b>Tid-bit</b>: with the pinhole on, read the card sharply at <b>half</b> the near-point distance or closer.</li>
+          </ul>
+        </div>
+        <p class="lab-foot">Model: thin eye-lens 2.0 cm in front of the retina, pupil 4 mm (pinhole 1 mm), card 3 cm tall. Near-point ages are typical values; the textbook standard is d = 25 cm.</p>
+      </div>
+
+      <div class="callout tidbit rv">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V17h6v-.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg></div>
+        <div>
+          <h4>Tid-bit · try it at home</h4>
+          <p>If you find it difficult to read small print, make a pinhole in a piece of paper and hold it in front of your eye close to the page. You will see the print clearly.</p>
+          <p class="muted"><b>Why it works:</b> the pinhole lets in only a very narrow bundle of rays. Even if the eye can't focus, that narrow bundle makes only a tiny blur spot on the retina, so the print looks sharp. The price is a dimmer image. Turn on the pinhole in Lab 1 and watch the blur spot shrink.</p>
+        </div>
+      </div>
+
+      <div class="quiz rv" data-check="l1-q-near" data-explain="Moving closer increases the angle subtended at the eye (bigger image on the retina), but 10 cm is inside the near point. The eye lens cannot bulge any more, so the image forms <em>behind</em> the retina and looks blurred.">
+        <div class="quiz-label">Quick check <span class="xp-pill">+10 XP</span></div>
+        <p class="quiz-q">A page is held 25 cm from a normal eye and looks perfectly sharp. It is now moved to 10 cm from the eye. What does the person see?</p>
+        <div class="quiz-opts">
+          <button data-why="Bigger, yes, because the angle grows. But 10 cm is inside the near point, so can the eye still focus it?">It looks bigger and sharper.</button>
+          <button data-correct>It looks bigger, but blurred.</button>
+          <button data-why="A closer object makes a <b>larger</b> angle at the eye, so it looks bigger, not smaller.">It looks smaller and blurred.</button>
+          <button data-why="Both the angle and the focus change. Try 10 cm in Lab 1.">Nothing changes.</button>
+        </div>
+        <div class="quiz-fb" hidden></div>
+      </div>
+    </section>
+
+    <!-- ================= 10.2 ================= -->
+    <section class="sec" id="s10-2" data-toc="10.2 Magnifying &amp; resolving power">
+      <div class="sec-head">
+        <span class="sec-num">10.2</span>
+        <h2>Magnifying Power and Resolving Power of Optical Instruments</h2>
+        <span class="page-ref">Textbook pp. 215 – 216</span>
+      </div>
+
+      <p class="hook">An optical instrument has two jobs. It must make things look <strong>bigger</strong> (magnifying power), and it must show the <strong>details</strong> clearly (resolving power). These are two different things, and confusing them is one of the most common exam mistakes.</p>
+
+      <!-- Magnification -->
+      <h3 id="s10-2-mag" data-toc="Magnification" data-toc-sub><span class="h3-dot"></span>Magnification</h3>
+      <p>When an object is placed in front of a convex lens at a point <strong>beyond its focus</strong>, a <strong>real and inverted</strong> image of the object is formed, as shown in Fig. 10.1 (you can rebuild it below).</p>
+
+      <div class="def rv">
+        <div class="def-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5v14z"/></svg>Definition</div>
+        <span class="exam">exam definition</span>
+        <p>The ratio of the size of the image to the size of the object is called <strong>magnification</strong>.</p>
+      </div>
+
+      <div class="formula rv">
+        <div class="formula-body">\[ m \;=\; \frac{\text{size of image}}{\text{size of object}} \;=\; \frac{I}{O} \;=\; \frac{q}{p} \]
+          <div class="formula-note">p = distance of object from lens · q = distance of image from lens</div>
+        </div>
+      </div>
+
+      <!-- LAB 2 -->
+      <div class="lab rv" id="lab-lens">
+        <div class="lab-head">
+          <span class="lab-badge"><span class="pulse"></span>Lab 2 · Fig. 10.1</span>
+          <h3>Convex-lens image builder</h3>
+          <p class="lab-sub">Drag the <b>object arrow</b> left/right (and up/down to change its height). Three special rays find the image: one <span style="color:var(--amber)">parallel to the axis</span>, one <span style="color:var(--cyan)">through the optical centre O</span>, and one <span style="color:var(--pink)">through the focus F</span>.</p>
+        </div>
+        <div class="lab-stage">
+          <canvas class="lab-canvas ar-lens" id="lens-canvas" aria-label="Ray diagram of a convex lens. Drag the object arrow."></canvas>
+        </div>
+        <div class="lab-controls">
+          <label class="ctl">
+            <span class="ctl-top"><span>Object distance <i class="v">p</i></span><output class="ctl-val" id="lens-p-out"></output></span>
+            <input type="range" id="lens-p" min="0.5" max="17" step="0.1" value="13">
+          </label>
+          <label class="ctl">
+            <span class="ctl-top"><span>Focal length <i class="v">f</i></span><output class="ctl-val" id="lens-f-out"></output></span>
+            <input type="range" id="lens-f" min="3" max="8" step="0.1" value="5">
+          </label>
+        </div>
+        <div class="readouts">
+          <div class="ro"><span class="ro-k">Image distance q</span><span class="ro-v" id="lens-q">–</span></div>
+          <div class="ro"><span class="ro-k">Magnification m = q/p</span><span class="ro-v" id="lens-m">–</span></div>
+          <div class="ro"><span class="ro-k">Image is</span><span class="ro-v ro-wrap" id="lens-nature">–</span></div>
+        </div>
+        <div class="lab-stage" style="padding-top:12px">
+          <div class="panel-label"><span class="lbl">Magnification vs object distance</span><canvas class="lab-canvas ar-graph" id="lens-graph" aria-label="Graph of magnification against object distance"></canvas></div>
+        </div>
+        <div class="status" id="lens-status"><span class="dot"></span><span></span></div>
+        <div class="challenges">
+          <h4>Challenges</h4>
+          <ul>
+            <li data-check="l1-lens-same">Make a <b>real</b> image exactly the <b>same size</b> as the object. Where did you have to put it?</li>
+            <li data-check="l1-lens-3x">Make a <b>real</b> image <b>3 times</b> larger than the object.</li>
+            <li data-check="l1-lens-virt">Move the object <b>inside F</b> to get an upright, virtual image. That's a magnifying glass, the star of §10.3.</li>
+          </ul>
+        </div>
+      </div>
+
+      <p>Notice in the graph: <strong>as the object is brought from a far off point to the focus, the magnification goes on increasing.</strong> Far away, the image is tiny. Near F, it becomes huge.</p>
+
+      <div class="quiz rv" data-check="l1-q-mag" data-explain="m = q/p. As p shrinks towards f, the image distance q grows rapidly, so m goes on increasing, exactly as the curve in Lab 2 shows.">
+        <div class="quiz-label">Quick check <span class="xp-pill">+10 XP</span></div>
+        <p class="quiz-q">An object is moved from far away towards the focus F of a convex lens (staying outside F). What happens to the magnification of the real image?</p>
+        <div class="quiz-opts">
+          <button data-why="Look at the graph in Lab 2 as p gets smaller.">It decreases.</button>
+          <button data-why="m = q/p changes because q changes much faster than p.">It stays the same.</button>
+          <button data-correct>It goes on increasing.</button>
+          <button data-why="m only approaches zero when the object is very far away.">It becomes zero.</button>
+        </div>
+        <div class="quiz-fb" hidden></div>
+      </div>
+
+      <!-- Angular magnification -->
+      <h3 id="s10-2-ang" data-toc="Apparent size &amp; angular magnification" data-toc-sub><span class="h3-dot"></span>Apparent size &amp; angular magnification</h3>
+      <p>The <strong>apparent size</strong> of an object depends on the <strong>angle subtended</strong> by it at the eye. Thus, the closer the object is to the eye, the greater is the angle subtended and the larger the object appears (Fig. 10.2).</p>
+
+      <figure class="rv">
+        <div class="fig-box">
+          <svg class="fig-angle" viewBox="0 0 640 270" role="img" aria-label="Figure 10.2: the same object near the eye subtends a larger angle theta than when far away (theta prime)">
+            <defs>
+              <radialGradient id="eyeG" cx="40%" cy="45%"><stop offset="0" stop-color="#26335c"/><stop offset="1" stop-color="#121a33"/></radialGradient>
+              <filter id="gl"><feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <!-- (a) near -->
+            <line x1="40" y1="80" x2="600" y2="80" stroke="rgba(140,160,255,.25)" stroke-dasharray="4 5"/>
+            <polygon points="330,36 498,80 330,80" fill="rgba(255,95,168,.12)"/>
+            <line x1="330" y1="36" x2="585" y2="102.8" stroke="#ff5fa8" stroke-width="2" filter="url(#gl)"/>
+            <line x1="330" y1="80" x2="585" y2="80" stroke="#5fe3ff" stroke-width="2" filter="url(#gl)"/>
+            <line x1="330" y1="80" x2="330" y2="40" stroke="#ffc65c" stroke-width="3"/><polygon points="330,32 324,44 336,44" fill="#ffc65c"/>
+            <circle cx="540" cy="80" r="48" fill="url(#eyeG)" stroke="rgba(140,160,255,.4)"/>
+            <ellipse cx="498" cy="80" rx="6" ry="20" fill="rgba(95,227,255,.35)" stroke="#5fe3ff"/>
+            <path d="M584 58 A48 48 0 0 1 584 102" stroke="#ff5fa8" stroke-width="4" fill="none" opacity=".8"/>
+            <line x1="586" y1="80" x2="586" y2="103" stroke="#5cf0a0" stroke-width="4" filter="url(#gl)"/>
+            <path d="M462 80 A36 36 0 0 1 463.2 70.6" stroke="#fff" fill="none"/>
+            <text x="445" y="72" fill="#fff" font-size="15" font-style="italic" font-family="Times New Roman">θ</text>
+            <text x="40" y="40" fill="#8b95bb" font-size="13">(a) object close to the eye</text>
+            <text x="606" y="118" fill="#5cf0a0" font-size="11" text-anchor="end">big image on retina</text>
+            <!-- (b) far -->
+            <line x1="40" y1="210" x2="600" y2="210" stroke="rgba(140,160,255,.25)" stroke-dasharray="4 5"/>
+            <polygon points="110,166 498,210 110,210" fill="rgba(255,95,168,.10)"/>
+            <line x1="110" y1="166" x2="585" y2="219.9" stroke="#ff5fa8" stroke-width="2" filter="url(#gl)"/>
+            <line x1="110" y1="210" x2="585" y2="210" stroke="#5fe3ff" stroke-width="2" filter="url(#gl)"/>
+            <line x1="110" y1="210" x2="110" y2="170" stroke="#ffc65c" stroke-width="3"/><polygon points="110,162 104,174 116,174" fill="#ffc65c"/>
+            <circle cx="540" cy="210" r="48" fill="url(#eyeG)" stroke="rgba(140,160,255,.4)"/>
+            <ellipse cx="498" cy="210" rx="6" ry="20" fill="rgba(95,227,255,.35)" stroke="#5fe3ff"/>
+            <path d="M584 188 A48 48 0 0 1 584 232" stroke="#ff5fa8" stroke-width="4" fill="none" opacity=".8"/>
+            <line x1="586" y1="210" x2="586" y2="220" stroke="#5cf0a0" stroke-width="4" filter="url(#gl)"/>
+            <path d="M438 210 A60 60 0 0 1 438.4 203.2" stroke="#fff" fill="none"/>
+            <text x="418" y="203" fill="#fff" font-size="15" font-style="italic" font-family="Times New Roman">θ′</text>
+            <text x="40" y="160" fill="#8b95bb" font-size="13">(b) same object, farther away</text>
+            <text x="606" y="248" fill="#5cf0a0" font-size="11" text-anchor="end">small image on retina</text>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 10.2</b>When the same object is viewed at a shorter distance, the image on the retina of the eye is greater, so the object appears larger and more details can be seen. The angle θ the object subtends in (a) is greater than θ′ in (b).</figcaption>
+      </figure>
+
+      <p>So why not just bring things really close? Because of 10.1! The <strong>maximum size</strong> of an object as seen by the naked eye is obtained when the object is placed at the <strong>least distance of distinct vision</strong>. For a lesser distance, the image formed looks blurred and the details of the object are not visible. (You proved this yourself in Lab 1.)</p>
+      <p>To see something bigger than that, we need help from an optical device. The device makes the object subtend a <em>bigger angle</em> at the eye than it ever could on its own.</p>
+
+      <div class="def rv">
+        <div class="def-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5v14z"/></svg>Definition</div>
+        <span class="exam">exam definition</span>
+        <p>The <strong>magnifying power</strong> or <strong>angular magnification</strong> is defined as the ratio of the angle subtended by the image as seen through the optical device to that subtended by the object at the unaided eye.</p>
+      </div>
+
+      <div class="formula rv">
+        <div class="formula-body">\[ M \;=\; \frac{\beta}{\alpha} \;=\; \frac{\text{angle subtended by image through the device}}{\text{angle subtended by object at unaided eye}} \]
+          <div class="formula-note">You'll use this as Eq. 10.4 for the simple microscope in §10.3.</div>
+        </div>
+      </div>
+
+      <div class="compare rv">
+        <table>
+          <thead><tr><th></th><th>Linear magnification <i class="v">m</i></th><th>Angular magnification <i class="v">M</i></th></tr></thead>
+          <tbody>
+            <tr><td>Compares</td><td>Sizes: image ÷ object</td><td>Angles: through device ÷ unaided eye</td></tr>
+            <tr><td>Formula</td><td>\( m = \dfrac{I}{O} = \dfrac{q}{p} \)</td><td>\( M = \dfrac{\beta}{\alpha} \)</td></tr>
+            <tr><td>Answers</td><td>"How big is the image?"</td><td>"How big does it <em>look</em> to my eye?"</td></tr>
+            <tr><td>Used for</td><td>Any lens or mirror image</td><td>Microscopes, telescopes, magnifiers</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Resolving power -->
+      <h3 id="s10-2-res" data-toc="Resolving power" data-toc-sub><span class="h3-dot"></span>Resolving power</h3>
+      <p>The optical resolution of a microscope or a telescope tells us <strong>how close together two point sources of light can be</strong> so that they are still seen as two separate sources. If two point sources are too close, they will appear as one, because the optical instrument makes a point source look like a <strong>small disc or spot of light with circular diffraction fringes</strong>.</p>
+
+      <div class="callout insight rv">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8"/></svg></div>
+        <div>
+          <h4>Why zooming isn't enough</h4>
+          <p>Although the magnification can be made as large as one desires by choosing appropriate focal lengths, <strong>the magnification alone is of no use unless we can see the details of the object distinctly.</strong></p>
+          <p class="muted">Think of zooming into a blurry photo on your phone. It gets bigger, but no new detail appears. Physicists call this <em>empty magnification</em>.</p>
+        </div>
+      </div>
+
+      <div class="def rv">
+        <div class="def-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5v14z"/></svg>Definition</div>
+        <span class="exam">exam definition</span>
+        <p>The <strong>resolving power</strong> of an instrument is its ability to reveal the minor details of the object under examination.</p>
+      </div>
+
+      <p>Resolving power is expressed as the <strong>reciprocal of the minimum angle</strong> which two point sources subtend at the instrument so that their images are seen as two distinct spots of light rather than one. <strong>Rayleigh</strong> showed that for light of wavelength <i class="v">λ</i> passing through a lens of diameter <i class="v">D</i>, the resolving power is given by</p>
+
+      <div class="formula rv">
+        <div class="formula-body">\[ R \;=\; \frac{1}{\alpha_{\min}} \;=\; \frac{D}{1.22\,\lambda} \qquad\text{where}\qquad \alpha_{\min} \;=\; 1.22\,\frac{\lambda}{D} \]
+          <div class="formula-note">α<sub>min</sub> in radians · λ = wavelength of light · D = diameter of the lens (aperture)</div>
+        </div>
+        <span class="eq-tag">(10.1)</span>
+      </div>
+
+      <p>The <strong>smaller the value of α<sub>min</sub>, the greater the resolving power</strong>, because two distant objects that are close together can then be seen separately through the instrument. Explore it:</p>
+
+      <!-- LAB 3 -->
+      <div class="lab rv" id="lab-rayleigh">
+        <div class="lab-head">
+          <span class="lab-badge"><span class="pulse"></span>Lab 3 · Eq. 10.1</span>
+          <h3>Two dots or one? The Rayleigh criterion</h3>
+          <p class="lab-sub">Two point sources (think: two stars, or two tiny dots on a slide) seen through a lens. Each one becomes a <b>disc with rings</b>. Change their separation, the colour of light <i class="v">λ</i>, and the lens diameter <i class="v">D</i>.</p>
+        </div>
+        <div class="lab-stage stack">
+          <div class="panel-label"><span class="lbl">What the instrument shows</span><canvas class="lab-canvas ar-airy" id="airy-canvas" aria-label="Image of two diffraction patterns"></canvas></div>
+          <div class="panel-label"><span class="lbl">Brightness across the centre line</span><canvas class="lab-canvas ar-prof" id="airy-profile" aria-label="Intensity profile graph"></canvas></div>
+        </div>
+        <div class="lab-controls">
+          <label class="ctl">
+            <span class="ctl-top"><span>Angular separation of sources</span><output class="ctl-val" id="ray-sep-out"></output></span>
+            <input type="range" id="ray-sep" min="0" max="30" step="0.1" value="14">
+          </label>
+          <label class="ctl">
+            <span class="ctl-top"><span>Wavelength <i class="v">λ</i></span><output class="ctl-val" id="ray-lam-out"></output></span>
+            <input type="range" class="spectrum" id="ray-lam" min="400" max="700" step="1" value="589">
+          </label>
+          <label class="ctl">
+            <span class="ctl-top"><span>Lens diameter <i class="v">D</i></span><output class="ctl-val" id="ray-D-out"></output></span>
+            <input type="range" id="ray-D" min="4" max="15" step="0.1" value="9">
+          </label>
+        </div>
+        <div class="lab-actions">
+          <button class="btn ghost small" data-ray-preset="na">Numerical 10.7 · sodium light, D = 0.90 cm</button>
+          <button class="btn ghost small" data-ray-preset="blue">Switch to blue light</button>
+          <button class="btn ghost small" data-ray-preset="limit">Snap to Rayleigh limit</button>
+        </div>
+        <div class="readouts">
+          <div class="ro"><span class="ro-k">α_min = 1.22 λ / D</span><span class="ro-v" id="ray-amin">–</span></div>
+          <div class="ro"><span class="ro-k">Resolving power R = 1/α_min</span><span class="ro-v" id="ray-R">–</span></div>
+          <div class="ro"><span class="ro-k">Separation ÷ α_min</span><span class="ro-v" id="ray-ratio">–</span></div>
+        </div>
+        <div class="status" id="ray-status"><span class="dot"></span><span></span></div>
+        <div class="challenges">
+          <h4>Challenges</h4>
+          <ul>
+            <li data-check="l1-ray-limit">Set the separation so the two sources are <b>just resolved</b>: the Rayleigh limit, where the centre of one disc sits on the first dark ring of the other.</li>
+            <li data-check="l1-ray-blue">Put the sources <b>6.0 × 10⁻⁵ rad</b> apart and resolve them using <b>blue/violet light</b> (λ ≤ 470 nm).</li>
+            <li data-check="l1-ray-wide">Keep <b>red light</b> (λ ≥ 620 nm) and resolve sources <b>8.0 × 10⁻⁵ rad</b> apart by changing only the lens. (Why do astronomers build giant telescopes?)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="quiz rv" data-check="l1-q-res" data-explain="\(\alpha_{\min} = 1.22\,\lambda/D\). A larger <i>D</i> makes α<sub>min</sub> smaller, so the resolving power \(R = 1/\alpha_{\min}\) increases.">
+        <div class="quiz-label">Quick check <span class="xp-pill">+10 XP</span></div>
+        <p class="quiz-q">Which change gives a microscope a <em>smaller</em> α<sub>min</sub>, and so a better resolving power?</p>
+        <div class="quiz-opts">
+          <button data-why="Red light has a <b>longer</b> wavelength, so α<sub>min</sub> = 1.22λ/D gets bigger. That's worse.">Using red light instead of blue light</button>
+          <button data-correct>Using an objective lens of larger diameter</button>
+          <button data-why="Tube length changes magnification, not the diffraction limit.">Using a longer microscope tube</button>
+          <button data-why="A stronger eyepiece only magnifies the blur. That's empty magnification, with no new detail.">Using a more powerful eyepiece</button>
+        </div>
+        <div class="quiz-fb" hidden></div>
+      </div>
+
+      <!-- Grating -->
+      <h3 id="s10-2-grating" data-toc="Resolving power of a grating" data-toc-sub><span class="h3-dot"></span>Resolving power of a diffraction grating</h3>
+      <p>In the case of a <strong>grating spectrometer</strong>, the job is different. Instead of separating two <em>dots</em>, we want to separate two <em>colours</em> (wavelengths) that are very close together. The resolving power <i class="v">R</i> of the grating is defined as</p>
+
+      <div class="formula rv">
+        <div class="formula-body">\[ R \;=\; \frac{\lambda}{\lambda_2 - \lambda_1} \;=\; \frac{\lambda}{\Delta\lambda} \]
+          <div class="formula-note">where λ ≈ λ₁ ≈ λ₂ and Δλ = λ₂ − λ₁</div>
+        </div>
+        <span class="eq-tag">(10.2)</span>
+      </div>
+
+      <p>Thus, a grating with <strong>high resolving power can distinguish a small difference in wavelength</strong>. If <i class="v">N</i> is the number of rulings on the grating, it can be shown that the resolving power in the <i class="v">m</i>th-order diffraction equals the product <i class="v">N</i> × <i class="v">m</i>:</p>
+
+      <div class="formula rv">
+        <div class="formula-body">\[ R \;=\; N \times m \]
+          <div class="formula-note">N = number of rulings (lines) on the grating · m = order of the spectrum</div>
+        </div>
+        <span class="eq-tag">(10.3)</span>
+      </div>
+
+      <!-- LAB 4 -->
+      <div class="lab rv" id="lab-grating">
+        <div class="lab-head">
+          <span class="lab-badge"><span class="pulse"></span>Lab 4 · Eqs. 10.2 &amp; 10.3</span>
+          <h3>Split the yellow light</h3>
+          <p class="lab-sub">The yellow glow of a sodium street-lamp is really <b>two</b> colours, only 0.6 nm apart. Can your grating tell them apart? Change the number of rulings <i class="v">N</i> and the order <i class="v">m</i>.</p>
+        </div>
+        <div class="lab-stage">
+          <canvas class="lab-canvas ar-grating" id="grating-canvas" aria-label="Spectrum and intensity graph of two close spectral lines"></canvas>
+        </div>
+        <div class="lab-controls">
+          <div class="ctl-group">
+            <span class="ctl-name">Light source</span>
+            <div class="chip-row" id="gr-pair">
+              <button class="chip" data-pair="na" aria-pressed="true">Sodium D-lines</button>
+              <button class="chip" data-pair="hg" aria-pressed="false">Mercury yellow pair</button>
+              <button class="chip" data-pair="hd" aria-pressed="false">Hydrogen vs heavy hydrogen</button>
+            </div>
+          </div>
+          <label class="ctl">
+            <span class="ctl-top"><span>Number of rulings <i class="v">N</i></span><output class="ctl-val" id="gr-N-out"></output></span>
+            <input type="range" id="gr-N" min="0" max="1" step="0.001" value="0.35">
+          </label>
+          <div class="ctl-group">
+            <span class="ctl-name">Diffraction order <i class="v">m</i></span>
+            <div class="chip-row" id="gr-m">
+              <button class="chip" data-m="1" aria-pressed="true">1st order</button>
+              <button class="chip" data-m="2" aria-pressed="false">2nd order</button>
+              <button class="chip" data-m="3" aria-pressed="false">3rd order</button>
+            </div>
+          </div>
+        </div>
+        <div class="readouts">
+          <div class="ro"><span class="ro-k">The two lines</span><span class="ro-v" id="gr-lines">–</span></div>
+          <div class="ro"><span class="ro-k">Needed R = λ / Δλ</span><span class="ro-v" id="gr-need">–</span></div>
+          <div class="ro"><span class="ro-k">Your grating R = N × m</span><span class="ro-v" id="gr-R">–</span></div>
+        </div>
+        <div class="status" id="gr-status"><span class="dot"></span><span></span></div>
+        <div class="challenges">
+          <h4>Challenges</h4>
+          <ul>
+            <li data-check="l1-gr-na">Resolve the two <b>sodium</b> lines (589.0 nm and 589.6 nm).</li>
+            <li data-check="l1-gr-order">Resolve the sodium lines using <b>fewer than 500 rulings</b>. (Hint: R = N × m.)</li>
+            <li data-check="l1-gr-hd">Separate <b>hydrogen</b> from <b>heavy hydrogen</b> (deuterium). This is how deuterium was discovered in 1931!</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="quiz rv" data-check="l1-q-grating" data-explain="R = N × m = 500 × 2 = 1000. The sodium lines need R = λ/Δλ ≈ 589.3 / 0.6 ≈ 982. Since 1000 &gt; 982, they are (just) resolved.">
+        <div class="quiz-label">Quick check <span class="xp-pill">+10 XP</span></div>
+        <p class="quiz-q">A grating with 500 rulings is used in the 2nd order. What is its resolving power, and can it separate the sodium lines (589.0 nm and 589.6 nm)?</p>
+        <div class="quiz-opts">
+          <button data-why="R = N × m, not N ÷ m.">R = 250, so no.</button>
+          <button data-why="R is right, but compare it with what the lines need: λ/Δλ = 589.3 / 0.6 ≈ 982.">R = 1000, so no.</button>
+          <button data-correct>R = 1000, so yes, just.</button>
+          <button data-why="Don't forget the order: R = N × m.">R = 500, so yes.</button>
+        </div>
+        <div class="quiz-fb" hidden></div>
+      </div>
+    </section>
+
+    <!-- ================= PRACTICE ================= -->
+    <section class="sec" id="practice" data-toc="Textbook questions">
+      <div class="sec-head">
+        <span class="sec-num">Q</span>
+        <h2>From Your Textbook</h2>
+        <span class="page-ref">pp. 233 – 235</span>
+      </div>
+      <p>These are the end-of-chapter questions that belong to this lesson. Try answering in your own words first, then open the model answer.</p>
+
+      <div class="qa rv" data-check="l1-qa-1">
+        <div class="qa-q"><span class="qn">Q 10.1</span><span>What do you understand by linear magnification and angular magnification? Explain how a convex lens is used as a magnifier.</span></div>
+        <details>
+          <summary>Show model answer</summary>
+          <div class="ans">
+            <p><b>Linear magnification</b> is the ratio of the size of the image to the size of the object: \( m = \dfrac{I}{O} = \dfrac{q}{p} \).</p>
+            <p><b>Angular magnification</b> (magnifying power) is the ratio of the angle subtended by the image as seen through the optical device (β) to the angle subtended by the object at the unaided eye (α), when the object is placed at the near point: \( M = \dfrac{\beta}{\alpha} \).</p>
+            <p><b>Convex lens as a magnifier:</b></p>
+            <ul>
+              <li>The object is placed <b>inside the focal point</b> of the convex lens, and the lens is held close to the eye.</li>
+              <li>The lens forms a <b>virtual, erect and magnified</b> image on the same side as the object.</li>
+              <li>The lens is adjusted so that this image is formed at the <b>least distance of distinct vision</b> d (≈ 25 cm), so it is seen clearly.</li>
+              <li>The image subtends a much larger angle at the eye than the object would at 25 cm, so it looks bigger. Its magnifying power is \( M = 1 + \dfrac{d}{f} \) (derived in §10.3).</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <div class="qa rv" data-check="l1-qa-2">
+        <div class="qa-q"><span class="qn">Q 10.2</span><span>Explain the difference between angular magnification and resolving power of an optical instrument. What limits the magnification of an optical instrument?</span></div>
+        <details>
+          <summary>Show model answer</summary>
+          <div class="ans">
+            <ul>
+              <li><b>Angular magnification</b> tells us how much <em>bigger</em> an object appears through the instrument: \( M = \beta/\alpha \). It depends on the focal lengths of the lenses.</li>
+              <li><b>Resolving power</b> tells us how well the instrument shows <em>fine details</em>, i.e. its ability to show two close points as separate. \( R = \dfrac{1}{\alpha_{\min}} = \dfrac{D}{1.22\lambda} \). It depends on the <b>diameter D</b> of the objective and the <b>wavelength λ</b> of light.</li>
+            </ul>
+            <p><b>What limits magnification:</b> magnification can be made as large as we like by choosing focal lengths, but it is useful only as long as the details stay distinct. Because of <b>diffraction</b>, every point becomes a small disc. Once these discs overlap, more magnification only enlarges the blur. So the useful magnification is limited by the <b>resolving power</b>, i.e. by the aperture D of the objective and the wavelength λ of the light used. In practice, defects of lenses (aberrations) at very short focal lengths also limit it.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="qa rv" data-check="l1-qa-3">
+        <div class="qa-q"><span class="qn">Q 10.3</span><span>Why would it be advantageous to use blue light with a compound microscope?</span></div>
+        <details>
+          <summary>Show model answer</summary>
+          <div class="ans">
+            <p>The minimum angle of resolution is \( \alpha_{\min} = 1.22\,\dfrac{\lambda}{D} \). Blue light has a <b>shorter wavelength</b> than most other visible light, so it gives a <b>smaller α<sub>min</sub></b>. There is less diffraction, and the resolving power \( R = 1/\alpha_{\min} \) is <b>greater</b>. Finer details of the specimen can therefore be seen. As the textbook puts it: <em>"A wider objective and use of blue light of short wavelength produces less diffraction and allows more details to be seen."</em></p>
+            <p class="muted">See it: in Lab 3, slide λ from red to blue and watch the discs shrink.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="quiz rv" data-check="l1-q-108i" data-explain="Resolving power depends on α<sub>min</sub> = 1.22λ/D, where D is the diameter of the <b>objective</b>. A wider objective means less diffraction and finer detail.">
+        <div class="quiz-label">Q 10.8 (i) · Identify the correct answer <span class="xp-pill">+10 XP</span></div>
+        <p class="quiz-q">The resolving power of a compound microscope depends on:</p>
+        <div class="quiz-opts">
+          <button data-why="The length of the microscope changes its magnification, not its resolving power.">Length of the microscope.</button>
+          <button data-correct>The diameter of the objective lens.</button>
+          <button data-why="The eyepiece only magnifies the image made by the objective. The detail is already fixed by the objective.">The diameter of the eyepiece.</button>
+          <button data-why="The position of your eye doesn't change the diffraction limit of the instrument.">The position of an observer's eye with regard to the eye lens.</button>
+        </div>
+        <div class="quiz-fb" hidden></div>
+      </div>
+
+      <div class="quiz rv" data-check="l1-q-108ii" data-explain="R = 1/α<sub>min</sub> = D / 1.22λ, so a larger <b>objective diameter</b> gives better resolution. That's why astronomers build enormous telescopes.">
+        <div class="quiz-label">Q 10.8 (ii) · Identify the correct answer <span class="xp-pill">+10 XP</span></div>
+        <p class="quiz-q">The resolving power of an astronomical telescope depends on:</p>
+        <div class="quiz-opts">
+          <button data-why="The focal lengths set the magnification (M = f₀/fₑ), not the resolving power.">The focal length of the objective lens.</button>
+          <button data-why="That's a property of the observer's eye, not of the telescope.">The least distance of distinct vision of the observer.</button>
+          <button data-why="Again, that affects magnification, not resolution.">The focal length of the eye lens.</button>
+          <button data-correct>The diameter of the objective lens.</button>
+        </div>
+        <div class="quiz-fb" hidden></div>
+      </div>
+
+      <h3 id="num-107" data-toc="Numerical 10.7" data-toc-sub><span class="h3-dot"></span>Numerical problem</h3>
+      <div class="steps rv" data-check="l1-num-107">
+        <div class="steps-head">
+          <p><span class="qn">10.7</span>Sodium light of wavelength 589 nm is used to view an object under a microscope. If the aperture of the objective is 0.90 cm, (i) find the limiting angle of resolution, (ii) using visible light of any wavelength, what is the maximum limit of resolution for this microscope?</p>
+          <span class="ans-key">Textbook answer: (i) 8.0 × 10⁻⁵ rad · (ii) 5.4 × 10⁻⁵ rad</span>
+        </div>
+        <ol>
+          <li class="step"><b>Write down the data</b> (convert to SI units):
+            \[ \lambda = 589\ \text{nm} = 589\times10^{-9}\ \text{m}, \qquad D = 0.90\ \text{cm} = 0.90\times10^{-2}\ \text{m} \]</li>
+          <li class="step"><b>Pick the formula.</b> The limiting angle of resolution is Rayleigh's α<sub>min</sub>, Eq. 10.1:
+            \[ \alpha_{\min} = 1.22\,\frac{\lambda}{D} \]</li>
+          <li class="step"><b>(i) Substitute:</b>
+            \[ \alpha_{\min} = 1.22\times\frac{589\times10^{-9}\ \text{m}}{0.90\times10^{-2}\ \text{m}} = 7.98\times10^{-5}\ \text{rad} \approx \mathbf{8.0\times10^{-5}\ rad} \]</li>
+          <li class="step"><b>(ii) Think first:</b> α<sub>min</sub> ∝ λ. The <em>best</em> (smallest) limit comes from the <em>shortest</em> visible wavelength, violet light at about <b>400 nm</b>.</li>
+          <li class="step final"><b>Substitute λ = 400 nm:</b>
+            \[ \alpha_{\min} = 1.22\times\frac{400\times10^{-9}\ \text{m}}{0.90\times10^{-2}\ \text{m}} = 5.42\times10^{-5}\ \text{rad} \approx \mathbf{5.4\times10^{-5}\ rad} \]</li>
+        </ol>
+        <div class="steps-ctrl">
+          <button class="btn small" data-next>Start solution</button>
+          <button class="btn ghost small" data-all>Show all</button>
+          <button class="btn ghost small" data-reset hidden>Reset</button>
+          <a class="btn ghost small" href="#lab-rayleigh" data-ray-preset="na">See it in Lab 3 ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SUMMARY ================= -->
+    <section class="sec" id="summary" data-toc="Summary">
+      <div class="sec-head">
+        <span class="sec-num">★</span>
+        <h2>Lesson Summary</h2>
+      </div>
+      <div class="sheet">
+        <div class="sheet-card rv"><h4>Near point</h4><div class="f">\( d \approx 25\ \text{cm} \)</div><p>Least distance of distinct vision is the minimum distance from the eye at which an object appears to be distinct. Closer than this means blurred. It changes with age.</p></div>
+        <div class="sheet-card rv"><h4>Magnification</h4><div class="f">\( m = \dfrac{I}{O} = \dfrac{q}{p} \)</div><p>The ratio of the size of the image to the size of the object, which equals the ratio of the distance of the image to the distance of the object.</p></div>
+        <div class="sheet-card rv"><h4>Angular magnification</h4><div class="f">\( M = \dfrac{\beta}{\alpha} \)</div><p>The angle subtended by the image through the device ÷ the angle subtended by the object at the unaided eye.</p></div>
+        <div class="sheet-card rv"><h4>Resolving power (lens)</h4><div class="f">\( \alpha_{\min} = 1.22\dfrac{\lambda}{D},\ \ R = \dfrac{1}{\alpha_{\min}} \)</div><p>The ability to reveal minor details. Bigger D or shorter λ gives a better result.</p></div>
+        <div class="sheet-card rv"><h4>Resolving power (grating)</h4><div class="f">\( R = \dfrac{\lambda}{\Delta\lambda} = N m \)</div><p>More rulings or a higher order lets the grating separate closer wavelengths.</p></div>
+      </div>
+
+      <div class="mastered">
+        <h3>🎉 Lesson mastered!</h3>
+        <p>You've completed every lab challenge and question in this lesson. You now know more about seeing clearly than most people ever will.</p>
+      </div>
+
+      <div class="next-card">
+        <div>
+          <div class="nx-k">Up next · Lesson 2 · § 10.3</div>
+          <h3>The Simple Microscope</h3>
+          <p>Put the object inside F and derive <span>\( M = 1 + \dfrac{d}{f} \)</span>. Coming soon.</p>
+        </div>
+        <a class="btn" href="index.html">Back to chapter</a>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer class="foot">
+  <p>Lumen · interactive notes for FSc Physics, Chapter 10 “Optical Instruments” (textbook pp. 214 – 235).</p>
+  <p>Your progress is saved in this browser only.</p>
+</footer>
+
+<script src="../assets/js/core.js"></script>
+<script src="js/lesson-1.js"></script>
+</body>
+</html>
