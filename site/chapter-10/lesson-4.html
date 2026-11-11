@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Astronomical Telescope · Ch 10 Optical Instruments · Lumen Physics</title>
+<meta name="description" content="The astronomical telescope: normal adjustment, M = fo/fe, light gathering, reflecting telescopes, Q10.6 and Numericals 10.2, 10.3, 10.4, 10.8, with interactive labs. FSc Physics Chapter 10, section 10.5.">
+<meta name="theme-color" content="#060a17">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lumen Physics">
+<meta property="og:title" content="The Astronomical Telescope · Ch 10 Lesson 4 · Lumen Physics">
+<meta property="og:description" content="Point a telescope at the moon, cover half the lens, and build a mirror telescope. FSc Physics §10.5.">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../assets/css/main.css">
+<style>
+  .ar-tel { aspect-ratio: 2 / 1; }
+  .ar-view { aspect-ratio: 16 / 6; }
+  .ar-half { aspect-ratio: 4 / 3; }
+  .ar-refl { aspect-ratio: 2 / 1; }
+  @media (max-width: 640px) {
+    .ar-tel, .ar-refl { aspect-ratio: 4 / 3; }
+    .ar-view { aspect-ratio: 16 / 9; }
+    .see-wrap > .lbl { display: none; }
+  }
+  .lab-stage .stack { display: grid; gap: 12px; }
+  .lab-grid.even { grid-template-columns: 1fr 1fr; }
+  @media (max-width: 760px) { .lab-grid.even { grid-template-columns: 1fr; } }
+  .fig-svg text { font-family: "JetBrains Mono", monospace; }
+  .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; padding: 6px 26px 4px; }
+  .fact { padding: 12px 14px; border-radius: 12px; background: rgba(255,255,255,.03); border: 1px solid var(--line); }
+  .fact b { display: block; font-family: var(--head); font-size: 1.35rem; color: var(--text); }
+  .fact span { font-size: .8rem; color: var(--muted); }
+</style>
+</head>
+<body data-lesson="ch10-l4">
+
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="brand-mark"></span>Lumen<span class="brand-sub">FSc Physics</span></a>
+  <nav class="crumbs"><span class="sep">/</span><a href="index.html">Ch 10 · Optical Instruments</a><span class="sep">/</span><span>Lesson 4 · The Astronomical Telescope</span></nav>
+  <div class="topbar-right">
+    <span class="xp" id="xp" title="XP earned across all lessons"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.9L22 9.6l-5.4 4.8 1.6 7.3L12 17.9 5.8 21.7l1.6-7.3L2 9.6l7.1-.7z"/></svg><b>0</b> XP</span>
+  </div>
+  <div class="read-progress"><span></span></div>
+</header>
+
+<section class="lesson-hero">
+  <div class="kicker"><span>Chapter 10 · Lesson 4 of 9</span><span class="tag">§ 10.5</span></div>
+  <h1>The Astronomical <span class="grad">Telescope</span></h1>
+  <p class="lede">A microscope makes tiny things look big. A telescope makes <em>far-away</em> things look big. It uses the same two convex lenses, just arranged the other way round. Point one at the Moon and its craters jump out at you, upside down!</p>
+  <div class="meta-row">
+    <span class="meta">📖 Textbook <b>pp. 220 – 222</b></span>
+    <span class="meta">⏱ About <b>25 min</b></span>
+    <span class="meta">🧪 <b>3</b> interactive labs</span>
+    <span class="meta">✅ Progress <b data-lesson-pct>0%</b></span>
+  </div>
+</section>
+
+<div class="lesson-layout">
+  <aside class="toc">
+    <div class="toc-title">In this lesson</div>
+    <ol></ol>
+    <div class="toc-progress">
+      <small>Lesson progress</small>
+      <div class="bar"><span data-lesson-bar></span></div>
+      <small><b data-lesson-count>0 / 0</b> checkpoints · <span class="mono" data-lesson-pct>0%</span></small>
+    </div>
+  </aside>
+
+  <main class="content">
+
+    <!-- ================= 10.5 ================= -->
+    <section class="sec" id="s10-5" data-toc="10.5 Astronomical telescope">
+      <div class="sec-head">
+        <span class="sec-num">10.5</span>
+        <h2>Astronomical Telescope</h2>
+        <span class="page-ref">Textbook pp. 220 – 221</span>
+      </div>
+
+      <p class="hook">The Moon is 3,474 km wide. Yet to your eye it covers an angle of only half a degree, about the width of your little fingernail held at arm's length. A telescope makes that angle bigger.</p>
+
+      <div class="def rv">
+        <div class="def-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5v14z"/></svg>Definition</div>
+        <span class="exam">exam definition</span>
+        <p>A <strong>telescope</strong> is an optical device used for viewing <strong>distant objects</strong>.</p>
+      </div>
+
+      <p>The image of a distant object viewed through a telescope appears larger because it <strong>subtends a bigger visual angle</strong> than when viewed with the naked eye. Initially, telescopes were used extensively for astronomical observations, so these are called <strong>astronomical telescopes</strong>.</p>
+      <p>A simple astronomical telescope consists of <strong>two convex lenses</strong>:</p>
+      <ul>
+        <li>an <strong>objective</strong> of <strong>long</strong> focal length <i class="v">f<sub>o</sub></i>, and</li>
+        <li>an <strong>eye-piece</strong> of <strong>short</strong> focal length <i class="v">f<sub>e</sub></i>.</li>
+      </ul>
+
+      <div class="compare rv">
+        <table>
+          <thead><tr><th></th><th>Compound microscope (L3)</th><th>Astronomical telescope</th></tr></thead>
+          <tbody>
+            <tr><td>Objective</td><td>Very <b>short</b> focal length</td><td>Very <b>long</b> focal length</td></tr>
+            <tr><td>Eye-piece</td><td>Longer focal length</td><td>Short focal length</td></tr>
+            <tr><td>Object</td><td>Tiny and very close</td><td>Huge and very far away</td></tr>
+            <tr><td>Objective's image</td><td>Real, inverted, <b>magnified</b></td><td>Real, inverted, <b>diminished</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 id="how" data-toc="How it works (Fig. 10.5)" data-toc-sub><span class="h3-dot"></span>How it works</h3>
+      <ul>
+        <li>The objective forms a <strong>real, inverted and diminished</strong> image A′B′ of a distant object AB.</li>
+        <li>This real image A′B′ acts as the <strong>object for the eye-piece</strong>, which is used as a <strong>magnifying glass</strong>.</li>
+        <li>The final image seen through the eye-piece is <strong>virtual, enlarged and inverted</strong>.</li>
+      </ul>
+
+      <figure class="rv">
+        <div class="fig-box">
+          <svg class="fig-svg" viewBox="0 0 690 178" role="img" aria-label="Figure 10.5: ray diagram of an astronomical telescope in normal adjustment">
+            <defs><filter id="gl4"><feGaussianBlur stdDeviation="1.6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+            <line x1="10" y1="75" x2="680" y2="75" stroke="rgba(140,160,255,.35)"/>
+            <line x1="405" y1="111.9" x2="560" y2="54.7" stroke="rgba(255,255,255,.35)" stroke-dasharray="4 4"/>
+            <g fill="none" stroke-width="1.8" filter="url(#gl4)">
+              <polyline points="15,18.5 125,33 505,140 648.7,87.1" stroke="#ff5fa8"/>
+              <polyline points="15,60.5 125,75 505,125 648.7,72.1" stroke="#ff5fa8"/>
+              <polyline points="15,102.5 125,117 505,110 648.7,57.1" stroke="#ff5fa8"/>
+            </g>
+            <ellipse cx="125" cy="75" rx="7" ry="50" fill="rgba(95,227,255,.2)" stroke="#5fe3ff"/>
+            <ellipse cx="505" cy="75" rx="6" ry="72" fill="rgba(95,227,255,.18)" stroke="#5fe3ff"/>
+            <line x1="405" y1="75" x2="405" y2="105" stroke="#5cf0a0" stroke-width="3"/><polygon points="405,112 400,102 410,102" fill="#5cf0a0"/>
+            <circle cx="405" cy="75" r="3" fill="#a98bff"/>
+            <path d="M65 75 A60 60 0 0 1 65.5 67.2" stroke="#fff" fill="none"/>
+            <text x="44" y="70" fill="#fff" font-size="15" font-style="italic" font-family="Times New Roman">α</text>
+            <path d="M555 75 A50 50 0 0 0 551.9 57.7" stroke="#fff" fill="none"/>
+            <text x="562" y="62" fill="#fff" font-size="15" font-style="italic" font-family="Times New Roman">β</text>
+            <circle cx="657" cy="75" r="15" fill="#dfe5f7"/><ellipse cx="645" cy="75" rx="3.2" ry="7" fill="#23a6c9"/>
+            <g font-size="11">
+              <text x="15" y="12" fill="#8b95bb">rays from distant object AB</text>
+              <text x="125" y="140" fill="#5fe3ff" text-anchor="middle">O (objective)</text>
+              <text x="512" y="164" fill="#5fe3ff" text-anchor="middle">O′ (eye-piece)</text>
+              <text x="398" y="70" fill="#a98bff" text-anchor="end">B′</text>
+              <text x="412" y="122" fill="#5cf0a0">A′</text>
+              <line x1="125" y1="158" x2="405" y2="158" stroke="rgba(255,198,92,.6)"/><text x="265" y="154" fill="#ffc65c" text-anchor="middle">f₀</text>
+              <line x1="405" y1="172" x2="505" y2="172" stroke="rgba(169,139,255,.6)"/><text x="455" y="168" fill="#a98bff" text-anchor="middle">fₑ</text>
+            </g>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 10.5</b>Ray diagram of an astronomical telescope in normal adjustment. Parallel rays from the top of a distant object converge at A′ in the focal plane shared by both lenses, then leave the eye-piece parallel again at the larger angle β.</figcaption>
+      </figure>
+
+      <p>When a very distant object is viewed, the rays of light coming from any one of its points (say its top) are considered <strong>parallel</strong>. These parallel rays are converged by the objective to form a real image A′B′ <strong>at its focus</strong>.</p>
+      <p>If we want to see the final image through the eye-piece <strong>without any strain on the eye</strong>, the eye-piece must be placed so that A′B′ lies at <strong>its</strong> focus. The rays leaving the eye-piece become parallel and the final image appears to be formed <strong>at infinity</strong>.</p>
+
+      <div class="def rv">
+        <div class="def-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5v14z"/></svg>Normal adjustment</div>
+        <span class="exam">exam definition</span>
+        <p>When the image A′B′ formed by the objective lies at the <strong>focus of both the objective and the eye-piece</strong>, the telescope is said to be in <strong>normal adjustment</strong>.</p>
+      </div>
+
+      <!-- LAB 1 -->
+      <div class="lab rv" id="lab-tel">
+        <div class="lab-head">
+          <span class="lab-badge"><span class="pulse"></span>Lab 1 · Fig. 10.5</span>
+          <h3>Point a telescope at the Moon</h3>
+          <p class="lab-sub">Parallel rays arrive from a distant object AB: <span style="color:var(--cyan)">cyan</span> from B (on the axis), <span style="color:var(--pink)">pink</span> from its top A at angle α. Change the two focal lengths and see how the emerging angle β, and the Moon in the eye-piece, change.</p>
+        </div>
+        <div class="lab-stage stack">
+          <canvas class="lab-canvas ar-tel" id="tel-canvas" aria-label="Ray diagram of an astronomical telescope"></canvas>
+          <div class="panel-label see-wrap"><span class="lbl">What you see</span><canvas class="lab-canvas ar-view" id="tel-view" aria-label="The Moon seen with the naked eye and through the telescope"></canvas></div>
+        </div>
+        <div class="lab-controls">
+          <label class="ctl">
+            <span class="ctl-top"><span>Objective focal length <i class="v">f<sub>o</sub></i></span><output class="ctl-val" id="tel-fo-out"></output></span>
+            <input type="range" id="tel-fo" min="10" max="120" step="1" value="100">
+          </label>
+          <label class="ctl">
+            <span class="ctl-top"><span>Eye-piece focal length <i class="v">f<sub>e</sub></i></span><output class="ctl-val" id="tel-fe-out"></output></span>
+            <input type="range" id="tel-fe" min="1" max="10" step="0.5" value="5">
+          </label>
+          <label class="ctl">
+            <span class="ctl-top"><span>Objective diameter <i class="v">D</i></span><output class="ctl-val" id="tel-D-out"></output></span>
+            <input type="range" id="tel-D" min="2" max="20" step="0.5" value="8">
+          </label>
+          <label class="ctl">
+            <span class="ctl-top"><span>Angle of object <i class="v">α</i> (Moon ≈ 0.5°)</span><output class="ctl-val" id="tel-a-out"></output></span>
+            <input type="range" id="tel-a" min="0.5" max="4" step="0.1" value="2">
+          </label>
+        </div>
+        <div class="lab-actions">
+          <button class="btn ghost small" data-tel="n103">Numerical 10.3</button>
+          <button class="btn ghost small" data-tel="n104">Numerical 10.4</button>
+          <button class="btn ghost small" data-tel="n108">Numerical 10.8</button>
+          <button class="btn ghost small" data-tel="n102">Numerical 10.2</button>
+        </div>
+        <div class="readouts">
+          <div class="ro"><span class="ro-k">M = f₀ / fₑ</span><span class="ro-v" id="tel-M">–</span></div>
+          <div class="ro"><span class="ro-k">β (final image)</span><span class="ro-v" id="tel-b">–</span></div>
+          <div class="ro"><span class="ro-k">Length L = f₀ + fₑ</span><span class="ro-v" id="tel-L">–</span></div>
+          <div class="ro"><span class="ro-k">Beam width at eye-piece</span><span class="ro-v" id="tel-w">–</span></div>
+        </div>
+        <div class="status" id="tel-status"><span class="dot"></span><span></span></div>
+        <div class="challenges">
+          <h4>Challenges</h4>
+          <ul>
+            <li data-check="l4-tel-n108">Solve <b>Numerical 10.8</b> by building it: a telescope with <b>M = 5</b> whose lenses are <b>24 cm</b> apart.</li>
+            <li data-check="l4-tel-moon">Set α to the real Moon (<b>0.5°</b>) and make it look at least <b>50 times</b> bigger.</li>
+            <li data-check="l4-tel-n102">Load <b>Numerical 10.2</b> (f₀ = 96 cm, D = 12 cm, M = 24) and read off how wide the eye-piece must be.</li>
+          </ul>
+        </div>
+        <p class="lab-foot">Heights are stretched when needed so you can see the rays; the angles and M in the readouts are exact.</p>
+      </div>
+
+      <!-- Derivation -->
+      <h3 id="derive" data-toc="Deriving M = fo/fe" data-toc-sub><span class="h3-dot"></span>Magnifying power in normal adjustment</h3>
+      <div class="steps rv" data-check="l4-derive" data-msg="Derivation complete!">
+        <div class="steps-head"><p><span class="qn">Derivation</span>Magnifying power of an astronomical telescope (normal adjustment)</p></div>
+        <ol>
+          <li class="step"><b>Angle at the unaided eye.</b> The object is so far away that the angle α it subtends at the eye is practically the same as at the objective, and it equals ∠A′OB′:
+            \[ \alpha \approx \tan\alpha = \frac{A'B'}{OB'} = \frac{A'B'}{f_o} \]</li>
+          <li class="step"><b>Angle of the final image.</b> The angle β subtended at the eye by the final image equals ∠A′O′B′:
+            \[ \beta \approx \tan\beta = \frac{A'B'}{O'B'} = \frac{A'B'}{f_e} \]</li>
+          <li class="step"><b>Magnifying power</b> is the ratio of these angles:
+            \[ M = \frac{\beta}{\alpha} = \frac{A'B'/f_e}{A'B'/f_o} \]</li>
+          <li class="step final"><b>Result:</b>
+            \[ M = \frac{f_o}{f_e} = \frac{\text{focal length of the objective}}{\text{focal length of the eye-piece}} \qquad \textbf{(10.8)} \]</li>
+        </ol>
+        <div class="steps-ctrl">
+          <button class="btn small" data-next>Start derivation</button>
+          <button class="btn ghost small" data-all>Show all</button>
+          <button class="btn ghost small" data-reset hidden>Reset</button>
+        </div>
+      </div>
+
+      <div class="formula rv">
+        <div class="formula-body">\[ M = \frac{f_o}{f_e} \qquad\qquad L = f_o + f_e \]
+          <div class="formula-note">In normal adjustment the distance between objective and eye-piece is f₀ + fₑ, which is the length of the telescope.</div>
+        </div>
+        <span class="eq-tag">(10.8)</span>
+      </div>
+
+      <div class="quiz rv" data-check="l4-q-img" data-explain="The objective sees a very distant object, which is far beyond its 2F, so it forms a <b>real, inverted, diminished</b> image at its focus.">
+        <div class="quiz-label">Quick check <span class="xp-pill">+10 XP</span></div>
+        <p class="quiz-q">The image A′B′ formed by the objective of an astronomical telescope is:</p>
+        <div class="quiz-opts">
+          <button data-why="That's the compound microscope's objective, where the object is just beyond F.">Real, inverted and magnified</button>
+          <button data-correct>Real, inverted and diminished</button>
+          <button data-why="A convex lens only forms a virtual image when the object is inside F. Stars are far beyond F.">Virtual, erect and magnified</button>
+          <button data-why="A virtual image needs the object inside F.">Virtual, inverted and diminished</button>
+        </div>
+        <div class="quiz-fb" hidden></div>
+      </div>
+
+      <div class="quiz rv" data-check="l4-q-calc" data-explain="M = f₀/fₑ = 150/3 = <b>50</b>, and the telescope is f₀ + fₑ = 153 cm long.">
+        <div class="quiz-label">Quick check <span class="xp-pill">+10 XP</span></div>
+        <p class="quiz-q">A telescope in normal adjustment has f₀ = 150 cm and fₑ = 3 cm. What is its magnifying power?</p>
+        <div class="quiz-opts">
+          <button data-why="That's fₑ/f₀ upside down. M = f₀/fₑ.">0.02</button>
+          <button data-why="That's f₀ + fₑ, the <b>length</b> of the telescope, not M.">153</button>
+          <button data-correct>50</button>
+          <button data-why="M is a ratio of focal lengths: f₀/fₑ.">450</button>
+        </div>
+        <div class="quiz-fb" hidden></div>
+      </div>
+
+      <!-- Light gathering -->
+      <h3 id="light" data-toc="Gathering light" data-toc-sub><span class="h3-dot"></span>Gathering light</h3>
+      <p>Besides high magnifying power, astronomers face another problem: they would like to <strong>gather as much light from the object as possible</strong>. Faint stars send very little light. This difficulty is overcome by using an <strong>objective of large aperture</strong>, so that it collects a great amount of light from astronomical objects.</p>
+
+      <div class="callout insight rv">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8"/></svg></div>
+        <div>
+          <h4>The textbook's recipe</h4>
+          <p>A good telescope has an objective of <b>long focal length</b> (for high M = f₀/fₑ) and <b>large aperture</b> (to collect lots of light, and, as you saw in Lesson 1, to resolve fine detail).</p>
+        </div>
+      </div>
+
+      <!-- LAB 2 -->
+      <div class="lab rv" id="lab-light">
+        <div class="lab-head">
+          <span class="lab-badge"><span class="pulse"></span>Lab 2 · Q 10.6</span>
+          <h3>Cover half the lens. What happens to the Moon?</h3>
+          <p class="lab-sub">Make a guess before you try it! Then make the objective wider and watch faint stars appear that your eye could never see.</p>
+        </div>
+        <div class="lab-stage">
+          <div class="lab-grid even">
+            <div class="panel-label"><span class="lbl">The objective</span><canvas class="lab-canvas ar-half" id="light-rays" aria-label="Rays through a partly covered objective"></canvas></div>
+            <div class="panel-label"><span class="lbl">The view</span><canvas class="lab-canvas ar-half" id="light-view" aria-label="Night sky through the telescope"></canvas></div>
+          </div>
+        </div>
+        <div class="lab-controls">
+          <label class="ctl">
+            <span class="ctl-top"><span>Cover the objective</span><output class="ctl-val" id="light-c-out"></output></span>
+            <input type="range" id="light-c" min="0" max="0.9" step="0.01" value="0">
+          </label>
+          <label class="ctl">
+            <span class="ctl-top"><span>Objective diameter <i class="v">D</i></span><output class="ctl-val" id="light-D-out"></output></span>
+            <input type="range" id="light-D" min="1" max="30" step="0.5" value="6">
+          </label>
+        </div>
+        <div class="readouts">
+          <div class="ro"><span class="ro-k">Light-collecting area</span><span class="ro-v" id="light-A">–</span></div>
+          <div class="ro"><span class="ro-k">Compared with your eye</span><span class="ro-v" id="light-x">–</span></div>
+          <div class="ro"><span class="ro-k">Stars visible</span><span class="ro-v" id="light-n">–</span></div>
+        </div>
+        <div class="status" id="light-status"><span class="dot"></span><span></span></div>
+        <div class="challenges">
+          <h4>Challenges</h4>
+          <ul>
+            <li data-check="l4-light-half">Cover <b>half</b> of the objective (Q 10.6). Is half the Moon missing?</li>
+            <li data-check="l4-light-galaxy">Uncover the lens and widen it until a faint <b>galaxy</b> appears in the view.</li>
+          </ul>
+        </div>
+        <p class="lab-foot">Your eye's pupil is about 0.7 cm wide at night. Light collected ∝ area ∝ D².</p>
+      </div>
+
+      <div class="quiz rv" data-check="l4-q-aperture" data-explain="A larger aperture (diameter) collects more light, since light ∝ area ∝ D², so faint objects become visible. As a bonus it also improves resolving power (Lesson 1).">
+        <div class="quiz-label">Quick check <span class="xp-pill">+10 XP</span></div>
+        <p class="quiz-q">Why do astronomical telescopes have objectives of very large aperture?</p>
+        <div class="quiz-opts">
+          <button data-why="M = f₀/fₑ doesn't contain the diameter at all.">To increase the magnifying power</button>
+          <button data-correct>To collect more light from faint, distant objects</button>
+          <button data-why="The length is f₀ + fₑ, which doesn't depend on the diameter.">To make the telescope shorter</button>
+          <button data-why="The final image of an astronomical telescope is inverted whatever the aperture.">To make the final image erect</button>
+        </div>
+        <div class="quiz-fb" hidden></div>
+      </div>
+
+      <!-- Reflecting telescope -->
+      <h3 id="reflect" data-toc="Reflecting telescopes" data-toc-sub><span class="h3-dot"></span>Reflecting telescopes</h3>
+      <div class="callout tidbit rv">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V17h6v-.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg></div>
+        <div>
+          <h4>For your information</h4>
+          <p>Large astronomical telescopes are of the <b>reflecting type</b>. They are made with specially shaped, <b>very large mirrors used as objectives</b>. With such telescopes, astronomers can study stars that are <b>millions of light years away</b>.</p>
+        </div>
+      </div>
+
+      <!-- LAB 3 -->
+      <div class="lab rv" id="lab-refl">
+        <div class="lab-head">
+          <span class="lab-badge"><span class="pulse"></span>Lab 3</span>
+          <h3>Lens or mirror?</h3>
+          <p class="lab-sub">Compare a <b>refracting</b> telescope (lens objective) with a <b>reflecting</b> one (concave mirror objective). Look at what happens to the colours of starlight in each.</p>
+        </div>
+        <div class="lab-stage">
+          <canvas class="lab-canvas ar-refl" id="refl-canvas" aria-label="Refracting and reflecting telescope diagrams"></canvas>
+        </div>
+        <div class="lab-controls">
+          <div class="ctl-group">
+            <span class="ctl-name">Telescope type</span>
+            <div class="chip-row" id="refl-type">
+              <button class="chip" data-type="lens" aria-pressed="true">Refracting (lens)</button>
+              <button class="chip" data-type="mirror" aria-pressed="false">Reflecting (mirror)</button>
+            </div>
+          </div>
+        </div>
+        <div class="status" id="refl-status"><span class="dot"></span><span></span></div>
+        <div class="facts">
+          <div class="fact"><b>1.02 m</b><span>largest telescope lens ever used (Yerkes, 1897)</span></div>
+          <div class="fact"><b>2.4 m</b><span>Hubble Space Telescope's mirror</span></div>
+          <div class="fact"><b>6.5 m</b><span>James Webb Space Telescope's mirror</span></div>
+          <div class="fact"><b>10 m</b><span>each Keck telescope mirror (Hawaii)</span></div>
+        </div>
+        <div class="challenges">
+          <h4>Challenges</h4>
+          <ul>
+            <li data-check="l4-refl-both">Compare <b>both</b> types. Which one brings all colours to the same focus?</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PRACTICE ================= -->
+    <section class="sec" id="practice" data-toc="Textbook questions">
+      <div class="sec-head">
+        <span class="sec-num">Q</span>
+        <h2>From Your Textbook</h2>
+        <span class="page-ref">pp. 234 – 235</span>
+      </div>
+      <p>The end-of-chapter questions for this lesson. (Q 10.8 (ii), on what the resolving power of a telescope depends on, is in <a href="lesson-1.html#practice">Lesson 1</a>.)</p>
+
+      <div class="qa rv" data-check="l4-qa-106">
+        <div class="qa-q"><span class="qn">Q 10.6</span><span>If a person was looking through a telescope at the full moon, how would the appearance of the moon be changed by covering half of the objective lens?</span></div>
+        <details>
+          <summary>Show model answer</summary>
+          <div class="ans">
+            <ul>
+              <li>The <b>whole moon would still be seen</b>. Half of it does <b>not</b> disappear.</li>
+              <li>Light from <b>every point</b> of the moon falls on <b>every part</b> of the objective. The uncovered half still receives rays from all points of the moon and brings them to focus at the same image points, so the complete image is formed.</li>
+              <li>However, only half as much light is collected (half the area), so the image becomes <b>dimmer: about half as bright</b>.</li>
+              <li>(With a smaller aperture, diffraction also increases slightly, so very fine detail is resolved a little less well.)</li>
+            </ul>
+            <p class="muted">Try it in <a href="#lab-light">Lab 2</a>.</p>
+          </div>
+        </details>
+      </div>
+
+      <h3 id="numericals" data-toc="Numericals 10.2, 10.3, 10.4, 10.8" data-toc-sub><span class="h3-dot"></span>Numerical problems</h3>
+
+      <div class="steps rv" data-check="l4-num-103">
+        <div class="steps-head">
+          <p><span class="qn">10.3</span>A telescope is made of an objective of focal length 20 cm and an eye-piece of 5.0 cm, both convex lenses. Find the angular magnification.</p>
+          <span class="ans-key">Textbook answer: 4.0</span>
+        </div>
+        <ol>
+          <li class="step"><b>Data:</b> f₀ = 20 cm, fₑ = 5.0 cm. Assume normal adjustment.</li>
+          <li class="step final"><b>Eq. 10.8:</b>
+            \[ M = \frac{f_o}{f_e} = \frac{20\ \text{cm}}{5.0\ \text{cm}} = \mathbf{4.0} \]</li>
+        </ol>
+        <div class="steps-ctrl">
+          <button class="btn small" data-next>Start solution</button>
+          <button class="btn ghost small" data-all>Show all</button>
+          <button class="btn ghost small" data-reset hidden>Reset</button>
+          <a class="btn ghost small" href="#lab-tel" data-tel="n103">See it in Lab 1 ↗</a>
+        </div>
+      </div>
+
+      <div class="steps rv" data-check="l4-num-104">
+        <div class="steps-head">
+          <p><span class="qn">10.4</span>A simple astronomical telescope in normal adjustment has an objective of focal length 100 cm and an eye-piece of focal length 5.0 cm. (i) Where is the final image formed? (ii) Calculate the angular magnification.</p>
+          <span class="ans-key">Textbook answer: (i) infinity · (ii) 20</span>
+        </div>
+        <ol>
+          <li class="step"><b>(i)</b> In normal adjustment, A′B′ lies at the focus of the eye-piece. Rays leave the eye-piece <b>parallel</b>, so the final image is formed <b>at infinity</b>.</li>
+          <li class="step final"><b>(ii)</b>
+            \[ M = \frac{f_o}{f_e} = \frac{100\ \text{cm}}{5.0\ \text{cm}} = \mathbf{20} \]
+            (The telescope is f₀ + fₑ = 105 cm long.)</li>
+        </ol>
+        <div class="steps-ctrl">
+          <button class="btn small" data-next>Start solution</button>
+          <button class="btn ghost small" data-all>Show all</button>
+          <button class="btn ghost small" data-reset hidden>Reset</button>
+          <a class="btn ghost small" href="#lab-tel" data-tel="n104">See it in Lab 1 ↗</a>
+        </div>
+      </div>
+
+      <div class="steps rv" data-check="l4-num-108">
+        <div class="steps-head">
+          <p><span class="qn">10.8</span>An astronomical telescope having a magnifying power of 5 consists of two thin lenses 24 cm apart. Find the focal lengths of the lenses.</p>
+          <span class="ans-key">Textbook answer: 20 cm, 4 cm</span>
+        </div>
+        <ol>
+          <li class="step"><b>Two equations, two unknowns.</b> In normal adjustment:
+            \[ M = \frac{f_o}{f_e} = 5 \quad\Rightarrow\quad f_o = 5 f_e \]
+            \[ L = f_o + f_e = 24\ \text{cm} \]</li>
+          <li class="step"><b>Substitute</b> the first into the second:
+            \[ 5 f_e + f_e = 24 \;\Rightarrow\; 6 f_e = 24 \;\Rightarrow\; f_e = \mathbf{4\ cm} \]</li>
+          <li class="step final"><b>Then:</b>
+            \[ f_o = 5 \times 4 = \mathbf{20\ cm} \]
+            Check: 20/4 = 5 ✓ and 20 + 4 = 24 cm ✓</li>
+        </ol>
+        <div class="steps-ctrl">
+          <button class="btn small" data-next>Start solution</button>
+          <button class="btn ghost small" data-all>Show all</button>
+          <button class="btn ghost small" data-reset hidden>Reset</button>
+          <a class="btn ghost small" href="#lab-tel" data-tel="n108">See it in Lab 1 ↗</a>
+        </div>
+      </div>
+
+      <div class="steps rv" data-check="l4-num-102">
+        <div class="steps-head">
+          <p><span class="qn">10.2</span>A telescope objective has focal length 96 cm and diameter 12 cm. Calculate the focal length and minimum diameter of a simple eye-piece lens for use with the telescope, if the linear magnification required is 24 times and all the light transmitted by the objective from a distant point on the telescope axis is to fall on the eye-piece.</p>
+          <span class="ans-key">Textbook answer: fₑ = 4.0 cm, diameter = 0.50 cm</span>
+        </div>
+        <ol>
+          <li class="step"><b>Focal length of the eye-piece:</b>
+            \[ M = \frac{f_o}{f_e} \;\Rightarrow\; f_e = \frac{f_o}{M} = \frac{96\ \text{cm}}{24} = \mathbf{4.0\ cm} \]</li>
+          <li class="step"><b>Follow the light from a distant point on the axis.</b> It arrives as a parallel beam 12 cm wide, fills the objective, and converges to the focus F, 96 cm behind it. After F, the cone spreads out again.</li>
+          <li class="step"><b>Similar triangles.</b> The eye-piece is fₑ = 4.0 cm beyond F (normal adjustment). The cone narrows from D = 12 cm to zero over 96 cm, then widens at the same rate, so at the eye-piece its width d is:
+            \[ \frac{d}{f_e} = \frac{D}{f_o} \;\Rightarrow\; d = D\,\frac{f_e}{f_o} = 12\ \text{cm} \times \frac{4.0}{96} \]</li>
+          <li class="step final"><b>Minimum diameter of the eye-piece:</b>
+            \[ d = \mathbf{0.50\ cm} \]
+            Any smaller and some of the light collected by the objective would miss the eye-piece.</li>
+        </ol>
+        <div class="steps-ctrl">
+          <button class="btn small" data-next>Start solution</button>
+          <button class="btn ghost small" data-all>Show all</button>
+          <button class="btn ghost small" data-reset hidden>Reset</button>
+          <a class="btn ghost small" href="#lab-tel" data-tel="n102">See it in Lab 1 ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SUMMARY ================= -->
+    <section class="sec" id="summary" data-toc="Summary">
+      <div class="sec-head">
+        <span class="sec-num">★</span>
+        <h2>Lesson Summary</h2>
+      </div>
+      <div class="sheet">
+        <div class="sheet-card rv"><h4>What it is</h4><div class="f">Long f₀ + short fₑ</div><p>A telescope is an optical instrument used to see distant objects. The objective has a long focal length and the eye-piece a short one.</p></div>
+        <div class="sheet-card rv"><h4>Images</h4><div class="f">A′B′ real → final virtual</div><p>A′B′ is real, inverted and diminished, at F of both lenses. The final image is virtual, enlarged, inverted, at infinity.</p></div>
+        <div class="sheet-card rv"><h4>Magnifying power</h4><div class="f">\( M = \dfrac{f_o}{f_e} \)</div><p>Eq. 10.8, in normal adjustment. Length L = f₀ + fₑ.</p></div>
+        <div class="sheet-card rv"><h4>A good telescope</h4><div class="f">Long f₀, large aperture</div><p>A large aperture collects more light (∝ D²). The largest telescopes use mirrors as objectives.</p></div>
+      </div>
+
+      <div class="mastered">
+        <h3>🎉 Lesson mastered!</h3>
+        <p>You've built telescopes, covered lenses and compared mirrors. Next: splitting light into its colours with a spectrometer.</p>
+      </div>
+
+      <div class="next-card">
+        <div>
+          <div class="nx-k">Up next · Lesson 5 · § 10.6</div>
+          <h3>The Spectrometer</h3>
+          <p>Collimator, turntable and telescope: measuring the wavelength of light. Coming soon.</p>
+        </div>
+        <a class="btn" href="index.html">Back to chapter</a>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer class="foot">
+  <p>Lumen · interactive notes for FSc Physics, Chapter 10 “Optical Instruments” (textbook pp. 214 – 235).</p>
+  <p>Your progress is saved in this browser only.</p>
+</footer>
+
+<script src="../assets/js/core.js"></script>
+<script src="js/lesson-4.js"></script>
+</body>
+</html>
