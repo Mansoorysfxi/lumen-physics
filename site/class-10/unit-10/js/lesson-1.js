@@ -279,7 +279,7 @@
       });
       // legend
       label(ctx, `● B ${MATS[S.b].name}`, w - mr, mt - 16, { size: 10, align: 'right', color: C.pink });
-      ctx.save(); ctx.font = '500 10px "JetBrains Mono", monospace';
+      ctx.save(); ctx.font = '500 10px "Figtree", system-ui, sans-serif';
       const bw = ctx.measureText(`● B ${MATS[S.b].name}`).width; ctx.restore();
       label(ctx, `● A ${MATS[S.a].name}`, w - mr - bw - 14, mt - 16, { size: 10, align: 'right', color: C.cyan });
     }

@@ -145,7 +145,7 @@ window.Lumen = (function () {
   }
   function label(ctx, text, x, y, { color = '#8b95bb', size = 12, align = 'center', base = 'middle', font = 'mono', weight = 500, bg = null } = {}) {
     ctx.save();
-    ctx.font = `${weight} ${size}px ${font === 'mono' ? '"JetBrains Mono", Consolas, monospace' : font === 'serif' ? 'italic "Times New Roman", Georgia, serif' : '"Space Grotesk", system-ui, sans-serif'}`;
+    ctx.font = `${weight} ${size}px ${font === 'mono' ? '"Figtree", system-ui, sans-serif' : font === 'serif' ? 'italic "STIX Two Text", "Times New Roman", Georgia, serif' : '"Bricolage Grotesque", "Figtree", system-ui, sans-serif'}`;
     ctx.textAlign = align; ctx.textBaseline = base;
     if (bg) {
       const m = ctx.measureText(text);
@@ -262,6 +262,7 @@ window.Lumen = (function () {
       xpEl.querySelector('b').textContent = totalXP();
       if (bump) { xpEl.classList.remove('bump'); void xpEl.offsetWidth; xpEl.classList.add('bump'); }
     }
+    refreshLabCounts();
     const id = lessonId(); if (!id) return;
     const s = lessonStats(id);
     $$('[data-lesson-pct]').forEach(e => e.textContent = s.pct + '%');
@@ -292,8 +293,9 @@ window.Lumen = (function () {
   function toast(text, xp) {
     let wrap = $('.toast-wrap');
     if (!wrap) { wrap = document.createElement('div'); wrap.className = 'toast-wrap'; document.body.appendChild(wrap); }
-    const t = document.createElement('div'); t.className = 'toast';
-    t.innerHTML = `<span>${text}</span>` + (xp ? `<span class="xp-plus">+${xp} XP</span>` : '');
+    const t = document.createElement('div'); t.className = 'toast'; t.setAttribute('role', 'status');
+    t.innerHTML = '<svg class="t-ic" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#1F7A45"/><path d="m7.5 12.5 3 3 6-6.5" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+      `<span class="t-msg">${text}</span>` + (xp ? `<strong class="xp-plus">+${xp} XP</strong>` : '');
     wrap.appendChild(t);
     setTimeout(() => t.remove(), 3400);
   }
@@ -303,7 +305,7 @@ window.Lumen = (function () {
     const c = document.createElement('canvas'); c.id = 'confetti'; document.body.appendChild(c);
     const ctx = c.getContext('2d');
     const W = c.width = innerWidth, H = c.height = innerHeight;
-    const cols = ['#5fe3ff', '#ff5fa8', '#ffc65c', '#5cf0a0', '#a98bff'];
+    const cols = ['#2B50C8', '#B8460B', '#F2B84B', '#1F7A45', '#7A4FB0', '#6CC6E8'];
     const P = Array.from({ length: 140 }, () => ({
       x: W / 2 + (Math.random() - .5) * 200, y: H * .55, vx: (Math.random() - .5) * 14, vy: -Math.random() * 16 - 6,
       r: Math.random() * 6 + 3, c: cols[(Math.random() * cols.length) | 0], a: Math.random() * 6, va: (Math.random() - .5) * .4
@@ -327,14 +329,14 @@ window.Lumen = (function () {
       const fb = $('.quiz-fb', q);
       const letters = 'abcdefgh';
       opts.forEach((b, i) => {
-        if (!$('.opt-l', b)) b.innerHTML = `<span class="opt-l">${letters[i]})</span><span>${b.innerHTML}</span>`;
+        if (!$('.opt-l', b)) b.innerHTML = `<span class="opt-l">${letters[i]}</span><span>${b.innerHTML}</span>`;
       });
       const solve = (btn, fresh) => {
         q.classList.add('solved');
         opts.forEach(o => o.disabled = true);
         btn.classList.add('correct');
         fb.hidden = false; fb.className = 'quiz-fb ok';
-        fb.innerHTML = '<b>Correct!</b> ' + (q.dataset.explain || btn.dataset.why || '');
+        fb.innerHTML = '<b>Right.</b> ' + (q.dataset.explain || btn.dataset.why || '');
         renderMath(fb);
         if (fresh) complete(q.dataset.check, { msg: 'Correct answer!' });
       };
@@ -356,11 +358,24 @@ window.Lumen = (function () {
     $$('.steps').forEach(box => {
       const steps = $$('li.step', box);
       const next = $('[data-next]', box), all = $('[data-all]', box), reset = $('[data-reset]', box);
+      const startLabel = (next.textContent || '').trim() || 'Start solution';
+      // header row: "Numerical 10.7 ............ Step 2 of 5"
+      const head = $('.steps-head', box), qn = head && $('.qn', head);
+      let counter = null;
+      if (head && qn) {
+        const top = document.createElement('div'); top.className = 'steps-top';
+        if (/^\d+\.\d+$/.test(qn.textContent.trim())) qn.textContent = 'Numerical ' + qn.textContent.trim();
+        top.appendChild(qn);
+        counter = document.createElement('span'); counter.className = 'steps-count';
+        top.appendChild(counter);
+        head.insertBefore(top, head.firstChild);
+      }
       let i = 0;
       const sync = () => {
         steps.forEach((s, k) => s.classList.toggle('shown', k < i));
         next.disabled = i >= steps.length;
-        next.textContent = i === 0 ? 'Start solution' : i >= steps.length ? 'Solved' : 'Next step →';
+        next.textContent = i === 0 ? startLabel : i >= steps.length ? 'Solved' : 'Next step';
+        if (counter) counter.textContent = i === 0 ? `${steps.length} steps` : `Step ${Math.min(i, steps.length)} of ${steps.length}`;
         if (reset) reset.hidden = i === 0;
         if (i >= steps.length && box.dataset.check) complete(box.dataset.check, { msg: box.dataset.msg || 'Numerical worked through!' });
         box.dispatchEvent(new CustomEvent('steps:change', { detail: { step: i, total: steps.length } }));
@@ -374,29 +389,337 @@ window.Lumen = (function () {
 
   /* Q&A: opening a model answer counts as "reviewed" */
   function initQA() {
-    $$('.qa details').forEach(d => d.addEventListener('toggle', () => {
-      const qa = d.closest('.qa');
-      if (d.open && qa && qa.dataset.check) complete(qa.dataset.check, { msg: 'Answer reviewed' });
-    }));
+    $$('.qa details').forEach(d => {
+      const sum = $('summary', d);
+      const label = sum ? sum.textContent.trim() : '';
+      const sync = () => { if (sum && /^show /i.test(label)) sum.textContent = d.open ? label.replace(/^show /i, 'Hide ') : label; };
+      d.addEventListener('toggle', () => {
+        sync();
+        const qa = d.closest('.qa');
+        if (d.open && qa && qa.dataset.check) complete(qa.dataset.check, { msg: 'Answer reviewed' });
+      });
+      sync();
+    });
   }
 
   /* ---------- table of contents + scroll spy ---------- */
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+  // "10.1 Least distance…" → number + title
+  function splitNum(t) { const m = /^(\d+(?:\.\d+)*|Q)\s+(.*)$/.exec(t.trim()); return m ? [m[1], m[2]] : ['', t.trim()]; }
+
+  let tocItems = [];
   function initTOC() {
-    const toc = $('.toc ol'); if (!toc) return;
-    const items = $$('[data-toc]');
-    items.forEach(s => {
-      const li = document.createElement('li');
-      if (s.dataset.tocSub !== undefined) li.className = 'sub';
-      li.innerHTML = `<a href="#${s.id}">${s.dataset.toc}</a>`;
-      toc.appendChild(li);
-    });
-    const links = $$('a', toc);
+    tocItems = $$('[data-toc]');
+    const toc = $('.toc ol');
+    if (toc) {
+      tocItems.forEach(s => {
+        const li = document.createElement('li');
+        if (s.dataset.tocSub !== undefined) li.className = 'sub';
+        const [n, t] = splitNum(s.dataset.toc);
+        li.innerHTML = `<a href="#${s.id}">${n && li.className !== 'sub' ? `<span class="toc-n">${esc(n)}</span>` : ''}<span>${esc(n && li.className === 'sub' ? s.dataset.toc : t)}</span></a>`;
+        toc.appendChild(li);
+      });
+    }
+    const links = toc ? $$('a', toc) : [];
+    const mbT = $('.lsn-mbar .mb-t');
     const spy = () => {
       let cur = 0;
-      items.forEach((s, i) => { if (s.getBoundingClientRect().top < 140) cur = i; });
+      tocItems.forEach((s, i) => { if (s.getBoundingClientRect().top < 160) cur = i; });
       links.forEach((a, i) => a.classList.toggle('active', i === cur));
+      // the mobile bar names the current top-level section
+      if (mbT && tocItems.length) {
+        let top = cur; while (top > 0 && tocItems[top].dataset.tocSub !== undefined) top--;
+        mbT.textContent = tocItems[top].dataset.toc;
+        currentTop = tocItems[top];
+      }
     };
     addEventListener('scroll', spy, { passive: true }); spy();
+  }
+  let currentTop = null;
+
+  /* ---------- phones: lesson bar + sections sheet ---------- */
+  function initLessonBar() {
+    const id = lessonId(); if (!id) return;
+    const top = $('.topbar'); if (!top) return;
+    const kicker = $('.lesson-hero .kicker span');
+    const lessonNo = kicker ? (/(Lesson\s+\d+)/.exec(kicker.textContent) || [])[1] : '';
+    const bar = document.createElement('div');
+    bar.className = 'lsn-mbar';
+    bar.innerHTML = `<div class="mb-txt"><div class="mb-k">${esc(lessonNo || 'This lesson')} · <span data-lesson-pct>0%</span> done</div><div class="mb-t"></div></div>
+      <button type="button" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Sections</button>`;
+    top.insertAdjacentElement('afterend', bar);
+    $('button', bar).addEventListener('click', openSheet);
+  }
+
+  function openSheet() {
+    const id = lessonId(); if (!id) return;
+    closeSheet(true);
+    const s = lessonStats(id);
+    const title = ($('.lesson-hero h1') || {}).textContent || 'This lesson';
+    const kicker = $('.lesson-hero .kicker span');
+    const lessonNo = kicker ? (/(Lesson\s+\d+)/.exec(kicker.textContent) || [])[1] : '';
+    // sections and sub-sections from the TOC, plus every lab, in page order
+    const rows = [];
+    $$('[data-toc], .lab').forEach(el => {
+      if (el.classList.contains('lab') && el.dataset.toc === undefined) {
+        const lis = $$('.challenges li', el), done = lis.filter(l => l.classList.contains('done')).length;
+        const badge = ($('.lab-badge', el) || {}).textContent || 'Lab';
+        const name = ($('.lab-head h3', el) || {}).textContent || '';
+        rows.push({ href: '#' + el.id, t: `${badge.split('·')[0].trim()} · ${name}`, sub: true, lab: el.id, x: lis.length ? `${done}/${lis.length}` : '' });
+        return;
+      }
+      const sub = el.dataset.tocSub !== undefined;
+      const [n, t] = splitNum(el.dataset.toc);
+      rows.push({ href: '#' + el.id, n: sub ? '' : n, t: sub ? el.dataset.toc : t, sub, cur: el === currentTop });
+    });
+    const back = document.createElement('div'); back.className = 'backdrop';
+    const sh = document.createElement('section');
+    sh.className = 'sec-sheet'; sh.setAttribute('role', 'dialog'); sh.setAttribute('aria-modal', 'true'); sh.setAttribute('aria-label', 'Sections');
+    sh.innerHTML = `<div class="grab" aria-hidden="true"></div>
+      <header><div><h2>${esc((lessonNo ? lessonNo + ' · ' : '') + title)}</h2>
+        <p class="sh-p">${s.done} of ${s.total} checkpoints · ${s.pct}%</p>
+        <div class="bar"><span style="width:${s.pct}%"></span></div></div>
+        <button type="button" class="sheet-x" aria-label="Close sections"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button></header>
+      <nav aria-label="Sections"><ol>${rows.map(r => `<li${r.sub ? ' class="sub"' : ''}><a href="${r.href}"${r.cur ? ' aria-current="true"' : ''}${r.lab ? ` data-open-lab="${r.lab}"` : ''}>${r.sub ? '' : `<span class="n">${esc(r.n)}</span>`}<span class="t">${esc(r.t)}</span>${r.cur ? '<span class="x">You\'re here</span>' : r.x ? `<span class="x">${r.x}</span>` : ''}</a></li>`).join('')}</ol></nav>`;
+    document.body.append(back, sh);
+    document.documentElement.classList.add('lock');
+    requestAnimationFrame(() => { back.classList.add('open'); sh.classList.add('open'); });
+    back.addEventListener('click', () => closeSheet());
+    $('.sheet-x', sh).addEventListener('click', () => closeSheet());
+    $$('a', sh).forEach(a => a.addEventListener('click', e => {
+      const labId = a.dataset.openLab;
+      closeSheet(true);
+      if (labId && isPhone()) { e.preventDefault(); openLab(document.getElementById(labId)); }
+    }));
+    sh.addEventListener('keydown', e => { if (e.key === 'Escape') closeSheet(); });
+    $('.sheet-x', sh).focus();
+  }
+  function closeSheet(instant) {
+    const sh = $('.sec-sheet'), back = $('.backdrop');
+    if (!sh) return;
+    document.documentElement.classList.remove('lock');
+    if (instant) { sh.remove(); back && back.remove(); return; }
+    sh.classList.remove('open'); back && back.classList.remove('open');
+    setTimeout(() => { sh.remove(); back && back.remove(); }, 280);
+  }
+
+  /* ---------- labs: screen + tray layout, full-screen view on phones ---------- */
+  const isPhone = () => window.matchMedia('(max-width: 700px)').matches;
+  const BOOK_RX = /numerical|example|textbook|load|^\s*q\s*\d/i;
+  function initLabs() {
+    $$('.lab').forEach((lab, k) => {
+      if (lab.dataset.built) return; lab.dataset.built = '1';
+      if (!lab.id) lab.id = 'lab-' + (k + 1);
+      const kids = Array.from(lab.children);
+      const pick = sel => kids.filter(c => c.matches(sel));
+      const head = pick('.lab-head')[0], stages = pick('.lab-stage'), status = pick('.status')[0];
+      const readouts = pick('.readouts'), controls = pick('.lab-controls'), actions = pick('.lab-actions');
+      const goals = pick('.challenges')[0], foot = pick('.lab-foot')[0];
+      const used = new Set([head, ...stages, status, ...readouts, ...controls, ...actions, goals, foot]);
+      const others = kids.filter(c => !used.has(c));
+
+      // dark screen holding the canvases and the live status line
+      const screen = document.createElement('div'); screen.className = 'lab-screen';
+      stages.forEach(s => screen.appendChild(s));
+      if (status) screen.appendChild(status);
+      const body = document.createElement('div'); body.className = 'lab-body';
+      if (stages.length || status) body.appendChild(screen);
+      readouts.forEach(r => body.appendChild(r));
+      others.forEach(o => body.appendChild(o));
+
+      // tray: Controls / From book / Goals (tabs only show on phones)
+      const tray = document.createElement('div'); tray.className = 'lab-tray';
+      const tabs = document.createElement('div'); tabs.className = 'tray-tabs'; tabs.setAttribute('role', 'tablist');
+      tray.appendChild(tabs);
+      const panels = [];
+      const addPanel = (key, label, nodes) => {
+        if (!nodes.length) return;
+        const p = document.createElement('div'); p.className = 'tray-panel'; p.dataset.key = key;
+        nodes.forEach(n => p.appendChild(n));
+        const b = document.createElement('button'); b.type = 'button'; b.setAttribute('role', 'tab'); b.dataset.key = key; b.textContent = label;
+        tabs.appendChild(b); tray.appendChild(p); panels.push([b, p]);
+      };
+      const bookActions = actions.filter(a => {
+        const btns = $$('button, a', a);
+        return btns.length && btns.every(b => BOOK_RX.test(b.textContent));
+      });
+      bookActions.forEach(a => { if (!$('.book-k', a)) a.insertAdjacentHTML('afterbegin', '<span class="book-k">Load from the book:</span>'); });
+      addPanel('controls', 'Controls', [...controls, ...actions.filter(a => !bookActions.includes(a))]);
+      addPanel('book', 'From book', bookActions);
+      if (goals) addPanel('goals', 'Goals', [goals]);
+      const hint = document.createElement('p'); hint.className = 'tray-hint';
+      hint.textContent = 'The screen stays put while you change things. Tap ‹ to go back to the lesson.';
+      tray.appendChild(hint);
+      const select = key => panels.forEach(([b, p]) => { const on = b.dataset.key === key; b.setAttribute('aria-selected', on); p.classList.toggle('on', on); });
+      panels.forEach(([b]) => b.addEventListener('click', () => select(b.dataset.key)));
+      if (panels.length) select(panels[0][0].dataset.key);
+
+      // phone-only bits: a header for the full-screen view and an "open" button
+      const badge = head ? ($('.lab-badge', head) || {}).textContent || '' : '';
+      const name = head ? ($('h3', head) || {}).textContent || '' : '';
+      const fbar = document.createElement('div'); fbar.className = 'lab-focusbar';
+      fbar.innerHTML = `<button type="button" class="fb-back" aria-label="Back to the lesson"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="fb-txt"><div class="fb-k">${esc(badge.trim())}</div><div class="fb-t">${esc(name)}</div></div><span class="fb-goals"></span>`;
+      const open = document.createElement('button'); open.type = 'button'; open.className = 'btn lab-open';
+      open.innerHTML = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Open the lab';
+      open.addEventListener('click', () => openLab(lab));
+      $('.fb-back', fbar).addEventListener('click', () => closeLab(true));
+
+      lab.innerHTML = '';
+      lab.append(fbar);
+      if (head) lab.append(head);
+      lab.append(body, open, tray);
+      if (foot) lab.append(foot);
+    });
+    refreshLabCounts();
+    addEventListener('popstate', () => { if ($('.lab.focus')) closeLab(false); });
+    addEventListener('keydown', e => { if (e.key === 'Escape' && $('.lab.focus')) closeLab(true); });
+    // leaving phone size while a lab is open
+    window.matchMedia('(max-width: 700px)').addEventListener('change', e => { if (!e.matches && $('.lab.focus')) closeLab(true); });
+  }
+  let labScroll = 0, labPushed = false;
+  function openLab(lab) {
+    if (!lab) return;
+    labScroll = scrollY;
+    lab.classList.add('focus');
+    document.documentElement.classList.add('lock');
+    try { history.pushState({ lumenLab: lab.id }, ''); labPushed = true; } catch (e) { labPushed = false; }
+    const b = $('.fb-back', lab); b && b.focus();
+  }
+  function closeLab(viaButton) {
+    const lab = $('.lab.focus'); if (!lab) return;
+    lab.classList.remove('focus');
+    document.documentElement.classList.remove('lock');
+    window.scrollTo({ top: lab.getBoundingClientRect().top + labScroll - 90, behavior: 'instant' });
+    if (viaButton && labPushed) { labPushed = false; history.back(); } else labPushed = false;
+  }
+  function refreshLabCounts() {
+    $$('.lab').forEach(lab => {
+      const lis = $$('.challenges li', lab); if (!lis.length) return;
+      const done = lis.filter(l => l.classList.contains('done')).length;
+      const h4 = $('.challenges h4', lab);
+      if (h4) {
+        let n = $('.ch-n', h4);
+        if (!n) { n = document.createElement('span'); n.className = 'ch-n'; h4.append(' ', n); }
+        n.textContent = `· ${done} of ${lis.length} · +10 XP each`;
+      }
+      const g = $('.fb-goals', lab); if (g) g.textContent = `${done}/${lis.length} done`;
+      const tab = $('.tray-tabs [data-key="goals"]', lab); if (tab) tab.textContent = `Goals ${done}/${lis.length}`;
+    });
+  }
+
+  /* ---------- light / dark theme ---------- */
+  const THEME_KEY = 'lumen-theme';
+  function savedTheme() { try { return localStorage.getItem(THEME_KEY); } catch (e) { return null; } }
+  function currentTheme() { return document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light'; }
+  function applyTheme(t) {
+    document.documentElement.dataset.theme = t;
+    $$('.theme-btn').forEach(b => {
+      b.setAttribute('aria-pressed', t === 'dark');
+      b.setAttribute('aria-label', t === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+      b.title = b.getAttribute('aria-label');
+    });
+    const meta = $('meta[name="theme-color"]:not([media])');
+    if (meta) meta.content = t === 'dark' ? '#121417' : '#F5F4EF';
+  }
+  function initTheme() {
+    applyTheme(currentTheme());
+    $$('.theme-btn').forEach(b => b.addEventListener('click', () => {
+      const t = currentTheme() === 'dark' ? 'light' : 'dark';
+      try { localStorage.setItem(THEME_KEY, t); } catch (e) { /* private mode */ }
+      applyTheme(t);
+    }));
+    // follow the system setting until the student picks one
+    const mq = window.matchMedia('(prefers-color-scheme: dark)');
+    mq.addEventListener('change', e => { if (!savedTheme()) applyTheme(e.matches ? 'dark' : 'light'); });
+  }
+
+  /* ---------- progress on home, book and hub pages ---------- */
+  // "id:fallbackTotal,id:fallbackTotal" → combined stats (fallbacks cover lessons not opened yet)
+  function groupStats(spec) {
+    const d = load(); let done = 0, total = 0;
+    spec.split(',').map(x => x.trim()).filter(Boolean).forEach(part => {
+      const [id, fb] = part.split(':');
+      done += d[id] ? Object.keys(d[id]).length : 0;
+      total += (d._totals && d._totals[id]) || +fb || 0;
+    });
+    return { done, total, pct: total ? Math.min(100, Math.round(done / total * 100)) : 0 };
+  }
+  function initProgressBits() {
+    $$('[data-progress]').forEach(el => { el.style.width = groupStats(el.dataset.progress).pct + '%'; });
+    $$('[data-progress-text]').forEach(el => {
+      const s = groupStats(el.dataset.progressText);
+      el.textContent = (el.dataset.format || '{done} of {total} checkpoints').replace('{done}', s.done).replace('{total}', s.total).replace('{pct}', s.pct);
+    });
+    $$('[data-lesson-state]').forEach(el => {
+      const [id, fb] = el.dataset.lessonState.split(':');
+      const s = groupStats(`${id}:${fb || 0}`);
+      const card = el.closest('.lcard, .lrow');
+      const done = s.total && s.done >= s.total;
+      el.classList.remove('prog', 'done');
+      if (done) { el.textContent = 'Mastered'; el.classList.add('done'); }
+      else if (s.done) { el.textContent = `${s.pct}%${el.classList.contains('pill') ? ' done' : ''}`; el.classList.add('prog'); }
+      else el.textContent = el.dataset.empty || 'Not started';
+      if (card) card.classList.toggle('is-done', !!done);
+      const n = card && $('.ln', card);
+      if (n && done) n.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12 5 5 9-10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    });
+    // first unfinished lesson in a list → "Continue Lesson N"
+    $$('[data-continue]').forEach(a => {
+      const list = a.dataset.continue.split(',').map(x => x.trim().split('|'));   // id:total|href|label
+      for (const [key, href, lbl] of list) {
+        const s = groupStats(key);
+        if (!(s.total && s.done >= s.total)) { a.href = href; a.textContent = (s.done ? 'Continue ' : 'Start ') + lbl; break; }
+      }
+    });
+    // home: resume the last lesson opened
+    const rs = $('[data-resume]');
+    if (rs) {
+      let last = null; try { last = JSON.parse(localStorage.getItem('lumen-last')); } catch (e) { /* none */ }
+      if (last && last.href) {
+        const s = lessonStats(last.id);
+        $('[data-rs-title]', rs).textContent = last.title;
+        $('[data-rs-ctx]', rs).textContent = last.ctx;
+        $('[data-rs-count]', rs).textContent = `${s.done} of ${s.total} checkpoints`;
+        $('[data-rs-pct]', rs).textContent = s.pct + '%';
+        $('[data-rs-bar]', rs).style.width = s.pct + '%';
+        $$('[data-rs-link]', rs).forEach(l => { l.href = last.href; });
+        rs.hidden = false;
+      }
+    }
+  }
+  function rememberLesson() {
+    const id = lessonId(); if (!id) return;
+    const kicker = $('.lesson-hero .kicker span');
+    const no = kicker ? (/(Lesson\s+\d+)/.exec(kicker.textContent) || [])[1] : '';
+    const h1 = $('.lesson-hero h1');
+    const crumbs = $$('.crumbs a').map(a => a.textContent.trim());
+    try {
+      localStorage.setItem('lumen-last', JSON.stringify({
+        id, href: location.pathname, t: Date.now(),
+        title: (no ? no + ' · ' : '') + (h1 ? h1.textContent.trim() : document.title),
+        ctx: crumbs.join(' · ')
+      }));
+    } catch (e) { /* private mode */ }
+  }
+
+  // "Show all 18 outcomes" style buttons: toggle .collapsed on the target list
+  function initExpanders() {
+    $$('[data-expand]').forEach(b => {
+      const list = document.getElementById(b.dataset.expand); if (!list) return;
+      const more = b.textContent, less = b.dataset.less || 'Show fewer';
+      b.setAttribute('aria-expanded', 'false'); b.setAttribute('aria-controls', list.id);
+      b.addEventListener('click', () => {
+        const open = list.classList.toggle('collapsed') === false;
+        b.textContent = open ? less : more; b.setAttribute('aria-expanded', open);
+      });
+    });
+  }
+
+  function measureTopbar() {
+    const t = $('.topbar'); if (!t) return;
+    const set = () => document.documentElement.style.setProperty('--topbar-h', Math.round(t.getBoundingClientRect().height) + 'px');
+    set(); addEventListener('resize', set);
   }
 
   function initReadProgress() {
@@ -429,13 +752,20 @@ window.Lumen = (function () {
   }
 
   function boot() {
+    initTheme();
+    measureTopbar();
     registerLesson();
+    rememberLesson();
+    initLessonBar();
+    initLabs();
     initQuizzes();
     initSteps();
     initQA();
     initTOC();
     initReadProgress();
     initReveal();
+    initProgressBits();
+    initExpanders();
     refreshProgress(false);
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
@@ -447,6 +777,7 @@ window.Lumen = (function () {
     fitCanvas, drag, animateWhileVisible, bindRange,
     wavelengthRGB, rgba, colourName, arrow, label, roundRect,
     glowLine, dashLine, dimLine, pulseRing, drawEye, drawLens, setStatus, press, throttle, photons,
-    complete, isDone, lessonStats, totalXP, toast, confetti, renderMath, refreshProgress
+    complete, isDone, lessonStats, groupStats, totalXP, toast, confetti, renderMath, refreshProgress,
+    openLab, closeLab, applyTheme
   };
 })();

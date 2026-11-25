@@ -2,102 +2,162 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>(function(){try{var t=localStorage.getItem('lumen-theme');if(t!=='dark'&&t!=='light')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=t}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lumen · Physics you can play with</title>
-<meta name="description" content="Interactive physics notes for Pakistani students in Class 10 and FSc (Class 11): every concept, example, question and numerical from the textbook, turned into hands-on labs.">
-<meta name="theme-color" content="#060a17">
+<title>Lumen · Hands-on notes for Matric and FSc</title>
+<meta name="description" content="Interactive notes for Matric and FSc students in Pakistan: every definition, example and exercise from your board's book, in the book's own numbering, with labs you can drag, tweak and break.">
+<meta name="theme-color" content="#F5F4EF">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Lumen Physics">
-<meta property="og:title" content="Lumen · Physics you can play with">
-<meta property="og:description" content="Interactive physics for Class 10 and FSc: every textbook concept, example and numerical turned into hands-on labs.">
+<meta property="og:site_name" content="Lumen">
+<meta property="og:title" content="Lumen · Your textbook, but you can play with it">
+<meta property="og:description" content="Interactive notes for Matric and FSc: textbook definitions, worked numericals and hands-on labs.">
 <meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..700&family=Figtree:wght@400;500;600;700&family=STIX+Two+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/main.css">
 <style>
-  .home-hero { max-width: 1240px; margin: 0 auto; padding: 110px 24px 30px; }
-  .home-hero h1 { max-width: 900px; }
-  .home-hero .lede { font-size: 1.25rem; max-width: 640px; }
-  .how { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
-  .how .stat b { font-size: 1.15rem; margin-bottom: 4px; }
-  .class-card .cl-live { font-size: .85rem; color: var(--text-2); }
-  .class-card .cl-live b { color: var(--green); font-weight: 600; }
+  #home-lens { touch-action: none; user-select: none; }
+  #home-lens .handle { cursor: grab; }
+  #home-lens .handle:focus { outline: none; }
+  #home-lens .handle:focus-visible .ring { stroke: #F2B84B; stroke-opacity: 1; }
+  #home-lens.dragging .handle { cursor: grabbing; }
 </style>
 </head>
 <body>
 
 <header class="topbar">
-  <a class="brand" href="index.html"><span class="brand-mark"></span>Lumen<span class="brand-sub">Physics</span></a>
-  <div class="topbar-right">
-    <span class="xp" id="xp" title="XP earned across all lessons"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.9L22 9.6l-5.4 4.8 1.6 7.3L12 17.9 5.8 21.7l1.6-7.3L2 9.6l7.1-.7z"/></svg><b>0</b> XP</span>
-  </div>
+  <a class="brand" href="index.html"><svg class="brand-logo" viewBox="0 0 28 28" fill="none" aria-hidden="true"><circle class="lg-ring" cx="14" cy="14" r="12.5" stroke-width="2"/><path class="lg-lens" d="M14 4.5c3 3 3 16 0 19M14 4.5c-3 3-3 16 0 19" stroke-width="2"/><path class="lg-axis" d="M1.5 14h25" stroke-width="1.5" stroke-dasharray="2 3"/></svg><span>Lumen</span></a>
+  <nav class="topnav" aria-label="Main">
+    <a class="navlink" href="#classes">Classes</a>
+    <a class="navlink" href="#subjects">Subjects</a>
+    <button type="button" class="theme-btn" aria-label="Switch to dark mode" aria-pressed="false"><svg class="ic-moon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><svg class="ic-sun" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+    <span class="xp" id="xp" title="XP earned across all lessons"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" stroke-width="2" stroke-linejoin="round"/></svg><b>0</b> XP</span>
+  </nav>
 </header>
 
-<section class="home-hero">
-  <div class="eyebrow">Interactive physics · Class 10 &amp; FSc</div>
-  <h1>Physics you can <span class="grad">play with</span>.</h1>
-  <p class="lede">Every definition, derivation, example and numerical from your textbook, rebuilt as labs you can drag, tweak and break. Stop memorising physics and start seeing it.</p>
-  <div class="hero-cta"><a class="btn" href="#classes">Choose your class ↓</a></div>
-</section>
-
 <main class="wrap">
-  <section class="block" id="classes" style="padding-top:40px">
-    <div class="block-head">
-      <div><div class="eyebrow">Step 1</div><h2>Which class are you in?</h2></div>
-      <p>Each class follows its own textbook, chapter by chapter. Your XP is shared across every class.</p>
+  <section class="split-hero home">
+    <div>
+      <p class="eyebrow plain">Interactive notes for Matric and FSc, Class 9 to 12</p>
+      <h1>Your textbook, but you can <span class="grad">play with it.</span></h1>
+      <p class="lede-l">Every definition, example and exercise from your board's book, in the book's own numbering, with labs you can drag, tweak and break.</p>
+      <div class="cta-row">
+        <a class="btn ink" href="#classes">Find your class</a>
+        <a class="btn ghost" href="class-11/chapter-10/lesson-1.html#lab-lens">Try a lab first</a>
+      </div>
     </div>
-    <div class="classes">
-      <div class="class-card soon">
-        <span class="glow" style="background:var(--violet)"></span>
-        <span class="cl-n">9</span>
-        <span class="cl-k">Grade 9 · Matric Part I</span>
-        <h3>Class 9 Physics</h3>
-        <p>Measurements, kinematics, forces, energy and more.</p>
-        <span class="cl-state">Coming soon</span>
+    <figure>
+      <div class="screen-card">
+        <svg id="home-lens" viewBox="0 0 560 320" role="img" aria-label="A convex lens forming a smaller, upside-down image of an arrow. Drag the arrow to move it.">
+          <line x1="20" y1="170" x2="540" y2="170" stroke="#3A4452" stroke-width="1.5"/>
+          <circle cx="210" cy="170" r="3.5" fill="#8C97A6"/><circle cx="350" cy="170" r="3.5" fill="#8C97A6"/>
+          <text x="204" y="192" fill="#8C97A6" font-family="Figtree, sans-serif" font-size="13">F</text>
+          <text x="344" y="192" fill="#8C97A6" font-family="Figtree, sans-serif" font-size="13">F</text>
+          <path d="M280 62 C 300 110, 300 230, 280 278 C 260 230, 260 110, 280 62 Z" fill="#6CC6E8" fill-opacity="0.16" stroke="#6CC6E8" stroke-width="2"/>
+          <path id="hl-r1" fill="none" stroke="#F2B84B" stroke-width="2"/>
+          <path id="hl-r2" fill="none" stroke="#6CC6E8" stroke-width="2"/>
+          <path id="hl-r3" fill="none" stroke="#E58AA8" stroke-width="2"/>
+          <g id="hl-img"><line stroke="#6FD39A" stroke-width="4"/><path fill="none" stroke="#6FD39A" stroke-width="4" stroke-linejoin="round"/></g>
+          <text id="hl-img-t" fill="#C9D1DB" font-family="Figtree, sans-serif" font-size="13">image</text>
+          <g id="hl-obj" class="handle" tabindex="0" role="slider" aria-label="Object position" aria-valuemin="0" aria-valuemax="100">
+            <rect class="hit" x="-26" y="-80" width="52" height="96" fill="transparent"/>
+            <circle class="ring" cx="0" cy="0" r="20" fill="none" stroke="#F2B84B" stroke-opacity="0.5" stroke-width="2" stroke-dasharray="4 4"/>
+            <line x1="0" y1="0" x2="0" y2="-66" stroke="#F2B84B" stroke-width="4"/>
+            <path d="M-9 -58 0 -72 9 -58" fill="none" stroke="#F2B84B" stroke-width="4" stroke-linejoin="round"/>
+            <text x="-28" y="-82" fill="#C9D1DB" font-family="Figtree, sans-serif" font-size="13">object</text>
+          </g>
+        </svg>
       </div>
-      <a class="class-card live" href="class-10/index.html">
-        <span class="glow" style="background:var(--amber)"></span>
-        <span class="cl-n">10</span>
-        <span class="cl-k">Grade 10 · National Book Foundation (2025)</span>
-        <h3>Class 10 Physics</h3>
-        <p>Heat, waves, sound, optics, electricity, electronics and nuclear physics.</p>
-        <span class="cl-live"><b>●</b> Unit 10 · Heat Capacity &amp; Heat Transfer is live</span>
-        <span class="cl-state">Open →</span>
-      </a>
-      <a class="class-card live" href="class-11/index.html">
-        <span class="glow" style="background:var(--cyan)"></span>
-        <span class="cl-n">11</span>
-        <span class="cl-k">FSc Part I · First Year</span>
-        <h3>Class 11 Physics</h3>
-        <p>Measurements, vectors, motion, fluids, waves, optics and thermodynamics.</p>
-        <span class="cl-live"><b>●</b> Chapter 10 · Optical Instruments is live</span>
-        <span class="cl-state">Open →</span>
-      </a>
-      <div class="class-card soon">
-        <span class="glow" style="background:var(--pink)"></span>
-        <span class="cl-n">12</span>
-        <span class="cl-k">FSc Part II · Second Year</span>
-        <h3>Class 12 Physics</h3>
-        <p>Electrostatics, current electricity, electromagnetism and modern physics.</p>
-        <span class="cl-state">Coming soon</span>
-      </div>
+      <figcaption><span>Class 11 Physics · Lesson 1: convex-lens image builder</span><span>Drag the object. The image follows.</span></figcaption>
+    </figure>
+  </section>
+
+  <section class="card resume" data-resume hidden aria-labelledby="resume-h">
+    <div class="rs-t">
+      <p class="rs-k">Continue where you left off</p>
+      <h2 id="resume-h" data-rs-title>—</h2>
+      <p class="rs-c" data-rs-ctx></p>
+    </div>
+    <div class="rs-p">
+      <div class="pline"><span data-rs-count></span><b data-rs-pct></b></div>
+      <div class="bar"><span data-rs-bar></span></div>
+    </div>
+    <a class="btn" data-rs-link href="#">Resume lesson</a>
+  </section>
+
+  <section id="classes" class="block" aria-labelledby="classes-h">
+    <div class="block-h">
+      <h2 id="classes-h">Pick your class, then your subject</h2>
+      <p>Each subject follows the book your board uses.</p>
+    </div>
+    <div class="grid-2">
+      <article class="card class-card" aria-labelledby="c10-h">
+        <div class="cc-h">
+          <span class="cc-n">10</span>
+          <div><h3 id="c10-h">Class 10</h3><p class="cc-sub">Matric · Grade 10</p></div>
+        </div>
+        <ul class="subj-list">
+          <li><a class="row" href="class-10/index.html">
+            <span class="swatch" style="--sw: var(--accent)"></span>
+            <span class="s-txt"><span class="s-name">Physics</span><span class="s-meta">Unit 10 live · 3 lessons</span></span>
+            <span class="mini-bar"><span data-progress="g10-u10-l1:24,g10-u10-l2:19,g10-u10-l3:18"></span></span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a></li>
+          <li><div class="row off"><span class="swatch hollow" style="--sw: var(--chem)"></span><span class="s-txt"><span class="s-name">Chemistry</span></span><span class="s-soon">Coming soon</span></div></li>
+          <li><div class="row off"><span class="swatch hollow" style="--sw: var(--cs)"></span><span class="s-txt"><span class="s-name">Computer Science</span></span><span class="s-soon">Coming soon</span></div></li>
+        </ul>
+      </article>
+
+      <article class="card class-card" aria-labelledby="c11-h">
+        <div class="cc-h">
+          <span class="cc-n">11</span>
+          <div><h3 id="c11-h">Class 11</h3><p class="cc-sub">FSc Part I</p></div>
+        </div>
+        <ul class="subj-list">
+          <li><a class="row" href="class-11/index.html">
+            <span class="swatch" style="--sw: var(--accent)"></span>
+            <span class="s-txt"><span class="s-name">Physics</span><span class="s-meta">Chapter 10 live · 4 lessons</span></span>
+            <span class="mini-bar"><span data-progress="ch10-l1:22,ch10-l2:13,ch10-l3:16,ch10-l4:15"></span></span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a></li>
+          <li><div class="row off"><span class="swatch dash"></span><span class="s-txt"><span class="s-name">More subjects</span></span><span class="s-soon">Coming later</span></div></li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="grid-2" style="margin-top:18px">
+      <div class="later"><span class="ln">9</span><span><b>Class 9</b><span>Matric · Grade 9 · coming later</span></span></div>
+      <div class="later"><span class="ln">12</span><span><b>Class 12</b><span>FSc Part II · coming later</span></span></div>
     </div>
   </section>
 
-  <section class="block">
-    <div class="how">
-      <div class="stat rv"><b>🧪 Labs, not pictures</b><span>Every figure in the book becomes something you can move. Watch the physics respond in real time.</span></div>
-      <div class="stat rv"><b>📖 Exam-ready</b><span>Exact textbook definitions, every question and every numerical, solved step by step.</span></div>
-      <div class="stat rv"><b>⭐ Earn XP</b><span>Beat lab challenges and quick checks to master each lesson. Progress saves automatically.</span></div>
+  <section id="subjects" class="block" aria-labelledby="subjects-h">
+    <div class="block-h" style="display:block">
+      <h2 id="subjects-h" class="sm">Or start from a subject</h2>
+      <p style="margin-top:6px">Each subject keeps its own colour everywhere on Lumen, so you always know where you are.</p>
     </div>
+    <div class="subjects">
+      <a class="subject" href="#classes" style="--sw: var(--accent)"><span class="bar-s"></span><b>Physics</b><span>Class 10 and 11 · 7 lessons, 20 labs</span></a>
+      <div class="subject off" style="--sw: var(--chem)"><span class="bar-s"></span><b>Chemistry</b><span>Class 10 · being written</span></div>
+      <div class="subject off" style="--sw: var(--cs)"><span class="bar-s"></span><b>Computer Science</b><span>Class 10 · being written</span></div>
+    </div>
+  </section>
+
+  <section class="why" aria-label="Why Lumen">
+    <div><h3>Labs, not pictures</h3><p>The important figures in your book become things you can move. Bring the lens closer and watch the image change.</p></div>
+    <div><h3>Exam-ready</h3><p>Definitions word for word, every numerical solved step by step, and the textbook answer shown first.</p></div>
+    <div><h3>Earn XP as you go</h3><p>Each quiz, challenge and solution you finish adds 10 XP, across every class and subject.</p></div>
   </section>
 </main>
 
-<footer class="foot" style="margin-top:80px">
-  <p>Lumen · interactive physics notes. Your progress is saved in this browser only.</p>
+<footer class="foot">
+  <p>Lumen · interactive notes for Matric and FSc</p>
+  <p>Your progress is saved in this browser only.</p>
 </footer>
+
 <script src="assets/js/core.js"></script>
+<script src="assets/js/home.js"></script>
 </body>
 </html>

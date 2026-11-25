@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>(function(){try{var t=localStorage.getItem('lumen-theme');if(t!=='dark'&&t!=='light')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=t}catch(e){}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thermal Conduction · Unit 10 · Class 10 Physics · Lumen Physics</title>
+<meta name="description" content="Thermal conduction in solids: lattice vibrations and free electrons, good vs bad thermal conductors, the wax-and-pin (Ingenhousz) experiment, and why metal feels colder than wood. Class 10 Physics Unit 10, sections 10.2–10.2.1.">
+<meta name="theme-color" content="#F5F4EF">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lumen Physics">
+<meta property="og:title" content="Thermal Conduction · Class 10 Unit 10 Lesson 3 · Lumen Physics">
+<meta property="og:description" content="Explore vibrating atoms, free electrons and run the wax-and-pin race in a virtual physics lab. Class 10 Physics §10.2–10.2.1.">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..700&family=Figtree:wght@400;500;600;700&family=STIX+Two+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="../../assets/css/main.css">
+<style>
+  .ar-atom { aspect-ratio: 16 / 7; }
+  .ar-wax { aspect-ratio: 16 / 8; }
+  .ar-touch { aspect-ratio: 16 / 6; }
+  @media (max-width: 640px) { .ar-atom { aspect-ratio: 4 / 3; } .ar-wax { aspect-ratio: 4 / 4; } .ar-touch { aspect-ratio: 4 / 3; } }
+</style>
+</head>
+<body data-lesson="g10-u10-l3" class="lesson-page" data-accent="heat">
+
+<header class="topbar">
+  <a class="brand" href="../../index.html"><svg class="brand-logo" viewBox="0 0 28 28" fill="none" aria-hidden="true"><circle class="lg-ring" cx="14" cy="14" r="12.5" stroke-width="2"/><path class="lg-lens" d="M14 4.5c3 3 3 16 0 19M14 4.5c-3 3-3 16 0 19" stroke-width="2"/><path class="lg-axis" d="M1.5 14h25" stroke-width="1.5" stroke-dasharray="2 3"/></svg><span>Lumen</span></a>
+  <nav class="crumbs"><span class="sep">/</span><a href="../index.html">Class 10</a><span class="sep">/</span><a href="index.html">Unit 10 · Heat</a><span class="sep">/</span><span>Lesson 3 · Conduction</span></nav>
+  <div class="topbar-right">
+    <button type="button" class="theme-btn" aria-label="Switch to dark mode" aria-pressed="false"><svg class="ic-moon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><svg class="ic-sun" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button><span class="xp" id="xp" title="XP earned across all lessons"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" stroke-width="2" stroke-linejoin="round"/></svg><b>0</b> XP</span>
+  </div>
+  <div class="read-progress"><span></span></div>
+</header>
+
+
+<div class="lesson-layout">
+  <aside class="toc">
+    <div class="toc-title">In this lesson</div>
+    <ol></ol>
+    <div class="toc-progress">
+      <small>Lesson progress</small>
+      <div class="bar"><span data-lesson-bar></span></div>
+      <small><b data-lesson-count>0 / 0</b> checkpoints · <span class="mono" data-lesson-pct>0%</span></small>
+    </div>
+  </aside>
+
+  <main class="content">
+
+    <section class="lesson-hero">
+    <div class="kicker"><span>Unit 10 · Lesson 3 of 9</span><span class="tag">§ 10.2 – 10.2.1</span></div>
+    <h1>Thermal <span class="heat-grad">Conduction</span></h1>
+    <p class="lede">Leave a metal spoon standing in a cup of boiling tea and within a minute the handle is too hot to hold—even though it never touched the tea. Leave a wooden spoon in the same cup and its handle stays cool. How did the heat climb the metal without the metal moving?</p>
+    <div class="meta-row">
+      <span class="meta"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke-width="1.8"/><circle cx="12" cy="12" r="4.5" stroke-width="1.8"/><circle cx="12" cy="12" r="1" stroke-width="1.8"/></svg>SLOs <b>P-10-C-30 &amp; P-10-C-31</b></span>
+      <span class="meta"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke-width="1.8"/><path d="M12 7v5l3 2" stroke-width="1.8" stroke-linecap="round"/></svg>About <b>25 min</b></span>
+      <span class="meta"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9V3" stroke-width="1.8" stroke-linejoin="round"/></svg><b>3</b> interactive labs</span>
+      <span class="meta meta-prog"><b data-lesson-pct>0%</b> done</span>
+    </div>
+  </section>
+
+
+    <!-- ================= 10.2 ================= -->
+    <section class="sec" id="s10-2" data-toc="10.2 Modes of heat transfer">
+      <div class="sec-head">
+        <span class="sec-num">10.2</span>
+        <h2>Modes of Heat Transfer</h2>
+        <span class="page-ref">§ 10.2</span>
+      </div>
+
+      <p class="hook">Whenever two parts of an object or two touching bodies are at different temperatures, thermal energy flows naturally from the <strong>hotter region to the colder region</strong> until both reach the same temperature (thermal equilibrium).</p>
+
+      <p>Heat travels from one place to another in three distinct ways. Before zooming in on conduction, see where it fits among the three modes of heat transfer:</p>
+
+      <div class="compare rv">
+        <table>
+          <tr><th>Mode</th><th>How heat travels</th><th>Where it happens</th><th>In Unit 10</th></tr>
+          <tr>
+            <td><b>1. Conduction</b></td>
+            <td>Energy passes from particle to particle (and via free electrons) <b>without bulk movement</b> of the substance</td>
+            <td>Mainly in <b>solids</b> (especially metals)</td>
+            <td><b>This lesson</b></td>
+          </tr>
+          <tr>
+            <td><b>2. Convection</b></td>
+            <td>Warmer, less dense fluid rises and cooler, denser fluid sinks, forming currents</td>
+            <td>In <b>fluids</b> (liquids &amp; gases)</td>
+            <td><span class="muted">Lesson 4</span></td>
+          </tr>
+          <tr>
+            <td><b>3. Radiation</b></td>
+            <td>Energy travels as <b>electromagnetic (infrared) waves</b>; needs no medium</td>
+            <td>Through <b>vacuum</b> or transparent space</td>
+            <td><span class="muted">Lesson 5</span></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <!-- ================= 10.2.1 ================= -->
+    <section class="sec" id="s10-2-1" data-toc="10.2.1 Thermal conduction">
+      <div class="sec-head">
+        <span class="sec-num">10.2.1</span>
+        <h2>Thermal Conduction in Solids</h2>
+        <span class="page-ref">SLO P-10-C-31</span>
+      </div>
+
+      <div class="def rv">
+        <span class="exam">Exam definition</span>
+        <div class="def-label">Definition · Thermal conduction</div>
+        <p><b>Conduction</b> is the transfer of thermal energy through matter from a region of higher temperature to a region of lower temperature by direct particle interactions, <b>without the actual bulk movement</b> of the material itself.</p>
+      </div>
+
+      <h3 id="mechanism" data-toc="Atoms vs free electrons" data-toc-sub><span class="h3-dot"></span>Two ways solids pass heat along</h3>
+      <p>Why do metals conduct heat hundreds of times faster than wood, glass or plastic? Because conduction inside a solid works by <strong>two mechanisms</strong>—and non-metals only have one of them:</p>
+
+      <div class="kv rv">
+        <div>
+          <h4>1. Lattice vibrations (all solids)</h4>
+          <p>Atoms in a solid are packed closely and bound to their neighbours. Heating one end makes atoms there vibrate faster with larger swings. They bump into cooler neighbours, passing kinetic energy step-by-step down the chain—like a row of people passing buckets hand to hand. This works in <b>every solid</b>, but it is relatively slow.</p>
+        </div>
+        <div>
+          <h4>2. Free electrons (metals only)</h4>
+          <p>Metal atoms release outer electrons into a mobile <b>“sea” of free (delocalised) electrons</b>. At the hot end, these light electrons absorb thermal energy, zip through the metal lattice at high speed, and collide with cooler atoms and electrons far down the rod—delivering heat directly like express couriers.</p>
+        </div>
+      </div>
+
+      <!-- LAB 1: Atom chain -->
+      <div class="lab rv" id="lab-atoms">
+        <div class="lab-head">
+          <span class="lab-badge"><span class="pulse"></span>Lab 1 · Atom chain</span>
+          <h3>Inside a heated solid: lattice vibrations vs free electrons</h3>
+          <p class="lab-sub">Heat the left end of a bar and watch what happens at the atomic level. Switch between a <b>non-metal</b> (lattice vibrations only), a <b>metal</b> (vibrations + free electrons), or compare both <b>side by side</b>.</p>
+        </div>
+        <div class="lab-stage">
+          <canvas class="lab-canvas ar-atom" id="atom-canvas" aria-label="Particle simulation showing vibrating lattice atoms and fast-moving free electrons carrying heat from left to right"></canvas>
+        </div>
+        <div class="lab-controls">
+          <div class="ctl-group">
+            <span class="ctl-name">Material model</span>
+            <div class="chip-row" id="atom-mode">
+              <button class="chip" data-mode="nonmetal" aria-pressed="false">Non-metal (lattice only)</button>
+              <button class="chip" data-mode="metal" aria-pressed="false">Metal (+ free electrons)</button>
+              <button class="chip" data-mode="compare" aria-pressed="true">Compare both</button>
+            </div>
+          </div>
+          <label class="ctl">
+            <span class="ctl-top"><span>Burner temperature (left end)</span><output class="ctl-val" id="atom-t-out"></output></span>
+            <input type="range" id="atom-t" min="100" max="450" step="25" value="350">
+          </label>
+          <div class="ctl-group">
+            <span class="ctl-name">Overlays</span>
+            <label class="toggle"><input type="checkbox" id="atom-bonds" checked><span class="sw"></span>Show inter-atomic bonds &amp; temperature curve</label>
+          </div>
+        </div>
+        <div class="lab-actions">
+          <button class="btn small" id="atom-go">🔥 Light burner</button>
+          <button class="btn ghost small" id="atom-reset">↺ Cool to 25 °C</button>
+        </div>
+        <div class="readouts">
+          <div class="ro"><span class="ro-k">Elapsed time</span><span class="ro-v" id="atom-time">0.0 s</span></div>
+          <div class="ro"><span class="ro-k" id="atom-k1">Metal far end</span><span class="ro-v" id="atom-v1">25.0 °C</span></div>
+          <div class="ro"><span class="ro-k" id="atom-k2">Non-metal far end</span><span class="ro-v" id="atom-v2">25.0 °C</span></div>
+          <div class="ro"><span class="ro-k">Free electron couriers</span><span class="ro-v" id="atom-elec">Active</span></div>
+        </div>
+        <div class="status" id="atom-status"><span class="dot"></span><span></span></div>
+        <div class="challenges">
+          <h4>Challenges</h4>
+          <ul>
+            <li data-check="l3-atom-nonmetal">Select <b>Non-metal (lattice only)</b>, light the burner, and run for at least <b>8 s</b>. Watch how atoms jiggle harder on the left while the far right barely warms.</li>
+            <li data-check="l3-atom-metal">Switch to <b>Metal (+ free electrons)</b> and heat until the <b>far end passes 70 °C</b>. Watch the bright electrons race ahead of the slow atomic wave.</li>
+            <li data-check="l3-atom-compare">Run <b>Compare both</b> for at least <b>6 s</b> with the burner lit to compare the temperature profiles of the metal and the non-metal side by side.</li>
+          </ul>
+        </div>
+        <p class="lab-foot">Notice that lattice atoms oscillate around fixed positions—they never travel from the hot end to the cold end. Only thermal energy (and mobile free electrons in metals, which wander back and forth) transfers heat along the rod.</p>
+      </div>
+
+      <div class="quiz rv" data-check="l3-q-electrons" data-explain="In metals, <b>free (delocalised) electrons</b> move rapidly across many atomic spacings and collide with cooler electrons and ions far down the rod. Non-metals lack free electrons, so energy has to trickle slowly from atom to neighbouring atom through lattice vibrations alone.">
+        <div class="quiz-label">Quick check <span class="xp-pill">+10 XP</span></div>
+        <p class="quiz-q">Both copper and glass transfer heat through vibrating atoms. What gives copper its huge advantage in conducting heat?</p>
+        <div class="quiz-opts">
+          <button data-why="Copper is denser, yes, but dense lead is a much poorer conductor than lighter aluminium. Mass density isn't the key.">Copper atoms are heavier than glass molecules</button>
+          <button data-correct>Copper has a sea of free electrons that carry kinetic energy rapidly through the metal</button>
+          <button data-why="Atoms in solid copper remain locked in their crystal lattice; the metal itself does not flow.">Copper atoms travel from the hot end to the cold end</button>
+          <button data-why="Glass actually has a higher specific heat capacity (840 vs 387 J kg⁻¹ K⁻¹), not lower, and specific heat isn't the reason heat travels faster along the rod.">Copper has a much higher specific heat capacity than glass</button>
+        </div>
+        <div class="quiz-fb" hidden></div>
+      </div>
+
+      <div class="callout tidbit rv">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V17h6v-.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg></div>
+        <div>
+          <h4>A surprising rule-breaker: diamond!</h4>
+          <p>Notice something wild in the table below: <b>diamond</b> has <em>no</em> free electrons (it's an electrical insulator), yet it conducts heat nearly <b>five times better than copper</b>! Its carbon atoms are very light and linked by ultra-stiff covalent bonds in a rigid 3D lattice, so lattice vibrations race through it at extreme speed. Meanwhile, good metallic thermal conductors (silver, copper, aluminium) are almost always good <b>electrical</b> conductors too—because the same free electrons carry both heat and electric charge.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONDUCTORS & INSULATORS ================= -->
+    <section class="sec" id="conductors" data-toc="Good vs bad conductors">
+      <div class="sec-head">
+        <span class="sec-num">10.2.1</span>
+        <h2>Good and Bad Thermal Conductors</h2>
+        <span class="page-ref">SLO P-10-C-30</span>
+      </div>
+
+      <p>Materials vary enormously in how readily they allow thermal energy to conduct through them. Scientists measure this property using <strong>thermal conductivity \(k\)</strong> (in \(\text{W m}^{-1}\text{ K}^{-1}\)):</p>
+
+      <div class="ctable rv" id="table-k">
+        <div class="cap">Thermal conductivities of common materials <small>k (W m⁻¹ K⁻¹) · click a rod material to load it in Lab 2</small></div>
+        <table>
+          <tr><td>Diamond</td><td class="bar"><span style="width:100%"></span></td><td class="v">~2000</td></tr>
+          <tr><td>Silver</td><td class="bar"><span style="width:82%"></span></td><td class="v">429</td></tr>
+          <tr data-rod="copper" class="hl"><td>Copper</td><td class="bar"><span style="width:78%"></span></td><td class="v">401</td></tr>
+          <tr data-rod="aluminium"><td>Aluminium</td><td class="bar"><span style="width:58%"></span></td><td class="v">237</td></tr>
+          <tr data-rod="brass"><td>Brass</td><td class="bar"><span style="width:40%"></span></td><td class="v">109</td></tr>
+          <tr data-rod="iron"><td>Iron / steel</td><td class="bar"><span style="width:32%"></span></td><td class="v">80</td></tr>
+          <tr data-rod="lead"><td>Lead</td><td class="bar"><span style="width:20%"></span></td><td class="v">35</td></tr>
+          <tr data-rod="glass" class="ins"><td>Glass</td><td class="bar"><span style="width:6%"></span></td><td class="v">1.0</td></tr>
+          <tr class="ins"><td>Water (still)</td><td class="bar"><span style="width:4%"></span></td><td class="v">0.60</td></tr>
+          <tr data-rod="wood" class="ins"><td>Wood (pine)</td><td class="bar"><span style="width:2.5%"></span></td><td class="v">0.12</td></tr>
+          <tr class="ins"><td>Wool / feathers</td><td class="bar"><span style="width:1.4%"></span></td><td class="v">0.040</td></tr>
+          <tr class="ins"><td>Polystyrene foam</td><td class="bar"><span style="width:1.2%"></span></td><td class="v">0.033</td></tr>
+          <tr class="ins"><td>Still air</td><td class="bar"><span style="width:1%"></span></td><td class="v">0.026</td></tr>
+        </table>
+      </div>
+
+      <div class="quiz rv" data-check="l3-q-insulator" data-explain="Gases have molecules spread far apart, so collisions are rare—making <b>still air</b> an extraordinary thermal insulator (\(k = 0.026\ \text{W m}^{-1}\text{ K}^{-1}\), ~15,000× worse at conducting than copper!). Wool, feathers, fur, and Styrofoam trap pockets of still air so air cannot circulate by convection either.">
+        <div class="quiz-label">Quick check <span class="xp-pill">+10 XP</span></div>
+        <p class="quiz-q">Why do woollen sweaters, bird feathers and foam coolers keep heat from escaping so effectively?</p>
+        <div class="quiz-opts">
+          <button data-why="Wool and foam do not generate their own heat; they only slow down heat loss from your body or cooler.">They create heat energy inside their fibres</button>
+          <button data-correct>They trap tiny pockets of still air, which is an extremely poor thermal conductor</button>
+          <button data-why="Wool does not have free electrons—it is an electrical and thermal insulator.">Their fibres contain free electrons that block heat</button>
+          <button data-why="Higher density usually helps conduction rather than blocking it. Insulating foams are light mostly because they are full of air!">They are very dense solids</button>
+        </div>
+        <div class="quiz-fb" hidden></div>
+      </div>
+
+      <h3 id="experiments" data-toc="Wax-and-pin experiment" data-toc-sub><span class="h3-dot"></span>Testing conductors in the lab (SLO P-10-C-30)</h3>
+      <p>How can we demonstrate in a school laboratory which solids are good conductors and which are bad conductors—while keeping the test completely fair? The classic setup uses <strong>Jan Ingenhousz’s wax-and-pin apparatus</strong>.</p>
+
+      <div class="kv rv">
+        <div><h4>Apparatus</h4>A heated water trough with openings on one side, rods of <b>identical length and diameter</b> (copper, aluminium, iron, glass, wood), melted paraffin wax, identical metal pins (or matches), boiling water, and a stopwatch.</div>
+        <div><h4>Fair-test variables</h4><ul><li><b>Independent variable:</b> material of the rod.</li><li><b>Dependent variable:</b> time taken for each pin to fall (or distance melted).</li><li><b>Control variables:</b> same length, thickness, wax thickness, pin spacing &amp; bath temperature.</li></ul></div>
+      </div>
+
+      <figure class="rv">
+        <div class="fig-box">
+          <svg class="fig-svg" viewBox="0 0 640 280" role="img" aria-label="Diagram of Ingenhousz's wax-and-pin experiment: four equal rods of copper, aluminium, iron and wood extend from a tank of boiling water. Pins held by wax have dropped farthest along copper, then aluminium, slightly along iron, and none along wood.">
+            <defs>
+              <linearGradient id="tankWater" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="rgba(255,110,80,.55)"/><stop offset="1" stop-color="rgba(210,50,50,.65)"/></linearGradient>
+              <linearGradient id="cuRod" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ff8547"/><stop offset=".6" stop-color="#d9824a"/><stop offset="1" stop-color="#a85a2a"/></linearGradient>
+              <linearGradient id="alRod" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f09a7e"/><stop offset=".45" stop-color="#c9ced8"/><stop offset="1" stop-color="#8b95bb"/></linearGradient>
+              <linearGradient id="feRod" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d47264"/><stop offset=".25" stop-color="#7d8590"/><stop offset="1" stop-color="#4c5468"/></linearGradient>
+            </defs>
+            <!-- hot water tank -->
+            <rect x="46" y="34" width="110" height="190" rx="8" fill="#1b2140" stroke="#8b95bb" stroke-width="2"/>
+            <rect x="52" y="54" width="98" height="164" rx="5" fill="url(#tankWater)"/>
+            <g fill="rgba(255,255,255,.55)"><circle cx="75" cy="180" r="2.2"/><circle cx="115" cy="140" r="2.5"/><circle cx="90" cy="100" r="2"/><circle cx="130" cy="195" r="1.8"/><circle cx="72" cy="74" r="2"/></g>
+            <text x="101" y="24" fill="#ffc65c" font-size="11" text-anchor="middle">Boiling water (100 °C)</text>
+            <!-- burner hint -->
+            <path d="M101 248 q-8 -12 0 -22 q8 10 0 22z" fill="#5fe3ff"/>
+            <text x="101" y="266" fill="#8b95bb" font-size="10" text-anchor="middle">Heat source</text>
+
+            <!-- 4 rods emerging at y = 76, 114, 152, 190 -->
+            <!-- Copper: 4/5 pins dropped -->
+            <rect x="150" y="70" width="380" height="12" rx="4" fill="url(#cuRod)"/>
+            <rect x="440" y="69" width="90" height="14" rx="4" fill="rgba(255,230,130,.35)" stroke="rgba(255,230,130,.6)"/>
+            <text x="546" y="80" fill="#ffc65c" font-size="11">Copper (best)</text>
+            <!-- Aluminium: 3/5 dropped -->
+            <rect x="150" y="108" width="380" height="12" rx="4" fill="url(#alRod)"/>
+            <rect x="370" y="107" width="160" height="14" rx="4" fill="rgba(255,230,130,.35)" stroke="rgba(255,230,130,.6)"/>
+            <text x="546" y="118" fill="#e9edff" font-size="11">Aluminium</text>
+            <!-- Iron: 1/5 dropped -->
+            <rect x="150" y="146" width="380" height="12" rx="4" fill="url(#feRod)"/>
+            <rect x="255" y="145" width="275" height="14" rx="4" fill="rgba(255,230,130,.35)" stroke="rgba(255,230,130,.6)"/>
+            <text x="546" y="156" fill="#8b95bb" font-size="11">Iron / steel</text>
+            <!-- Wood: 0/5 dropped -->
+            <rect x="150" y="184" width="380" height="12" rx="4" fill="#6b4423"/>
+            <rect x="165" y="183" width="365" height="14" rx="4" fill="rgba(255,230,130,.35)" stroke="rgba(255,230,130,.6)"/>
+            <text x="546" y="194" fill="#c9a46a" font-size="11">Wood (insulator)</text>
+
+            <!-- Remaining hanging pins -->
+            <g stroke="#e9edff" stroke-width="1.6" fill="#ffc65c">
+              <!-- Copper pin 5 -->
+              <circle cx="495" cy="83" r="3"/><line x1="495" y1="86" x2="495" y2="100"/>
+              <!-- Al pins 4,5 -->
+              <circle cx="425" cy="121" r="3"/><line x1="425" y1="124" x2="425" y2="138"/>
+              <circle cx="495" cy="121" r="3"/><line x1="495" y1="124" x2="495" y2="138"/>
+              <!-- Iron pins 2..5 -->
+              <circle cx="285" cy="159" r="3"/><line x1="285" y1="162" x2="285" y2="176"/>
+              <circle cx="355" cy="159" r="3"/><line x1="355" y1="162" x2="355" y2="176"/>
+              <circle cx="425" cy="159" r="3"/><line x1="425" y1="162" x2="425" y2="176"/>
+              <circle cx="495" cy="159" r="3"/><line x1="495" y1="162" x2="495" y2="176"/>
+              <!-- Wood pins 1..5 -->
+              <circle cx="215" cy="197" r="3"/><line x1="215" y1="200" x2="215" y2="214"/>
+              <circle cx="285" cy="197" r="3"/><line x1="285" y1="200" x2="285" y2="214"/>
+              <circle cx="355" cy="197" r="3"/><line x1="355" y1="200" x2="355" y2="214"/>
+              <circle cx="425" cy="197" r="3"/><line x1="425" y1="200" x2="425" y2="214"/>
+              <circle cx="495" cy="197" r="3"/><line x1="495" y1="200" x2="495" y2="214"/>
+            </g>
+
+            <!-- Dropped pins on bench -->
+            <line x1="180" y1="238" x2="560" y2="238" stroke="#5a6488" stroke-width="2"/>
+            <g stroke="#8b95bb" stroke-width="1.5">
+              <line x1="210" y1="234" x2="226" y2="236"/><line x1="278" y1="232" x2="294" y2="236"/><line x1="348" y1="235" x2="365" y2="233"/><line x1="418" y1="234" x2="434" y2="236"/>
+            </g>
+            <text x="360" y="258" fill="#8b95bb" font-size="10" text-anchor="middle">Wax melts at 52 °C → pins drop progressively along the better conductors</text>
+          </svg>
+        </div>
+        <figcaption><b>Fig. 10.5</b>Comparing thermal conductors using the wax-and-pin method (Ingenhousz apparatus). After heating all rods equally at the left end, wax has melted farthest along copper.</figcaption>
+      </figure>
+
+      <!-- LAB 2: Wax-and-pin race -->
+      <div class="lab rv" id="lab-wax">
+        <div class="lab-head">
+          <span class="lab-badge"><span class="pulse"></span>Lab 2 · Wax race</span>
+          <h3>The wax-and-pin thermal conductivity race</h3>
+          <p class="lab-sub">All four rods start at 25 °C with five wax-stuck pins spaced every 5 cm. Pour hot water into the trough to start heating every rod identically, and watch whose pins fall first.</p>
+        </div>
+        <div class="lab-stage">
+          <canvas class="lab-canvas ar-wax" id="wax-canvas" aria-label="Four horizontal rods coated with wax and five hanging pins each, heated by a water bath on the left"></canvas>
+        </div>
+        <div class="lab-controls">
+          <label class="ctl"><span class="ctl-top"><span>Rod 1</span></span><select class="sel" id="wax-r0"></select></label>
+          <label class="ctl"><span class="ctl-top"><span>Rod 2</span></span><select class="sel" id="wax-r1"></select></label>
+          <label class="ctl"><span class="ctl-top"><span>Rod 3</span></span><select class="sel" id="wax-r2"></select></label>
+          <label class="ctl"><span class="ctl-top"><span>Rod 4</span></span><select class="sel" id="wax-r3"></select></label>
+          <label class="ctl"><span class="ctl-top"><span>Water bath temperature</span><output class="ctl-val" id="wax-t-out"></output></span><input type="range" id="wax-t" min="40" max="100" step="5" value="100"></label>
+          <div class="ctl-group">
+            <span class="ctl-name">Fair-test control</span>
+            <label class="toggle"><input type="checkbox" id="wax-fair" checked><span class="sw"></span>Equal rod thickness &amp; length</label>
+          </div>
+        </div>
+        <div class="lab-actions">
+          <button class="btn small" id="wax-go">🔥 Heat trough</button>
+          <button class="btn ghost small" id="wax-reset">↺ Re-wax pins</button>
+          <div class="chip-row" id="wax-speed" style="margin-left:auto">
+            <button class="chip" data-speed="2" aria-pressed="false">2×</button>
+            <button class="chip" data-speed="8" aria-pressed="true">8×</button>
+            <button class="chip" data-speed="20" aria-pressed="false">20×</button>
+          </div>
+        </div>
+        <div class="readouts">
+          <div class="ro"><span class="ro-k">Elapsed time</span><span class="ro-v" id="wax-time">0 s</span></div>
+          <div class="ro"><span class="ro-k" id="wax-k0">Copper</span><span class="ro-v" id="wax-p0">0 / 5 dropped</span></div>
+          <div class="ro"><span class="ro-k" id="wax-k1">Aluminium</span><span class="ro-v" id="wax-p1">0 / 5 dropped</span></div>
+          <div class="ro"><span class="ro-k" id="wax-k2">Iron</span><span class="ro-v" id="wax-p2">0 / 5 dropped</span></div>
+          <div class="ro"><span class="ro-k" id="wax-k3">Wood</span><span class="ro-v" id="wax-p3">0 / 5 dropped</span></div>
+        </div>
+        <div class="status" id="wax-status"><span class="dot"></span><span></span></div>
+        <div class="challenges">
+          <h4>Challenges</h4>
+          <ul>
+            <li data-check="l3-wax-race">Run the default fair race (<b>Copper, Aluminium, Iron, Wood</b>) at <b>100 °C</b> until all 5 pins drop on the fastest conductor.</li>
+            <li data-check="l3-wax-glass">Swap one metal for <b>Glass</b> in a fair test at <b>100 °C</b> and run for at least <b>60 s</b> (lab time) to compare glass with metals.</li>
+            <li data-check="l3-wax-cool">Set the water bath below <b>50 °C</b> and heat the rods. Why do zero pins drop?</li>
+            <li data-check="l3-wax-unfair">Switch off <b>Equal rod thickness</b> and run the race. Why does an unfair test ruin the comparison?</li>
+          </ul>
+        </div>
+        <p class="lab-foot">Paraffin wax melts at 52 °C. Notice what actually controls how fast the warming front travels down a rod: thermal diffusivity α = k / (ρc), which combines high conductivity k with how much heat each cubic metre needs to warm up (ρc).</p>
+      </div>
+
+      <div class="callout insight rv">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg></div>
+        <div>
+          <h4>Are liquids good conductors? Try the boiling-ice trick</h4>
+          <p>Drop an ice cube to the bottom of a test tube, hold it down with a bit of copper gauze, fill the tube with cold water, and heat <b>only the top</b> over a flame. Water at the top will boil furiously while the ice at the bottom stays frozen! Water is a very poor thermal conductor (\(k = 0.60\ \text{W m}^{-1}\text{ K}^{-1}\)). Normally water boils quickly only when heated from <b>below</b>—because of <b>convection</b> (Lesson 4), not conduction.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TOUCH + APPLICATIONS ================= -->
+    <section class="sec" id="touch" data-toc="Door handle & applications">
+      <div class="sec-head">
+        
+        <h2>Why Metal Feels Colder Than Wood (+ Uses)</h2>
+        <span class="page-ref">Everyday physics</span>
+      </div>
+
+      <p class="hook">Walk into a chilly room at 20 °C. Touch the wooden door, then touch its brass or steel door handle. The metal feels ice-cold, while the wood feels almost warm—yet a thermometer says <strong>both are at 20 °C</strong>. What tricks your hand?</p>
+
+      <p>Your skin does <strong>not</strong> measure an object’s actual temperature directly. Your nerve endings sense how fast <strong>thermal energy flows into or out of your skin</strong>—and how much your own fingertip cools down or heats up on contact!</p>
+
+      <!-- LAB 3: Touch test -->
+      <div class="lab rv" id="lab-touch">
+        <div class="lab-head">
+          <span class="lab-badge"><span class="pulse"></span>Lab 3 · Touch paradox</span>
+          <h3>Touch test: your hand (37 °C) meets metal vs wood</h3>
+          <p class="lab-sub">Compare touching a <b>copper handle</b> and a <b>wooden door</b> in a cool room (20 °C)—then switch to a blazing hot afternoon (55 °C) in the sun and watch the paradox flip!</p>
+        </div>
+        <div class="lab-stage">
+          <canvas class="lab-canvas ar-touch" id="touch-canvas" aria-label="Hand touching a copper bar versus a wooden bar, showing heat flow arrows and fingertip contact temperatures"></canvas>
+        </div>
+        <div class="lab-controls">
+          <div class="ctl-group">
+            <span class="ctl-name">Both objects are at the same temperature</span>
+            <div class="chip-row" id="touch-env">
+              <button class="chip" data-t="20" aria-pressed="true">❄ Cool room · 20 °C</button>
+              <button class="chip" data-t="55" aria-pressed="false">☀ Hot sun · 55 °C</button>
+            </div>
+          </div>
+          <div class="ctl-group">
+            <span class="ctl-name">Action</span>
+            <div class="chip-row" id="touch-action">
+              <button class="btn small" id="touch-go">✋ Touch both now</button>
+            </div>
+          </div>
+        </div>
+        <div class="readouts">
+          <div class="ro"><span class="ro-k">Object temperatures</span><span class="ro-v" id="touch-tobj">20 °C each</span></div>
+          <div class="ro"><span class="ro-k">Copper heat flow</span><span class="ro-v" id="touch-qcu">–</span></div>
+          <div class="ro"><span class="ro-k">Wood heat flow</span><span class="ro-v" id="touch-qw">–</span></div>
+          <div class="ro"><span class="ro-k">How your hand feels</span><span class="ro-v ro-wrap" id="touch-feel">Press “Touch both”</span></div>
+        </div>
+        <div class="status" id="touch-status"><span class="dot"></span><span></span></div>
+        <div class="challenges">
+          <h4>Challenges</h4>
+          <ul>
+            <li data-check="l3-touch-cold">Touch both at <b>20 °C</b> and compare the heat flow leaving your fingers into copper vs wood.</li>
+            <li data-check="l3-touch-hot">Switch to <b>55 °C (hot sun)</b> and touch both. Why does the metal now feel <em>hotter</em> than the wood even though both are 55 °C?</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 id="everyday" data-toc="Conductors & insulators at work" data-toc-sub><span class="h3-dot"></span>Good conductors vs insulators in daily life</h3>
+      <div class="compare rv">
+        <table>
+          <tr><th>Using good conductors (metals)</th><th>Using bad conductors (insulators)</th></tr>
+          <tr>
+            <td><b>Cooking pans &amp; kettles:</b> copper or aluminium bases carry heat fast and evenly from the stove to food.</td>
+            <td><b>Pan handles &amp; kettle grips:</b> made of wood or bakelite/plastic so heat cannot reach your hand.</td>
+          </tr>
+          <tr>
+            <td><b>CPU heat sinks &amp; car radiators:</b> aluminium/copper fins pull heat rapidly away from chips and hot coolant.</td>
+            <td><b>Winter woollens, quilts &amp; igloos:</b> trapped still air keeps body heat from conducting away.</td>
+          </tr>
+          <tr>
+            <td><b>Soldering iron tips:</b> copper tip delivers intense heat straight to the solder joint.</td>
+            <td><b>Double-glazed windows &amp; cooler boxes:</b> foam walls and sealed air/argon gaps block outside heat.</td>
+          </tr>
+        </table>
+      </div>
+
+      <h3 id="factors" data-toc="Rate of conduction" data-toc-sub><span class="h3-dot"></span>What controls how fast heat conducts?</h3>
+      <p>Imagine heat flowing steadily down a bar (or through a brick wall) of length/thickness \(L\) and cross-sectional area \(A\), with temperature difference \(\Delta T = T_{\text{hot}} - T_{\text{cold}}\) between its two faces:</p>
+      <div class="formula rv">
+        <div class="formula-body">\[ \frac{Q}{t} = \frac{k\,A\,\Delta T}{L} \]
+          <div class="formula-note">rate of heat flow = (thermal conductivity × area × temperature difference) ÷ thickness</div>
+        </div>
+      </div>
+      <ul>
+        <li><strong>Material (\(k\)):</strong> higher thermal conductivity conducts faster (metals vs wood/air).</li>
+        <li><strong>Cross-sectional area (\(A\)):</strong> wider bars or larger walls let more heat cross each second.</li>
+        <li><strong>Temperature difference (\(\Delta T\)):</strong> a bigger difference between hot and cold ends pushes heat faster.</li>
+        <li><strong>Length / thickness (\(L\)):</strong> thicker insulation or a longer rod slows the rate of heat flow down.</li>
+      </ul>
+
+      <div class="quiz rv" data-check="l3-q-factors" data-explain="Rate of conduction is proportional to \(k\,A\,\Delta T / L\). To <b>reduce</b> heat entering a house, you want a <b>thick</b> wall (larger \(L\)) made of low-\(k\) insulating material.">
+        <div class="quiz-label">Quick check <span class="xp-pill">+10 XP</span></div>
+        <p class="quiz-q">How can a builder cut down heat conducted through the roof of a house in hot Pakistani summers?</p>
+        <div class="quiz-opts">
+          <button data-why="A thinner roof means smaller L, which <em>increases</em> the rate of heat conduction into the house.">Make the roof thinner and cover it with bare sheet metal</button>
+          <button data-correct>Add a thick layer of foam or fibreglass insulation (large L, very low k)</button>
+          <button data-why="A larger surface area lets in more heat, not less.">Increase the ceiling area as much as possible</button>
+          <button data-why="Aluminium has k = 237—it conducts heat 7,000 times faster than foam!">Replace concrete with solid aluminium slabs</button>
+        </div>
+        <div class="quiz-fb" hidden></div>
+      </div>
+    </section>
+
+    <!-- ================= PRACTICE ================= -->
+    <section class="sec" id="practice" data-toc="From your textbook">
+      <div class="sec-head">
+        
+        <h2>From Your Textbook</h2>
+        <span class="page-ref">Unit 10 Exercise</span>
+      </div>
+      <p>Try the MCQs first, then think through each written answer before opening the model solution.</p>
+
+      <h3 id="mcq" data-toc="MCQs" data-toc-sub><span class="h3-dot"></span>Multiple choice</h3>
+      <div class="quiz rv" data-check="l3-mcq2" data-explain="Thermal energy passes along the metal spoon by <b>conduction</b>—direct collisions of vibrating ions and mobile free electrons from the hot end in boiling water to the handle, without the metal itself flowing.">
+        <div class="quiz-label">MCQ 2 <span class="xp-pill">+10 XP</span></div>
+        <p class="quiz-q">Which of the following situations is the best example of conduction?</p>
+        <div class="quiz-opts">
+          <button data-correct>A metal spoon becomes hot when placed in boiling water</button>
+          <button data-why="Rising warm air is bulk fluid movement—that's <b>convection</b> (Lesson 4).">Warm air rising near a heater</button>
+          <button data-why="Sunlight crosses empty space from the Sun to Earth as electromagnetic waves—that's <b>radiation</b> (Lesson 5).">Sunlight warming the surface of the Earth</button>
+          <button data-why="Microwaves heat food by electromagnetic radiation penetrating the food, not conduction from atom to atom.">A microwave oven heating food</button>
+        </div>
+        <div class="quiz-fb" hidden></div>
+      </div>
+
+      <div class="quiz rv" data-check="l3-mcq-cond" data-explain="Metals have a sea of <b>free (delocalised) electrons</b> that move rapidly across the crystal lattice, transferring energy far faster than atomic vibrations alone.">
+        <div class="quiz-label">Concept MCQ <span class="xp-pill">+10 XP</span></div>
+        <p class="quiz-q">Why are metals generally much better conductors of heat than non-metals?</p>
+        <div class="quiz-opts">
+          <button data-why="Particles in all solids vibrate; what sets metals apart is mobile electrons.">Non-metal atoms cannot vibrate when heated</button>
+          <button data-why="Shiny surfaces reflect radiation; they do not cause conduction inside the solid.">Metals have shiny surfaces</button>
+          <button data-correct>Metals contain free electrons that move quickly and transfer thermal energy through collisions</button>
+          <button data-why="A lower specific heat affects how much temperature rises for a given heat, not directly the mechanism of energy transport.">Metals always have higher specific heat capacities</button>
+        </div>
+        <div class="quiz-fb" hidden></div>
+      </div>
+
+      <h3 id="srq" data-toc="Short & constructed" data-toc-sub><span class="h3-dot"></span>Short &amp; constructed response</h3>
+      <div class="qa rv" data-check="l3-srq-handle">
+        <div class="qa-q"><span class="qn">SRQ</span><span>Why does a metal door handle feel much colder than the wooden door on a winter morning, even though both are at the same room temperature?</span></div>
+        <details>
+          <summary>Show model answer</summary>
+          <div class="ans">
+            <ul>
+              <li>Our skin does not sense the temperature of an object directly; it senses the <b>rate at which heat flows out of (or into) the hand</b>.</li>
+              <li><b>Metal</b> is a good conductor of heat (high thermal conductivity, thanks to free electrons). When your warm hand (37 °C) touches the cooler metal handle, it conducts heat away from your skin rapidly, cooling your fingertips quickly and making the handle feel cold.</li>
+              <li><b>Wood</b> is a poor conductor (insulator). It conducts heat away from your hand very slowly, so your skin stays warmer and the wood feels neutral or mild.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <div class="qa rv" data-check="l3-srq-pans">
+        <div class="qa-q"><span class="qn">SRQ</span><span>Why are cooking pots made of metals such as copper or aluminium, whereas their handles are made of wood or plastic?</span></div>
+        <details>
+          <summary>Show model answer</summary>
+          <div class="ans">
+            <p>The pot base is made of metal because metals are <b>good thermal conductors</b> (high \(k\)): heat from the burner travels rapidly and evenly through the metal to the food. The handle is made of wood or plastic because they are <b>poor conductors (thermal insulators)</b> with very low \(k\), blocking heat from conducting into your hand so you can lift the hot pot safely.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="qa rv" data-check="l3-crq-wax">
+        <div class="qa-q"><span class="qn">CRQ · SLO</span><span>Justify an experiment to distinguish between good and bad thermal conductors using rods of copper, iron, glass and wood. State what must be kept constant for a fair test.</span></div>
+        <details>
+          <summary>Show model answer</summary>
+          <div class="ans">
+            <p><b>Wax-and-pin experiment (Ingenhousz’s apparatus):</b></p>
+            <ul>
+              <li>Take rods of copper, iron, glass and wood of <b>identical length and diameter</b> (control variables).</li>
+              <li>Coat each rod evenly with melted paraffin wax and stick identical pins at equal spacings (e.g. 5 cm apart).</li>
+              <li>Insert one end of all four rods into a trough of boiling water (same heat-source temperature) and start a stopwatch.</li>
+              <li><b>Observation:</b> Pins drop off the copper rod first and farthest down its length, followed more slowly by iron, very slowly near the hot end of glass, and not at all on wood.</li>
+              <li><b>Conclusion &amp; justification:</b> Because dimensions, wax coating and heat source are identical, the speed at which the melting front advances depends purely on each material’s thermal conductivity—distinguishing good conductors (copper, iron) from insulators (glass, wood).</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <div class="qa rv" data-check="l3-lrq-mech">
+        <div class="qa-q"><span class="qn">LRQ · SLO</span><span>Explain thermal conduction in all solids in terms of atomic/molecular lattice vibrations and the movement of free electrons in metallic conductors.</span></div>
+        <details>
+          <summary>Show model answer</summary>
+          <div class="ans">
+            <p><b>Conduction</b> is heat transfer through matter from hotter to colder regions via particle interactions without bulk motion of the material.</p>
+            <ul>
+              <li><b>In all solids (lattice vibrations):</b> Particles are tightly bound around fixed positions. Heating one end increases the vibrational kinetic energy and amplitude of atoms there. Through inter-atomic forces, vibrating atoms collide with cooler neighbours, passing vibrational energy along the solid step by step. In non-metals (wood, glass, plastic), this slow vibration relay is the only mechanism, making them poor conductors.</li>
+              <li><b>In metals (free electrons):</b> In addition to lattice vibrations, metals possess a sea of mobile, delocalised valence electrons. When heated, these free electrons gain kinetic energy, move rapidly through the metal lattice over long distances, and collide with cooler atoms and electrons down the rod—transferring heat far faster than lattice vibrations alone.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ================= SUMMARY ================= -->
+    <section class="sec" id="summary" data-toc="Summary">
+      <div class="sec-head">
+        
+        <h2>Lesson Summary</h2>
+      </div>
+      <div class="sheet">
+        <div class="sheet-card rv"><h4>Definition</h4><div class="f">Thermal conduction</div><p>Heat flow from hot to cold by particle collisions without bulk motion of the substance.</p></div>
+        <div class="sheet-card rv"><h4>All solids</h4><div class="f">Lattice vibrations</div><p>Heated atoms jiggle faster and pass kinetic energy to neighbours—slow in non-metals.</p></div>
+        <div class="sheet-card rv"><h4>Metals</h4><div class="f">Free electrons</div><p>Delocalised electrons dart rapidly through the lattice, carrying heat many times faster.</p></div>
+        <div class="sheet-card rv"><h4>Wax-and-pin test</h4><div class="f">Fair comparison</div><p>Equal rods in hot water: copper melts wax farthest; wood barely warms at all.</p></div>
+        <div class="sheet-card rv"><h4>Door handle paradox</h4><div class="f">Rate of heat flow</div><p>Metal feels colder at 20 °C (and hotter at 55 °C) because it swaps heat with skin much faster than wood.</p></div>
+        <div class="sheet-card rv"><h4>Conduction rate</h4><div class="f">\( Q/t = k\,A\,\Delta T / L \)</div><p>Faster with larger \(k\), larger area \(A\), larger \(\Delta T\), or thinner barrier \(L\).</p></div>
+      </div>
+
+      <div class="mastered">
+        <h3>Lesson mastered.</h3>
+        <p>You can explain conduction inside metals and non-metals at the atomic scale, design a fair conductor test, and crack the door-handle paradox.</p>
+      </div>
+
+      <div class="next-card">
+        <div>
+          <div class="nx-k">Up next · Lesson 4 · § 10.2.2 · coming soon</div>
+          <h3>Convection</h3>
+          <p>Why solids conduct while liquids and gases circulate: sea breezes, ocean upwelling, soaring eagles and cyclones.</p>
+        </div>
+        <a class="btn" href="index.html#lessons">Back to Unit 10 →</a>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer class="foot">
+  <p>Lumen · interactive notes for Class 10 Physics, Unit 10 “Heat Capacity and Modes of Heat Transfer”.</p>
+  <p>Your progress is saved in this browser only.</p>
+</footer>
+
+<script src="../../assets/js/core.js"></script>
+<script src="js/lesson-3.js"></script>
+</body>
+</html>

@@ -316,7 +316,7 @@
       ctx.strokeStyle = '#08102c'; ctx.lineWidth = r * 0.28; ctx.lineCap = 'butt';
       ctx.beginPath(); ctx.moveTo(x - r * Math.cos(rot), y - r * Math.sin(rot)); ctx.lineTo(x + r * Math.cos(rot), y + r * Math.sin(rot)); ctx.stroke();
     }
-    function engrave(ctx, text, x, y, size, { font = '"Space Grotesk", sans-serif', weight = 600, align = 'center', spacing = 0 } = {}) {
+    function engrave(ctx, text, x, y, size, { font = '"Bricolage Grotesque", "Figtree", sans-serif', weight = 600, align = 'center', spacing = 0 } = {}) {
       ctx.save();
       ctx.font = `${weight} ${size}px ${font}`; ctx.textAlign = align; ctx.textBaseline = 'middle';
       if ('letterSpacing' in ctx && spacing) ctx.letterSpacing = `${spacing}px`;
@@ -342,7 +342,7 @@
       for (let r = 14; r < R; r += 9) { ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.stroke(); }
       // micro-text around the rim (only readable when magnified)
       ctx.save();
-      ctx.font = '600 7px "JetBrains Mono", monospace'; ctx.fillStyle = 'rgba(40,46,62,.85)'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.font = '600 7px "Figtree", system-ui, sans-serif'; ctx.fillStyle = 'rgba(40,46,62,.85)'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
       const rr = R - 12, step = 5.2 / rr;
       let k = 0;
       for (let a = Math.PI * 1.05; a < Math.PI * 1.95; a += step, k++) {
@@ -388,7 +388,7 @@
       // tiny engravings
       engrave(ctx, 'ADJUSTED · 5 POSITIONS', cx - 0.42 * R, cy + 0.66 * R, 0.022 * R, { weight: 500 });
       engrave(ctx, '17 JEWELS', cx - 0.42 * R, cy + 0.6 * R, 0.035 * R, { spacing: 1 });
-      engrave(ctx, 'Nº ' + SERIAL, bx, by + br + 0.075 * R, 5, { font: '"JetBrains Mono", monospace', weight: 600 });
+      engrave(ctx, 'Nº ' + SERIAL, bx, by + br + 0.075 * R, 5, { font: '"Figtree", system-ui, sans-serif', weight: 600 });
       // lower-left screws & jewels
       screw(ctx, cx - 0.62 * R, cy + 0.38 * R, 11, 1.9); jewel(ctx, cx - 0.2 * R, cy + 0.7 * R, 6); screw(ctx, cx + 0.12 * R, cy + 0.78 * R, 10, 0.9);
     }

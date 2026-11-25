@@ -4,7 +4,7 @@ Interactive physics notes for Pakistani students. Every definition, example, que
 
 **Live so far:**
 
-- **Class 10** (Grade 10, National Book Foundation 2025): Unit 10 *Heat Capacity and Modes of Heat Transfer*. Lesson 1 *Specific Heat Capacity* (§10.1–10.1.1) and Lesson 2 *Measuring Specific Heat* (§10.1.2).
+- **Class 10** (Grade 10, National Book Foundation 2025): Unit 10 *Heat Capacity and Modes of Heat Transfer*. Lesson 1 *Specific Heat Capacity* (§10.1–10.1.1), Lesson 2 *Measuring Specific Heat* (§10.1.2), and Lesson 3 *Thermal Conduction* (§10.2–10.2.1).
 - **Class 11** (FSc Part I): Chapter 10 *Optical Instruments*. Lessons 1–4 (§10.1–10.5).
 
 **Site:** https://mansoorysfxi.github.io/lumen-physics/
@@ -16,8 +16,9 @@ site/                         ← everything that gets published
 ├── index.html                home: choose your class (9 · 10 · 11 · 12)
 ├── 404.html                  page-not-found (also redirects old /chapter-10/ links to /class-11/chapter-10/)
 ├── assets/
-│   ├── css/main.css          shared design system
-│   ├── js/core.js            canvas helpers, quizzes, XP/progress (localStorage)
+│   ├── css/main.css          shared design system: light + dark themes, every component
+│   ├── js/core.js            canvas helpers, quizzes, XP/progress, theme toggle, phone lesson bar + lab tray
+│   ├── js/home.js            draggable lens figure on the home page
 │   └── favicon.svg
 ├── class-10/
 │   ├── index.html            Grade 10 book home (Units 10–21)
@@ -25,10 +26,12 @@ site/                         ← everything that gets published
 │       ├── index.html        unit hub (heat-lattice hero, 18 SLOs, lessons)
 │       ├── lesson-1.html     §10.1–10.1.1 + Examples 10.1, 10.2
 │       ├── lesson-2.html     §10.1.2 + Example 10.3
+│       ├── lesson-3.html     §10.2–10.2.1 Thermal Conduction
 │       └── js/
 │           ├── hero.js
 │           ├── lesson-1.js   labs: heat race + mystery metal, two cities one Sun
-│           └── lesson-2.js   labs: hot + cold mixing, virtual calorimeter, electrical method
+│           ├── lesson-2.js   labs: hot + cold mixing, virtual calorimeter, electrical method
+│           └── lesson-3.js   labs: atom chain, wax-and-pin race, touch paradox
 └── class-11/
     ├── index.html            FSc Part I book home (chapter list)
     └── chapter-10/
@@ -37,7 +40,9 @@ site/                         ← everything that gets published
         └── js/               hero.js, lesson-1.js … lesson-4.js
 ```
 
-Plain HTML, CSS and JavaScript: no build step and no dependencies to install. Fonts and KaTeX (for equations) load from public CDNs.
+Plain HTML, CSS and JavaScript: no build step and no dependencies to install. Fonts (Bricolage Grotesque, Figtree, STIX Two Text) and KaTeX (for equations) load from public CDNs.
+
+**Design:** warm paper pages for reading, dark "screens" for labs and figures (the 2026 redesign in `docs/Lumen redesign.html`). Light is the default; the moon/sun button in the top bar switches to dark mode, and the choice is saved in the browser (until then the site follows the device setting). Class 10 pages use the orange "heat" accent via `<body data-accent="heat">`; Class 11 uses Physics blue.
 
 The Grade 10 book continues the Grade 9 numbering, so its first unit is **Unit 10** and sections are numbered 10.1, 10.2, … exactly as printed.
 

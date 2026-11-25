@@ -21,10 +21,10 @@
   const NR = 15;
   function frame(dt, t) {
     const { ctx, w, h } = st; if (!w) return;
-    const narrow = w < 760;
-    const lx = narrow ? w * 0.62 : w * 0.68, cy = narrow ? h * 0.3 : h * 0.5;
-    const Lh = Math.min(h * (narrow ? 0.22 : 0.34), 250);
-    const f = Math.min(w, h) * (narrow ? 0.16 : 0.2);
+    // the hero now lives in its own card, so centre the lens in it
+    const lx = w * 0.56, cy = h * 0.5;
+    const Lh = Math.min(h * 0.4, 250);
+    const f = Math.min(w, h) * 0.24;
 
     // where should the light source be?
     let goal;

@@ -2,188 +2,133 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>(function(){try{var t=localStorage.getItem('lumen-theme');if(t!=='dark'&&t!=='light')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=t}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Chapter 10 · Optical Instruments · Lumen Physics</title>
-<meta name="description" content="Interactive lessons for FSc Physics Chapter 10: Optical Instruments. Microscopes, telescopes, the spectrometer, the speed of light and fibre optics.">
-<meta name="theme-color" content="#060a17">
+<title>Chapter 10 · Optical Instruments · Class 11 Physics · Lumen</title>
+<meta name="description" content="Interactive lessons for FSc Physics Chapter 10: microscopes, telescopes, the spectrometer, the speed of light and fibre optics.">
+<meta name="theme-color" content="#F5F4EF">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Lumen Physics">
-<meta property="og:title" content="Chapter 10 · Optical Instruments · Lumen Physics">
-<meta property="og:description" content="Interactive lessons for FSc Physics Chapter 10: microscopes, telescopes, the spectrometer, the speed of light and fibre optics.">
+<meta property="og:site_name" content="Lumen">
+<meta property="og:title" content="Chapter 10 · Optical Instruments · Lumen">
+<meta property="og:description" content="FSc Physics Chapter 10, with labs you can play with.">
 <meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..700&family=Figtree:wght@400;500;600;700&family=STIX+Two+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/css/main.css">
 </head>
 <body>
 
 <header class="topbar">
-  <a class="brand" href="../../index.html"><span class="brand-mark"></span>Lumen<span class="brand-sub">FSc Physics</span></a>
-  <nav class="crumbs"><span class="sep">/</span><a href="../index.html">Class 11</a><span class="sep">/</span><span>Chapter 10 · Optical Instruments</span></nav>
+  <a class="brand" href="../../index.html"><svg class="brand-logo" viewBox="0 0 28 28" fill="none" aria-hidden="true"><circle class="lg-ring" cx="14" cy="14" r="12.5" stroke-width="2"/><path class="lg-lens" d="M14 4.5c3 3 3 16 0 19M14 4.5c-3 3-3 16 0 19" stroke-width="2"/><path class="lg-axis" d="M1.5 14h25" stroke-width="1.5" stroke-dasharray="2 3"/></svg><span>Lumen</span></a>
+  <nav class="crumbs" aria-label="Breadcrumb"><span class="sep">/</span><a href="../index.html">Class 11</a><span class="sep">/</span><span aria-current="page">Ch 10 · Optical Instruments</span></nav>
   <div class="topbar-right">
-    <span class="xp" id="xp" title="XP earned across all lessons"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.9L22 9.6l-5.4 4.8 1.6 7.3L12 17.9 5.8 21.7l1.6-7.3L2 9.6l7.1-.7z"/></svg><b>0</b> XP</span>
+    <button type="button" class="theme-btn" aria-label="Switch to dark mode" aria-pressed="false"><svg class="ic-moon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><svg class="ic-sun" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+    <span class="xp" id="xp" title="XP earned across all lessons"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" stroke-width="2" stroke-linejoin="round"/></svg><b>0</b> XP</span>
   </div>
 </header>
 
-<section class="hub-hero">
-  <canvas id="hero-canvas" aria-hidden="true"></canvas>
-  <div class="veil"></div>
-  <div class="inner">
-    <div class="kicker">FSc Physics · Part I · Chapter 10</div>
-    <h1>Optical <span class="grad">Instruments</span></h1>
-    <p class="lede">How do we see the incredibly small, the impossibly far, and send a phone call down a glass thread thinner than a hair? This chapter answers all three, and you'll learn it by playing with light.</p>
-    <div class="hero-cta">
-      <a class="btn" href="lesson-1.html">Start Lesson 1 →</a>
-      <a class="btn ghost" href="#lessons">See all lessons</a>
-    </div>
-    <div class="hint"><span class="dot"></span><span id="hero-hint">Move your cursor over this area: you are the light source.</span></div>
-  </div>
-</section>
-
 <main class="wrap">
-
-  <section class="block">
-    <div class="intro-panel">
-      <div>
-        <div class="eyebrow">What this chapter is about</div>
-        <p class="quote rv">In this chapter, some optical instruments that are based on the principles of <strong>reflection</strong> and <strong>refraction</strong> will be discussed. The most common of these instruments are the <strong>magnifying glass</strong>, <strong>compound microscope</strong> and <strong>telescopes</strong>. We shall also study magnification and resolving powers of these optical instruments. The <strong>spectrometer</strong> and an arrangement for measurement of the <strong>speed of light</strong> are also described. An introduction to <strong>optical fibres</strong>, which has developed a great importance in medical diagnostics, telecommunication and computer networking, is also included.</p>
-      </div>
-      <div class="stat-row rv">
-        <div class="stat"><b>12</b><span>sections · §10.1 – 10.12</span></div>
-        <div class="stat"><b>21</b><span>textbook questions &amp; numericals</span></div>
-        <div class="stat"><b>2</b><span>worked examples</span></div>
+  <section class="split-hero">
+    <div>
+      <p class="eyebrow">Class 11 Physics · Chapter 10</p>
+      <h1>Optical Instruments</h1>
+      <ul class="q-list">
+        <li>How do we see things far too small for the eye?</li>
+        <li>How do we see things impossibly far away?</li>
+        <li>How does a phone call travel down a glass thread thinner than a hair?</li>
+      </ul>
+      <div class="cta-row">
+        <a class="btn ink" href="lesson-1.html" data-continue="ch10-l1:22|lesson-1.html|Lesson 1, ch10-l2:13|lesson-2.html|Lesson 2, ch10-l3:16|lesson-3.html|Lesson 3, ch10-l4:15|lesson-4.html|Lesson 4">Start Lesson 1</a>
+        <a class="btn ghost" href="#lessons">See all lessons</a>
       </div>
     </div>
+    <figure>
+      <div class="screen-card"><canvas id="hero-canvas" aria-label="A convex lens bending light rays; your cursor is the light source"></canvas></div>
+      <figcaption><span id="hero-hint">Move your cursor over the lens. You are the light source.</span></figcaption>
+    </figure>
   </section>
 
-  <section class="block">
-    <div class="block-head">
-      <div><div class="eyebrow">Learning objectives</div><h2>By the end, you'll be able to…</h2></div>
-      <p>These are the eight goals from your textbook. Each one links to the lesson that covers it.</p>
+  <section class="about" aria-labelledby="about-h">
+    <div>
+      <h2 id="about-h">What this chapter is about</h2>
+      <p>Lenses and mirrors, put to work. You'll see how a magnifying glass, a compound microscope and a telescope make things look bigger, and what limits the detail they can show. Then the chapter turns to the spectrometer, measuring the speed of light, and the optical fibres that carry the internet.</p>
     </div>
-    <div class="obj-grid">
-      <a class="obj rv" href="lesson-1.html#s10-1"><span class="n">01</span><p>Recognize the term <strong>least distance of distinct vision</strong>.</p><span class="go">L1 →</span></a>
-      <a class="obj rv" href="lesson-1.html#s10-2"><span class="n">02</span><p>Understand the terms <strong>magnifying power</strong> and <strong>resolving power</strong>.</p><span class="go">L1 →</span></a>
-      <a class="obj rv" href="lesson-2.html#derive"><span class="n">03</span><p>Derive expressions for magnifying power of the <strong>simple microscope</strong>, <strong>compound microscope</strong> and <strong>astronomical telescope</strong>.</p><span class="go">L2–4 →</span></a>
-      <div class="obj rv"><span class="n">04</span><p>Understand the working of the <strong>spectrometer</strong>.</p><span class="go">L5</span></div>
-      <div class="obj rv"><span class="n">05</span><p>Describe <strong>Michelson's rotating mirror method</strong> to find the speed of light.</p><span class="go">L6</span></div>
-      <div class="obj rv"><span class="n">06</span><p>Understand the principles of <strong>optical fibre</strong>.</p><span class="go">L7</span></div>
-      <div class="obj rv"><span class="n">07</span><p>Identify the <strong>types of optical fibres</strong>.</p><span class="go">L8</span></div>
-      <div class="obj rv"><span class="n">08</span><p>Appreciate the <strong>applications of optical fibres</strong>.</p><span class="go">L7, L9</span></div>
-    </div>
+    <dl class="stats">
+      <div><dt>sections</dt><dd>12</dd></div>
+      <div><dt>questions &amp; numericals</dt><dd>21</dd></div>
+      <div><dt>worked examples</dt><dd>2</dd></div>
+    </dl>
   </section>
 
-  <section class="block" id="lessons">
-    <div class="block-head">
-      <div><div class="eyebrow">The journey</div><h2>Lessons</h2></div>
-      <p>Each lesson has interactive labs, the exact textbook definitions, quick checks and the matching end-of-chapter questions. Earn XP as you go.</p>
-    </div>
-    <div class="lessons">
-      <a class="lesson-card live rv" href="lesson-1.html" data-lesson-card="ch10-l1">
-        <span class="glow" style="background:var(--cyan)"></span>
-        <div class="lc-top"><span class="lc-n">Lesson 01</span><span class="lc-state">Ready</span></div>
-        <span class="lc-secs">§ 10.1 – 10.2</span>
+  <section id="lessons" class="block" style="padding-top:40px" aria-labelledby="lessons-h">
+    <div class="block-h"><h2 id="lessons-h">Lessons</h2></div>
+    <div class="lgrid">
+      <a class="card lcard" href="lesson-1.html">
+        <div class="lc-top"><span class="lc-n">Lesson 1</span><span class="pill" data-lesson-state="ch10-l1:22">Not started</span></div>
         <h3>Seeing Clearly</h3>
-        <p>Near point, magnification, angular magnification and resolving power: why bigger isn't always better.</p>
-        <div class="lc-tags"><span class="tag">Eye simulator</span><span class="tag">Lens builder</span><span class="tag">Rayleigh lab</span><span class="tag">Grating</span></div>
-        <div class="lc-bar"><span></span></div>
+        <p class="lc-s">§ 10.1 – 10.2</p>
+        <p class="lc-d">Near point, magnification and resolving power: why bigger isn't always better.</p>
+        <p class="lc-l">Labs: Eye simulator · Lens builder · Rayleigh · Grating</p>
+        <div class="bar"><span data-progress="ch10-l1:22"></span></div>
       </a>
-      <a class="lesson-card live rv" href="lesson-2.html" data-lesson-card="ch10-l2">
-        <span class="glow" style="background:var(--pink)"></span>
-        <div class="lc-top"><span class="lc-n">Lesson 02</span><span class="lc-state">Ready</span></div>
-        <span class="lc-secs">§ 10.3</span>
+      <a class="card lcard" href="lesson-2.html">
+        <div class="lc-top"><span class="lc-n">Lesson 2</span><span class="pill" data-lesson-state="ch10-l2:13">Not started</span></div>
         <h3>The Simple Microscope</h3>
-        <p>One convex lens as a magnifier. Derive M = 1 + d/f and see why a short focal length wins.</p>
-        <div class="lc-tags"><span class="tag">Magnifier lab</span><span class="tag">Watchmaker's loupe</span><span class="tag">Ray construction</span></div>
-        <div class="lc-bar"><span></span></div>
+        <p class="lc-s">§ 10.3</p>
+        <p class="lc-d">One convex lens as a magnifier, and why a short focal length wins.</p>
+        <p class="lc-l">Labs: Magnifying glass · Watchmaker's loupe</p>
+        <div class="bar"><span data-progress="ch10-l2:13"></span></div>
       </a>
-      <a class="lesson-card live rv" href="lesson-3.html" data-lesson-card="ch10-l3">
-        <span class="glow" style="background:var(--violet)"></span>
-        <div class="lc-top"><span class="lc-n">Lesson 03</span><span class="lc-state">Ready</span></div>
-        <span class="lc-secs">§ 10.4 · Example 10.1</span>
+      <a class="card lcard" href="lesson-3.html">
+        <div class="lc-top"><span class="lc-n">Lesson 3</span><span class="pill" data-lesson-state="ch10-l3:16">Not started</span></div>
         <h3>The Compound Microscope</h3>
-        <p>Objective and eyepiece working as a team: M = (q/p)(1 + d/fₑ).</p>
-        <div class="lc-tags"><span class="tag">Two-lens ray tracer</span><span class="tag">Colour fringes</span><span class="tag">Virtual microscope</span></div>
-        <div class="lc-bar"><span></span></div>
+        <p class="lc-s">§ 10.4 · Example 10.1</p>
+        <p class="lc-d">Objective and eye-piece working as a team, and what limits a microscope.</p>
+        <p class="lc-l">Labs: Two-lens tracer · Colour fringes · Virtual microscope</p>
+        <div class="bar"><span data-progress="ch10-l3:16"></span></div>
       </a>
-      <a class="lesson-card live rv" href="lesson-4.html" data-lesson-card="ch10-l4">
-        <span class="glow" style="background:var(--amber)"></span>
-        <div class="lc-top"><span class="lc-n">Lesson 04</span><span class="lc-state">Ready</span></div>
-        <span class="lc-secs">§ 10.5</span>
+      <a class="card lcard" href="lesson-4.html">
+        <div class="lc-top"><span class="lc-n">Lesson 4</span><span class="pill" data-lesson-state="ch10-l4:15">Not started</span></div>
         <h3>The Astronomical Telescope</h3>
-        <p>Normal adjustment, M = f₀/fₑ, and why the biggest telescopes use mirrors.</p>
-        <div class="lc-tags"><span class="tag">Telescope tracer</span><span class="tag">Light gathering</span><span class="tag">Lens vs mirror</span></div>
-        <div class="lc-bar"><span></span></div>
+        <p class="lc-s">§ 10.5</p>
+        <p class="lc-d">Normal adjustment, magnifying power, and why the biggest telescopes use mirrors.</p>
+        <p class="lc-l">Labs: Telescope + Moon · Light gathering · Lens vs mirror</p>
+        <div class="bar"><span data-progress="ch10-l4:15"></span></div>
       </a>
-      <div class="lesson-card soon rv">
-        <span class="glow" style="background:var(--green)"></span>
-        <div class="lc-top"><span class="lc-n">Lesson 05</span><span class="lc-state">Coming soon</span></div>
-        <span class="lc-secs">§ 10.6</span>
-        <h3>The Spectrometer</h3>
-        <p>Collimator, turntable and telescope: measuring the wavelength of light.</p>
-        <div class="lc-tags"><span class="tag">Virtual spectrometer</span></div>
-      </div>
-      <div class="lesson-card soon rv">
-        <span class="glow" style="background:var(--cyan)"></span>
-        <div class="lc-top"><span class="lc-n">Lesson 06</span><span class="lc-state">Coming soon</span></div>
-        <span class="lc-secs">§ 10.7</span>
-        <h3>Racing Light</h3>
-        <p>Michelson's spinning eight-sided mirror and the famous c = 16 f d.</p>
-        <div class="lc-tags"><span class="tag">Rotating-mirror lab</span></div>
-      </div>
-      <div class="lesson-card soon rv">
-        <span class="glow" style="background:var(--pink)"></span>
-        <div class="lc-top"><span class="lc-n">Lesson 07</span><span class="lc-state">Coming soon</span></div>
-        <span class="lc-secs">§ 10.8 – 10.9</span>
-        <h3>Light in a Glass Thread</h3>
-        <p>Why fibre beats copper. Total internal reflection, the critical angle and continuous refraction.</p>
-        <div class="lc-tags"><span class="tag">TIR lab</span><span class="tag">Light pipe</span></div>
-      </div>
-      <div class="lesson-card soon rv">
-        <span class="glow" style="background:var(--violet)"></span>
-        <div class="lc-top"><span class="lc-n">Lesson 08</span><span class="lc-state">Coming soon</span></div>
-        <span class="lc-secs">§ 10.10 · Example 10.2</span>
-        <h3>Types of Optical Fibre</h3>
-        <p>Single-mode, multimode step-index and graded-index fibres, compared side by side.</p>
-        <div class="lc-tags"><span class="tag">Fibre race</span></div>
-      </div>
-      <div class="lesson-card soon rv">
-        <span class="glow" style="background:var(--amber)"></span>
-        <div class="lc-top"><span class="lc-n">Lesson 09</span><span class="lc-state">Coming soon</span></div>
-        <span class="lc-secs">§ 10.11 – 10.12</span>
-        <h3>From Light to Sound</h3>
-        <p>Sending your voice as flashes of light, repeaters, and how signals lose power and spread out.</p>
-        <div class="lc-tags"><span class="tag">Signal pipeline</span></div>
-      </div>
-      <div class="lesson-card soon rv">
-        <span class="glow" style="background:var(--green)"></span>
-        <div class="lc-top"><span class="lc-n">Finale</span><span class="lc-state">Coming soon</span></div>
-        <span class="lc-secs">Summary · Q 10.1–10.11 · Numericals 10.1–10.10</span>
-        <h3>Practice Arena</h3>
-        <p>Every question and numerical in the chapter, with hints and step-by-step solutions.</p>
-        <div class="lc-tags"><span class="tag">21 problems</span></div>
-      </div>
     </div>
+    <div class="coming">
+      <b>Coming next</b>
+      <span>Lessons 5–9: the spectrometer, measuring the speed of light, optical fibres</span>
+      <span>Practice Arena: every question and numerical in one place</span>
+    </div>
+  </section>
+
+  <section class="block" style="padding:40px 0 72px" aria-labelledby="slo-h">
+    <div class="block-h">
+      <h2 id="slo-h" class="sm">What you should be able to do</h2>
+      <p>The chapter's 8 learning objectives</p>
+    </div>
+    <ol class="slo">
+      <li><span class="sn">1</span><span class="st">Recognise the term least distance of distinct vision.</span><a class="sl" href="lesson-1.html#s10-1">Lesson 1</a></li>
+      <li><span class="sn">2</span><span class="st">Understand the terms magnifying power and resolving power.</span><a class="sl" href="lesson-1.html#s10-2">Lesson 1</a></li>
+      <li><span class="sn">3</span><span class="st">Derive expressions for the magnifying power of the simple microscope, compound microscope and astronomical telescope.</span><a class="sl" href="lesson-2.html#derive">Lessons 2–4</a></li>
+      <li><span class="sn">4</span><span class="st">Understand the working of the spectrometer.</span><span class="sl">Lesson 5, coming</span></li>
+      <li><span class="sn">5</span><span class="st">Describe Michelson's rotating-mirror method to find the speed of light.</span><span class="sl">Lesson 6, coming</span></li>
+      <li><span class="sn">6</span><span class="st">Understand the principles of optical fibre.</span><span class="sl">Lesson 7, coming</span></li>
+      <li><span class="sn">7</span><span class="st">Identify the types of optical fibres.</span><span class="sl">Lesson 8, coming</span></li>
+      <li><span class="sn">8</span><span class="st">Appreciate the applications of optical fibres.</span><span class="sl">Lessons 7 and 9, coming</span></li>
+    </ol>
   </section>
 </main>
 
-<footer class="foot" style="margin-top:80px">
-  <p>Lumen · interactive notes for FSc Physics, Chapter 10 “Optical Instruments” (textbook pp. 214 – 235).</p>
+<footer class="foot">
+  <p>Chapter 10 · FSc Part I Physics, textbook pp. 214–235</p>
   <p>Your progress is saved in this browser only.</p>
 </footer>
 
 <script src="../../assets/js/core.js"></script>
 <script src="js/hero.js"></script>
-<script>
-  // lesson progress on cards
-  document.querySelectorAll('[data-lesson-card]').forEach(card => {
-    const s = Lumen.lessonStats(card.dataset.lessonCard);
-    const bar = card.querySelector('.lc-bar span');
-    if (bar) bar.style.width = s.pct + '%';
-    if (s.done) card.querySelector('.lc-state').textContent = s.pct >= 100 ? 'Mastered ✓' : s.pct + '% done';
-  });
-</script>
 </body>
 </html>

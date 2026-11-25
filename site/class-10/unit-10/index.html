@@ -2,193 +2,136 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>(function(){try{var t=localStorage.getItem('lumen-theme');if(t!=='dark'&&t!=='light')t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=t}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Unit 10 · Heat Capacity and Modes of Heat Transfer · Class 10 · Lumen Physics</title>
-<meta name="description" content="Interactive lessons for Class 10 Physics Unit 10: specific heat capacity, conduction, convection, radiation, the greenhouse effect and geothermal activity.">
-<meta name="theme-color" content="#060a17">
+<title>Unit 10 · Heat Capacity and Modes of Heat Transfer · Class 10 Physics · Lumen</title>
+<meta name="description" content="Interactive lessons for Class 10 Physics Unit 10: specific heat capacity, measuring it, and conduction, convection and radiation.">
+<meta name="theme-color" content="#F5F4EF">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Lumen Physics">
-<meta property="og:title" content="Unit 10 · Heat Capacity and Modes of Heat Transfer · Lumen Physics">
-<meta property="og:description" content="Class 10 Physics Unit 10, learned by playing with heat: specific heat, conduction, convection, radiation, global warming and the hot heart of the Earth.">
+<meta property="og:site_name" content="Lumen">
+<meta property="og:title" content="Unit 10 · Heat Capacity and Modes of Heat Transfer · Lumen">
+<meta property="og:description" content="Class 10 Physics Unit 10, with labs you can play with.">
 <meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..700&family=Figtree:wght@400;500;600;700&family=STIX+Two+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/css/main.css">
-<style>
-  .hub-hero .kicker { color: var(--amber); }
-  .heat-grad { background: linear-gradient(100deg, var(--amber) 0%, var(--pink) 55%, var(--violet) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .obj .slo { display: block; font-family: var(--mono); font-size: .7rem; color: var(--muted); margin-top: 4px; }
-</style>
 </head>
-<body>
+<body data-accent="heat">
 
 <header class="topbar">
-  <a class="brand" href="../../index.html"><span class="brand-mark"></span>Lumen<span class="brand-sub">Class 10 Physics</span></a>
-  <nav class="crumbs"><span class="sep">/</span><a href="../index.html">Class 10</a><span class="sep">/</span><span>Unit 10 · Heat Capacity &amp; Heat Transfer</span></nav>
+  <a class="brand" href="../../index.html"><svg class="brand-logo" viewBox="0 0 28 28" fill="none" aria-hidden="true"><circle class="lg-ring" cx="14" cy="14" r="12.5" stroke-width="2"/><path class="lg-lens" d="M14 4.5c3 3 3 16 0 19M14 4.5c-3 3-3 16 0 19" stroke-width="2"/><path class="lg-axis" d="M1.5 14h25" stroke-width="1.5" stroke-dasharray="2 3"/></svg><span>Lumen</span></a>
+  <nav class="crumbs" aria-label="Breadcrumb"><span class="sep">/</span><a href="../index.html">Class 10</a><span class="sep">/</span><span aria-current="page">Unit 10 · Heat</span></nav>
   <div class="topbar-right">
-    <span class="xp" id="xp" title="XP earned across all lessons"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.9L22 9.6l-5.4 4.8 1.6 7.3L12 17.9 5.8 21.7l1.6-7.3L2 9.6l7.1-.7z"/></svg><b>0</b> XP</span>
+    <button type="button" class="theme-btn" aria-label="Switch to dark mode" aria-pressed="false"><svg class="ic-moon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><svg class="ic-sun" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+    <span class="xp" id="xp" title="XP earned across all lessons"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" stroke-width="2" stroke-linejoin="round"/></svg><b>0</b> XP</span>
   </div>
 </header>
 
-<section class="hub-hero">
-  <canvas id="hero-canvas" aria-hidden="true"></canvas>
-  <div class="veil"></div>
-  <div class="inner">
-    <div class="kicker">Class 10 Physics · Unit 10</div>
-    <h1>Heat Capacity &amp; <span class="heat-grad">Modes of Heat Transfer</span></h1>
-    <p class="lede">Why does water take so long to boil? Why does metal feel colder than wood at the same temperature? How does the Sun warm us across empty space? This unit answers all three, and you'll learn it by playing with heat.</p>
-    <div class="hero-cta">
-      <a class="btn" href="lesson-1.html">Start Lesson 1 →</a>
-      <a class="btn ghost" href="#lessons">See all lessons</a>
-    </div>
-    <div class="hint"><span class="dot"></span><span id="hero-hint">Move your cursor over this area: you are the flame.</span></div>
-  </div>
-</section>
-
 <main class="wrap">
-
-  <section class="block">
-    <div class="intro-panel">
-      <div>
-        <div class="eyebrow">What this unit is about</div>
-        <p class="quote rv">We will start with <strong>specific heat capacity</strong>, which is the heat needed to raise a substance's temperature. Water, with its high specific heat capacity, heats slowly but retains warmth longer, linking kitchen mysteries to broader climate issues. Next, we will look at the three main heat transfer methods: <strong>conduction</strong>, <strong>convection</strong> and <strong>radiation</strong>. Understanding these is crucial for grasping their roles in <strong>greenhouse effects</strong> and <strong>global warming</strong>. Finally, we'll explore <strong>geothermal</strong> phenomena, where the Earth's hot core drives magma movements and tectonic shifts.</p>
-      </div>
-      <div class="stat-row rv">
-        <div class="stat"><b>5</b><span>sections · §10.1 – 10.5</span></div>
-        <div class="stat"><b>39</b><span>exercise questions &amp; numericals</span></div>
-        <div class="stat"><b>3</b><span>worked examples</span></div>
+  <section class="split-hero">
+    <div>
+      <p class="eyebrow">Class 10 Physics · Unit 10</p>
+      <h1>Heat Capacity and Modes of Heat Transfer</h1>
+      <ul class="q-list">
+        <li>Why does water take so long to boil?</li>
+        <li>Why does metal feel colder than wood in the same room?</li>
+        <li>Why are coastal cities milder than desert ones?</li>
+      </ul>
+      <div class="cta-row">
+        <a class="btn ink" href="lesson-1.html" data-continue="g10-u10-l1:24|lesson-1.html|Lesson 1, g10-u10-l2:19|lesson-2.html|Lesson 2, g10-u10-l3:18|lesson-3.html|Lesson 3">Start Lesson 1</a>
+        <a class="btn ghost" href="#lessons">See all lessons</a>
       </div>
     </div>
+    <figure>
+      <div class="screen-card"><canvas id="hero-canvas" aria-label="A lattice of atoms; wherever your cursor goes they heat up, glow and pass the heat to their neighbours"></canvas></div>
+      <figcaption><span id="hero-hint">Move your cursor over the atoms. Heat spreads from wherever you are.</span></figcaption>
+    </figure>
   </section>
 
-  <section class="block">
-    <div class="block-head">
-      <div><div class="eyebrow">Student learning outcomes</div><h2>By the end, you'll be able to…</h2></div>
-      <p>These are the 18 SLOs printed at the start of the unit. Each one links to the lesson that covers it.</p>
+  <section class="about" aria-labelledby="about-h">
+    <div>
+      <h2 id="about-h">What this unit is about</h2>
+      <p>Different materials need different amounts of heat to warm up. This unit measures that difference, then follows heat as it moves through solids, liquids, gases and empty space, all the way to the greenhouse effect and the heat inside the Earth.</p>
     </div>
-    <div class="obj-grid">
-      <a class="obj rv" href="lesson-1.html#s10-1"><span class="n">01</span><p>Define and calculate <strong>specific heat</strong>.<span class="slo">P-10-C-01</span></p><span class="go">L1 →</span></a>
-      <a class="obj rv" href="lesson-2.html#s10-1-2"><span class="n">02</span><p>Suggest <strong>experiments to measure</strong> the specific heat capacity.<span class="slo">P-10-C-02</span></p><span class="go">L2 →</span></a>
-      <a class="obj rv" href="lesson-1.html#s10-1-1"><span class="n">03</span><p>Analyse everyday effects due to the <strong>large specific heat of water</strong>.<span class="slo">P-10-C-03</span></p><span class="go">L1 →</span></a>
-      <div class="obj rv"><span class="n">04</span><p>Justify experiments to distinguish between <strong>good and bad thermal conductors</strong>.<span class="slo">P-10-C-30</span></p><span class="go">L3</span></div>
-      <div class="obj rv"><span class="n">05</span><p>Explain <strong>thermal conduction</strong> in all solids.<span class="slo">P-10-C-31</span></p><span class="go">L3</span></div>
-      <div class="obj rv"><span class="n">06</span><p>Explain <strong>convection</strong> in liquids and gases.<span class="slo">P-10-C-32</span></p><span class="go">L4</span></div>
-      <div class="obj rv"><span class="n">07</span><p>Explain convection in <strong>seawater</strong> to support marine life.<span class="slo">P-10-C-33</span></p><span class="go">L4</span></div>
-      <div class="obj rv"><span class="n">08</span><p>Describe the role of <strong>land and sea breezes</strong> in maintaining moderate coastal climates.<span class="slo">P-10-C-34</span></p><span class="go">L4</span></div>
-      <div class="obj rv"><span class="n">09</span><p>Explain how <strong>birds and gliders</strong> ride on thermal currents.<span class="slo">P-10-C-35</span></p><span class="go">L4</span></div>
-      <div class="obj rv"><span class="n">10</span><p>Use ideas of convection to explain how <strong>cyclones</strong> are formed.<span class="slo">P-10-F-23</span></p><span class="go">L4</span></div>
-      <div class="obj rv"><span class="n">11</span><p>Describe thermal energy transfer by <strong>radiation</strong>.<span class="slo">P-10-C-36</span></p><span class="go">L5</span></div>
-      <div class="obj rv"><span class="n">12</span><p>Describe the effect of <strong>surface colour and texture</strong> on emission, absorption and reflection of infrared radiation.<span class="slo">P-10-C-37</span></p><span class="go">L5</span></div>
-      <div class="obj rv"><span class="n">13</span><p>Justify how the rate of emission depends on <strong>surface temperature and area</strong>.<span class="slo">P-10-C-38</span></p><span class="go">L5</span></div>
-      <div class="obj rv"><span class="n">14</span><p>Justify experiments to distinguish between <strong>good and bad emitters and absorbers</strong> of infrared radiation.<span class="slo">P-10-C-39</span></p><span class="go">L5</span></div>
-      <div class="obj rv"><span class="n">15</span><p>Analyse <strong>everyday applications</strong> of conduction, convection and radiation.<span class="slo">P-10-C-41</span></p><span class="go">L6</span></div>
-      <div class="obj rv"><span class="n">16</span><p>Analyse the consequence of heat radiation in the <strong>greenhouse effect</strong> and global warming.<span class="slo">P-10-C-40</span></p><span class="go">L7</span></div>
-      <div class="obj rv"><span class="n">17</span><p>Explain how global warming contributes to <strong>extreme weather</strong> events.<span class="slo">P-10-F-24</span></p><span class="go">L7</span></div>
-      <div class="obj rv"><span class="n">18</span><p>Explain <strong>geothermal activity</strong> on the basis of conduction, convection and radiation.<span class="slo">P-10-F-25</span></p><span class="go">L8</span></div>
-    </div>
+    <dl class="stats">
+      <div><dt>sections</dt><dd>5</dd></div>
+      <div><dt>exercise questions</dt><dd>39</dd></div>
+      <div><dt>worked examples</dt><dd>3</dd></div>
+    </dl>
   </section>
 
-  <section class="block" id="lessons">
-    <div class="block-head">
-      <div><div class="eyebrow">The journey</div><h2>Lessons</h2></div>
-      <p>Each lesson has interactive labs, the exact textbook definitions, quick checks and the matching exercise questions. Earn XP as you go.</p>
-    </div>
-    <div class="lessons">
-      <a class="lesson-card live rv" href="lesson-1.html" data-lesson-card="g10-u10-l1">
-        <span class="glow" style="background:var(--amber)"></span>
-        <div class="lc-top"><span class="lc-n">Lesson 01</span><span class="lc-state">Ready</span></div>
-        <span class="lc-secs">§ 10.1 – 10.1.1 · Examples 10.1, 10.2</span>
+  <section id="lessons" class="block" style="padding-top:40px" aria-labelledby="lessons-h">
+    <div class="block-h"><h2 id="lessons-h">Lessons</h2></div>
+    <div class="lgrid">
+      <a class="card lcard" href="lesson-1.html">
+        <div class="lc-top"><span class="lc-n">Lesson 1</span><span class="pill" data-lesson-state="g10-u10-l1:24">Not started</span></div>
         <h3>Specific Heat Capacity</h3>
-        <p>c = Q / mΔT: why water is slow to heat up, slow to cool down, and keeps Karachi mild.</p>
-        <div class="lc-tags"><span class="tag">Heat race</span><span class="tag">Mystery metal</span><span class="tag">Two cities, one Sun</span></div>
-        <div class="lc-bar"><span></span></div>
+        <p class="lc-s">§ 10.1 – 10.1.1 · Examples 10.1, 10.2</p>
+        <p class="lc-d">Why some things heat up fast and others don't, and the number that decides it.</p>
+        <p class="lc-l">Labs: Heat race · Two cities, one Sun</p>
+        <div class="bar"><span data-progress="g10-u10-l1:24"></span></div>
       </a>
-      <a class="lesson-card live rv" href="lesson-2.html" data-lesson-card="g10-u10-l2">
-        <span class="glow" style="background:var(--pink)"></span>
-        <div class="lc-top"><span class="lc-n">Lesson 02</span><span class="lc-state">Ready</span></div>
-        <span class="lc-secs">§ 10.1.2 · Example 10.3</span>
+      <a class="card lcard" href="lesson-2.html">
+        <div class="lc-top"><span class="lc-n">Lesson 2</span><span class="pill" data-lesson-state="g10-u10-l2:19">Not started</span></div>
         <h3>Measuring Specific Heat</h3>
-        <p>The method of mixtures and the electrical method, run in a virtual school lab.</p>
-        <div class="lc-tags"><span class="tag">Virtual calorimeter</span><span class="tag">Hot + cold</span><span class="tag">Electrical method</span></div>
-        <div class="lc-bar"><span></span></div>
+        <p class="lc-s">§ 10.1.2 · Example 10.3</p>
+        <p class="lc-d">Do the school-lab experiment step by step and fill in your own notebook.</p>
+        <p class="lc-l">Labs: Hot + cold mixing · Calorimeter · Electrical bench</p>
+        <div class="bar"><span data-progress="g10-u10-l2:19"></span></div>
       </a>
-      <div class="lesson-card soon rv">
-        <span class="glow" style="background:var(--violet)"></span>
-        <div class="lc-top"><span class="lc-n">Lesson 03</span><span class="lc-state">Coming soon</span></div>
-        <span class="lc-secs">§ 10.2 – 10.2.1</span>
-        <h3>Conduction</h3>
-        <p>Vibrating atoms and free electrons: why copper beats wood, and the wax-and-pin experiment.</p>
-        <div class="lc-tags"><span class="tag">Atom chain</span><span class="tag">Wax race</span></div>
-      </div>
-      <div class="lesson-card soon rv">
-        <span class="glow" style="background:var(--cyan)"></span>
-        <div class="lc-top"><span class="lc-n">Lesson 04</span><span class="lc-state">Coming soon</span></div>
-        <span class="lc-secs">§ 10.2.2</span>
-        <h3>Convection</h3>
-        <p>Currents in pots, oceans and skies: sea breezes, upwelling, soaring eagles and cyclones.</p>
-        <div class="lc-tags"><span class="tag">Convection tank</span><span class="tag">Sea breeze</span><span class="tag">Thermals</span></div>
-      </div>
-      <div class="lesson-card soon rv">
-        <span class="glow" style="background:var(--amber)"></span>
-        <div class="lc-top"><span class="lc-n">Lesson 05</span><span class="lc-state">Coming soon</span></div>
-        <span class="lc-secs">§ 10.2.3</span>
-        <h3>Thermal Radiation</h3>
-        <p>Heat that crosses empty space. Black vs shiny surfaces, and the Leslie cube.</p>
-        <div class="lc-tags"><span class="tag">Leslie cube</span><span class="tag">Black vs silver cans</span></div>
-      </div>
-      <div class="lesson-card soon rv">
-        <span class="glow" style="background:var(--green)"></span>
-        <div class="lc-top"><span class="lc-n">Lesson 06</span><span class="lc-state">Coming soon</span></div>
-        <span class="lc-secs">§ 10.3</span>
-        <h3>Heat Transfer at Work</h3>
-        <p>Cooking pans, room heaters, geysers, the thermos flask, cooler buildings and IR thermometers.</p>
-        <div class="lc-tags"><span class="tag">Thermos builder</span><span class="tag">Room heater</span></div>
-      </div>
-      <div class="lesson-card soon rv">
-        <span class="glow" style="background:var(--pink)"></span>
-        <div class="lc-top"><span class="lc-n">Lesson 07</span><span class="lc-state">Coming soon</span></div>
-        <span class="lc-secs">§ 10.4</span>
-        <h3>Greenhouse Effect &amp; Global Warming</h3>
-        <p>How greenhouse gases trap heat, and why Pakistan faced the 2022 heatwave and floods.</p>
-        <div class="lc-tags"><span class="tag">Greenhouse Earth</span><span class="tag">Carbon footprint</span></div>
-      </div>
-      <div class="lesson-card soon rv">
-        <span class="glow" style="background:var(--red)"></span>
-        <div class="lc-top"><span class="lc-n">Lesson 08</span><span class="lc-state">Coming soon</span></div>
-        <span class="lc-secs">§ 10.5</span>
-        <h3>Heat Inside the Earth</h3>
-        <p>Core, mantle and crust; magma convection, volcanoes and drifting tectonic plates.</p>
-        <div class="lc-tags"><span class="tag">Earth slicer</span><span class="tag">Plate conveyor</span></div>
-      </div>
-      <div class="lesson-card soon rv">
-        <span class="glow" style="background:var(--violet)"></span>
-        <div class="lc-top"><span class="lc-n">Finale</span><span class="lc-state">Coming soon</span></div>
-        <span class="lc-secs">Summary · Exercise pp. 38 – 44</span>
-        <h3>Practice Arena</h3>
-        <p>Every MCQ, constructed, short and long response question and numerical, with full solutions.</p>
-        <div class="lc-tags"><span class="tag">39 problems</span></div>
-      </div>
+      <a class="card lcard" href="lesson-3.html">
+        <div class="lc-top"><span class="lc-n">Lesson 3</span><span class="pill" data-lesson-state="g10-u10-l3:18">Not started</span></div>
+        <h3>Thermal Conduction</h3>
+        <p class="lc-s">§ 10.2 – 10.2.1</p>
+        <p class="lc-d">How heat travels through a solid, and why metals win the race.</p>
+        <p class="lc-l">Labs: Atom chain · Wax-and-pin race · Touch paradox</p>
+        <div class="bar"><span data-progress="g10-u10-l3:18"></span></div>
+      </a>
     </div>
+    <div class="coming">
+      <b>Coming next</b>
+      <span>Lessons 4–8: convection, thermal radiation, heat transfer at work, the greenhouse effect, heat inside the Earth</span>
+      <span>Practice Arena: all 39 exercise questions in one place</span>
+    </div>
+  </section>
+
+  <section class="block" style="padding:40px 0 72px" aria-labelledby="slo-h">
+    <div class="block-h">
+      <h2 id="slo-h" class="sm">What you should be able to do</h2>
+      <p>18 learning outcomes from the official syllabus</p>
+    </div>
+    <ol class="slo collapsed" id="slo-list">
+      <li><span class="sn">1</span><span class="st">Define and calculate specific heat.</span><span class="sc">P-10-C-01</span><a class="sl" href="lesson-1.html#s10-1">Lesson 1</a></li>
+      <li><span class="sn">2</span><span class="st">Suggest experiments to measure the specific heat capacity.</span><span class="sc">P-10-C-02</span><a class="sl" href="lesson-2.html#s10-1-2">Lesson 2</a></li>
+      <li><span class="sn">3</span><span class="st">Analyse everyday effects due to the large specific heat of water.</span><span class="sc">P-10-C-03</span><a class="sl" href="lesson-1.html#s10-1-1">Lesson 1</a></li>
+      <li><span class="sn">4</span><span class="st">Justify experiments to distinguish between good and bad thermal conductors.</span><span class="sc">P-10-C-30</span><a class="sl" href="lesson-3.html#experiments">Lesson 3</a></li>
+      <li><span class="sn">5</span><span class="st">Explain thermal conduction in all solids.</span><span class="sc">P-10-C-31</span><a class="sl" href="lesson-3.html#s10-2-1">Lesson 3</a></li>
+      <li><span class="sn">6</span><span class="st">Explain convection in liquids and gases.</span><span class="sc">P-10-C-32</span><span class="sl">Lesson 4, coming</span></li>
+      <li><span class="sn">7</span><span class="st">Explain convection in seawater to support marine life.</span><span class="sc">P-10-C-33</span><span class="sl">Lesson 4, coming</span></li>
+      <li><span class="sn">8</span><span class="st">Describe the role of land and sea breezes in maintaining moderate coastal climates.</span><span class="sc">P-10-C-34</span><span class="sl">Lesson 4, coming</span></li>
+      <li><span class="sn">9</span><span class="st">Explain how birds and gliders ride on thermal currents.</span><span class="sc">P-10-C-35</span><span class="sl">Lesson 4, coming</span></li>
+      <li><span class="sn">10</span><span class="st">Use ideas of convection to explain how cyclones are formed.</span><span class="sc">P-10-F-23</span><span class="sl">Lesson 4, coming</span></li>
+      <li><span class="sn">11</span><span class="st">Describe thermal energy transfer by radiation.</span><span class="sc">P-10-C-36</span><span class="sl">Lesson 5, coming</span></li>
+      <li><span class="sn">12</span><span class="st">Describe the effect of surface colour and texture on emission, absorption and reflection of infrared radiation.</span><span class="sc">P-10-C-37</span><span class="sl">Lesson 5, coming</span></li>
+      <li><span class="sn">13</span><span class="st">Justify how the rate of emission depends on surface temperature and area.</span><span class="sc">P-10-C-38</span><span class="sl">Lesson 5, coming</span></li>
+      <li><span class="sn">14</span><span class="st">Justify experiments to distinguish between good and bad emitters and absorbers of infrared radiation.</span><span class="sc">P-10-C-39</span><span class="sl">Lesson 5, coming</span></li>
+      <li><span class="sn">15</span><span class="st">Analyse everyday applications of conduction, convection and radiation.</span><span class="sc">P-10-C-41</span><span class="sl">Lesson 6, coming</span></li>
+      <li><span class="sn">16</span><span class="st">Analyse the consequence of heat radiation in the greenhouse effect and global warming.</span><span class="sc">P-10-C-40</span><span class="sl">Lesson 7, coming</span></li>
+      <li><span class="sn">17</span><span class="st">Explain how global warming contributes to extreme weather events.</span><span class="sc">P-10-F-24</span><span class="sl">Lesson 7, coming</span></li>
+      <li><span class="sn">18</span><span class="st">Explain geothermal activity on the basis of conduction, convection and radiation.</span><span class="sc">P-10-F-25</span><span class="sl">Lesson 8, coming</span></li>
+    </ol>
+    <button type="button" class="more-btn" data-expand="slo-list" data-less="Show fewer outcomes">Show all 18 outcomes</button>
   </section>
 </main>
 
-<footer class="foot" style="margin-top:80px">
-  <p>Lumen · interactive notes for Class 10 Physics, Unit 10 “Heat Capacity and Modes of Heat Transfer” (textbook pp. 11 – 44).</p>
+<footer class="foot">
+  <p>Unit 10 · Grade 10 Physics, textbook pp. 11–44</p>
   <p>Your progress is saved in this browser only.</p>
 </footer>
 
 <script src="../../assets/js/core.js"></script>
 <script src="js/hero.js"></script>
-<script>
-  // lesson progress on cards
-  document.querySelectorAll('[data-lesson-card]').forEach(card => {
-    const s = Lumen.lessonStats(card.dataset.lessonCard);
-    const bar = card.querySelector('.lc-bar span');
-    if (bar) bar.style.width = s.pct + '%';
-    if (s.done) card.querySelector('.lc-state').textContent = s.pct >= 100 ? 'Mastered ✓' : s.pct + '% done';
-  });
-</script>
 </body>
 </html>
