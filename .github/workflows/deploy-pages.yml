@@ -14,12 +14,11 @@ concurrency:
   group: pages
   cancel-in-progress: false
 
+# Upload and deploy run in separate jobs: when they share a job, deploy-pages can look for the
+# "github-pages" artifact before GitHub has registered it (actions/deploy-pages issue #451).
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Check out
         uses: actions/checkout@v5
@@ -32,6 +31,13 @@ jobs:
         with:
           path: site
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v5
